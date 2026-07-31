@@ -102,11 +102,50 @@
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="이미지 이름" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Image, UpdateSourceTrigger=PropertyChanged}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" Text="{Binding Selected.Image, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button Grid.Column="1" Content="찾아보기..." Margin="6,0,0,0"
+                                            Click="BrowseDragonBonesButton_Click"
+                                            Visibility="{Binding Selected.ImageType, Converter={StaticResource EnumEqualsVisibilityConverter}, ConverterParameter=DragonBones}" />
+                                </Grid>
                             </StackPanel>
                         </Grid>
-                        <TextBlock Text="dragonbones 선택 시 이 이름은 스킬 Motion과 매칭되는 DragonBones 애니메이션 이름으로도 사용됩니다."
-                                   FontStyle="Italic" Foreground="Gray" TextWrapping="Wrap" Margin="0,4,0,0" />
+                        <TextBlock Text="이미지 이름 = DragonBones 아마추어(스켈레톤) 파일 이름입니다."
+                                   FontStyle="Italic" Foreground="Gray" TextWrapping="Wrap" Margin="0,4,0,0"
+                                   Visibility="{Binding Selected.ImageType, Converter={StaticResource EnumEqualsVisibilityConverter}, ConverterParameter=DragonBones}" />
+
+                        <StackPanel Margin="0,10,0,0"
+                                    Visibility="{Binding Selected.ImageType, Converter={StaticResource EnumEqualsVisibilityConverter}, ConverterParameter=DragonBones}">
+                            <TextBlock Text="표시 배율(%)" Margin="0,0,0,4" />
+                            <TextBox Width="80" HorizontalAlignment="Left"
+                                     Text="{Binding Selected.Scale, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,10,0,0"
+                                    Visibility="{Binding Selected.ImageType, Converter={StaticResource EnumEqualsVisibilityConverter}, ConverterParameter=DragonBones}">
+                            <TextBlock Text="DragonBones 모션 매칭" FontWeight="Bold" Margin="0,0,0,6" />
+                            <TextBlock Text="아마추어에 있는 실제 애니메이션 이름을 각 모션에 매칭하세요. (예: wait → Idle)"
+                                       FontStyle="Italic" Foreground="Gray" TextWrapping="Wrap" Margin="0,0,0,6" />
+                            <ItemsControl ItemsSource="{Binding Selected.MotionMap}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,6">
+                                            <TextBlock Text="{Binding Motion}" Width="60" VerticalAlignment="Center" />
+                                            <TextBox Text="{Binding AnimationName, UpdateSourceTrigger=PropertyChanged}" Width="100" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">

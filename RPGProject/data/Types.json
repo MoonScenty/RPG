@@ -1,41 +1,41 @@
 {
   "elements": [
-    "물리적",
-    "불",
-    "얼음",
-    "천둥",
-    "물",
-    "흙",
-    "바람",
-    "빛",
-    "어둠"
+    "\uBB3C\uB9AC\uC801",
+    "\uBD88",
+    "\uC5BC\uC74C",
+    "\uCC9C\uB465",
+    "\uBB3C",
+    "\uD759",
+    "\uBC14\uB78C",
+    "\uBE5B",
+    "\uC5B4\uB460"
   ],
   "skillTypes": [
-    "마법",
-    "필살기"
+    "\uB9C8\uBC95",
+    "\uD544\uC0B4\uAE30"
   ],
   "weaponTypes": [
-    "검",
-    "활",
-    "지팡이",
-    "홀장",
-    "창",
-    "책",
-    "오브"
+    "\uAC80",
+    "\uD65C",
+    "\uC9C0\uD321\uC774",
+    "\uD640\uC7A5",
+    "\uCC3D",
+    "\uCC45",
+    "\uC624\uBE0C"
   ],
   "armorTypes": [
-    "일반 방어구",
-    "마법 방어구",
-    "경장비 방어구",
-    "중장비 방어구",
-    "소형 방패",
-    "대형 방패"
+    "\uC77C\uBC18 \uBC29\uC5B4\uAD6C",
+    "\uB9C8\uBC95 \uBC29\uC5B4\uAD6C",
+    "\uACBD\uC7A5\uBE44 \uBC29\uC5B4\uAD6C",
+    "\uC911\uC7A5\uBE44 \uBC29\uC5B4\uAD6C",
+    "\uC18C\uD615 \uBC29\uD328",
+    "\uB300\uD615 \uBC29\uD328"
   ],
   "equipTypes": [
-    "무기",
-    "방패",
-    "머리",
-    "몸",
-    "장신구"
+    "\uBB34\uAE30",
+    "\uBC29\uD328",
+    "\uBA38\uB9AC",
+    "\uBAB8",
+    "\uC7A5\uC2E0\uAD6C"
   ]
 }

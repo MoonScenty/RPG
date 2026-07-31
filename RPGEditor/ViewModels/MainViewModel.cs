@@ -101,7 +101,11 @@ public partial class MainViewModel : ObservableObject
         Tabs.Add(new EditorTab
         {
             Header = "적 캐릭터",
-            Content = new EnemyEditorView { DataContext = new DatabaseListViewModel<Enemy>("적 캐릭터", context.Enemies) },
+            Content = new EnemyEditorView
+            {
+                DataContext = new DatabaseListViewModel<Enemy>("적 캐릭터", context.Enemies),
+                ProjectRootPath = context.ProjectRootPath,
+            },
         });
         Tabs.Add(new EditorTab
         {

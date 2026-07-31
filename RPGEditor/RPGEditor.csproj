@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <None Include="Assets\AnimationPreview\**" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Assets\DragonBonesPreview\**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

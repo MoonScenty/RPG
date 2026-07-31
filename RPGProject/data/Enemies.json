@@ -1,0 +1,25 @@
+[
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "GoblinAxe",
+    "id": 0,
+    "name": "\uB3C4\uB07C \uACE0\uBE14\uB9B0",
+    "note": ""
+  }
+]
