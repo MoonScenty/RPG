@@ -12,6 +12,11 @@
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <conv:EnumEqualsVisibilityConverter x:Key="EnumEqualsVisibilityConverter" />
         <conv:IndexToDisplayConverter x:Key="IndexToDisplayConverter" />
+        <conv:EnumDisplayConverter x:Key="EnumDisplayConverter" />
+
+        <DataTemplate x:Key="EnumDisplayItemTemplate">
+            <TextBlock Text="{Binding Converter={StaticResource EnumDisplayConverter}}" />
+        </DataTemplate>
 
         <Style TargetType="TextBox">
             <Setter Property="Padding" Value="6,4" />

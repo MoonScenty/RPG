@@ -45,7 +45,8 @@
                     <StackPanel Grid.Column="6">
                         <TextBlock Text="유형" Margin="0,0,0,4" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource ItemKindValues}}"
-                                  SelectedItem="{Binding Selected.Kind}" />
+                                  SelectedItem="{Binding Selected.Kind}"
+                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
                     </StackPanel>
                 </Grid>
 
@@ -70,7 +71,8 @@
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="대상 범위" Margin="0,0,0,4" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource ItemScopeValues}}"
-                                  SelectedItem="{Binding Selected.Consumable.Scope}" Margin="0,0,0,10" />
+                                  SelectedItem="{Binding Selected.Consumable.Scope}"
+                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" Margin="0,0,0,10" />
 
                         <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
                             <StackPanel>
@@ -111,7 +113,8 @@
                                     <StackPanel Grid.Column="0">
                                         <TextBlock Text="명중 유형" Margin="0,0,0,4" />
                                         <ComboBox ItemsSource="{Binding Source={StaticResource SkillHitTypeValues}}"
-                                                  SelectedItem="{Binding Selected.Consumable.Invocation.HitType}" />
+                                                  SelectedItem="{Binding Selected.Consumable.Invocation.HitType}"
+                                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2">
                                         <TextBlock Text="애니메이션 ID" Margin="0,0,0,4" />
@@ -133,7 +136,8 @@
                                     <StackPanel Grid.Column="0">
                                         <TextBlock Text="유형" Margin="0,0,0,4" />
                                         <ComboBox ItemsSource="{Binding Source={StaticResource DamageTypeValues}}"
-                                                  SelectedItem="{Binding Selected.Consumable.Damage.Type}" />
+                                                  SelectedItem="{Binding Selected.Consumable.Damage.Type}"
+                                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2">
                                         <TextBlock Text="속성 (Types.json)" Margin="0,0,0,4" />
@@ -171,10 +175,21 @@
                                   Height="150"
                                   Margin="0,0,0,10">
                             <DataGrid.Columns>
-                                <DataGridComboBoxColumn Header="종류"
-                                                         ItemsSource="{Binding Source={StaticResource SkillEffectKindValues}}"
-                                                         SelectedItemBinding="{Binding Kind}"
-                                                         Width="150" />
+                                <DataGridTemplateColumn Header="종류" Width="150">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Kind, Converter={StaticResource EnumDisplayConverter}}"
+                                                       VerticalAlignment="Center" Margin="4,0" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <ComboBox ItemsSource="{Binding Source={StaticResource SkillEffectKindValues}}"
+                                                      SelectedItem="{Binding Kind, Mode=TwoWay}"
+                                                      ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
                                 <DataGridTextColumn Header="퍼센트(%)" Binding="{Binding PercentValue}" Width="80" />
                                 <DataGridTextColumn Header="고정값" Binding="{Binding FlatValue}" Width="80" />
                                 <DataGridTextColumn Header="상태 ID" Binding="{Binding StateId}" Width="70" />
