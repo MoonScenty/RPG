@@ -49,7 +49,8 @@
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="표시 위치" Margin="0,0,0,4" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource AnimationDisplayTypeValues}}"
-                                  SelectedItem="{Binding Selected.DisplayType}" />
+                                  SelectedItem="{Binding Selected.DisplayType}"
+                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
                     </StackPanel>
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="배율(%)" Margin="0,0,0,4" />

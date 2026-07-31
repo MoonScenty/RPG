@@ -169,10 +169,21 @@
                                   Height="150"
                                   Margin="0,0,0,10">
                             <DataGrid.Columns>
-                                <DataGridComboBoxColumn Header="조건"
-                                                         ItemsSource="{Binding Source={StaticResource EnemyActionConditionTypeValues}}"
-                                                         SelectedItemBinding="{Binding ConditionType}"
-                                                         Width="110" />
+                                <DataGridTemplateColumn Header="조건" Width="110">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ConditionType, Converter={StaticResource EnumDisplayConverter}}"
+                                                       VerticalAlignment="Center" Margin="4,0" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <ComboBox ItemsSource="{Binding Source={StaticResource EnemyActionConditionTypeValues}}"
+                                                      SelectedItem="{Binding ConditionType, Mode=TwoWay}"
+                                                      ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
                                 <DataGridTextColumn Header="값1" Binding="{Binding Param1}" Width="55" />
                                 <DataGridTextColumn Header="값2" Binding="{Binding Param2}" Width="55" />
                                 <DataGridTextColumn Header="상태 ID" Binding="{Binding StateId}" Width="65" />

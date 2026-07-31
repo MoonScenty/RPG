@@ -70,7 +70,8 @@
 
                         <TextBlock Text="행동 제한" Margin="0,0,0,4" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource StateRestrictionValues}}"
-                                  SelectedItem="{Binding Selected.Restriction}" Margin="0,0,0,10" />
+                                  SelectedItem="{Binding Selected.Restriction}"
+                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" Margin="0,0,0,10" />
 
                         <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Padding="0,10,0,0">
                             <StackPanel>
@@ -80,7 +81,8 @@
 
                                 <TextBlock Text="자동 해제 타이밍" Margin="0,0,0,4" />
                                 <ComboBox ItemsSource="{Binding Source={StaticResource StateAutoRemovalTimingValues}}"
-                                          SelectedItem="{Binding Selected.AutoRemovalTiming}" Margin="0,0,0,6" />
+                                          SelectedItem="{Binding Selected.AutoRemovalTiming}"
+                                          ItemTemplate="{StaticResource EnumDisplayItemTemplate}" Margin="0,0,0,6" />
 
                                 <TextBlock Text="지속 순번 횟수 (최소~최대)" Margin="0,0,0,4" />
                                 <Grid Margin="0,0,0,6">

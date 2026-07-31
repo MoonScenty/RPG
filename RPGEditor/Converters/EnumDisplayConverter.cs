@@ -61,6 +61,38 @@ public class EnumDisplayConverter : IValueConverter
                 SkillEffectKind.AtbBoost => "ATB 부스트",
                 _ => v.ToString(),
             },
+            EnemyActionConditionType v => v switch
+            {
+                EnemyActionConditionType.Always => "항상",
+                EnemyActionConditionType.TurnNumber => "순번",
+                EnemyActionConditionType.SelfHpRange => "자신 HP 범위",
+                EnemyActionConditionType.SelfMpRange => "자신 MP 범위",
+                EnemyActionConditionType.HasState => "상태 보유",
+                _ => v.ToString(),
+            },
+            StateRestriction v => v switch
+            {
+                StateRestriction.None => "없음",
+                StateRestriction.AttackEnemy => "적 공격",
+                StateRestriction.AttackAlly => "아군 공격",
+                StateRestriction.AttackAnyone => "아무나 공격",
+                StateRestriction.CannotMove => "행동 불가",
+                _ => v.ToString(),
+            },
+            StateAutoRemovalTiming v => v switch
+            {
+                StateAutoRemovalTiming.None => "없음",
+                StateAutoRemovalTiming.TurnEnd => "턴 종료 시",
+                StateAutoRemovalTiming.ActionEnd => "행동 종료 시",
+                _ => v.ToString(),
+            },
+            AnimationDisplayType v => v switch
+            {
+                AnimationDisplayType.OnEachTarget => "대상별",
+                AnimationDisplayType.CenterOfTargets => "대상 중심",
+                AnimationDisplayType.CenterOfScreen => "화면 중심",
+                _ => v.ToString(),
+            },
             null => string.Empty,
             _ => value.ToString() ?? string.Empty,
         };
