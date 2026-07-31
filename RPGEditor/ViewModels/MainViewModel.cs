@@ -108,7 +108,11 @@ public partial class MainViewModel : ObservableObject
             Header = "적 군단",
             Content = new TroopEditorView { DataContext = new DatabaseListViewModel<Troop>("적 군단", context.Troops) },
         });
-        Tabs.Add(CreateTab("상태", context.States));
+        Tabs.Add(new EditorTab
+        {
+            Header = "상태",
+            Content = new StateEditorView { DataContext = new DatabaseListViewModel<GameState>("상태", context.States) },
+        });
         Tabs.Add(CreateTab("애니메이션", context.Animations));
         Tabs.Add(CreateTab("유형", context.Types));
         Tabs.Add(new EditorTab
