@@ -1,11 +1,13 @@
 {
-  "actors":"Actors.json",
-  "animations":"Animations.json",
-  "items":"Items.json",
-  "classes":"Classes.json",
-  "enemies":"Enemies.json",
-  "skills":"Skills.json",
-  "states":"States.json",
-  "system":"System.json",
-  "troops":"Troops.json"
+  "projectName": "RPGProject",
+  "actors": "data/Actors.json",
+  "classes": "data/Classes.json",
+  "skills": "data/Skills.json",
+  "items": "data/Items.json",
+  "enemies": "data/Enemies.json",
+  "troops": "data/Troops.json",
+  "states": "data/States.json",
+  "animations": "data/Animations.json",
+  "types": "data/Types.json",
+  "system": "data/System.json"
 }
