@@ -13,5 +13,4 @@ public class ProjectFile
     public string States { get; set; } = "data/States.json";
     public string Animations { get; set; } = "data/Animations.json";
     public string Types { get; set; } = "data/Types.json";
-    public string System { get; set; } = "data/System.json";
 }

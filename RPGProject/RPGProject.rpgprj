@@ -8,6 +8,5 @@
   "troops": "data/Troops.json",
   "states": "data/States.json",
   "animations": "data/Animations.json",
-  "types": "data/Types.json",
-  "system": "data/System.json"
+  "types": "data/Types.json"
 }

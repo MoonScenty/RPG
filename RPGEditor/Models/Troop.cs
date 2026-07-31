@@ -30,4 +30,13 @@ public partial class Troop : DatabaseEntry
 
     [ObservableProperty]
     private int? backBottomEnemyId;
+
+    /// <summary>audio/bgm 참조.</summary>
+    public AudioCue BattleBgm { get; set; } = new();
+
+    /// <summary>audio/me 참조.</summary>
+    public AudioCue VictoryMe { get; set; } = new();
+
+    /// <summary>audio/me 참조.</summary>
+    public AudioCue DefeatMe { get; set; } = new();
 }

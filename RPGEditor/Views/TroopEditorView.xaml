@@ -17,7 +17,7 @@
 
         <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Stretch" Background="Transparent" />
 
-        <StackPanel Grid.Column="2" MaxWidth="420" HorizontalAlignment="Left"
+        <StackPanel Grid.Column="2" MaxWidth="560" HorizontalAlignment="Left"
                     IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
             <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
 
@@ -70,7 +70,76 @@
                 <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Selected.BackBottomEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
             </Grid>
 
-            <TextBlock Text="메모" Margin="0,14,0,4" />
+            <TextBlock Text="음악" FontWeight="Bold" Margin="0,14,0,8" />
+            <Grid Margin="0,0,0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" Text="이름" HorizontalAlignment="Center" />
+                <TextBlock Grid.Column="3" Text="Pan" HorizontalAlignment="Center" />
+                <TextBlock Grid.Column="5" Text="Pitch" HorizontalAlignment="Center" />
+                <TextBlock Grid.Column="7" Text="Volume" HorizontalAlignment="Center" />
+            </Grid>
+            <Grid Margin="0,0,0,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="배경음악" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Text="{Binding Selected.BattleBgm.Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="3" Text="{Binding Selected.BattleBgm.Pan, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="5" Text="{Binding Selected.BattleBgm.Pitch, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="7" Text="{Binding Selected.BattleBgm.Volume, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid Margin="0,0,0,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="승리음악" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Text="{Binding Selected.VictoryMe.Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="3" Text="{Binding Selected.VictoryMe.Pan, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="5" Text="{Binding Selected.VictoryMe.Pitch, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="7" Text="{Binding Selected.VictoryMe.Volume, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="패배음악" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Text="{Binding Selected.DefeatMe.Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="3" Text="{Binding Selected.DefeatMe.Pan, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="5" Text="{Binding Selected.DefeatMe.Pitch, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="7" Text="{Binding Selected.DefeatMe.Volume, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+
+            <TextBlock Text="메모" Margin="0,0,0,4" />
             <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
                      AcceptsReturn="True" TextWrapping="Wrap" Height="60"
                      VerticalScrollBarVisibility="Auto" />

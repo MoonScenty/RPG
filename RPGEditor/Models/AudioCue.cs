@@ -2,9 +2,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RPGEditor.Models;
 
-public partial class AnimationSoundEffect : ObservableObject
+/// <summary>오디오 파일 참조 + 재생 파라미터. BGM/ME/SE 전반에서 공용으로 사용.</summary>
+public partial class AudioCue : ObservableObject
 {
-    /// <summary>audio/se 참조.</summary>
     [ObservableProperty]
     private string name = string.Empty;
 

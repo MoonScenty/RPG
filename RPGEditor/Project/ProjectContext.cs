@@ -36,7 +36,6 @@ public class ProjectContext
     public ObservableCollection<GameState> States { get; } = [];
     public ObservableCollection<AnimationData> Animations { get; } = [];
     public ObservableCollection<EntryType> Types { get; } = [];
-    public SystemData System { get; set; } = new();
 
     private ProjectContext(string projectFilePath, ProjectFile projectFile)
     {
@@ -84,11 +83,6 @@ public class ProjectContext
         LoadEntries(context.ProjectRootPath, projectFile.Animations, context.Animations);
         LoadEntries(context.ProjectRootPath, projectFile.Types, context.Types);
 
-        var systemPath = Path.Combine(context.ProjectRootPath, projectFile.System);
-        context.System = File.Exists(systemPath)
-            ? JsonSerializer.Deserialize<SystemData>(File.ReadAllText(systemPath), JsonOptions) ?? new SystemData()
-            : new SystemData();
-
         return context;
     }
 
@@ -107,9 +101,6 @@ public class ProjectContext
         SaveEntries(ProjectFile.States, States);
         SaveEntries(ProjectFile.Animations, Animations);
         SaveEntries(ProjectFile.Types, Types);
-
-        var systemPath = Path.Combine(ProjectRootPath, ProjectFile.System);
-        File.WriteAllText(systemPath, JsonSerializer.Serialize(System, JsonOptions));
     }
 
     private static void LoadEntries<T>(string root, string relativePath, ObservableCollection<T> target)

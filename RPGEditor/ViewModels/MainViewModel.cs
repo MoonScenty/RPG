@@ -123,11 +123,6 @@ public partial class MainViewModel : ObservableObject
             Header = "유형",
             Content = new TypeEditorView { DataContext = new DatabaseListViewModel<EntryType>("유형", context.Types) },
         });
-        Tabs.Add(new EditorTab
-        {
-            Header = "시스템",
-            Content = new SystemEditorView { DataContext = context.System },
-        });
     }
 
     private static EditorTab CreateTab<T>(string header, ObservableCollection<T> entries)
