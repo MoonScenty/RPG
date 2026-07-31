@@ -1,0 +1,9897 @@
+[
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HitPhysical",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 50,
+    "speed": 100,
+    "id": 0,
+    "name": "\uBB3C\uB9AC \uD0C0\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 1,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Damage4",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Powerup",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HitEffect",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 60,
+    "speed": 100,
+    "id": 1,
+    "name": "\uC774\uD399\uD2B8 \uD0C0\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          119,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          136,
+          51,
+          153
+        ],
+        "frame": 2,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Fire1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HitFire",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 2,
+    "name": "\uBD88 \uD0C0\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          187,
+          255,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          187,
+          221,
+          221,
+          153
+        ],
+        "frame": 2,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 75,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HitIce",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 3,
+    "name": "\uC5BC\uC74C \uD0C0\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          119,
+          153
+        ],
+        "frame": 2,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder8",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HitThunder",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 4,
+    "name": "\uCC9C\uB465 \uD0C0\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          187
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "SlashPhysical",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 5,
+    "name": "\uBB3C\uB9AC \uBCA0\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 1,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Powerup",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "SlashEffect",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 6,
+    "name": "\uC774\uD399\uD2B8 \uBCA0\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          119,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          136,
+          51,
+          153
+        ],
+        "frame": 1,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Fire1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 4
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "SlashFire",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 7,
+    "name": "\uBD88 \uBCA0\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          187,
+          255,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          187,
+          221,
+          221,
+          153
+        ],
+        "frame": 1,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "SlashIce",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 8,
+    "name": "\uC5BC\uC74C \uBCA0\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          119,
+          153
+        ],
+        "frame": 1,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder8",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "SlashThunder",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 9,
+    "name": "\uCC9C\uB465 \uBCA0\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 4
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PiercePhysical",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 60,
+    "speed": 100,
+    "id": 10,
+    "name": "\uBB3C\uB9AC \uCC0C\uB974\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder4",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Powerup",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 8
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PierceEffect",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 80,
+    "speed": 100,
+    "id": 11,
+    "name": "\uC774\uD399\uD2B8 \uCC0C\uB974\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          119,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          136,
+          51,
+          153
+        ],
+        "frame": 3,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Fire1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PierceFire",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 80,
+    "speed": 100,
+    "id": 12,
+    "name": "\uBD88 \uCC0C\uB974\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          187,
+          255,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          187,
+          221,
+          221,
+          153
+        ],
+        "frame": 3,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 75,
+          "volume": 100
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PierceIce",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 80,
+    "speed": 100,
+    "id": 13,
+    "name": "\uC5BC\uC74C \uCC0C\uB974\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 60
+      },
+      {
+        "color": [
+          255,
+          255,
+          85,
+          153
+        ],
+        "frame": 3,
+        "duration": 60
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Thunder8",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 100
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PierceThunder",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 80,
+    "speed": 100,
+    "id": 14,
+    "name": "\uCC9C\uB465 \uCC0C\uB974\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ClawPhysical",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 15,
+    "name": "\uBB3C\uB9AC \uD560\uD034\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Powerup",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ClawEffect",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 16,
+    "name": "\uC774\uD399\uD2B8 \uD560\uD034\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          119,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Fire1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ClawFire",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 17,
+    "name": "\uBD88 \uD560\uD034\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          187,
+          255,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 75,
+          "volume": 100
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ClawIce",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 18,
+    "name": "\uC5BC\uC74C \uD560\uD034\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          102,
+          221
+        ],
+        "frame": 0,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Thunder8",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 100
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ClawThunder",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 19,
+    "name": "\uCC9C\uB465 \uD560\uD034\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 59,
+        "duration": 70
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 99,
+        "duration": 70
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Thunder5",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 27
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 34
+      },
+      {
+        "se": {
+          "name": "Thunder5",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 44
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 44
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 51
+      },
+      {
+        "se": {
+          "name": "Thunder5",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 69
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 84
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 91
+      },
+      {
+        "se": {
+          "name": "Thunder5",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 99
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HitSpecial1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 20,
+    "name": "\uD0C0\uACA9 \uD544\uC0B4\uAE30 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 9,
+        "duration": 27
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 27,
+        "duration": 27
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 54,
+        "duration": 35
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 89,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Blow2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 7
+      },
+      {
+        "se": {
+          "name": "Blow1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 12
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 14
+      },
+      {
+        "se": {
+          "name": "Blow2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 17
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 18
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 22
+      },
+      {
+        "se": {
+          "name": "Blow2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 24
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 27
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 34
+      },
+      {
+        "se": {
+          "name": "Blow2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 44
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 54
+      },
+      {
+        "se": {
+          "name": "Damage2",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Damage2",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 79
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "HitSpecial2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 200,
+    "speed": 100,
+    "id": 21,
+    "name": "\uD0C0\uACA9 \uD544\uC0B4\uAE30 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 27
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 27,
+        "duration": 28
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 55,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 7
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Slash4",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 11
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 15
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 17
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 19
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 23
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 27
+      },
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 47
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "SlashSpecial1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 22,
+    "name": "\uBCA0\uAE30 \uD544\uC0B4\uAE30 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 17
+      },
+      {
+        "color": [
+          255,
+          68,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 40
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Wind4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Slash8",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 7
+      },
+      {
+        "se": {
+          "name": "Wind4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 7
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 16
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "SlashSpecial2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 23,
+    "name": "\uBCA0\uAE30 \uD544\uC0B4\uAE30 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 22
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 22,
+        "duration": 37
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 59,
+        "duration": 40
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 99,
+        "duration": 15
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 11
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 22
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 28
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 33
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 37
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 43
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Evasion1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Evasion1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 95
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 99
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "SlashSpecial3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 24,
+    "name": "\uBCA0\uAE30 \uD544\uC0B4\uAE30 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 31,
+        "duration": 32
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 62,
+        "duration": 31
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 99,
+        "duration": 27
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind6",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 4
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 6
+      },
+      {
+        "se": {
+          "name": "Wind6",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 11
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 15
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 19
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 21
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 26
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 31
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 35
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 38
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 41
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 46
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 52
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 56
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 62
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 66
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 69
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 74
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 89
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 89
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PierceSpecial1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 25,
+    "name": "\uCC0C\uB974\uAE30 \uD544\uC0B4\uAE30 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 31
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 31,
+        "duration": 8
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 39,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 69,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 99,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 4
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 6
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 7
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 10
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 13
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 16
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 17
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 19
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 23
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 27
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 31
+      },
+      {
+        "se": {
+          "name": "Sword5",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 39
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 43
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "PierceSpecial2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 26,
+    "name": "\uCC0C\uB974\uAE30 \uD544\uC0B4\uAE30 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          119,
+          153,
+          187
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          119,
+          153,
+          187
+        ],
+        "frame": 30,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          119,
+          153,
+          187
+        ],
+        "frame": 74,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Attack3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 4
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 6
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 7
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 10
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 16
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 17
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 21
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 25
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 29
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 30
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 41
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 41
+      },
+      {
+        "se": {
+          "name": "Attack2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 74
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 74
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ClawSpecial",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 27,
+    "name": "\uD560\uD034\uAE30 \uD544\uC0B4\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          204,
+          204
+        ],
+        "frame": 2,
+        "duration": 3
+      },
+      {
+        "color": [
+          255,
+          255,
+          204,
+          204
+        ],
+        "frame": 5,
+        "duration": 3
+      },
+      {
+        "color": [
+          255,
+          255,
+          204,
+          204
+        ],
+        "frame": 8,
+        "duration": 3
+      },
+      {
+        "color": [
+          255,
+          255,
+          204,
+          204
+        ],
+        "frame": 13,
+        "duration": 3
+      },
+      {
+        "color": [
+          255,
+          255,
+          204,
+          204
+        ],
+        "frame": 24,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          204,
+          204
+        ],
+        "frame": 49,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Crossbow",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Attack3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Attack3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Battle3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Battle3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 13
+      },
+      {
+        "se": {
+          "name": "Wind6",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 13
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ArrowSpecial",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 28,
+    "name": "\uD654\uC0B4 \uD544\uC0B4\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          170,
+          119,
+          204
+        ],
+        "frame": 1,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          119,
+          204
+        ],
+        "frame": 8,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          187
+        ],
+        "frame": 12,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          187,
+          221
+        ],
+        "frame": 15,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          187,
+          221
+        ],
+        "frame": 17,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          187
+        ],
+        "frame": 22,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          119,
+          204
+        ],
+        "frame": 25,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          187,
+          221
+        ],
+        "frame": 31,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          187
+        ],
+        "frame": 35,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          119,
+          204
+        ],
+        "frame": 39,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          255,
+          187,
+          221
+        ],
+        "frame": 49,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          187
+        ],
+        "frame": 54,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          119,
+          204
+        ],
+        "frame": 64,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          170,
+          119,
+          204
+        ],
+        "frame": 99,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Slash4",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 100
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Slash5",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 100
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 12
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 15
+      },
+      {
+        "se": {
+          "name": "Damage2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 17
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 22
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 25
+      },
+      {
+        "se": {
+          "name": "Damage2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 35
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 41
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 49
+      },
+      {
+        "se": {
+          "name": "Damage2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 89
+      },
+      {
+        "se": {
+          "name": "Slash2",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 95
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 104
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "GeneralSpecial1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 29,
+    "name": "\uC77C\uBC18 \uD544\uC0B4\uAE30 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 1,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 5,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 8,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 11,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 15,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 19,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 25,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 34,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 39,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 44,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder3",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Thunder3",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 11
+      },
+      {
+        "se": {
+          "name": "Slash1",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 100
+        },
+        "frame": 15
+      },
+      {
+        "se": {
+          "name": "Thunder3",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 19
+      },
+      {
+        "se": {
+          "name": "Slash3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 25
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "GeneralSpecial2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 30,
+    "name": "\uC77C\uBC18 \uD544\uC0B4\uAE30 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 4,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 14,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 24,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 34,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 44,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 54,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 64,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 74,
+        "duration": 15
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire3",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 1
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "Breath",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 200,
+    "speed": 100,
+    "id": 31,
+    "name": "\uC228\uACB0",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          85,
+          238,
+          204
+        ],
+        "frame": 3,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          85,
+          238,
+          204
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          85,
+          238,
+          187
+        ],
+        "frame": 7,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          85,
+          238,
+          170
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          85,
+          238,
+          153
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          85,
+          238,
+          120
+        ],
+        "frame": 59,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness4",
+          "pan": 0,
+          "pitch": 60,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Darkness3",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "Pollen",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 200,
+    "speed": 100,
+    "id": 32,
+    "name": "\uAF43\uAC00\uB8E8",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 2,
+        "duration": 25
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 29,
+        "duration": 25
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 59,
+        "duration": 25
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          100
+        ],
+        "frame": 89,
+        "duration": 25
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Sound3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "SonicWave",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 33,
+    "name": "\uCD08\uC74C\uD30C",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          136,
+          153,
+          170,
+          150
+        ],
+        "frame": 29,
+        "duration": 90
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blind",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sand",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "Fog",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 34,
+    "name": "\uC548\uAC1C",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          221,
+          221,
+          255,
+          136
+        ],
+        "frame": 19,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 24,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          255,
+          170
+        ],
+        "frame": 34,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          255,
+          170
+        ],
+        "frame": 54,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "Song",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 35,
+    "name": "\uB178\uB798",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          153
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 9,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 19,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 29,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Monster1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "Shout",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 36,
+    "name": "\uC678\uCE68",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 2,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind7",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Blow2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 100
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Sweep",
+    "offsetX": 0,
+    "offsetY": 30,
+    "scale": 100,
+    "speed": 100,
+    "id": 37,
+    "name": "\uB2E4\uB9AC \uD6C4\uB9AC\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 2,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder2",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder8",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Blow3",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 100
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Bodyslam",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 38,
+    "name": "\uBCF4\uB514 \uC2AC\uB7A8",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 2,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 19,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 24,
+        "duration": 10
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Flash2",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sword1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 1
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "Flash",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 150,
+    "speed": 100,
+    "id": 39,
+    "name": "\uC12C\uAD11",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          102,
+          255,
+          0,
+          102
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 19,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Heal3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Saint2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HealOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 40,
+    "name": "1\uC778 \uD68C\uBCF5 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 49,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 69,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 89,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Starlight",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Saint2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "HealOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 41,
+    "name": "1\uC778 \uD68C\uBCF5 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          170
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 19,
+        "duration": 5
+      },
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Saint4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Heal1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Ice5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 4
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "HealAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 42,
+    "name": "\uC804\uC6D0 \uD68C\uBCF5 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          170
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          102
+        ],
+        "frame": 19,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Flash2",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 50
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 9
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "HealAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 43,
+    "name": "\uC804\uC6D0 \uD68C\uBCF5 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          102,
+          255,
+          0,
+          102
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 19,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Recovery",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 6
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "CureOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 44,
+    "name": "1\uC778 \uCE58\uB8CC 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          102,
+          255,
+          0,
+          102
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice1",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "CureOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 45,
+    "name": "1\uC778 \uCE58\uB8CC 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          153,
+          255,
+          255,
+          102
+        ],
+        "frame": 19,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 24,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Starlight",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Ice1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 6
+      },
+      {
+        "se": {
+          "name": "Heal3",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 9
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "CureAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 46,
+    "name": "\uC804\uC6D0 \uCE58\uB8CC 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          153,
+          255,
+          255,
+          170
+        ],
+        "frame": 19,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 24,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 49,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Saint4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "CureAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 150,
+    "speed": 100,
+    "id": 47,
+    "name": "\uC804\uC6D0 \uCE58\uB8CC 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          102,
+          255,
+          0,
+          102
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          136,
+          255,
+          0,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Starlight",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Skill1",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 4
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Revive1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 48,
+    "name": "\uBD80\uD65C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          255,
+          0,
+          102
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          102,
+          255,
+          0,
+          102
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Magic2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Up3",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 80
+        },
+        "frame": 13
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Revive2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 49,
+    "name": "\uBD80\uD65C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          187,
+          0,
+          136
+        ],
+        "frame": 5,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          204,
+          102,
+          102
+        ],
+        "frame": 19,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Up4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Powerup1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 50,
+    "name": "\uAC15\uD654 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          119
+        ],
+        "frame": 5,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          102
+        ],
+        "frame": 19,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 34,
+        "duration": 15
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Powerup",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic4",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 80
+        },
+        "frame": 4
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Powerup2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 51,
+    "name": "\uAC15\uD654 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          153,
+          0,
+          119
+        ],
+        "frame": 19,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Up1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 80
+        },
+        "frame": 9
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Powerup3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 70,
+    "speed": 100,
+    "id": 52,
+    "name": "\uAC15\uD654 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          85,
+          0,
+          255,
+          102
+        ],
+        "frame": 5,
+        "duration": 15
+      },
+      {
+        "color": [
+          85,
+          0,
+          255,
+          68
+        ],
+        "frame": 19,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Down2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 2
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Powerdown1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 53,
+    "name": "\uC57D\uD654 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          170
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          85,
+          0,
+          136,
+          170
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Stare",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 70
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Earth2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 80
+        },
+        "frame": 6
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Powerdown2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 54,
+    "name": "\uC57D\uD654 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 9,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 39,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          119,
+          170
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blind",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Darkness7",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Darkness8",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 69
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Powerdown3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 55,
+    "name": "\uC57D\uD654 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 9,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 39,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          119,
+          170
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Darkness4",
+          "pan": 0,
+          "pitch": 60,
+          "volume": 100
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Darkness1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 5
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Bind",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 70,
+    "speed": 100,
+    "id": 56,
+    "name": "\uACB0\uBC15",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          0,
+          136,
+          136
+        ],
+        "frame": 29,
+        "duration": 60
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Twine",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Particles1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 1
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Absorb",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 57,
+    "name": "\uD761\uC218",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          68,
+          0,
+          187,
+          170
+        ],
+        "frame": 29,
+        "duration": 60
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Poison",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Poison",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 58,
+    "name": "\uB3C5",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          119
+        ],
+        "frame": 9,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          119
+        ],
+        "frame": 59,
+        "duration": 30
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          119
+        ],
+        "frame": 89,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Blind",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Darkness2",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 50
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Blind",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 59,
+    "name": "\uC554\uD751",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          255,
+          255,
+          170
+        ],
+        "frame": 39,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 90,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Silence",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sound2",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 70
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Flash1",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 70
+        },
+        "frame": 59
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Silence",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 80,
+    "speed": 100,
+    "id": 60,
+    "name": "\uCE68\uBB35",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 9,
+        "duration": 10
+      },
+      {
+        "color": [
+          170,
+          170,
+          238,
+          170
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Up1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 70
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Sleep",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 5
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Sleep",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 61,
+    "name": "\uC218\uBA74",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          68
+        ],
+        "frame": 9,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          136,
+          255,
+          170
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Absorb2",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Raise2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 80
+        },
+        "frame": 4
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Confusion",
+    "offsetX": 15,
+    "offsetY": -30,
+    "scale": 50,
+    "speed": 100,
+    "id": 62,
+    "name": "\uD63C\uB780",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 9,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 39,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          119,
+          170
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Paralyze3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Paralyze",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 63,
+    "name": "\uB9C8\uBE44",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          0,
+          0,
+          187
+        ],
+        "frame": 14,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          187
+        ],
+        "frame": 79,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Stare",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Darkness5",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 80
+        },
+        "frame": 44
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Death",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 64,
+    "name": "\uC989\uC0AC",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          170,
+          51,
+          204
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          170,
+          51,
+          204
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "FireOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 65,
+    "name": "1\uC778 \uBD88\uAF43 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          170,
+          51,
+          204
+        ],
+        "frame": 9,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire9",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "FireOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 66,
+    "name": "1\uC778 \uBD88\uAF43 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          51,
+          204
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          187,
+          102,
+          102,
+          68
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          221,
+          51,
+          204
+        ],
+        "frame": 49,
+        "duration": 30
+      },
+      {
+        "color": [
+          187,
+          102,
+          102,
+          68
+        ],
+        "frame": 79,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "FireAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 67,
+    "name": "\uC804\uC6D0 \uBD88\uAF43 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          51,
+          204
+        ],
+        "frame": 9,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          102,
+          102,
+          136
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "FireAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 68,
+    "name": "\uC804\uC6D0 \uBD88\uAF43 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          51,
+          204
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          102,
+          102,
+          136
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "FireAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 69,
+    "name": "\uC804\uC6D0 \uBD88\uAF43 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          204,
+          255,
+          153
+        ],
+        "frame": 19,
+        "duration": 80
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Starlight",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Wind1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 70
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Crash",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Ice11",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Sword2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 13
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "IceOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 70,
+    "name": "1\uC778 \uC5BC\uC74C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          204,
+          255,
+          153
+        ],
+        "frame": 19,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "IceOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 71,
+    "name": "1\uC778 \uC5BC\uC74C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          204,
+          153,
+          204
+        ],
+        "frame": 29,
+        "duration": 25
+      },
+      {
+        "color": [
+          119,
+          204,
+          255,
+          204
+        ],
+        "frame": 99,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Flash2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Earth1",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 70
+        },
+        "frame": 16
+      },
+      {
+        "se": {
+          "name": "Ice5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 17
+      },
+      {
+        "se": {
+          "name": "Ice11",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 89
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "IceAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 72,
+    "name": "\uC804\uC6D0 \uC5BC\uC74C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          153
+        ],
+        "frame": 29,
+        "duration": 80
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind6",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder6",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 80
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Ice10",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 80
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "IceAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 73,
+    "name": "\uC804\uC6D0 \uC5BC\uC74C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 29,
+        "duration": 25
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 59,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice10",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Crash",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 19
+      },
+      {
+        "se": {
+          "name": "Ice5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 23
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "IceAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 74,
+    "name": "\uC804\uC6D0 \uC5BC\uC74C 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 9,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder6",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ThunderOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 75,
+    "name": "1\uC778 \uCC9C\uB465 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          119,
+          255,
+          170,
+          204
+        ],
+        "frame": 9,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 29,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder8",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ThunderOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 76,
+    "name": "1\uC778 \uCC9C\uB465 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          119,
+          153
+        ],
+        "frame": 0,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          255,
+          136,
+          204
+        ],
+        "frame": 29,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 59,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Paralyze1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Thunder1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 49
+      },
+      {
+        "se": {
+          "name": "Paralyze1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 50
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "ThunderAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 77,
+    "name": "\uC804\uC6D0 \uCC9C\uB465 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          119,
+          153
+        ],
+        "frame": 0,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          255,
+          136,
+          204
+        ],
+        "frame": 29,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder10",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder9",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 1
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "ThunderAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 150,
+    "speed": 100,
+    "id": 78,
+    "name": "\uC804\uC6D0 \uCC9C\uB465 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          119,
+          153
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          255,
+          136,
+          204
+        ],
+        "frame": 49,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 79,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 75,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder9",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Paralyze1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 75
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Paralyze1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 75
+        },
+        "frame": 79
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "ThunderAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 79,
+    "name": "\uC804\uC6D0 \uCC9C\uB465 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 19,
+        "duration": 60
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Water5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Water2",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 19
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "WaterOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 80,
+    "name": "1\uC778 \uBB3C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 19,
+        "duration": 60
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Dive",
+          "pan": 0,
+          "pitch": 135,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Water1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 6
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "WaterOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 81,
+    "name": "1\uC778 \uBB3C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 19,
+        "duration": 30
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 59,
+        "duration": 80
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Water5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Water4",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 11
+      },
+      {
+        "se": {
+          "name": "Water1",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 13
+      },
+      {
+        "se": {
+          "name": "Water1",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Water4",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 90
+        },
+        "frame": 59
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "WaterAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 82,
+    "name": "\uC804\uC6D0 \uBB3C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 19,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 49,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 79,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Water1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "WaterAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 83,
+    "name": "\uC804\uC6D0 \uBB3C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 59,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 89,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          204,
+          255,
+          204
+        ],
+        "frame": 119,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Wind1",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 75
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Water1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 23
+      },
+      {
+        "se": {
+          "name": "Water2",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Water1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 59
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "WaterAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 84,
+    "name": "\uC804\uC6D0 \uBB3C 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 9,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Earth1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Break",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 5
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "EarthOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 85,
+    "name": "1\uC778 \uD759 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 19,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Thunder2",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Earth5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Fire3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 29
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "EarthOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 86,
+    "name": "1\uC778 \uD759 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 14,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Earth1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Fire3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Earth3",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Fire1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Sand",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 79
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "EarthAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 87,
+    "name": "\uC804\uC6D0 \uD759 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 0,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 29,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Earth4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Earth1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Earth5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 3
+      },
+      {
+        "se": {
+          "name": "Sand",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 89
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "EarthAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 88,
+    "name": "\uC804\uC6D0 \uD759 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 59,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 89,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          221,
+          170,
+          170
+        ],
+        "frame": 119,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Earth2",
+          "pan": 0,
+          "pitch": 125,
+          "volume": 75
+        },
+        "frame": 44
+      },
+      {
+        "se": {
+          "name": "Earth4",
+          "pan": 0,
+          "pitch": 125,
+          "volume": 75
+        },
+        "frame": 69
+      },
+      {
+        "se": {
+          "name": "Earth1",
+          "pan": 0,
+          "pitch": 125,
+          "volume": 75
+        },
+        "frame": 69
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "EarthAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 89,
+    "name": "\uC804\uC6D0 \uD759 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 9,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "WindOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 90,
+    "name": "1\uC778 \uBC14\uB78C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 9,
+        "duration": 40
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 39,
+        "duration": 30
+      },
+      {
+        "color": [
+          119,
+          255,
+          0,
+          85
+        ],
+        "frame": 79,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind3",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 4
+      },
+      {
+        "se": {
+          "name": "Wind3",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 14
+      },
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 19
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "WindOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 150,
+    "speed": 100,
+    "id": 91,
+    "name": "1\uC778 \uBC14\uB78C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 5
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Sand",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 29
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "WindAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 92,
+    "name": "\uC804\uC6D0 \uBC14\uB78C 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 19,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 49,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 79,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind5",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Sand",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 100
+        },
+        "frame": 1
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "WindAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 93,
+    "name": "\uC804\uC6D0 \uBC14\uB78C 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          170,
+          255,
+          0,
+          170
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          102
+        ],
+        "frame": 59,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 89,
+        "duration": 20
+      },
+      {
+        "color": [
+          170,
+          255,
+          0,
+          136
+        ],
+        "frame": 139,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 75,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 125,
+          "volume": 75
+        },
+        "frame": 29
+      },
+      {
+        "se": {
+          "name": "Skill2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 49
+      },
+      {
+        "se": {
+          "name": "Wind3",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 65
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Skill1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Wind3",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 65
+        },
+        "frame": 109
+      },
+      {
+        "se": {
+          "name": "Wind3",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 65
+        },
+        "frame": 129
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "WindAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 94,
+    "name": "\uC804\uC6D0 \uBC14\uB78C 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          136
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 39,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Up3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Reflection",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 14
+      },
+      {
+        "se": {
+          "name": "Sword4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 14
+      },
+      {
+        "se": {
+          "name": "Reflection",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 19
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "LightOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 95,
+    "name": "1\uC778 \uBE5B 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 0,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          136
+        ],
+        "frame": 9,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 39,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Saint4",
+          "pan": 0,
+          "pitch": 115,
+          "volume": 90
+        },
+        "frame": 3
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "LightOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 96,
+    "name": "1\uC778 \uBE5B 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 29,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          136
+        ],
+        "frame": 39,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 69,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Starlight",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Ice5",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 1
+      },
+      {
+        "se": {
+          "name": "Up1",
+          "pan": 0,
+          "pitch": 80,
+          "volume": 90
+        },
+        "frame": 2
+      },
+      {
+        "se": {
+          "name": "Sword2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 64
+      },
+      {
+        "se": {
+          "name": "Sword2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 74
+      },
+      {
+        "se": {
+          "name": "Sword2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 84
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "LightAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 97,
+    "name": "\uC804\uC6D0 \uBE5B 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 0,
+        "duration": 20
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          136
+        ],
+        "frame": 29,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 69,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Skill1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 100
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Explosion1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Saint4",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 100
+        },
+        "frame": 8
+      },
+      {
+        "se": {
+          "name": "Explosion4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 100
+        },
+        "frame": 59
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "LightAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 98,
+    "name": "\uC804\uC6D0 \uBE5B 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          204
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          136
+        ],
+        "frame": 79,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          170
+        ],
+        "frame": 139,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Skill3",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 75
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Ice4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 19
+      },
+      {
+        "se": {
+          "name": "Ice3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 27
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 89
+      },
+      {
+        "se": {
+          "name": "Magic12",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 119
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "LightAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 99,
+    "name": "\uC804\uC6D0 \uBE5B 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 29,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          170
+        ],
+        "frame": 49,
+        "duration": 20
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "DarknessOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 100,
+    "name": "1\uC778 \uC5B4\uB460 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 29,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          170
+        ],
+        "frame": 49,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          136
+        ],
+        "frame": 99,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness3",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Darkness1",
+          "pan": 0,
+          "pitch": 130,
+          "volume": 90
+        },
+        "frame": 59
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "DarknessOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 80,
+    "speed": 100,
+    "id": 101,
+    "name": "1\uC778 \uC5B4\uB460 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          136
+        ],
+        "frame": 0,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          170
+        ],
+        "frame": 89,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 129,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Thunder3",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Fire9",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 69
+      },
+      {
+        "se": {
+          "name": "Fire9",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Fire9",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 89
+      },
+      {
+        "se": {
+          "name": "Fire9",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 99
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "DarknessAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 102,
+    "name": "\uC804\uC6D0 \uC5B4\uB460 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 29,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          170
+        ],
+        "frame": 49,
+        "duration": 20
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          136
+        ],
+        "frame": 99,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Teleport",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Blind",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 29
+      },
+      {
+        "se": {
+          "name": "Float2",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 80
+        },
+        "frame": 29
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "DarknessAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 150,
+    "speed": 100,
+    "id": 103,
+    "name": "\uC804\uC6D0 \uC5B4\uB460 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          204
+        ],
+        "frame": 29,
+        "duration": 50
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          136
+        ],
+        "frame": 79,
+        "duration": 30
+      },
+      {
+        "color": [
+          0,
+          0,
+          0,
+          170
+        ],
+        "frame": 139,
+        "duration": 40
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Wind2",
+          "pan": 0,
+          "pitch": 70,
+          "volume": 65
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 80
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Darkness4",
+          "pan": 0,
+          "pitch": 90,
+          "volume": 75
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Magic10",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 75
+        },
+        "frame": 64
+      },
+      {
+        "se": {
+          "name": "Blind",
+          "pan": 0,
+          "pitch": 120,
+          "volume": 75
+        },
+        "frame": 64
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "DarknessAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 104,
+    "name": "\uC804\uC6D0 \uC5B4\uB460 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          85,
+          255,
+          0,
+          119
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Darkness1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic5",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Particles1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 44
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "NeutralOne1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 105,
+    "name": "1\uC778 \uBB34\uC18D\uC131 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Explosion2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Particles1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "NeutralOne2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 70,
+    "speed": 100,
+    "id": 106,
+    "name": "1\uC778 \uBB34\uC18D\uC131 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 69,
+        "duration": 15
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 89,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Particles4",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "NeutralAll1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 107,
+    "name": "\uC804\uC6D0 \uBB34\uC18D\uC131 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 0,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 49,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Fire9",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "NeutralAll2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 108,
+    "name": "\uC804\uC6D0 \uBB34\uC18D\uC131 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 79,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 109,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          102,
+          0,
+          204
+        ],
+        "frame": 129,
+        "duration": 50
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Particles4",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 59
+      },
+      {
+        "se": {
+          "name": "Fire7",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 69
+      },
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 79
+      },
+      {
+        "se": {
+          "name": "Fire7",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 50
+        },
+        "frame": 89
+      },
+      {
+        "se": {
+          "name": "Fire8",
+          "pan": 0,
+          "pitch": 140,
+          "volume": 90
+        },
+        "frame": 99
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "NeutralAll3",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 109,
+    "name": "\uC804\uC6D0 \uBB34\uC18D\uC131 3",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 0,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 9,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 19,
+        "duration": 10
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Gun1",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ShootNormal",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 110,
+    "name": "\uC77C\uBC18 \uC0AC\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          0,
+          119
+        ],
+        "frame": 0,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          119
+        ],
+        "frame": 9,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 19,
+        "duration": 5
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Gun2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "ShootBarrage",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 111,
+    "name": "\uC0AC\uACA9 \uC138\uB840",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 0,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 9,
+        "duration": 5
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          119
+        ],
+        "frame": 19,
+        "duration": 10
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Gun1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Crash",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 40
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Gun1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 9
+      },
+      {
+        "se": {
+          "name": "Gun3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 19
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfTargets",
+    "effectName": "ShootAll",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 112,
+    "name": "\uC804\uC6D0 \uC0AC\uACA9",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          136,
+          0,
+          153
+        ],
+        "frame": 69,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          136,
+          0,
+          153
+        ],
+        "frame": 119,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          170
+        ],
+        "frame": 139,
+        "duration": 10
+      },
+      {
+        "color": [
+          255,
+          0,
+          0,
+          204
+        ],
+        "frame": 154,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          0,
+          136
+        ],
+        "frame": 199,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Phone",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 40
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Skill1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 24
+      },
+      {
+        "se": {
+          "name": "Skill2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 69
+      },
+      {
+        "se": {
+          "name": "Wind6",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 109
+      },
+      {
+        "se": {
+          "name": "Wind6",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 124
+      },
+      {
+        "se": {
+          "name": "Explosion2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 70
+        },
+        "frame": 149
+      },
+      {
+        "se": {
+          "name": "Fire2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 70
+        },
+        "frame": 169
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "ShootSpecial",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 113,
+    "name": "\uC0AC\uACA9 \uD544\uC0B4\uAE30",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          136,
+          0,
+          170
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          136,
+          0,
+          153
+        ],
+        "frame": 39,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          136,
+          0,
+          153
+        ],
+        "frame": 59,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Laser1",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Paralyze2",
+          "pan": 0,
+          "pitch": 50,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Evasion2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "LaserOne",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 114,
+    "name": "1\uC778 \uB808\uC774\uC800",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          136,
+          0,
+          119
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          136,
+          0,
+          119
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Powerup",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Fire6",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 29
+      },
+      {
+        "se": {
+          "name": "Fire3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 64
+      }
+    ],
+    "timings": [],
+    "displayType": "centerOfScreen",
+    "effectName": "LaserAll",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 115,
+    "name": "\uC804\uC6D0 \uB808\uC774\uC800",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          102,
+          170,
+          0,
+          102
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Magic2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 75
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Up3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Magic4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 39
+      },
+      {
+        "se": {
+          "name": "Darkness4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 39
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "LightPillar1",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 116,
+    "name": "\uBE5B\uC758 \uAE30\uB465 1",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          102
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Magic2",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 75
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Up3",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Float1",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 39
+      },
+      {
+        "se": {
+          "name": "Darkness4",
+          "pan": 0,
+          "pitch": 150,
+          "volume": 90
+        },
+        "frame": 39
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "LightPillar2",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 117,
+    "name": "\uBE5B\uC758 \uAE30\uB465 2",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          119
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Particles1",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 60
+        },
+        "frame": 0
+      },
+      {
+        "se": {
+          "name": "Teleport",
+          "pan": 0,
+          "pitch": 110,
+          "volume": 90
+        },
+        "frame": 0
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "BallsOfLight",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 120,
+    "speed": 100,
+    "id": 118,
+    "name": "\uBE5B\uC758 \uD0C4\uD658",
+    "note": ""
+  },
+  {
+    "flashTimings": [
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 5,
+        "duration": 30
+      },
+      {
+        "color": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "frame": 39,
+        "duration": 30
+      }
+    ],
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "soundTimings": [
+      {
+        "se": {
+          "name": "Flash2",
+          "pan": 0,
+          "pitch": 100,
+          "volume": 90
+        },
+        "frame": 5
+      }
+    ],
+    "timings": [],
+    "displayType": "onEachTarget",
+    "effectName": "Radiation",
+    "offsetX": 0,
+    "offsetY": 0,
+    "scale": 100,
+    "speed": 100,
+    "id": 119,
+    "name": "\uBC29\uC0AC\uC120",
+    "note": ""
+  }
+]
