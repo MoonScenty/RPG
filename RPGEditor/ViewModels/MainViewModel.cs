@@ -118,7 +118,11 @@ public partial class MainViewModel : ObservableObject
             Header = "애니메이션",
             Content = new AnimationEditorView { DataContext = new DatabaseListViewModel<AnimationData>("애니메이션", context.Animations) },
         });
-        Tabs.Add(CreateTab("유형", context.Types));
+        Tabs.Add(new EditorTab
+        {
+            Header = "유형",
+            Content = new TypeEditorView { DataContext = new DatabaseListViewModel<EntryType>("유형", context.Types) },
+        });
         Tabs.Add(new EditorTab
         {
             Header = "시스템",

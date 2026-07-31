@@ -72,5 +72,10 @@
                 <x:Type TypeName="models:AnimationDisplayType" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <ObjectDataProvider x:Key="TypeGroupValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="models:TypeGroup" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </Application.Resources>
 </Application>
