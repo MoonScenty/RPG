@@ -7,6 +7,7 @@
         xmlns:vm="clr-namespace:RPGEditor.ViewModels"
         mc:Ignorable="d"
         x:Name="RootWindow"
+        FontSize="16"
         Title="RPG Editor" Height="720" Width="1200">
     <Window.DataContext>
         <vm:MainViewModel />

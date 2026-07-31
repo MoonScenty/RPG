@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Title="새 프로젝트" Height="220" Width="460"
         WindowStartupLocation="CenterOwner"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        FontSize="16">
     <Grid Margin="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

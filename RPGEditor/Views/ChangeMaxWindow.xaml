@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Title="최대치 변경" Height="170" Width="320"
         WindowStartupLocation="CenterOwner"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        FontSize="16">
     <StackPanel Margin="16">
         <TextBlock x:Name="CategoryLabel" TextWrapping="Wrap" Margin="0,0,0,8" />
         <TextBlock Text="개수" Margin="0,0,0,4" />
