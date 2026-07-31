@@ -78,7 +78,11 @@ public partial class MainViewModel : ObservableObject
         StatusText = $"프로젝트: {context.ProjectFilePath}";
 
         Tabs.Clear();
-        Tabs.Add(CreateTab("액터", context.Actors));
+        Tabs.Add(new EditorTab
+        {
+            Header = "액터",
+            Content = new ActorEditorView { DataContext = new DatabaseListViewModel<Actor>("액터", context.Actors) },
+        });
         Tabs.Add(CreateTab("직업", context.Classes));
         Tabs.Add(CreateTab("스킬", context.Skills));
         Tabs.Add(CreateTab("아이템", context.Items));

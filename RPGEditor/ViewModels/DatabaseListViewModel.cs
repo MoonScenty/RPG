@@ -52,7 +52,7 @@ public partial class DatabaseListViewModel<T> : ObservableObject, IDatabaseListV
     [RelayCommand]
     private void Add()
     {
-        var nextId = Entries.Count == 0 ? 1 : Entries.Max(e => e.Id) + 1;
+        var nextId = Entries.Count == 0 ? 0 : Entries.Max(e => e.Id) + 1;
         var entry = new T { Id = nextId, Name = $"{CategoryName} {nextId}" };
         Entries.Add(entry);
         Selected = entry;
@@ -64,7 +64,7 @@ public partial class DatabaseListViewModel<T> : ObservableObject, IDatabaseListV
         if (Selected is null)
             return;
 
-        var nextId = Entries.Count == 0 ? 1 : Entries.Max(e => e.Id) + 1;
+        var nextId = Entries.Count == 0 ? 0 : Entries.Max(e => e.Id) + 1;
         var copy = new T { Id = nextId, Name = $"{Selected.Name} (복사본)", Note = Selected.Note };
         var index = Entries.IndexOf(Selected);
         Entries.Insert(index + 1, copy);

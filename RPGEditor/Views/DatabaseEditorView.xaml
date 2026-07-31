@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:RPGEditor.Views"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="700">
     <Grid Margin="8">
@@ -12,22 +13,11 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <DockPanel Grid.Column="0">
-            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,6,0,0">
-                <Button Content="추가" Width="56" Command="{Binding AddCommand}" />
-                <Button Content="복제" Width="56" Margin="4,0,0,0" Command="{Binding DuplicateCommand}" />
-                <Button Content="삭제" Width="56" Margin="4,0,0,0" Command="{Binding DeleteCommand}" />
-                <Button Content="↑" Width="28" Margin="4,0,0,0" Command="{Binding MoveUpCommand}" />
-                <Button Content="↓" Width="28" Margin="4,0,0,0" Command="{Binding MoveDownCommand}" />
-            </StackPanel>
-            <ListBox ItemsSource="{Binding Entries}"
-                     SelectedItem="{Binding SelectedEntry}"
-                     DisplayMemberPath="Name" />
-        </DockPanel>
+        <views:EntryListPanel Grid.Column="0" />
 
         <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Stretch" Background="Transparent" />
 
-        <Grid Grid.Column="2" IsEnabled="{Binding SelectedEntry, Converter={StaticResource NullToBooleanConverter}}">
+        <Grid Grid.Column="2" IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -35,11 +25,11 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="{Binding SelectedEntry.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
+            <TextBlock Grid.Row="0" Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
 
             <StackPanel Grid.Row="1" Margin="0,0,0,10">
                 <TextBlock Text="이름" Margin="0,0,0,4" />
-                <TextBox Text="{Binding SelectedEntry.Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Margin="0,0,0,10">
@@ -47,7 +37,7 @@
             </StackPanel>
 
             <TextBox Grid.Row="3"
-                     Text="{Binding SelectedEntry.Note, UpdateSourceTrigger=PropertyChanged}"
+                     Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      VerticalScrollBarVisibility="Auto" />

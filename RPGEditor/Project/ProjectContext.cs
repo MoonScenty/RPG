@@ -18,6 +18,7 @@ public class ProjectContext
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
         WriteIndented = true,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
 
     public string ProjectFilePath { get; }
@@ -66,7 +67,7 @@ public class ProjectContext
     public static ProjectContext Load(string projectFilePath)
     {
         var json = File.ReadAllText(projectFilePath);
-        var projectFile = JsonSerializer.Deserialize<ProjectFile>(json)
+        var projectFile = JsonSerializer.Deserialize<ProjectFile>(json, JsonOptions)
             ?? throw new InvalidDataException($"프로젝트 파일을 읽을 수 없습니다: {projectFilePath}");
 
         var context = new ProjectContext(projectFilePath, projectFile);
@@ -83,7 +84,7 @@ public class ProjectContext
 
         var systemPath = Path.Combine(context.ProjectRootPath, projectFile.System);
         context.System = File.Exists(systemPath)
-            ? JsonSerializer.Deserialize<SystemData>(File.ReadAllText(systemPath)) ?? new SystemData()
+            ? JsonSerializer.Deserialize<SystemData>(File.ReadAllText(systemPath), JsonOptions) ?? new SystemData()
             : new SystemData();
 
         return context;
@@ -116,7 +117,7 @@ public class ProjectContext
         if (!File.Exists(path))
             return;
 
-        var entries = JsonSerializer.Deserialize<List<T>>(File.ReadAllText(path));
+        var entries = JsonSerializer.Deserialize<List<T>>(File.ReadAllText(path), JsonOptions);
         if (entries is null)
             return;
 
