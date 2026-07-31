@@ -15,19 +15,32 @@ public partial class EnemyEditorView : UserControl
         InitializeComponent();
     }
 
-    private void BrowseDragonBonesButton_Click(object sender, RoutedEventArgs e)
+    private void BrowseImageButton_Click(object sender, RoutedEventArgs e)
     {
         if (DataContext is not DatabaseListViewModel<Enemy> vm || vm.Selected is not { } enemy)
             return;
         if (string.IsNullOrEmpty(ProjectRootPath))
             return;
 
-        var folder = Path.Combine(ProjectRootPath, "img", "dragonbones");
-        var dialog = new DragonBonesPickerWindow(folder, enemy.Image)
+        if (enemy.ImageType == EnemyImageType.DragonBones)
         {
-            Owner = Application.Current?.MainWindow,
-        };
-        if (dialog.ShowDialog() == true && dialog.SelectedArmatureName is { } name)
-            enemy.Image = name;
+            var folder = Path.Combine(ProjectRootPath, "img", "dragonbones");
+            var dialog = new DragonBonesPickerWindow(folder, enemy.Image)
+            {
+                Owner = Application.Current?.MainWindow,
+            };
+            if (dialog.ShowDialog() == true && dialog.SelectedArmatureName is { } name)
+                enemy.Image = name;
+        }
+        else
+        {
+            var folder = Path.Combine(ProjectRootPath, "img", "sv_enemies");
+            var dialog = new SvEnemyPickerWindow(folder, enemy.Image)
+            {
+                Owner = Application.Current?.MainWindow,
+            };
+            if (dialog.ShowDialog() == true && dialog.SelectedImageName is { } name)
+                enemy.Image = name;
+        }
     }
 }

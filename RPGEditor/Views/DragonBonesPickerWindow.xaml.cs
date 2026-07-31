@@ -28,6 +28,9 @@ public partial class DragonBonesPickerWindow : Window
             ArmatureListBox.SelectedItem = currentArmatureName;
         else if (names.Count > 0)
             ArmatureListBox.SelectedIndex = 0;
+
+        if (ArmatureListBox.SelectedItem is not null)
+            ArmatureListBox.ScrollIntoView(ArmatureListBox.SelectedItem);
     }
 
     private void OnAnimationsLoaded(IReadOnlyList<string> names)
