@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -65,7 +66,9 @@ public partial class DatabaseListViewModel<T> : ObservableObject, IDatabaseListV
             return;
 
         var nextId = Entries.Count == 0 ? 0 : Entries.Max(e => e.Id) + 1;
-        var copy = new T { Id = nextId, Name = $"{Selected.Name} (복사본)", Note = Selected.Note };
+        var copy = JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(Selected))!;
+        copy.Id = nextId;
+        copy.Name = $"{Selected.Name} (복사본)";
         var index = Entries.IndexOf(Selected);
         Entries.Insert(index + 1, copy);
         Selected = copy;

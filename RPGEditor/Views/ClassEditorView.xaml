@@ -1,0 +1,104 @@
+<UserControl x:Class="RPGEditor.Views.ClassEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:RPGEditor.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <views:EntryListPanel Grid.Column="0" />
+
+        <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Stretch" Background="Transparent" />
+
+        <Grid Grid.Column="2" IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
+
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition Width="120" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="직업 이름" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="아이콘 (img/icons)" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Text="EXP 곡선 (기본값 / 보정값 / 증가도A / 증가도B)" Margin="0,0,0,4" />
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="6" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="6" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="6" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Text="{Binding Selected.ExpCurve.Basis, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Column="2" Text="{Binding Selected.ExpCurve.Extra, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Column="4" Text="{Binding Selected.ExpCurve.AccelerationA, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Column="6" Text="{Binding Selected.ExpCurve.AccelerationB, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <TextBlock Text="메모" Margin="0,0,0,4" />
+                <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
+                         AcceptsReturn="True" TextWrapping="Wrap" Height="50"
+                         VerticalScrollBarVisibility="Auto" />
+            </StackPanel>
+
+            <TabControl Grid.Row="1">
+                <TabItem Header="능력치 곡선 (레벨별)">
+                    <DataGrid ItemsSource="{Binding Selected.ParamCurve}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserSortColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="레벨" Binding="{Binding Level}" IsReadOnly="True" Width="60" />
+                            <DataGridTextColumn Header="HP" Binding="{Binding Hp}" Width="70" />
+                            <DataGridTextColumn Header="MP" Binding="{Binding Mp}" Width="70" />
+                            <DataGridTextColumn Header="STR" Binding="{Binding Str}" Width="60" />
+                            <DataGridTextColumn Header="VIT" Binding="{Binding Vit}" Width="60" />
+                            <DataGridTextColumn Header="INT" Binding="{Binding Int}" Width="60" />
+                            <DataGridTextColumn Header="MND" Binding="{Binding Mnd}" Width="60" />
+                            <DataGridTextColumn Header="DEX" Binding="{Binding Dex}" Width="60" />
+                            <DataGridTextColumn Header="AGI" Binding="{Binding Agi}" Width="60" />
+                            <DataGridTextColumn Header="LUK" Binding="{Binding Luk}" Width="60" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="습득 스킬">
+                    <DataGrid ItemsSource="{Binding Selected.Learnings}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="True"
+                              CanUserDeleteRows="True"
+                              CanUserSortColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="레벨" Binding="{Binding Level}" Width="80" />
+                            <DataGridTextColumn Header="스킬 ID (Skills.json)" Binding="{Binding SkillId}" Width="150" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>
