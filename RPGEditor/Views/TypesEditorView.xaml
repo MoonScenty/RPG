@@ -1,0 +1,16 @@
+<UserControl x:Class="RPGEditor.Views.TypesEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:RPGEditor.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="650" d:DesignWidth="1020">
+    <UniformGrid Columns="5" Margin="8">
+        <views:TypeCategoryColumn DataContext="{Binding Elements}" Margin="4" />
+        <views:TypeCategoryColumn DataContext="{Binding SkillTypes}" Margin="4" />
+        <views:TypeCategoryColumn DataContext="{Binding WeaponTypes}" Margin="4" />
+        <views:TypeCategoryColumn DataContext="{Binding ArmorTypes}" Margin="4" />
+        <views:TypeCategoryColumn DataContext="{Binding EquipTypes}" Margin="4" />
+    </UniformGrid>
+</UserControl>

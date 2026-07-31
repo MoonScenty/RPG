@@ -121,7 +121,7 @@ public partial class MainViewModel : ObservableObject
         Tabs.Add(new EditorTab
         {
             Header = "유형",
-            Content = new TypeEditorView { DataContext = new DatabaseListViewModel<EntryType>("유형", context.Types) },
+            Content = new TypesEditorView { DataContext = new TypesEditorViewModel(context.Types) },
         });
     }
 

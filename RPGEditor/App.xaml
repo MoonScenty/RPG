@@ -11,6 +11,7 @@
         <conv:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <conv:EnumEqualsVisibilityConverter x:Key="EnumEqualsVisibilityConverter" />
+        <conv:IndexToDisplayConverter x:Key="IndexToDisplayConverter" />
 
         <ObjectDataProvider x:Key="SkillScopeValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
@@ -70,11 +71,6 @@
         <ObjectDataProvider x:Key="AnimationDisplayTypeValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="models:AnimationDisplayType" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-        <ObjectDataProvider x:Key="TypeGroupValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="models:TypeGroup" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </Application.Resources>

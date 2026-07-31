@@ -35,7 +35,7 @@ public class ProjectContext
     public ObservableCollection<Troop> Troops { get; } = [];
     public ObservableCollection<GameState> States { get; } = [];
     public ObservableCollection<AnimationData> Animations { get; } = [];
-    public ObservableCollection<EntryType> Types { get; } = [];
+    public TypesData Types { get; set; } = new();
 
     private ProjectContext(string projectFilePath, ProjectFile projectFile)
     {
@@ -81,7 +81,11 @@ public class ProjectContext
         LoadEntries(context.ProjectRootPath, projectFile.Troops, context.Troops);
         LoadEntries(context.ProjectRootPath, projectFile.States, context.States);
         LoadEntries(context.ProjectRootPath, projectFile.Animations, context.Animations);
-        LoadEntries(context.ProjectRootPath, projectFile.Types, context.Types);
+
+        var typesPath = Path.Combine(context.ProjectRootPath, projectFile.Types);
+        context.Types = File.Exists(typesPath)
+            ? JsonSerializer.Deserialize<TypesData>(File.ReadAllText(typesPath), JsonOptions) ?? new TypesData()
+            : new TypesData();
 
         return context;
     }
@@ -100,7 +104,9 @@ public class ProjectContext
         SaveEntries(ProjectFile.Troops, Troops);
         SaveEntries(ProjectFile.States, States);
         SaveEntries(ProjectFile.Animations, Animations);
-        SaveEntries(ProjectFile.Types, Types);
+
+        var typesPath = Path.Combine(ProjectRootPath, ProjectFile.Types);
+        File.WriteAllText(typesPath, JsonSerializer.Serialize(Types, JsonOptions));
     }
 
     private static void LoadEntries<T>(string root, string relativePath, ObservableCollection<T> target)
