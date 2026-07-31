@@ -1,0 +1,106 @@
+using System.Collections.ObjectModel;
+using System.Windows;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.Win32;
+using RPGEditor.Models;
+using RPGEditor.Project;
+using RPGEditor.Views;
+
+namespace RPGEditor.ViewModels;
+
+public partial class MainViewModel : ObservableObject
+{
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasProject))]
+    [NotifyCanExecuteChangedFor(nameof(SaveProjectCommand))]
+    private ProjectContext? project;
+
+    [ObservableProperty]
+    private string statusText = "프로젝트가 열려 있지 않습니다.";
+
+    public ObservableCollection<EditorTab> Tabs { get; } = [];
+
+    public bool HasProject => Project is not null;
+
+    [RelayCommand]
+    private void NewProject(Window owner)
+    {
+        var dialog = new NewProjectWindow { Owner = owner };
+        if (dialog.ShowDialog() == true && dialog.CreatedProject is not null)
+        {
+            LoadProject(dialog.CreatedProject);
+        }
+    }
+
+    [RelayCommand]
+    private void OpenProject(Window owner)
+    {
+        var dialog = new OpenFileDialog
+        {
+            Filter = "RPG 프로젝트 파일 (*.rpgprj)|*.rpgprj",
+            Title = "프로젝트 열기",
+        };
+
+        if (dialog.ShowDialog(owner) != true)
+            return;
+
+        try
+        {
+            LoadProject(ProjectContext.Load(dialog.FileName));
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(owner, $"프로젝트를 여는 중 오류가 발생했습니다.\n{ex.Message}", "오류",
+                MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    [RelayCommand(CanExecute = nameof(HasProject))]
+    private void SaveProject()
+    {
+        if (Project is null)
+            return;
+
+        Project.Save();
+        StatusText = $"저장됨: {Project.ProjectFilePath}";
+    }
+
+    [RelayCommand]
+    private static void Exit()
+    {
+        Application.Current.Shutdown();
+    }
+
+    private void LoadProject(ProjectContext context)
+    {
+        Project = context;
+        StatusText = $"프로젝트: {context.ProjectFilePath}";
+
+        Tabs.Clear();
+        Tabs.Add(CreateTab("액터", context.Actors));
+        Tabs.Add(CreateTab("직업", context.Classes));
+        Tabs.Add(CreateTab("스킬", context.Skills));
+        Tabs.Add(CreateTab("아이템", context.Items));
+        Tabs.Add(CreateTab("적 캐릭터", context.Enemies));
+        Tabs.Add(CreateTab("적 군단", context.Troops));
+        Tabs.Add(CreateTab("상태", context.States));
+        Tabs.Add(CreateTab("애니메이션", context.Animations));
+        Tabs.Add(CreateTab("유형", context.Types));
+        Tabs.Add(new EditorTab
+        {
+            Header = "시스템",
+            Content = new SystemEditorView { DataContext = context.System },
+        });
+    }
+
+    private static EditorTab CreateTab<T>(string header, ObservableCollection<T> entries)
+        where T : DatabaseEntry, new()
+    {
+        return new EditorTab
+        {
+            Header = header,
+            Content = new DatabaseEditorView { DataContext = new DatabaseListViewModel<T>(header, entries) },
+        };
+    }
+}
