@@ -9,8 +9,7 @@
         <TextBlock DockPanel.Dock="Top" Text="{Binding CategoryName}" FontWeight="Bold" Margin="0,0,0,6" />
 
         <Button DockPanel.Dock="Bottom" Content="최대치 변경..." Margin="0,6,0,0"
-                Command="{Binding ChangeMaxCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                Command="{Binding ChangeMaxCommand}" />
 
         <TextBox DockPanel.Dock="Bottom"
                  Text="{Binding SelectedText, UpdateSourceTrigger=PropertyChanged}"

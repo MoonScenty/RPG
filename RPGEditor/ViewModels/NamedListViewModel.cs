@@ -35,9 +35,13 @@ public partial class NamedListViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void ChangeMax(Window owner)
+    private void ChangeMax()
     {
-        var dialog = new ChangeMaxWindow(CategoryName, Items.Count) { Owner = owner };
+        var dialog = new ChangeMaxWindow(CategoryName, Items.Count);
+        var owner = Application.Current?.MainWindow;
+        if (owner is not null && !ReferenceEquals(owner, dialog))
+            dialog.Owner = owner;
+
         if (dialog.ShowDialog() != true)
             return;
 
