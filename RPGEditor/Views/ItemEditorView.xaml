@@ -136,8 +136,9 @@
                                                   SelectedItem="{Binding Selected.Consumable.Damage.Type}" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2">
-                                        <TextBlock Text="속성 ID (Types.json)" Margin="0,0,0,4" />
-                                        <TextBox Text="{Binding Selected.Consumable.Damage.ElementId, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Text="속성 (Types.json)" Margin="0,0,0,4" />
+                                        <ComboBox ItemsSource="{Binding Types.Elements, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                  SelectedIndex="{Binding Selected.Consumable.Damage.ElementId, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                 </Grid>
                                 <TextBlock Text="계산식 (예: a.atk * 4 - b.def * 2)" Margin="0,0,0,4" />
@@ -198,7 +199,8 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
                             <TextBlock Text="무기 유형 (Types.json)" Margin="0,0,0,4" />
-                            <TextBox Text="{Binding Selected.Weapon.WeaponTypeId, UpdateSourceTrigger=PropertyChanged}" />
+                            <ComboBox ItemsSource="{Binding Types.WeaponTypes, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                      SelectedIndex="{Binding Selected.Weapon.WeaponTypeId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
                             <TextBlock Text="공격 애니메이션 ID" Margin="0,0,0,4" />
@@ -222,11 +224,13 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
                             <TextBlock Text="방어구 유형 (Types.json)" Margin="0,0,0,4" />
-                            <TextBox Text="{Binding Selected.Armor.ArmorTypeId, UpdateSourceTrigger=PropertyChanged}" />
+                            <ComboBox ItemsSource="{Binding Types.ArmorTypes, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                      SelectedIndex="{Binding Selected.Armor.ArmorTypeId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
                             <TextBlock Text="장비 유형/부위 (Types.json)" Margin="0,0,0,4" />
-                            <TextBox Text="{Binding Selected.Armor.EquipTypeId, UpdateSourceTrigger=PropertyChanged}" />
+                            <ComboBox ItemsSource="{Binding Types.EquipTypes, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                      SelectedIndex="{Binding Selected.Armor.EquipTypeId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </Grid>
                     <views:EquipParamsEditor DataContext="{Binding Selected.Armor.Params}" Margin="0,0,0,10" />
