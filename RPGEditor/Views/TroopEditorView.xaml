@@ -1,0 +1,79 @@
+<UserControl x:Class="RPGEditor.Views.TroopEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:RPGEditor.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="700">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <views:EntryListPanel Grid.Column="0" />
+
+        <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Stretch" Background="Transparent" />
+
+        <StackPanel Grid.Column="2" MaxWidth="420" HorizontalAlignment="Left"
+                    IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
+            <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
+
+            <TextBlock Text="이름" Margin="0,0,0,4" />
+            <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+            <Grid Margin="0,0,0,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="전투배경1 (battleback1)" Margin="0,0,0,4" />
+                    <TextBox Text="{Binding Selected.Battleback1, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="전투배경2 (battleback2)" Margin="0,0,0,4" />
+                    <TextBox Text="{Binding Selected.Battleback2, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="적 편성 (Enemies.json ID, 비우면 없음)" FontWeight="Bold" Margin="0,0,0,8" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="전방" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,6" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="후방" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,6" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="상단" VerticalAlignment="Center" Margin="0,0,8,6" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,8,6" Text="{Binding Selected.FrontTopEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,0,6" Text="{Binding Selected.BackTopEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="중단" VerticalAlignment="Center" Margin="0,0,8,6" />
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,8,6" Text="{Binding Selected.FrontMiddleEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                <TextBox Grid.Row="2" Grid.Column="2" Margin="0,0,0,6" Text="{Binding Selected.BackMiddleEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="하단" VerticalAlignment="Center" Margin="0,0,8,0" />
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,8,0" Text="{Binding Selected.FrontBottomEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Selected.BackBottomEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+            </Grid>
+
+            <TextBlock Text="메모" Margin="0,14,0,4" />
+            <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True" TextWrapping="Wrap" Height="60"
+                     VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
+    </Grid>
+</UserControl>
