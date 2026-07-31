@@ -7,6 +7,14 @@ public partial class GameState : DatabaseEntry
     [ObservableProperty]
     private int iconIndex;
 
+    /// <summary>같은 대상에 여러 상태가 걸렸을 때 아이콘 표시 우선순위(높을수록 우선).</summary>
+    [ObservableProperty]
+    private int priority = 50;
+
+    /// <summary>배틀러 주변에 표시되는 상태 오버레이 이펙트 ID. 0=없음.</summary>
+    [ObservableProperty]
+    private int overlay;
+
     [ObservableProperty]
     private StateRestriction restriction = StateRestriction.None;
 

@@ -1,0 +1,1320 @@
+[
+  {
+    "traits": [
+      {
+        "code": 23,
+        "dataId": 9,
+        "value": 0
+      }
+    ],
+    "iconIndex": 1,
+    "priority": 100,
+    "overlay": 0,
+    "restriction": "cannotMove",
+    "motion": "dead",
+    "removeAtBattleEnd": false,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "none",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uC4F0\uB7EC\uC84C\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC774(\uAC00) \uC8FD\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uBD80\uD65C\uD569\uB2C8\uB2E4!",
+    "id": 0,
+    "name": "\uC804\uD22C \uBD88\uB2A5",
+    "note": "HP\uAC00 0\uC774 \uB418\uBA74 \uC0C1\uD0DC #1\uC774(\uAC00) \uCD94\uAC00\uB429\uB2C8\uB2E4."
+  },
+  {
+    "traits": [
+      {
+        "code": 62,
+        "dataId": 1,
+        "value": 0
+      }
+    ],
+    "iconIndex": 0,
+    "priority": 0,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": true,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 1,
+    "name": "\uBC29\uC5B4",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 70,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 2,
+    "name": "\uCD9C\uD608",
+    "note": "\u003CDotPercent: 4\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 7,
+        "value": -0.1
+      }
+    ],
+    "iconIndex": 2,
+    "priority": 50,
+    "overlay": 1,
+    "restriction": "none",
+    "motion": "abnormal",
+    "removeAtBattleEnd": false,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "none",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uC911\uB3C5\uB418\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uC744) \uC911\uB3C5\uC2DC\uCF30\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uC911\uB3C5 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 3,
+    "name": "\uB3C5",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 0,
+        "value": -0.5
+      }
+    ],
+    "iconIndex": 3,
+    "priority": 60,
+    "overlay": 2,
+    "restriction": "none",
+    "motion": "abnormal",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 3,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uC554\uD751 \uC0C1\uD0DC\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uC554\uD751 \uC0C1\uD0DC\uC5D0 \uBE60\uB728\uB838\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uC554\uD751 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 4,
+    "name": "\uC554\uD751",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 42,
+        "dataId": 1,
+        "value": 0
+      },
+      {
+        "code": 42,
+        "dataId": 2,
+        "value": 0
+      }
+    ],
+    "iconIndex": 4,
+    "priority": 65,
+    "overlay": 3,
+    "restriction": "none",
+    "motion": "abnormal",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 3,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uCE68\uBB35 \uC0C1\uD0DC\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uCE68\uBB35 \uC0C1\uD0DC\uC5D0 \uBE60\uB728\uB838\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uCE68\uBB35 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 5,
+    "name": "\uCE68\uBB35",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 5,
+    "priority": 70,
+    "overlay": 4,
+    "restriction": "attackEnemy",
+    "motion": "abnormal",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 2,
+    "maxTurns": 4,
+    "removeByDamage": true,
+    "removeByDamageChance": 50,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uACA9\uBD84\uD588\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uACA9\uBD84\uD558\uAC8C \uB9CC\uB4E4\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uBD84\uB178 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 6,
+    "name": "\uBD84\uB178",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 6,
+    "priority": 75,
+    "overlay": 5,
+    "restriction": "attackAnyone",
+    "motion": "abnormal",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 2,
+    "maxTurns": 4,
+    "removeByDamage": true,
+    "removeByDamageChance": 50,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uD63C\uB780 \uC0C1\uD0DC\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uD63C\uB780 \uC0C1\uD0DC\uC5D0 \uBE60\uB728\uB838\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uD63C\uB780 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 7,
+    "name": "\uD63C\uB780",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 7,
+    "priority": 80,
+    "overlay": 6,
+    "restriction": "attackAlly",
+    "motion": "abnormal",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 2,
+    "maxTurns": 4,
+    "removeByDamage": true,
+    "removeByDamageChance": 50,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uB9E4\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uB9E4\uB8CC\uC2DC\uCF30\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uB9E4\uB8CC \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 8,
+    "name": "\uB9E4\uB8CC",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 1,
+        "value": -1
+      }
+    ],
+    "iconIndex": 8,
+    "priority": 90,
+    "overlay": 7,
+    "restriction": "cannotMove",
+    "motion": "sleep",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 3,
+    "maxTurns": 5,
+    "removeByDamage": true,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uC7A0\uB4E4\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uC7A0\uB4E4\uAC8C \uD588\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "%1\uC774(\uAC00) \uC790\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uAE68\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 9,
+    "name": "\uC218\uBA74",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 3,
+        "value": 0.8
+      }
+    ],
+    "iconIndex": 33,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 10,
+    "name": "\uBC29\uC5B4\uB825 \uD558\uB77D",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 1,
+        "value": -1
+      }
+    ],
+    "iconIndex": 9,
+    "priority": 95,
+    "overlay": 8,
+    "restriction": "cannotMove",
+    "motion": "sleep",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC740(\uB294) \uB9C8\uBE44\uB418\uC5B4 \uC6C0\uC9C1\uC77C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uB9C8\uBE44\uC2DC\uCF30\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "%1\uC740(\uB294) \uBAB8\uC774 \uB9C8\uBE44\uB418\uC5B4 \uC6C0\uC9C1\uC77C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uB9C8\uBE44 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "id": 11,
+    "name": "\uB9C8\uBE44",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 1,
+        "value": -1
+      }
+    ],
+    "iconIndex": 9,
+    "priority": 90,
+    "overlay": 10,
+    "restriction": "cannotMove",
+    "motion": "abnormal",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 1,
+    "maxTurns": 2,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC774(\uAC00) \uADE0\uD615\uC744 \uC783\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "%1\uC774(\uAC00) \uADE0\uD615\uC744 \uC783\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhileActive": "%1\uC774(\uAC00) \uADE0\uD615\uC744 \uC7A1\uC9C0 \uBABB\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4...",
+    "messageWhenRemoved": "%1\uC774(\uAC00) \uB2E4\uC2DC \uADE0\uD615\uC744 \uC7A1\uC558\uC2B5\uB2C8\uB2E4!",
+    "id": 12,
+    "name": "\uAE30\uC808",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 6,
+        "value": 0.75
+      }
+    ],
+    "iconIndex": 33,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 13,
+    "name": "\uC18D\uB3C4 \uD558\uB77D",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 66,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 14,
+    "name": "\uAC10\uC804",
+    "note": "\u003CDotPercent: 5\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 8,
+        "value": 0.1
+      }
+    ],
+    "iconIndex": 72,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 4,
+    "maxTurns": 4,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 15,
+    "name": "MP \uC7AC\uC0DD",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 9,
+        "value": 0.1
+      }
+    ],
+    "iconIndex": 72,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 4,
+    "maxTurns": 4,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 16,
+    "name": "TP \uC7AC\uC0DD",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 5,
+        "value": 1
+      }
+    ],
+    "iconIndex": 70,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 5,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 17,
+    "name": "\uB9C8\uBC95 \uBC18\uC0AC",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 2,
+        "value": 0.8
+      }
+    ],
+    "iconIndex": 33,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 18,
+    "name": "\uACF5\uACA9\uB825 \uD558\uB77D",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 71,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 19,
+    "name": "\uCDE8\uC57D \uD45C\uC2DD",
+    "note": "\u003CDamageTakenRate: 115\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 23,
+        "dataId": 0,
+        "value": 0
+      }
+    ],
+    "iconIndex": 81,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 5,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "%1\uC744(\uB97C) \uB9DE\uCD94\uAE30 \uD798\uB4E4\uC5B4\uC84C\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 20,
+    "name": "\uC228\uAE30",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 23,
+        "dataId": 4,
+        "value": 0.25
+      }
+    ],
+    "iconIndex": 70,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 5,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 21,
+    "name": "\uC18C\uBE44 MP \uAC10\uC18C",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 64,
+        "dataId": 0,
+        "value": 1
+      }
+    ],
+    "iconIndex": 72,
+    "priority": 20,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": false,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "none",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 22,
+    "name": "\uC778\uCE74\uC6B4\uD2B8 \uD655\uB960 \uBC18\uAC10",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 64,
+        "dataId": 4,
+        "value": 1
+      },
+      {
+        "code": 64,
+        "dataId": 5,
+        "value": 1
+      }
+    ],
+    "iconIndex": 70,
+    "priority": 20,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": false,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "none",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 23,
+    "name": "\uB3C8/\uC544\uC774\uD15C 2\uBC30",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 14,
+        "dataId": 1,
+        "value": 0
+      }
+    ],
+    "iconIndex": 0,
+    "priority": 0,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "none",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 24,
+    "name": "\uBD88\uBA78",
+    "note": "\u003CUndying\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 7,
+        "value": 0.1
+      }
+    ],
+    "iconIndex": 72,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 4,
+    "maxTurns": 4,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 25,
+    "name": "HP \uC7AC\uC0DD",
+    "note": "\u003CHotPercent: 6\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 62,
+        "dataId": 2,
+        "value": 1
+      }
+    ],
+    "iconIndex": 81,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 1,
+    "maxTurns": 1,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 26,
+    "name": "\uAC10\uC2F8\uAE30",
+    "note": "\u003CGuardAlly\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 23,
+        "dataId": 0,
+        "value": 9
+      }
+    ],
+    "iconIndex": 76,
+    "priority": 40,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 5,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 27,
+    "name": "\uB3C4\uBC1C",
+    "note": "\u003CTaunt\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 6,
+        "value": 1
+      }
+    ],
+    "iconIndex": 77,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "actionEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 28,
+    "name": "\uBC18\uACA9",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 14,
+        "dataId": 4,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 5,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 6,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 7,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 8,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 9,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 10,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 12,
+        "value": 1
+      },
+      {
+        "code": 14,
+        "dataId": 13,
+        "value": 1
+      }
+    ],
+    "iconIndex": 70,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 5,
+    "maxTurns": 5,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 29,
+    "name": "\uC0C1\uD0DC \uC774\uC0C1 \uCC28\uB2E8",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 31,
+        "dataId": 2,
+        "value": 1
+      },
+      {
+        "code": 11,
+        "dataId": 2,
+        "value": 0.5
+      },
+      {
+        "code": 21,
+        "dataId": 2,
+        "value": 1.1
+      }
+    ],
+    "iconIndex": 64,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 99,
+    "maxTurns": 99,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 30,
+    "name": "\uD654\uC5FC \uD0DC\uC138",
+    "note": "\u003CNote\u003E\uD654\uC5FC \uC6D0\uC18C \uC2A4\uD0AC \uC0AC\uC6A9 \uC2DC \uC2DC\uC804\uC790 \uC790\uC2E0\uC5D0\uAC8C \uAC78\uB9AC\uB294 \uD0DC\uC138. \uBE59\uACB0 \uD0DC\uC138\uC640 \uB3D9\uC2DC\uC5D0 \uAC78\uB9B4 \uC218 \uC5C6\uB2E4(\uBE59\uACB0 \uD0DC\uC138\uB97C \uAC78\uBA74 \uC774 \uC0C1\uD0DC\uB294 \uC81C\uAC70\uB428) - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  },
+  {
+    "traits": [
+      {
+        "code": 31,
+        "dataId": 3,
+        "value": 1
+      },
+      {
+        "code": 11,
+        "dataId": 3,
+        "value": 0.5
+      },
+      {
+        "code": 21,
+        "dataId": 2,
+        "value": 1.1
+      }
+    ],
+    "iconIndex": 65,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 99,
+    "maxTurns": 99,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 31,
+    "name": "\uBE59\uACB0 \uD0DC\uC138",
+    "note": "\u003CNote\u003E\uB0C9\uAE30 \uC6D0\uC18C \uC2A4\uD0AC \uC0AC\uC6A9 \uC2DC \uC2DC\uC804\uC790 \uC790\uC2E0\uC5D0\uAC8C \uAC78\uB9AC\uB294 \uD0DC\uC138. \uD654\uC5FC \uD0DC\uC138\uC640 \uB3D9\uC2DC\uC5D0 \uAC78\uB9B4 \uC218 \uC5C6\uB2E4. \uD654\uC5FC \uD0DC\uC138\uC5D0\uC11C \uC774 \uC0C1\uD0DC\uB85C \uC804\uD658\uB418\uB294 \uC21C\uAC04 \uC6D0\uC18C\uAC01\uC778 \uAC00\uB2A5 \uC0C1\uD0DC\uB3C4 \uD568\uAED8 \uBD80\uC5EC\uB41C\uB2E4 - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  },
+  {
+    "traits": [
+      {
+        "code": 31,
+        "dataId": 4,
+        "value": 1
+      },
+      {
+        "code": 11,
+        "dataId": 4,
+        "value": 0.5
+      },
+      {
+        "code": 21,
+        "dataId": 2,
+        "value": 1.1
+      }
+    ],
+    "iconIndex": 66,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 99,
+    "maxTurns": 99,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 32,
+    "name": "\uC804\uACA9 \uD0DC\uC138",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 77,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": false,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "none",
+    "minTurns": 0,
+    "maxTurns": 0,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 33,
+    "name": "\uCF64\uBCF4",
+    "note": "\u003CNote\u003E\uAC80\uC0AC \uC804\uC6A9 \uCF64\uBCF4 \uCE74\uC6B4\uD130 \uB9C8\uCEE4 - \uC2A4\uD0DD \uB85C\uC9C1\uC740 \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 3,
+        "value": 1.3
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 34,
+    "name": "\uBC29\uC5B4\uB825 \uC0C1\uC2B9",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 2,
+        "value": 1.25
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 35,
+    "name": "\uACF5\uACA9\uB825 \uC0C1\uC2B9",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 1,
+        "value": 0.25
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 36,
+    "name": "\uD68C\uD53C\uC728 \uC0C1\uC2B9",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 2,
+        "value": 0.3
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 37,
+    "name": "\uD06C\uB9AC\uD2F0\uCEEC\uC728 \uC0C1\uC2B9",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 32,
+    "priority": 55,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 38,
+    "name": "\uC6D0\uC18C\uAC01\uC778 \uAC00\uB2A5",
+    "note": "\u003CNote\u003E\uC774 \uC0C1\uD0DC\uC77C \uB54C\uB9CC \uC2A4\uD0AC \u0022\uC6D0\uC18C \uAC01\uC778\u0022\uC744 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB2E4(\uC2DC\uC804\uC790 \uC790\uC2E0\uC774 \uD654\uC5FC \uD0DC\uC138\uC5D0\uC11C \uBE59\uACB0 \uD0DC\uC138\uB85C \uC804\uD658\uB418\uBA74 \uBD80\uC5EC\uB428) - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  },
+  {
+    "traits": [],
+    "iconIndex": 67,
+    "priority": 55,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 39,
+    "name": "\uC0BC\uC911 \uC601\uCC3D \uAC00\uB2A5",
+    "note": "\u003CNote\u003E\uC774 \uC0C1\uD0DC\uAC00 \uC788\uB294 \uB3D9\uC548 \u003CCasting: n\u003E\uC774 \uBD99\uC740 \uC2A4\uD0AC\uC744 \uB300\uAE30 \uC5C6\uC774 \uC989\uC2DC \uBC1C\uB3D9\uD560 \uC218 \uC788\uB2E4. \uADF8\uB7F0 \uC2A4\uD0AC\uC744 \uC0AC\uC6A9\uD558\uBA74 \uC774 \uC0C1\uD0DC\uB294 \uC18C\uBAA8(\uC81C\uAC70)\uB41C\uB2E4 - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 5,
+        "value": 1.25
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 40,
+    "name": "\uB9C8\uBC95\uBC29\uC5B4 \uC0C1\uC2B9",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 81,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 2,
+    "maxTurns": 2,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 41,
+    "name": "\uBC1B\uB294\uD53C\uD574 \uAC10\uC18C",
+    "note": "\u003CDamageTakenRate: 60\u003E"
+  },
+  {
+    "traits": [],
+    "iconIndex": 81,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 2,
+    "maxTurns": 2,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 42,
+    "name": "\uBCF4\uD638\uB9C9",
+    "note": "\u003CShield: 30\u003E"
+  },
+  {
+    "traits": [
+      {
+        "code": 21,
+        "dataId": 4,
+        "value": 1.25
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 43,
+    "name": "\uB9C8\uBC95\uACF5\uACA9 \uC0C1\uC2B9",
+    "note": ""
+  },
+  {
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 3,
+        "value": 1
+      }
+    ],
+    "iconIndex": 32,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 2,
+    "maxTurns": 2,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 44,
+    "name": "\uCE58\uBA85\uD0C0 \uBB34\uD6A8",
+    "note": ""
+  },
+  {
+    "traits": [],
+    "iconIndex": 71,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 45,
+    "name": "\uD761\uD608\uB960 \uC0C1\uC2B9",
+    "note": "\u003CNote\u003E\uD761\uD608 \uC2A4\uD0AC \uD761\uD608\uB7C9 \u002B50% - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  },
+  {
+    "traits": [],
+    "iconIndex": 72,
+    "priority": 50,
+    "overlay": 0,
+    "restriction": "none",
+    "motion": "",
+    "removeAtBattleEnd": true,
+    "removeByRestriction": false,
+    "autoRemovalTiming": "turnEnd",
+    "minTurns": 3,
+    "maxTurns": 3,
+    "removeByDamage": false,
+    "removeByDamageChance": 100,
+    "messageWhenAdded": "",
+    "messageWhenAddedEnemy": "",
+    "messageWhileActive": "",
+    "messageWhenRemoved": "",
+    "id": 46,
+    "name": "\uD53C\uD574\uD761\uD608\uC804\uD658",
+    "note": "\u003CNote\u003E\uC774\uBC88 \uC0C1\uD0DC \uC9C0\uC18D \uC911 \uBC1B\uC740 \uD53C\uD574\uC758 \uC77C\uBD80\uB97C \uC790\uC2E0 \uD68C\uBCF5\uC73C\uB85C \uC804\uD658 - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+  }
+]
