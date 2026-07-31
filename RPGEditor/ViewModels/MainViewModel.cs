@@ -86,17 +86,29 @@ public partial class MainViewModel : ObservableObject
         Tabs.Add(new EditorTab
         {
             Header = "직업",
-            Content = new ClassEditorView { DataContext = new DatabaseListViewModel<CharacterClass>("직업", context.Classes) },
+            Content = new ClassEditorView
+            {
+                DataContext = new DatabaseListViewModel<CharacterClass>("직업", context.Classes),
+                ProjectRootPath = context.ProjectRootPath,
+            },
         });
         Tabs.Add(new EditorTab
         {
             Header = "스킬",
-            Content = new SkillEditorView { DataContext = new DatabaseListViewModel<Skill>("스킬", context.Skills) },
+            Content = new SkillEditorView
+            {
+                DataContext = new DatabaseListViewModel<Skill>("스킬", context.Skills),
+                ProjectRootPath = context.ProjectRootPath,
+            },
         });
         Tabs.Add(new EditorTab
         {
             Header = "아이템",
-            Content = new ItemEditorView { DataContext = new DatabaseListViewModel<Item>("아이템", context.Items) },
+            Content = new ItemEditorView
+            {
+                DataContext = new DatabaseListViewModel<Item>("아이템", context.Items),
+                ProjectRootPath = context.ProjectRootPath,
+            },
         });
         Tabs.Add(new EditorTab
         {
@@ -115,7 +127,11 @@ public partial class MainViewModel : ObservableObject
         Tabs.Add(new EditorTab
         {
             Header = "상태",
-            Content = new StateEditorView { DataContext = new DatabaseListViewModel<GameState>("상태", context.States) },
+            Content = new StateEditorView
+            {
+                DataContext = new DatabaseListViewModel<GameState>("상태", context.States),
+                ProjectRootPath = context.ProjectRootPath,
+            },
         });
         Tabs.Add(new EditorTab
         {

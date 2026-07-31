@@ -33,7 +33,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="130" />
                                 <ColumnDefinition Width="8" />
                                 <ColumnDefinition Width="90" />
                                 <ColumnDefinition Width="8" />
@@ -45,7 +45,7 @@
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="아이콘" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
+                                <views:IconField x:Name="IconField" IconIndex="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="4">
                                 <TextBlock Text="MP 소비" Margin="0,0,0,4" />

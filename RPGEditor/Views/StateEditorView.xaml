@@ -32,7 +32,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="130" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="이름" Margin="0,0,0,4" />
@@ -40,7 +40,7 @@
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="아이콘" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
+                                <views:IconField x:Name="IconField" IconIndex="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
 
