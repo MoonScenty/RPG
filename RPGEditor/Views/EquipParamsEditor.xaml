@@ -1,0 +1,101 @@
+<UserControl x:Class="RPGEditor.Views.EquipParamsEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="140" d:DesignWidth="640">
+    <UserControl.Resources>
+        <Style TargetType="StackPanel" x:Key="StatBox">
+            <Setter Property="Margin" Value="0,0,6,6" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="StatInput">
+            <Setter Property="Width" Value="54" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBlock Text="기본 능력치 보정" Margin="0,0,0,4" />
+        <WrapPanel Margin="0,0,0,8">
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="HP" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Hp, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="MP" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Mp, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="STR" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Str, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="VIT" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Vit, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="INT" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Int, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="MND" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Mnd, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="DEX" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Dex, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="AGI" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Agi, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="LUK" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Luk, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </WrapPanel>
+
+        <TextBlock Text="전투 파생 능력치 보정" Margin="0,0,0,4" />
+        <WrapPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="ATK" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Atk, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="DEF" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Def, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="MATK" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Matk, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="MDEF" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Mdef, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="HIT" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Hit, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="EVA" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Eva, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="CRIT" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding Crit, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="CRIT DMG" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding CritDamage, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="상태적중" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding StatusHit, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource StatBox}">
+                <TextBlock Text="상태저항" HorizontalAlignment="Center" />
+                <TextBox Style="{StaticResource StatInput}" Text="{Binding StatusRes, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>
