@@ -1,0 +1,11 @@
+{
+  "actors":"Actors.json",
+  "animations":"Animations.json",
+  "items":"Items.json",
+  "classes":"Classes.json",
+  "enemies":"Enemies.json",
+  "skills":"Skills.json",
+  "states":"States.json",
+  "system":"System.json",
+  "troops":"Troops.json"
+}
