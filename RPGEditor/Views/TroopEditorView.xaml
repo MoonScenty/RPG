@@ -39,11 +39,15 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="전투배경1 (battleback1)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Battleback1, UpdateSourceTrigger=PropertyChanged}" />
+                                <views:ImageField x:Name="Battleback1Field" SubFolder="img/battlebacks1"
+                                                   PickerTitle="전투배경1 선택"
+                                                   FileName="{Binding Selected.Battleback1, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="전투배경2 (battleback2)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Battleback2, UpdateSourceTrigger=PropertyChanged}" />
+                                <views:ImageField x:Name="Battleback2Field" SubFolder="img/battlebacks2"
+                                                   PickerTitle="전투배경2 선택"
+                                                   FileName="{Binding Selected.Battleback2, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
 
@@ -65,16 +69,22 @@
                             <TextBlock Grid.Row="0" Grid.Column="2" Text="후방" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,6" />
 
                             <TextBlock Grid.Row="1" Grid.Column="0" Text="상단" VerticalAlignment="Center" Margin="0,0,8,6" />
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,8,6" Text="{Binding Selected.FrontTopEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
-                            <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,0,6" Text="{Binding Selected.BackTopEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                            <views:EnemySlotField x:Name="FrontTopField" Grid.Row="1" Grid.Column="1" Margin="0,0,8,6"
+                                                   EnemyId="{Binding Selected.FrontTopEnemyId, UpdateSourceTrigger=PropertyChanged}" />
+                            <views:EnemySlotField x:Name="BackTopField" Grid.Row="1" Grid.Column="2" Margin="0,0,0,6"
+                                                   EnemyId="{Binding Selected.BackTopEnemyId, UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Grid.Row="2" Grid.Column="0" Text="중단" VerticalAlignment="Center" Margin="0,0,8,6" />
-                            <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,8,6" Text="{Binding Selected.FrontMiddleEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
-                            <TextBox Grid.Row="2" Grid.Column="2" Margin="0,0,0,6" Text="{Binding Selected.BackMiddleEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                            <views:EnemySlotField x:Name="FrontMiddleField" Grid.Row="2" Grid.Column="1" Margin="0,0,8,6"
+                                                   EnemyId="{Binding Selected.FrontMiddleEnemyId, UpdateSourceTrigger=PropertyChanged}" />
+                            <views:EnemySlotField x:Name="BackMiddleField" Grid.Row="2" Grid.Column="2" Margin="0,0,0,6"
+                                                   EnemyId="{Binding Selected.BackMiddleEnemyId, UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Grid.Row="3" Grid.Column="0" Text="하단" VerticalAlignment="Center" Margin="0,0,8,0" />
-                            <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,8,0" Text="{Binding Selected.FrontBottomEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
-                            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Selected.BackBottomEnemyId, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                            <views:EnemySlotField x:Name="FrontBottomField" Grid.Row="3" Grid.Column="1" Margin="0,0,8,0"
+                                                   EnemyId="{Binding Selected.FrontBottomEnemyId, UpdateSourceTrigger=PropertyChanged}" />
+                            <views:EnemySlotField x:Name="BackBottomField" Grid.Row="3" Grid.Column="2"
+                                                   EnemyId="{Binding Selected.BackBottomEnemyId, UpdateSourceTrigger=PropertyChanged}" />
                         </Grid>
                     </StackPanel>
 
@@ -108,7 +118,11 @@
                                 <ColumnDefinition Width="60" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="배경음악" VerticalAlignment="Center" />
-                            <TextBox Grid.Column="1" Text="{Binding Selected.BattleBgm.Name, UpdateSourceTrigger=PropertyChanged}" />
+                            <views:AudioField x:Name="BattleBgmField" Grid.Column="1" SubFolder="audio/bgm"
+                                               FileName="{Binding Selected.BattleBgm.Name, UpdateSourceTrigger=PropertyChanged}"
+                                               Pan="{Binding Selected.BattleBgm.Pan}"
+                                               Pitch="{Binding Selected.BattleBgm.Pitch}"
+                                               Volume="{Binding Selected.BattleBgm.Volume}" />
                             <TextBox Grid.Column="3" Text="{Binding Selected.BattleBgm.Pan, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox Grid.Column="5" Text="{Binding Selected.BattleBgm.Pitch, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox Grid.Column="7" Text="{Binding Selected.BattleBgm.Volume, UpdateSourceTrigger=PropertyChanged}" />
@@ -125,7 +139,11 @@
                                 <ColumnDefinition Width="60" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="승리음악" VerticalAlignment="Center" />
-                            <TextBox Grid.Column="1" Text="{Binding Selected.VictoryMe.Name, UpdateSourceTrigger=PropertyChanged}" />
+                            <views:AudioField x:Name="VictoryMeField" Grid.Column="1" SubFolder="audio/me"
+                                               FileName="{Binding Selected.VictoryMe.Name, UpdateSourceTrigger=PropertyChanged}"
+                                               Pan="{Binding Selected.VictoryMe.Pan}"
+                                               Pitch="{Binding Selected.VictoryMe.Pitch}"
+                                               Volume="{Binding Selected.VictoryMe.Volume}" />
                             <TextBox Grid.Column="3" Text="{Binding Selected.VictoryMe.Pan, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox Grid.Column="5" Text="{Binding Selected.VictoryMe.Pitch, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox Grid.Column="7" Text="{Binding Selected.VictoryMe.Volume, UpdateSourceTrigger=PropertyChanged}" />
@@ -142,7 +160,11 @@
                                 <ColumnDefinition Width="60" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="패배음악" VerticalAlignment="Center" />
-                            <TextBox Grid.Column="1" Text="{Binding Selected.DefeatMe.Name, UpdateSourceTrigger=PropertyChanged}" />
+                            <views:AudioField x:Name="DefeatMeField" Grid.Column="1" SubFolder="audio/me"
+                                               FileName="{Binding Selected.DefeatMe.Name, UpdateSourceTrigger=PropertyChanged}"
+                                               Pan="{Binding Selected.DefeatMe.Pan}"
+                                               Pitch="{Binding Selected.DefeatMe.Pitch}"
+                                               Volume="{Binding Selected.DefeatMe.Volume}" />
                             <TextBox Grid.Column="3" Text="{Binding Selected.DefeatMe.Pan, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox Grid.Column="5" Text="{Binding Selected.DefeatMe.Pitch, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBox Grid.Column="7" Text="{Binding Selected.DefeatMe.Volume, UpdateSourceTrigger=PropertyChanged}" />

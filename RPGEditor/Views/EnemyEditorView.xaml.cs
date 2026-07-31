@@ -35,7 +35,7 @@ public partial class EnemyEditorView : UserControl
         else
         {
             var folder = Path.Combine(ProjectRootPath, "img", "sv_enemies");
-            var dialog = new SvEnemyPickerWindow(folder, enemy.Image)
+            var dialog = new ImageFilePickerWindow(folder, enemy.Image, "SV 배틀러 이미지 선택")
             {
                 Owner = Application.Current?.MainWindow,
             };

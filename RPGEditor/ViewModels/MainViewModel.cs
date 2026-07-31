@@ -122,7 +122,12 @@ public partial class MainViewModel : ObservableObject
         Tabs.Add(new EditorTab
         {
             Header = "적 군단",
-            Content = new TroopEditorView { DataContext = new DatabaseListViewModel<Troop>("적 군단", context.Troops) },
+            Content = new TroopEditorView
+            {
+                DataContext = new DatabaseListViewModel<Troop>("적 군단", context.Troops),
+                ProjectRootPath = context.ProjectRootPath,
+                Enemies = context.Enemies,
+            },
         });
         Tabs.Add(new EditorTab
         {

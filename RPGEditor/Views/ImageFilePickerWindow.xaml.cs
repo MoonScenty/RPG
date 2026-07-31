@@ -6,16 +6,18 @@ using System.Windows.Media.Imaging;
 
 namespace RPGEditor.Views;
 
-public partial class SvEnemyPickerWindow : Window
+public partial class ImageFilePickerWindow : Window
 {
     private readonly string _folderPath;
 
     public string? SelectedImageName { get; private set; }
 
-    public SvEnemyPickerWindow(string folderPath, string? currentImageName)
+    public ImageFilePickerWindow(string folderPath, string? currentImageName, string? title = null)
     {
         InitializeComponent();
         _folderPath = folderPath;
+        if (!string.IsNullOrEmpty(title))
+            Title = title;
 
         var names = Directory.Exists(folderPath)
             ? Directory.GetFiles(folderPath, "*.png")

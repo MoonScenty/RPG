@@ -29,7 +29,7 @@ public partial class DragonBonesPreviewControl : UserControl
             return;
         _initialized = true;
 
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
 
         var previewFolder = Path.Combine(AppContext.BaseDirectory, "Assets", "DragonBonesPreview");
         WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
@@ -57,7 +57,7 @@ public partial class DragonBonesPreviewControl : UserControl
 
     public async Task LoadArmatureAsync(string armatureName)
     {
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
         await _pageReady.Task;
 
         var payload = new
@@ -73,14 +73,14 @@ public partial class DragonBonesPreviewControl : UserControl
 
     public async Task PlayAnimationAsync(string animationName)
     {
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
         await _pageReady.Task;
         WebView.CoreWebView2.PostWebMessageAsJson(JsonSerializer.Serialize(new { type = "play", name = animationName }));
     }
 
     public async Task StopAsync()
     {
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
         await _pageReady.Task;
         WebView.CoreWebView2.PostWebMessageAsJson(JsonSerializer.Serialize(new { type = "stop" }));
     }

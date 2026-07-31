@@ -1,10 +1,10 @@
-<Window x:Class="RPGEditor.Views.SvEnemyPickerWindow"
+<Window x:Class="RPGEditor.Views.ImageFilePickerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="SV 배틀러 이미지 선택" Height="480" Width="640"
+        Title="이미지 선택" Height="480" Width="640"
         WindowStartupLocation="CenterOwner"
         FontSize="16">
     <Grid Margin="12">

@@ -1,0 +1,33 @@
+<Window x:Class="RPGEditor.Views.EnemyPickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="적 캐릭터 선택" Height="480" Width="380"
+        WindowStartupLocation="CenterOwner"
+        FontSize="16">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="EnemyListBox" Grid.Row="0"
+                 VirtualizingPanel.IsVirtualizing="False"
+                 SelectionChanged="EnemyListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Display}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="없음으로 설정" Width="130" Click="ClearButton_Click" />
+            <Button x:Name="SelectButton" Content="선택" Width="80" Margin="8,0,0,0" IsDefault="True"
+                    IsEnabled="False" Click="SelectButton_Click" />
+            <Button Content="취소" Width="80" Margin="8,0,0,0" IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</Window>

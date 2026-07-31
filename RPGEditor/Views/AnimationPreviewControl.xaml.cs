@@ -28,7 +28,7 @@ public partial class AnimationPreviewControl : UserControl
             return;
         _initialized = true;
 
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
 
         var previewFolder = Path.Combine(AppContext.BaseDirectory, "Assets", "AnimationPreview");
         WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
@@ -57,7 +57,7 @@ public partial class AnimationPreviewControl : UserControl
         if (animation is null)
             return;
 
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
         await _pageReady.Task;
 
         var payload = new
@@ -83,7 +83,7 @@ public partial class AnimationPreviewControl : UserControl
 
     public async Task StopAsync()
     {
-        await WebView.EnsureCoreWebView2Async();
+        await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
         await _pageReady.Task;
         WebView.CoreWebView2.PostWebMessageAsJson(JsonSerializer.Serialize(new { type = "stop" }));
     }

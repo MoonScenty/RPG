@@ -14,10 +14,85 @@
     "drops": [],
     "actions": [],
     "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "walk"
+      },
+      {
+        "motion": "wait",
+        "animationName": "wait"
+      },
+      {
+        "motion": "chant",
+        "animationName": "chant"
+      },
+      {
+        "motion": "guard",
+        "animationName": "guard"
+      },
+      {
+        "motion": "damage",
+        "animationName": "damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "evade"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "thrust"
+      },
+      {
+        "motion": "swing",
+        "animationName": "swing"
+      },
+      {
+        "motion": "missile",
+        "animationName": "missile"
+      },
+      {
+        "motion": "skill",
+        "animationName": "skill"
+      },
+      {
+        "motion": "spell",
+        "animationName": "spell"
+      },
+      {
+        "motion": "item",
+        "animationName": "item"
+      },
+      {
+        "motion": "escape",
+        "animationName": "escape"
+      },
+      {
+        "motion": "victory",
+        "animationName": "victory"
+      },
+      {
+        "motion": "dying",
+        "animationName": "dying"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "abnormal"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "sleep"
+      },
+      {
+        "motion": "dead",
+        "animationName": "dead"
+      }
+    ],
     "rewardExp": 0,
     "rewardGold": 0,
     "imageType": "dragonBones",
     "image": "GoblinAxe",
+    "scale": 100,
     "id": 0,
     "name": "\uB3C4\uB07C \uACE0\uBE14\uB9B0",
     "note": ""

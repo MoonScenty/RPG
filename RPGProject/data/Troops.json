@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "battleBgm": {
+      "name": "Battle1",
+      "pan": 0,
+      "pitch": 100,
+      "volume": 90
+    },
+    "victoryMe": {
+      "name": "Victory1",
+      "pan": 0,
+      "pitch": 100,
+      "volume": 90
+    },
+    "defeatMe": {
+      "name": "Defeat1",
+      "pan": 0,
+      "pitch": 100,
+      "volume": 90
+    },
+    "battleback1": "Cyberspace",
+    "battleback2": "Cyberspace",
+    "frontTopEnemyId": 0,
+    "frontMiddleEnemyId": 0,
+    "frontBottomEnemyId": 0,
+    "backTopEnemyId": 0,
+    "backMiddleEnemyId": 0,
+    "backBottomEnemyId": 0,
+    "id": 0,
+    "name": "\uB3C4\uB07C \uACE0\uBE14\uB9B0 x6",
+    "note": ""
+  }
+]
