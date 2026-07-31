@@ -19,81 +19,103 @@
 
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"
                       IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
-            <StackPanel MaxWidth="480" HorizontalAlignment="Left">
+            <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
 
-                <TextBlock Text="이름" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-
-                <Grid Margin="0,0,0,10">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition Width="16" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
+
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="초기 레벨" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.InitialLevel, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="이름" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="초기 레벨" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.InitialLevel, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="최대 레벨" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MaxLevel, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock Text="직업 ID (Classes.json)" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.ClassId, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
                     </StackPanel>
+
                     <StackPanel Grid.Column="2">
-                        <TextBlock Text="최대 레벨" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MaxLevel, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="전투 그래픽 (img/sv_actors)" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.BattlerName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+                        <TextBlock Text="얼굴 그래픽 (img/faces)" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.FaceName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+                        <TextBlock Text="장비 (Items.json ID, 0=없음)" Margin="0,0,0,4" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="6" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="6" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="6" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="6" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="무기" HorizontalAlignment="Center" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Equips[0], UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="방패" HorizontalAlignment="Center" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Equips[1], UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <TextBlock Text="머리" HorizontalAlignment="Center" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Equips[2], UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="6">
+                                <TextBlock Text="몸" HorizontalAlignment="Center" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Equips[3], UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="8">
+                                <TextBlock Text="장신구" HorizontalAlignment="Center" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Equips[4], UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Grid>
 
-                <TextBlock Text="직업 ID (Classes.json)" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.ClassId, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-
-                <TextBlock Text="전투 그래픽 (img/sv_actors)" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.BattlerName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-
-                <TextBlock Text="얼굴 그래픽 (img/faces)" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.FaceName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-
-                <TextBlock Text="장비 (Items.json ID, 0=없음)" Margin="0,0,0,4" />
-                <Grid Margin="0,0,0,10">
+                <Grid Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="6" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="6" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="6" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="6" />
+                        <ColumnDefinition Width="16" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="무기" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Equips[0], UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="프로필" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Profile, UpdateSourceTrigger=PropertyChanged}"
+                                 AcceptsReturn="True" TextWrapping="Wrap" Height="80"
+                                 VerticalScrollBarVisibility="Auto" />
                     </StackPanel>
                     <StackPanel Grid.Column="2">
-                        <TextBlock Text="방패" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Equips[1], UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <TextBlock Text="머리" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Equips[2], UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="6">
-                        <TextBlock Text="몸" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Equips[3], UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="8">
-                        <TextBlock Text="장신구" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Equips[4], UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="메모" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
+                                 AcceptsReturn="True" TextWrapping="Wrap" Height="80"
+                                 VerticalScrollBarVisibility="Auto" />
                     </StackPanel>
                 </Grid>
-
-                <TextBlock Text="프로필" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Profile, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True" TextWrapping="Wrap" Height="60"
-                         VerticalScrollBarVisibility="Auto" Margin="0,0,0,10" />
-
-                <TextBlock Text="메모" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True" TextWrapping="Wrap" Height="80"
-                         VerticalScrollBarVisibility="Auto" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

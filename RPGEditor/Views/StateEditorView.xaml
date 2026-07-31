@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:RPGEditor.Views"
              mc:Ignorable="d"
-             d:DesignHeight="800" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1000">
     <Grid Margin="8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240" />
@@ -19,104 +19,127 @@
 
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"
                       IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
-            <StackPanel MaxWidth="620" HorizontalAlignment="Left">
+            <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
 
-                <Grid Margin="0,0,0,10">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="90" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="이름" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="아이콘" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </Grid>
-
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition Width="16" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
+
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="행동 제한" Margin="0,0,0,4" />
-                        <ComboBox ItemsSource="{Binding Source={StaticResource StateRestrictionValues}}"
-                                  SelectedItem="{Binding Selected.Restriction}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="SV 모션" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Motion, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </Grid>
-
-                <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
-                    <StackPanel>
-                        <TextBlock Text="해제 조건" FontWeight="Bold" Margin="0,0,0,6" />
-                        <CheckBox Content="전투 종료 시 해제" IsChecked="{Binding Selected.RemoveAtBattleEnd}" Margin="0,0,0,6" />
-                        <CheckBox Content="행동 제한에 따라 해제" IsChecked="{Binding Selected.RemoveByRestriction}" Margin="0,0,0,6" />
-
-                        <TextBlock Text="자동 해제 타이밍" Margin="0,0,0,4" />
-                        <ComboBox ItemsSource="{Binding Source={StaticResource StateAutoRemovalTimingValues}}"
-                                  SelectedItem="{Binding Selected.AutoRemovalTiming}" Margin="0,0,0,6" />
-
-                        <TextBlock Text="지속 순번 횟수 (최소~최대)" Margin="0,0,0,4" />
-                        <Grid Margin="0,0,0,6">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80" />
-                                <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="80" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" Text="{Binding Selected.MinTurns, UpdateSourceTrigger=PropertyChanged}" />
-                            <TextBlock Grid.Column="2" Text="~" HorizontalAlignment="Center" />
-                            <TextBox Grid.Column="4" Text="{Binding Selected.MaxTurns, UpdateSourceTrigger=PropertyChanged}" />
-                        </Grid>
-
-                        <CheckBox Content="피해로 인한 해제" IsChecked="{Binding Selected.RemoveByDamage}" Margin="0,0,0,6" />
-                        <Grid>
+                        <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="90" />
                             </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" />
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="이름" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
                             <StackPanel Grid.Column="2">
-                                <TextBlock Text="해제 확률(%)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.RemoveByDamageChance, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="아이콘" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="90" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="SV 모션" Margin="0,0,0,4" />
+                                <ComboBox IsEditable="True"
+                                          ItemsSource="{Binding Source={StaticResource SvMotionValues}}"
+                                          Text="{Binding Selected.Motion, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="우선순위" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Priority, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <TextBlock Text="오버레이" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Overlay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock Text="행동 제한" Margin="0,0,0,4" />
+                        <ComboBox ItemsSource="{Binding Source={StaticResource StateRestrictionValues}}"
+                                  SelectedItem="{Binding Selected.Restriction}" Margin="0,0,0,10" />
+
+                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Padding="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="해제 조건" FontWeight="Bold" Margin="0,0,0,6" />
+                                <CheckBox Content="전투 종료 시 해제" IsChecked="{Binding Selected.RemoveAtBattleEnd}" Margin="0,0,0,6" />
+                                <CheckBox Content="행동 제한에 따라 해제" IsChecked="{Binding Selected.RemoveByRestriction}" Margin="0,0,0,6" />
+
+                                <TextBlock Text="자동 해제 타이밍" Margin="0,0,0,4" />
+                                <ComboBox ItemsSource="{Binding Source={StaticResource StateAutoRemovalTimingValues}}"
+                                          SelectedItem="{Binding Selected.AutoRemovalTiming}" Margin="0,0,0,6" />
+
+                                <TextBlock Text="지속 순번 횟수 (최소~최대)" Margin="0,0,0,4" />
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="80" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" Text="{Binding Selected.MinTurns, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Grid.Column="2" Text="~" HorizontalAlignment="Center" />
+                                    <TextBox Grid.Column="4" Text="{Binding Selected.MaxTurns, UpdateSourceTrigger=PropertyChanged}" />
+                                </Grid>
+
+                                <CheckBox Content="피해로 인한 해제" IsChecked="{Binding Selected.RemoveByDamage}" Margin="0,0,0,6" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" />
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="해제 확률(%)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.RemoveByDamageChance, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                </Border>
 
-                <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
-                    <StackPanel>
-                        <TextBlock Text="메시지 (%1=대상, %2=시전자)" FontWeight="Bold" Margin="0,0,0,6" />
+                    <StackPanel Grid.Column="2">
+                        <Border BorderBrush="Gray" BorderThickness="0,0,0,0" Padding="0,0,0,0">
+                            <StackPanel>
+                                <TextBlock Text="메시지 (%1=대상, %2=시전자)" FontWeight="Bold" Margin="0,0,0,6" />
 
-                        <TextBlock Text="해당 상태가 됐을 때" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MessageWhenAdded, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
+                                <TextBlock Text="해당 상태가 됐을 때" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MessageWhenAdded, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
 
-                        <TextBlock Text="적 캐릭터가 해당 상태가 됐을 때" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MessageWhenAddedEnemy, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
+                                <TextBlock Text="적 캐릭터가 해당 상태가 됐을 때" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MessageWhenAddedEnemy, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
 
-                        <TextBlock Text="해당 상태가 계속될 때" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MessageWhileActive, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
+                                <TextBlock Text="해당 상태가 계속될 때" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MessageWhileActive, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
 
-                        <TextBlock Text="해당 상태가 해제될 때" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MessageWhenRemoved, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="해당 상태가 해제될 때" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MessageWhenRemoved, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Text="메모" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
+                                 AcceptsReturn="True" TextWrapping="Wrap" Height="100"
+                                 VerticalScrollBarVisibility="Auto" />
                     </StackPanel>
-                </Border>
-
-                <TextBlock Text="메모" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True" TextWrapping="Wrap" Height="60"
-                         VerticalScrollBarVisibility="Auto" />
+                </Grid>
             </StackPanel>
         </ScrollViewer>
     </Grid>

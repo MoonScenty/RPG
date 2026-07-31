@@ -13,6 +13,10 @@
         <conv:EnumEqualsVisibilityConverter x:Key="EnumEqualsVisibilityConverter" />
         <conv:IndexToDisplayConverter x:Key="IndexToDisplayConverter" />
 
+        <Style TargetType="Window">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
         <ObjectDataProvider x:Key="SkillScopeValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="models:SkillScope" />
@@ -73,5 +77,27 @@
                 <x:Type TypeName="models:AnimationDisplayType" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+
+        <!-- SV 배틀러 모션 이름 (RPG Maker MZ 기준) -->
+        <x:Array x:Key="SvMotionValues" Type="sys:String">
+            <sys:String>walk</sys:String>
+            <sys:String>wait</sys:String>
+            <sys:String>chant</sys:String>
+            <sys:String>guard</sys:String>
+            <sys:String>damage</sys:String>
+            <sys:String>evade</sys:String>
+            <sys:String>thrust</sys:String>
+            <sys:String>swing</sys:String>
+            <sys:String>missile</sys:String>
+            <sys:String>skill</sys:String>
+            <sys:String>spell</sys:String>
+            <sys:String>item</sys:String>
+            <sys:String>escape</sys:String>
+            <sys:String>victory</sys:String>
+            <sys:String>dying</sys:String>
+            <sys:String>abnormal</sys:String>
+            <sys:String>sleep</sys:String>
+            <sys:String>dead</sys:String>
+        </x:Array>
     </Application.Resources>
 </Application>

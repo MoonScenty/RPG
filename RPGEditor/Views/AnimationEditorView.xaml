@@ -21,7 +21,7 @@
 
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"
                       IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
-            <StackPanel MaxWidth="680" HorizontalAlignment="Left">
+            <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
 
                 <Grid Margin="0,0,0,10">

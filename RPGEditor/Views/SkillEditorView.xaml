@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:RPGEditor.Views"
              mc:Ignorable="d"
-             d:DesignHeight="800" d:DesignWidth="900">
+             d:DesignHeight="800" d:DesignWidth="1000">
     <Grid Margin="8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240" />
@@ -19,205 +19,221 @@
 
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"
                       IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
-            <StackPanel MaxWidth="640" HorizontalAlignment="Left">
+            <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="{Binding Selected.Id, StringFormat='ID: {0}'}" Margin="0,0,0,10" />
 
-                <Grid Margin="0,0,0,10">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="100" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="스킬 이름" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="아이콘" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <TextBlock Text="MP 소비" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MpCost, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="6">
-                        <TextBlock Text="TP 소비" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.TpCost, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </Grid>
-
-                <TextBlock Text="설명" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Description, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True" TextWrapping="Wrap" Height="50"
-                         VerticalScrollBarVisibility="Auto" Margin="0,0,0,10" />
-
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="140" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="대상 범위" Margin="0,0,0,4" />
-                        <ComboBox ItemsSource="{Binding Source={StaticResource SkillScopeValues}}"
-                                  SelectedItem="{Binding Selected.Scope}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="스킬 유형 (Types.json)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.SkillTypeId, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </Grid>
 
-                <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
-                    <StackPanel>
-                        <TextBlock Text="발동" FontWeight="Bold" Margin="0,0,0,6" />
-                        <Grid Margin="0,0,0,6">
+                    <!-- 왼쪽: 기본 정보 / 발동 / 메시지 -->
+                    <StackPanel Grid.Column="0">
+                        <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="6" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="6" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="6" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="90" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="속도 보정" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Invocation.SpeedCorrection, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="스킬 이름" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2">
-                                <TextBlock Text="성공률(%)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Invocation.SuccessRate, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="아이콘" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.IconIndex, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="4">
-                                <TextBlock Text="연속 횟수" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Invocation.RepeatCount, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="MP 소비" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MpCost, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="6">
-                                <TextBlock Text="TP 획득량" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Invocation.TpGain, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="TP 소비" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.TpCost, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
-                        <Grid>
+
+                        <TextBlock Text="설명" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Description, UpdateSourceTrigger=PropertyChanged}"
+                                 AcceptsReturn="True" TextWrapping="Wrap" Height="50"
+                                 VerticalScrollBarVisibility="Auto" Margin="0,0,0,10" />
+
+                        <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="8" />
                                 <ColumnDefinition Width="140" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="명중 유형" Margin="0,0,0,4" />
-                                <ComboBox ItemsSource="{Binding Source={StaticResource SkillHitTypeValues}}"
-                                          SelectedItem="{Binding Selected.Invocation.HitType}" />
+                                <TextBlock Text="대상 범위" Margin="0,0,0,4" />
+                                <ComboBox ItemsSource="{Binding Source={StaticResource SkillScopeValues}}"
+                                          SelectedItem="{Binding Selected.Scope}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2">
-                                <TextBlock Text="애니메이션 ID" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Invocation.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="스킬 유형 (Types.json)" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.SkillTypeId, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
+
+                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="발동" FontWeight="Bold" Margin="0,0,0,6" />
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="속도 보정" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Invocation.SpeedCorrection, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="성공률(%)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Invocation.SuccessRate, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="4">
+                                        <TextBlock Text="연속 횟수" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Invocation.RepeatCount, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="6">
+                                        <TextBlock Text="TP 획득량" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Invocation.TpGain, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="140" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="명중 유형" Margin="0,0,0,4" />
+                                        <ComboBox ItemsSource="{Binding Source={StaticResource SkillHitTypeValues}}"
+                                                  SelectedItem="{Binding Selected.Invocation.HitType}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="애니메이션 ID" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Invocation.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Text="메시지 (%1=자신, %2=스킬명, %3=대상)" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.Message, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
-                </Border>
 
-                <TextBlock Text="메시지 (%1=자신, %2=스킬명, %3=대상)" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Message, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+                    <!-- 오른쪽: 피해 / 사용 효과 / 기타 -->
+                    <StackPanel Grid.Column="2">
+                        <Border BorderBrush="Gray" BorderThickness="0,0,0,0" Margin="0,0,0,10" Padding="0,0,0,0">
+                            <StackPanel>
+                                <TextBlock Text="피해" FontWeight="Bold" Margin="0,0,0,6" />
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="140" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="유형" Margin="0,0,0,4" />
+                                        <ComboBox ItemsSource="{Binding Source={StaticResource DamageTypeValues}}"
+                                                  SelectedItem="{Binding Selected.Damage.Type}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="속성 ID (Types.json)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Damage.ElementId, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                </Grid>
+                                <TextBlock Text="계산식 (예: a.atk * 4 - b.def * 2)" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.Damage.Formula, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="140" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="분산도(%)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Damage.Variance, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" VerticalAlignment="Bottom">
+                                        <CheckBox Content="치명타 가능" IsChecked="{Binding Selected.Damage.CriticalEnabled}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
 
-                <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
-                    <StackPanel>
-                        <TextBlock Text="피해" FontWeight="Bold" Margin="0,0,0,6" />
-                        <Grid Margin="0,0,0,6">
+                        <TextBlock Text="사용 효과" FontWeight="Bold" Margin="0,0,0,6" />
+                        <DataGrid ItemsSource="{Binding Selected.Effects}"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="True"
+                                  CanUserDeleteRows="True"
+                                  CanUserSortColumns="False"
+                                  Height="150"
+                                  Margin="0,0,0,10">
+                            <DataGrid.Columns>
+                                <DataGridComboBoxColumn Header="종류"
+                                                         ItemsSource="{Binding Source={StaticResource SkillEffectKindValues}}"
+                                                         SelectedItemBinding="{Binding Kind}"
+                                                         Width="150" />
+                                <DataGridTextColumn Header="퍼센트(%)" Binding="{Binding PercentValue}" Width="80" />
+                                <DataGridTextColumn Header="고정값" Binding="{Binding FlatValue}" Width="80" />
+                                <DataGridTextColumn Header="상태 ID" Binding="{Binding StateId}" Width="70" />
+                                <DataGridTextColumn Header="확률(%)" Binding="{Binding Chance}" Width="70" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="유형" Margin="0,0,0,4" />
-                                <ComboBox ItemsSource="{Binding Source={StaticResource DamageTypeValues}}"
-                                          SelectedItem="{Binding Selected.Damage.Type}" />
+                                <TextBlock Text="사용 가능 위치" Margin="0,0,0,4" />
+                                <ComboBox ItemsSource="{Binding Source={StaticResource SkillUsablePositionValues}}"
+                                          SelectedItem="{Binding Selected.UsablePosition}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2">
-                                <TextBlock Text="속성 ID (Types.json)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Damage.ElementId, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="SV 배틀러 모션" Margin="0,0,0,4" />
+                                <ComboBox IsEditable="True"
+                                          ItemsSource="{Binding Source={StaticResource SvMotionValues}}"
+                                          Text="{Binding Selected.Motion, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
-                        <TextBlock Text="계산식 (예: a.atk * 4 - b.def * 2)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Damage.Formula, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,6" />
-                        <Grid>
+
+                        <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="8" />
-                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="160" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="분산도(%)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Damage.Variance, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="요구 상태 ID (States.json, 0=없음)" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.RequiredStateId, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2" VerticalAlignment="Bottom">
-                                <CheckBox Content="치명타 가능" IsChecked="{Binding Selected.Damage.CriticalEnabled}" />
+                                <CheckBox Content="사용 시 요구 상태 해제" IsChecked="{Binding Selected.RemoveRequiredStateOnUse}" />
                             </StackPanel>
                         </Grid>
-                    </StackPanel>
-                </Border>
 
-                <TextBlock Text="사용 효과" FontWeight="Bold" Margin="0,0,0,6" />
-                <DataGrid ItemsSource="{Binding Selected.Effects}"
-                          AutoGenerateColumns="False"
-                          CanUserAddRows="True"
-                          CanUserDeleteRows="True"
-                          CanUserSortColumns="False"
-                          Height="180"
-                          Margin="0,0,0,10">
-                    <DataGrid.Columns>
-                        <DataGridComboBoxColumn Header="종류"
-                                                 ItemsSource="{Binding Source={StaticResource SkillEffectKindValues}}"
-                                                 SelectedItemBinding="{Binding Kind}"
-                                                 Width="150" />
-                        <DataGridTextColumn Header="퍼센트(%)" Binding="{Binding PercentValue}" Width="80" />
-                        <DataGridTextColumn Header="고정값" Binding="{Binding FlatValue}" Width="80" />
-                        <DataGridTextColumn Header="상태 ID" Binding="{Binding StateId}" Width="70" />
-                        <DataGridTextColumn Header="확률(%)" Binding="{Binding Chance}" Width="70" />
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="사용 가능 위치" Margin="0,0,0,4" />
-                        <ComboBox ItemsSource="{Binding Source={StaticResource SkillUsablePositionValues}}"
-                                  SelectedItem="{Binding Selected.UsablePosition}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="SV 배틀러 모션" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Motion, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="마법진 이미지 (img/magic_circles, 비우면 없음)" Margin="0,0,0,4" />
+                        <TextBox Text="{Binding Selected.MagicCircleImage, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </Grid>
 
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="160" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="요구 상태 ID (States.json, 0=없음)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.RequiredStateId, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2" VerticalAlignment="Bottom">
-                        <CheckBox Content="사용 시 요구 상태 해제" IsChecked="{Binding Selected.RemoveRequiredStateOnUse}" />
-                    </StackPanel>
-                </Grid>
-
-                <TextBlock Text="마법진 이미지 (img/magic_circles, 비우면 없음)" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.MagicCircleImage, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-
-                <TextBlock Text="메모" Margin="0,0,0,4" />
+                <TextBlock Text="메모" Margin="0,10,0,4" />
                 <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
                          AcceptsReturn="True" TextWrapping="Wrap" Height="60"
                          VerticalScrollBarVisibility="Auto" />
