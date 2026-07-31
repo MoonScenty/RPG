@@ -109,6 +109,7 @@ public partial class MainViewModel : ObservableObject
                 DataContext = new DatabaseListViewModel<Item>("아이템", context.Items),
                 ProjectRootPath = context.ProjectRootPath,
                 Types = context.Types,
+                Animations = context.Animations,
             },
         });
         Tabs.Add(new EditorTab

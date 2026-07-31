@@ -1,0 +1,16 @@
+<UserControl x:Class="RPGEditor.Views.AnimationField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="32" d:DesignWidth="220">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="DisplayText" Grid.Column="0" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Text="(없음)" />
+        <Button Grid.Column="1" Content="선택..." Margin="6,0,0,0" Click="SelectButton_Click" />
+    </Grid>
+</UserControl>

@@ -218,8 +218,9 @@
                                       SelectedIndex="{Binding Selected.Weapon.WeaponTypeId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Grid.Column="2">
-                            <TextBlock Text="공격 애니메이션 ID" Margin="0,0,0,4" />
-                            <TextBox Text="{Binding Selected.Weapon.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="공격 애니메이션" Margin="0,0,0,4" />
+                            <views:AnimationField x:Name="WeaponAnimationField"
+                                                   AnimationId="{Binding Selected.Weapon.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </Grid>
                     <views:EquipParamsEditor DataContext="{Binding Selected.Weapon.Params}" Margin="0,0,0,10" />
