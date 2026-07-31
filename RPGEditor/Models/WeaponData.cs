@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RPGEditor.Models;
@@ -15,4 +16,12 @@ public partial class WeaponData : ObservableObject
     public EquipParams Params { get; set; } = new();
 
     public List<object> Traits { get; set; } = [];
+
+    [ObservableProperty]
+    private int craftingCost;
+
+    [ObservableProperty]
+    private int craftingTime;
+
+    public ObservableCollection<CraftMaterial> CraftingMaterials { get; set; } = [];
 }

@@ -1,0 +1,38 @@
+<UserControl x:Class="RPGEditor.Views.CraftingEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="220" d:DesignWidth="320">
+    <StackPanel>
+        <TextBlock Text="조합" FontWeight="Bold" Margin="0,0,0,6" />
+        <Grid Margin="0,0,0,6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="조합 비용" Margin="0,0,0,4" />
+                <TextBox Text="{Binding CraftingCost, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="조합 시간" Margin="0,0,0,4" />
+                <TextBox Text="{Binding CraftingTime, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </Grid>
+        <TextBlock Text="조합 재료 (Items.json)" Margin="0,0,0,4" />
+        <DataGrid ItemsSource="{Binding CraftingMaterials}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="True"
+                  CanUserDeleteRows="True"
+                  CanUserSortColumns="False"
+                  Height="100">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="아이템 ID" Binding="{Binding ItemId}" Width="100" />
+                <DataGridTextColumn Header="수량" Binding="{Binding Quantity}" Width="80" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

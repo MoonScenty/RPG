@@ -182,36 +182,7 @@
                         </DataGrid>
 
                         <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Padding="0,10,0,0">
-                            <StackPanel>
-                                <TextBlock Text="조합" FontWeight="Bold" Margin="0,0,0,6" />
-                                <Grid Margin="0,0,0,6">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="8" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Grid.Column="0">
-                                        <TextBlock Text="조합 비용" Margin="0,0,0,4" />
-                                        <TextBox Text="{Binding Selected.Consumable.CraftingCost, UpdateSourceTrigger=PropertyChanged}" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Column="2">
-                                        <TextBlock Text="조합 시간" Margin="0,0,0,4" />
-                                        <TextBox Text="{Binding Selected.Consumable.CraftingTime, UpdateSourceTrigger=PropertyChanged}" />
-                                    </StackPanel>
-                                </Grid>
-                                <TextBlock Text="조합 재료 (Items.json)" Margin="0,0,0,4" />
-                                <DataGrid ItemsSource="{Binding Selected.Consumable.CraftingMaterials}"
-                                          AutoGenerateColumns="False"
-                                          CanUserAddRows="True"
-                                          CanUserDeleteRows="True"
-                                          CanUserSortColumns="False"
-                                          Height="100">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="아이템 ID" Binding="{Binding ItemId}" Width="100" />
-                                        <DataGridTextColumn Header="수량" Binding="{Binding Quantity}" Width="80" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </StackPanel>
+                            <views:CraftingEditor DataContext="{Binding Selected.Consumable}" />
                         </Border>
                     </StackPanel>
                 </Grid>
@@ -234,7 +205,10 @@
                             <TextBox Text="{Binding Selected.Weapon.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </Grid>
-                    <views:EquipParamsEditor DataContext="{Binding Selected.Weapon.Params}" />
+                    <views:EquipParamsEditor DataContext="{Binding Selected.Weapon.Params}" Margin="0,0,0,10" />
+                    <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Padding="0,10,0,0">
+                        <views:CraftingEditor DataContext="{Binding Selected.Weapon}" />
+                    </Border>
                 </StackPanel>
 
                 <!-- 방어구 -->
@@ -255,7 +229,10 @@
                             <TextBox Text="{Binding Selected.Armor.EquipTypeId, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </Grid>
-                    <views:EquipParamsEditor DataContext="{Binding Selected.Armor.Params}" />
+                    <views:EquipParamsEditor DataContext="{Binding Selected.Armor.Params}" Margin="0,0,0,10" />
+                    <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Padding="0,10,0,0">
+                        <views:CraftingEditor DataContext="{Binding Selected.Armor}" />
+                    </Border>
                 </StackPanel>
 
                 <TextBlock Text="메모" Margin="0,10,0,4" />
