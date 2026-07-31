@@ -14,7 +14,16 @@
             <Button Content="↓" Width="28" Margin="4,0,0,0" Command="{Binding MoveDownCommand}" />
         </StackPanel>
         <ListBox ItemsSource="{Binding Entries}"
-                 SelectedItem="{Binding Selected}"
-                 DisplayMemberPath="Name" />
+                 SelectedItem="{Binding Selected}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Id}" Width="26" Foreground="Gray"
+                                   Visibility="{Binding ShowId, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </DockPanel>
 </UserControl>
