@@ -88,7 +88,11 @@ public partial class MainViewModel : ObservableObject
             Header = "직업",
             Content = new ClassEditorView { DataContext = new DatabaseListViewModel<CharacterClass>("직업", context.Classes) },
         });
-        Tabs.Add(CreateTab("스킬", context.Skills));
+        Tabs.Add(new EditorTab
+        {
+            Header = "스킬",
+            Content = new SkillEditorView { DataContext = new DatabaseListViewModel<Skill>("스킬", context.Skills) },
+        });
         Tabs.Add(CreateTab("아이템", context.Items));
         Tabs.Add(CreateTab("적 캐릭터", context.Enemies));
         Tabs.Add(CreateTab("적 군단", context.Troops));
