@@ -113,7 +113,11 @@ public partial class MainViewModel : ObservableObject
             Header = "상태",
             Content = new StateEditorView { DataContext = new DatabaseListViewModel<GameState>("상태", context.States) },
         });
-        Tabs.Add(CreateTab("애니메이션", context.Animations));
+        Tabs.Add(new EditorTab
+        {
+            Header = "애니메이션",
+            Content = new AnimationEditorView { DataContext = new DatabaseListViewModel<AnimationData>("애니메이션", context.Animations) },
+        });
         Tabs.Add(CreateTab("유형", context.Types));
         Tabs.Add(new EditorTab
         {
