@@ -11,6 +11,8 @@
             <ColumnDefinition Width="240" />
             <ColumnDefinition Width="8" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="320" />
         </Grid.ColumnDefinitions>
 
         <views:EntryListPanel Grid.Column="0" />
@@ -132,5 +134,17 @@
                          VerticalScrollBarVisibility="Auto" />
             </StackPanel>
         </ScrollViewer>
+
+        <GridSplitter Grid.Column="3" Width="8" HorizontalAlignment="Stretch" Background="Transparent" />
+
+        <DockPanel Grid.Column="4">
+            <TextBlock DockPanel.Dock="Top" Text="미리보기" FontWeight="Bold" Margin="0,0,0,6" />
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,6,0,0">
+                <Button Content="▶ 재생" Width="90" Click="PlayButton_Click"
+                        IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}" />
+                <Button Content="■ 정지" Width="90" Margin="6,0,0,0" Click="StopButton_Click" />
+            </StackPanel>
+            <views:AnimationPreviewControl x:Name="Preview" Height="260" />
+        </DockPanel>
     </Grid>
 </UserControl>

@@ -10,6 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2957.106" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Assets\AnimationPreview\**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
