@@ -12,8 +12,7 @@ use Illuminate\Console\Command;
  * ATB 등)은 검증 대상이 아니다. MzImportSeeder는 노트태그가 참조하는 상태 이름이
  * 없으면 예외를 던지고 멈추지만(첫 오류에서 중단), 이 커맨드는 끝까지 돌면서
  * 발견한 문제를 전부 모아서 표로 보여준다 - 그리고 시더가 아예 검사하지 않는
- * 것들(공식의 미지 변수, effects[] 기반 상태 참조, SkillMotion 오타, RequireFront/
- * RequireBack 동시 지정)까지 같이 잡아낸다.
+ * 것들(공식의 미지 변수, effects[] 기반 상태 참조, motion 필드 오타)까지 같이 잡아낸다.
  */
 class ValidateSkills extends Command
 {
@@ -137,30 +136,26 @@ class ValidateSkills extends Command
             }
         }
 
-        // 5. SkillMotion 오타
-        if ($tags['skill_motion'] !== null && ! in_array($tags['skill_motion'], self::KNOWN_MOTIONS, true)) {
-            $issues[] = "SkillMotion에 알 수 없는 모션 이름: {$tags['skill_motion']}";
+        // 5. motion 필드 오타(usablePosition/motion은 RequireFront/RequireBack/
+        // SkillMotion 노트태그를 대체한 구조화 필드 - SkillSeeder.php 참고)
+        $motion = $skill['motion'] ?? '';
+        if ($motion !== '' && ! in_array($motion, self::KNOWN_MOTIONS, true)) {
+            $issues[] = "motion에 알 수 없는 모션 이름: {$motion}";
         }
 
-        // 6. RequireFront/RequireBack 동시 지정 - 노트태그 파서가 RequireFront를
-        // 조용히 우선시켜서 RequireBack이 무시된다
-        if (str_contains($note, '<RequireFront>') && str_contains($note, '<RequireBack>')) {
-            $issues[] = 'RequireFront/RequireBack이 둘 다 있음 - RequireFront만 적용되고 RequireBack은 무시됨';
-        }
-
-        // 7. 알려지지 않은 scope(3-6, 무작위 대상) - targetSide()가 구분 안 하고 기본값(enemy)으로 취급
+        // 6. 알려지지 않은 scope(3-6, 무작위 대상) - targetSide()가 구분 안 하고 기본값(enemy)으로 취급
         $scope = $skill['scope'] ?? null;
         if ($scope !== null && ! in_array($scope, self::KNOWN_SCOPES, true)) {
             $issues[] = "scope {$scope}는 MzSkill::targetSide()가 특별히 구분하지 않음(기본값 enemy로 취급)";
         }
 
-        // 8. TargetFrontRow/TargetBackRow 동시 지정 - restrictToRow()가 전열을 먼저
+        // 7. TargetFrontRow/TargetBackRow 동시 지정 - restrictToRow()가 전열을 먼저
         // 확인해서 TargetBackRow가 무시된다
         if (str_contains($note, '<TargetFrontRow>') && str_contains($note, '<TargetBackRow>')) {
             $issues[] = 'TargetFrontRow/TargetBackRow가 둘 다 있음 - TargetFrontRow만 적용되고 TargetBackRow는 무시됨';
         }
 
-        // 9. TargetFrontRow/TargetBackRow는 광역기(scope 2/8/10)를 좁히는 용도인데
+        // 8. TargetFrontRow/TargetBackRow는 광역기(scope 2/8/10)를 좁히는 용도인데
         // 단일 대상 스킬에 붙이면 대상 후보만 줄어들 뿐(광역이 되진 않음) - 의도와 다를
         // 수 있어 알려준다
         $isAoeScope = in_array($scope, [2, 8, 10], true);

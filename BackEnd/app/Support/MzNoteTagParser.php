@@ -19,8 +19,6 @@ class MzNoteTagParser
     public static function parseSkillTags(string $note): array
     {
         return [
-            'require_position' => self::hasFlag($note, 'RequireFront') ? 'front'
-                : (self::hasFlag($note, 'RequireBack') ? 'back' : null),
             'casting_turns' => self::intValue($note, 'Casting'),
             'cooldown_turns' => self::intValue($note, 'Cooldown'),
             'mp_recover' => self::intValue($note, 'MpRecover'),
@@ -38,7 +36,6 @@ class MzNoteTagParser
             'apply_target_if_has' => self::pairValue($note, 'ApplyStateIfTargetHas'),
             'apply_self_if_has' => self::pairValue($note, 'ApplySelfStateIfSelfHas'),
             'circle_image' => self::pairValue($note, 'CircleImage'),
-            'skill_motion' => self::stringValue($note, 'SkillMotion'),
         ];
     }
 

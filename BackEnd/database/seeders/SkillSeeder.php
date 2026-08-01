@@ -65,6 +65,11 @@ class SkillSeeder extends Seeder
 
             $note = $skill['note'] ?? '';
             $tags = MzNoteTagParser::parseSkillTags($note);
+            // <RequireFront>/<RequireBack>/<SkillMotion>은 usablePosition/motion 구조화
+            // 필드가 생기면서 지웠다(RPGEditor 스킬 편집 화면에 이미 UI가 있음) - 이제
+            // 이 두 필드가 유일한 기준이다.
+            $tags['require_position'] = $skill['usablePosition'] === 'any' ? null : $skill['usablePosition'];
+            $tags['skill_motion'] = $skill['motion'] ?: null;
             [$targetAdd, $targetRemove, $referenced] = $this->resolveEffects($skill['effects'] ?? [], $stateNames);
             $tags['target_add_states'] = $targetAdd;
             $tags['target_remove_states'] = $targetRemove;
