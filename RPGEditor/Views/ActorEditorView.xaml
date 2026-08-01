@@ -47,16 +47,35 @@
                             </StackPanel>
                         </Grid>
 
-                        <TextBlock Text="직업 ID (Classes.json)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.ClassId, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+                        <TextBlock Text="직업 (Classes.json)" Margin="0,0,0,4" />
+                        <ComboBox ItemsSource="{Binding Classes, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                  SelectedValuePath="Id"
+                                  SelectedValue="{Binding Selected.ClassId, UpdateSourceTrigger=PropertyChanged}"
+                                  Margin="0,0,0,10">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Id}" />
+                                        <TextBlock Text=": " />
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="전투 그래픽 (img/sv_actors)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.BattlerName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+                        <views:ImageField x:Name="BattlerField" SubFolder="img/sv_actors"
+                                           PickerTitle="전투 그래픽 선택"
+                                           FileName="{Binding Selected.BattlerName, UpdateSourceTrigger=PropertyChanged}"
+                                           Margin="0,0,0,10" />
 
                         <TextBlock Text="얼굴 그래픽 (img/faces)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.FaceName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+                        <views:ImageField x:Name="FaceField" SubFolder="img/faces"
+                                           PickerTitle="얼굴 그래픽 선택"
+                                           FileName="{Binding Selected.FaceName, UpdateSourceTrigger=PropertyChanged}"
+                                           Margin="0,0,0,10" />
 
                         <TextBlock Text="장비 (Items.json ID, 0=없음)" Margin="0,0,0,4" />
                         <Grid>
@@ -73,23 +92,28 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="무기" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Equips[0], UpdateSourceTrigger=PropertyChanged}" />
+                                <views:EquipField x:Name="WeaponField" EquipTypeId="0"
+                                                   ItemId="{Binding Selected.Equips[0], UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="방패" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Equips[1], UpdateSourceTrigger=PropertyChanged}" />
+                                <views:EquipField x:Name="ShieldField" EquipTypeId="1"
+                                                   ItemId="{Binding Selected.Equips[1], UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="4">
                                 <TextBlock Text="머리" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Equips[2], UpdateSourceTrigger=PropertyChanged}" />
+                                <views:EquipField x:Name="HeadField" EquipTypeId="2"
+                                                   ItemId="{Binding Selected.Equips[2], UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="6">
                                 <TextBlock Text="몸" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Equips[3], UpdateSourceTrigger=PropertyChanged}" />
+                                <views:EquipField x:Name="BodyField" EquipTypeId="3"
+                                                   ItemId="{Binding Selected.Equips[3], UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="8">
                                 <TextBlock Text="장신구" HorizontalAlignment="Center" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.Equips[4], UpdateSourceTrigger=PropertyChanged}" />
+                                <views:EquipField x:Name="AccessoryField" EquipTypeId="4"
+                                                   ItemId="{Binding Selected.Equips[4], UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                         </Grid>
                     </StackPanel>

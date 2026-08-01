@@ -81,7 +81,13 @@ public partial class MainViewModel : ObservableObject
         Tabs.Add(new EditorTab
         {
             Header = "액터",
-            Content = new ActorEditorView { DataContext = new DatabaseListViewModel<Actor>("액터", context.Actors) },
+            Content = new ActorEditorView
+            {
+                DataContext = new DatabaseListViewModel<Actor>("액터", context.Actors),
+                ProjectRootPath = context.ProjectRootPath,
+                Classes = context.Classes,
+                Items = context.Items,
+            },
         });
         Tabs.Add(new EditorTab
         {
