@@ -44,8 +44,10 @@ class WeaponSeeder extends Seeder
                 'description' => $item['description'] ?: null,
                 'params' => json_encode(StatFormula::equipParamsToMzArray($p)),
                 'traits' => json_encode(array_merge($w['traits'] ?? [], StatFormula::equipXparamTraits($p))),
-                'crafting_cost' => $w['craftingCost'],
-                'crafting_time' => $w['craftingTime'],
+                // Items.json의 무기 147개 전체가 아직 craftingCost/craftingTime/craftingMaterials
+                // 필드 자체가 없다(RPGEditor 스키마에 나중에 추가돼서) - 없으면 0/빈 배열로.
+                'crafting_cost' => $w['craftingCost'] ?? 0,
+                'crafting_time' => $w['craftingTime'] ?? 0,
                 'tags' => json_encode(['crafting' => $this->craftingTag($w, $items)]),
             ];
         }
@@ -81,7 +83,7 @@ class WeaponSeeder extends Seeder
             $resolved[$key]['count'] += $m['quantity'];
         }
 
-        return ['seconds' => $equip['craftingTime'], 'materials' => array_values($resolved), 'gold_cost' => $equip['craftingCost']];
+        return ['seconds' => $equip['craftingTime'] ?? 0, 'materials' => array_values($resolved), 'gold_cost' => $equip['craftingCost'] ?? 0];
     }
 
     private function readJson(string $file): array

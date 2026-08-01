@@ -79,8 +79,8 @@ class ItemSeeder extends Seeder
                 'element_id' => $isConsumable ? $c['damage']['elementId'] : 0,
                 'description' => $item['description'] ?: null,
                 'effects' => json_encode($isConsumable ? ($c['effects'] ?? []) : []),
-                'crafting_cost' => $isConsumable ? $c['craftingCost'] : 0,
-                'crafting_time' => $isConsumable ? $c['craftingTime'] : 0,
+                'crafting_cost' => $isConsumable ? ($c['craftingCost'] ?? 0) : 0,
+                'crafting_time' => $isConsumable ? ($c['craftingTime'] ?? 0) : 0,
                 'tags' => json_encode($tags),
             ];
         }
@@ -144,7 +144,7 @@ class ItemSeeder extends Seeder
             $resolved[$key]['count'] += $m['quantity'];
         }
 
-        return ['seconds' => $consumable['craftingTime'], 'materials' => array_values($resolved), 'gold_cost' => $consumable['craftingCost']];
+        return ['seconds' => $consumable['craftingTime'] ?? 0, 'materials' => array_values($resolved), 'gold_cost' => $consumable['craftingCost'] ?? 0];
     }
 
     private function readJson(string $file): array

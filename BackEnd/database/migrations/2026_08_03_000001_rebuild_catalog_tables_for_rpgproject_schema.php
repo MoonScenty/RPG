@@ -245,7 +245,9 @@ return new class extends Migration
         // 동일한 STR/VIT/MND/DEX/AGI/LUK/INT(+HP/MP) 9스탯 - 전투 시점에 같은 파생
         // 스탯 공식(ATK=STR+무기 등)으로 계산한다.
         Schema::create('mz_enemies', function (Blueprint $table) {
-            $table->unsignedSmallInteger('id')->primary();
+            // units.mz_enemy_id가 이미 unsignedTinyInteger라 타입을 맞춰야 FK가 걸린다
+            // (Enemies.json도 지금 1마리뿐이라 tinyint로 충분).
+            $table->unsignedTinyInteger('id')->primary();
             $table->string('name', 50);
             $table->text('note')->nullable();
             $table->unsignedInteger('hp');
@@ -279,7 +281,7 @@ return new class extends Migration
             $table->string('battleback1', 50)->nullable();
             $table->string('battleback2', 50)->nullable();
             foreach (['front_top', 'front_middle', 'front_bottom', 'back_top', 'back_middle', 'back_bottom'] as $slot) {
-                $table->unsignedSmallInteger("{$slot}_enemy_id")->nullable();
+                $table->unsignedTinyInteger("{$slot}_enemy_id")->nullable();
                 $table->foreign("{$slot}_enemy_id")->references('id')->on('mz_enemies')->nullOnDelete();
             }
             /** @var array{name:string,pan:int,pitch:int,volume:int} */
@@ -318,6 +320,12 @@ return new class extends Migration
         // 건 FK를 다시 걸기 전에 정리한다(id 구성이 완전히 바뀌었으므로) - 이 시점엔
         // 아직 정식 서비스 전이라 테스트 계정의 재고/장비 슬롯 정도만 있을 것으로
         // 보고, 참조가 깨진 행만 지운다(테이블 전체를 비우지 않음).
+
+        // user_items.mz_item_id는 원래 unsignedTinyInteger(255개까지)였는데, 우리
+        // Items.json은 690개(소모품+재료+무기+방어구 통합 id 공간)라 smallint로 넓혀야
+        // FK가 걸린다(타입이 다르면 errno 150).
+        DB::statement('ALTER TABLE user_items MODIFY mz_item_id SMALLINT UNSIGNED NOT NULL');
+
         DB::table('user_items')->whereNotIn('mz_item_id', DB::table('mz_items')->pluck('id'))->delete();
         DB::table('user_weapons')->whereNotIn('mz_weapon_id', DB::table('mz_weapons')->pluck('id'))->delete();
         DB::table('user_armors')->whereNotIn('mz_armor_id', DB::table('mz_armors')->pluck('id'))->delete();

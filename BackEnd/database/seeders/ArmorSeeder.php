@@ -40,8 +40,10 @@ class ArmorSeeder extends Seeder
                 'description' => $item['description'] ?: null,
                 'params' => json_encode(StatFormula::equipParamsToMzArray($p)),
                 'traits' => json_encode(array_merge($a['traits'] ?? [], StatFormula::equipXparamTraits($p))),
-                'crafting_cost' => $a['craftingCost'],
-                'crafting_time' => $a['craftingTime'],
+                // Items.json의 방어구 335개 전체가 아직 craftingCost/craftingTime/
+                // craftingMaterials 필드 자체가 없다(RPGEditor 스키마에 나중에 추가돼서).
+                'crafting_cost' => $a['craftingCost'] ?? 0,
+                'crafting_time' => $a['craftingTime'] ?? 0,
                 'tags' => json_encode(['crafting' => $this->craftingTag($a, $items)]),
             ];
         }
@@ -72,7 +74,7 @@ class ArmorSeeder extends Seeder
             $resolved[$key]['count'] += $m['quantity'];
         }
 
-        return ['seconds' => $equip['craftingTime'], 'materials' => array_values($resolved), 'gold_cost' => $equip['craftingCost']];
+        return ['seconds' => $equip['craftingTime'] ?? 0, 'materials' => array_values($resolved), 'gold_cost' => $equip['craftingCost'] ?? 0];
     }
 
     private function readJson(string $file): array
