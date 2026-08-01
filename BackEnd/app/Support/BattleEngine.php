@@ -113,10 +113,11 @@ class BattleEngine
         return $battle;
     }
 
-    /** 시험전투 고정 트룹(id 1) 전체를 스폰 - mz_troops의 6슬롯 컬럼(memberSlots())을 그대로 슬롯 1-6에 배치. */
+    /** 시험전투 고정 트룹(Troops.json의 첫 항목) 전체를 스폰 - mz_troops의 6슬롯 컬럼(memberSlots())을 그대로 슬롯 1-6에 배치. */
     private function spawnEnemyTroop(Battle $battle): void
     {
-        $troop = MzTroop::find(1);
+        // Troops.json에 트룹이 현재 하나(id=0)뿐이라 그대로 첫 트룹을 시험전투용으로 쓴다.
+        $troop = MzTroop::first();
         if ($troop === null) {
             return;
         }
