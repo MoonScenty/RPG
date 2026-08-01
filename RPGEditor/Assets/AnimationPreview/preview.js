@@ -47,6 +47,11 @@
       return;
     }
 
+    // Effekseer 런타임은 매 파티클마다 blendFunc/blendEquation만 바꿔가며 그리고,
+    // gl.BLEND 자체를 켜는 건 호스트 책임으로 가정한다 - 이게 꺼져 있으면 블렌드
+    // 모드(더하기 등)와 무관하게 텍스처가 통째로 불투명하게(검은 배경 포함) 그려진다.
+    gl.enable(gl.BLEND);
+
     effekseer.initRuntime(
       "effekseer.wasm",
       () => {
