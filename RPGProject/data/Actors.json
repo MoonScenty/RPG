@@ -1,14 +1,24 @@
 [
   {
-    "id": 0,
-    "name": "리드",
-    "note": "",
+    "equips": [
+      208,
+      0,
+      0,
+      0,
+      0
+    ],
+    "traits": [],
     "battlerName": "Actor1_1",
     "classId": 0,
     "faceName": "Actor1_1",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 0,
+    "name": "\uB9AC\uB4DC",
+    "note": ""
+  },
+  {
     "equips": [
       208,
       0,
@@ -16,37 +26,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 1,
-    "name": "프리실라",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_2",
     "classId": 0,
     "faceName": "Actor1_2",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 1,
+    "name": "\uD504\uB9AC\uC2E4\uB77C",
+    "note": ""
+  },
+  {
     "equips": [
-      208,
+      229,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 2,
-    "name": "게일",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_3",
     "classId": 1,
     "faceName": "Actor1_3",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 2,
+    "name": "\uAC8C\uC77C",
+    "note": ""
+  },
+  {
     "equips": [
       229,
       0,
@@ -54,37 +64,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 3,
-    "name": "미쉘",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_4",
     "classId": 1,
     "faceName": "Actor1_4",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 3,
+    "name": "\uBBF8\uC258",
+    "note": ""
+  },
+  {
     "equips": [
-      229,
+      250,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 4,
-    "name": "알버트",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_5",
     "classId": 2,
     "faceName": "Actor1_5",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 4,
+    "name": "\uC54C\uBC84\uD2B8",
+    "note": ""
+  },
+  {
     "equips": [
       250,
       0,
@@ -92,37 +102,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 5,
-    "name": "케이시",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_6",
     "classId": 2,
     "faceName": "Actor1_6",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 5,
+    "name": "\uCF00\uC774\uC2DC",
+    "note": ""
+  },
+  {
     "equips": [
-      250,
+      271,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 6,
-    "name": "엘리엇",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_7",
     "classId": 3,
     "faceName": "Actor1_7",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 6,
+    "name": "\uC5D8\uB9AC\uC5C7",
+    "note": ""
+  },
+  {
     "equips": [
       271,
       0,
@@ -130,37 +140,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 7,
-    "name": "로자",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor1_8",
     "classId": 3,
     "faceName": "Actor1_8",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 7,
+    "name": "\uB85C\uC790",
+    "note": ""
+  },
+  {
     "equips": [
-      271,
+      208,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 8,
-    "name": "레온",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_1",
     "classId": 4,
     "faceName": "Actor2_1",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 8,
+    "name": "\uB808\uC628",
+    "note": ""
+  },
+  {
     "equips": [
       208,
       0,
@@ -168,37 +178,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 9,
-    "name": "이자벨",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_2",
     "classId": 4,
     "faceName": "Actor2_2",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 9,
+    "name": "\uC774\uC790\uBCA8",
+    "note": ""
+  },
+  {
     "equips": [
-      208,
+      292,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 10,
-    "name": "카이런",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_3",
     "classId": 5,
     "faceName": "Actor2_3",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 10,
+    "name": "\uCE74\uC774\uB7F0",
+    "note": ""
+  },
+  {
     "equips": [
       292,
       0,
@@ -206,37 +216,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 11,
-    "name": "셀레나",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_4",
     "classId": 5,
     "faceName": "Actor2_4",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 11,
+    "name": "\uC140\uB808\uB098",
+    "note": ""
+  },
+  {
     "equips": [
-      292,
+      313,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 12,
-    "name": "로건",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_5",
     "classId": 6,
     "faceName": "Actor2_5",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 12,
+    "name": "\uB85C\uAC74",
+    "note": ""
+  },
+  {
     "equips": [
       313,
       0,
@@ -244,37 +254,37 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 13,
-    "name": "아리아",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_6",
     "classId": 6,
     "faceName": "Actor2_6",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 13,
+    "name": "\uC544\uB9AC\uC544",
+    "note": ""
+  },
+  {
     "equips": [
-      313,
+      334,
       0,
       0,
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 14,
-    "name": "빈센트",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_7",
     "classId": 7,
     "faceName": "Actor2_7",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
+    "id": 14,
+    "name": "\uBE48\uC13C\uD2B8",
+    "note": ""
+  },
+  {
     "equips": [
       334,
       0,
@@ -282,25 +292,15 @@
       0,
       0
     ],
-    "traits": []
-  },
-  {
-    "id": 15,
-    "name": "나탈리",
-    "note": "",
+    "traits": [],
     "battlerName": "Actor2_8",
     "classId": 7,
     "faceName": "Actor2_8",
     "initialLevel": 1,
     "maxLevel": 99,
     "profile": "",
-    "equips": [
-      334,
-      0,
-      0,
-      0,
-      0
-    ],
-    "traits": []
+    "id": 15,
+    "name": "\uB098\uD0C8\uB9AC",
+    "note": ""
   }
 ]

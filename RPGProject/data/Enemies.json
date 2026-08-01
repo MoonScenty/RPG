@@ -17,75 +17,75 @@
     "motionMap": [
       {
         "motion": "walk",
-        "animationName": "walk"
+        "animationName": "Idle"
       },
       {
         "motion": "wait",
-        "animationName": "wait"
+        "animationName": "Idle"
       },
       {
         "motion": "chant",
-        "animationName": "chant"
+        "animationName": "Idle"
       },
       {
         "motion": "guard",
-        "animationName": "guard"
+        "animationName": "Idle"
       },
       {
         "motion": "damage",
-        "animationName": "damage"
+        "animationName": "Damage"
       },
       {
         "motion": "evade",
-        "animationName": "evade"
+        "animationName": "Idle"
       },
       {
         "motion": "thrust",
-        "animationName": "thrust"
+        "animationName": "Attack A"
       },
       {
         "motion": "swing",
-        "animationName": "swing"
+        "animationName": "Attack A"
       },
       {
         "motion": "missile",
-        "animationName": "missile"
+        "animationName": "Attack A"
       },
       {
         "motion": "skill",
-        "animationName": "skill"
+        "animationName": "Idle"
       },
       {
         "motion": "spell",
-        "animationName": "spell"
+        "animationName": "Idle"
       },
       {
         "motion": "item",
-        "animationName": "item"
+        "animationName": "Idle"
       },
       {
         "motion": "escape",
-        "animationName": "escape"
+        "animationName": "Idle"
       },
       {
         "motion": "victory",
-        "animationName": "victory"
+        "animationName": "Idle"
       },
       {
         "motion": "dying",
-        "animationName": "dying"
+        "animationName": "Idle"
       },
       {
         "motion": "abnormal",
-        "animationName": "abnormal"
+        "animationName": "Idle"
       },
       {
         "motion": "sleep",
-        "animationName": "sleep"
+        "animationName": "Idle"
       },
       {
         "motion": "dead",
-        "animationName": "dead"
+        "animationName": "Idle"
       }
     ],
     "rewardExp": 0,
