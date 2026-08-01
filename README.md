@@ -1,12 +1,12 @@
-# A Good Day to Make RPG Game
+# A Good Day to Make RPG
 ## Github
 * https://github.com/MoonScenty/RPG.git
 * 커밋 메시지에 Co-Authored-By: Claude 같은 AI 도구 공동저자 트레일러를 절대 추가하지 않는다.
 * 커밋 메시지는 한국어로 작성한다.
 
 ## 프로젝트 명
-* 영문 : A Good Day to Make RPG Game
-* 한글 : RPG 게임 만들기 좋은 날
+* 영문 : A Good Day to Make RPG
+* 한글 : RPG 만들기 좋은 날
 
 ## 프로젝트 상세
 * 웹게임
