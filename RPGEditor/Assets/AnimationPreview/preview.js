@@ -57,6 +57,26 @@
     // 모드(더하기 등)와 무관하게 텍스처가 통째로 불투명하게(검은 배경 포함) 그려진다.
     gl.enable(gl.BLEND);
 
+    // WebGL 스펙상 밉맵이 필요한 min filter(기본값 NEAREST_MIPMAP_LINEAR)인데
+    // generateMipmap을 안 부르면 그 텍스처는 "incomplete"로 취급되어 알파/블렌드
+    // 설정과 무관하게 무조건 불투명 검정으로 샘플링된다 - 텍스처가 죄다 검은
+    // 박스로 나오는 가장 흔한 원인. Effekseer가 이걸 직접 안 챙길 수 있어서,
+    // 텍스처를 만들 때마다 강제로 CLAMP_TO_EDGE + generateMipmap을 걸어준다.
+    const originalTexImage2D = gl.texImage2D.bind(gl);
+    gl.texImage2D = function (...args) {
+      originalTexImage2D(...args);
+      const target = args[0];
+      if (target === gl.TEXTURE_2D) {
+        try {
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.generateMipmap(gl.TEXTURE_2D);
+        } catch (e) {
+          // 압축 텍스처 등 generateMipmap이 원래 안 되는 포맷도 있으니 조용히 무시.
+        }
+      }
+    };
+
     effekseer.initRuntime(
       "effekseer.wasm",
       () => {
