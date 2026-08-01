@@ -52,6 +52,7 @@ const ko = {
     menu: {
       auctionHouse: '경매장',
       friends: '친구 관리',
+      inventory: '인벤토리',
       bakery: '제빵소',
       lab: '연구소',
       blacksmith: '대장간',
@@ -187,12 +188,6 @@ const ko = {
   },
 
   crafting: {
-    tabs: {
-      craft: '조합',
-      items: '아이템 인벤토리',
-      weapons: '무기 인벤토리',
-      armors: '방어구 인벤토리',
-    },
     loadFailed: '정보를 불러오지 못했습니다.',
     startFailed: '제작을 시작하지 못했습니다.',
     collectFailed: '수령에 실패했습니다.',

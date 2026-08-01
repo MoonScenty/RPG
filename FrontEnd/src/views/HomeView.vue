@@ -7,6 +7,7 @@ import { useAuthStore } from '@/stores/auth'
 import { STAGE_HEIGHT, STAGE_WIDTH } from '@/battle/layout'
 import MercenaryPanel from '@/components/mercenary/MercenaryPanel.vue'
 import CraftingPanel from '@/components/crafting/CraftingPanel.vue'
+import InventoryPanel from '@/components/inventory/InventoryPanel.vue'
 import type { Workshop } from '@/lib/craftingApi'
 import AdventureMenu from '@/components/AdventureMenu.vue'
 import strings from '@/locales/ko'
@@ -89,10 +90,13 @@ async function onLogout() {
 // CraftingPanel을 workshop만 다르게 줘서 재사용).
 // iconX/iconY는 mz_project/img/system/IconSet.png(32px 그리드) 안에서의
 // 좌상단 픽셀 좌표.
-type PanelKey = 'mercenary' | 'lab' | 'smithy'
+type PanelKey = 'mercenary' | 'lab' | 'smithy' | 'inventory'
 const menuItems: Array<{ label: string; iconX: number; iconY: number; panel?: PanelKey }> = [
   { label: strings.home.menu.auctionHouse, iconX: 32, iconY: 384 },
   { label: strings.home.menu.friends, iconX: 224, iconY: 0 },
+  // img/icons/274.png(IconSet.png 32px 그리드, 16열 기준 274번: col=274%16=2,
+  // row=274/16=17 -> x=64,y=544).
+  { label: strings.home.menu.inventory, iconX: 64, iconY: 544, panel: 'inventory' },
   { label: strings.home.menu.bakery, iconX: 320, iconY: 544 },
   { label: strings.home.menu.lab, iconX: 0, iconY: 352, panel: 'lab' },
   { label: strings.home.menu.blacksmith, iconX: 480, iconY: 416, panel: 'smithy' },
@@ -198,6 +202,7 @@ const partyInitial = computed(() => (auth.user?.name ?? '?').charAt(0).toUpperCa
 
     <div class="village">
       <MercenaryPanel v-if="activePanel === 'mercenary'" @close="activePanel = null" />
+      <InventoryPanel v-else-if="activePanel === 'inventory'" @close="activePanel = null" />
       <CraftingPanel
         v-else-if="activePanel === 'lab' || activePanel === 'smithy'"
         :key="activePanel"
