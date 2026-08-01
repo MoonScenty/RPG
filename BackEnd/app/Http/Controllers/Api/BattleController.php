@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Battle;
 use App\Models\MzAnimation;
-use App\Models\MzSystemAudio;
+use App\Models\MzTroop;
 use App\Support\BattleEngine;
 use App\Support\GambitCatalog;
 use Illuminate\Http\Request;
@@ -17,19 +17,25 @@ class BattleController extends Controller
     }
 
     /**
-     * mz_project System.json에서 임포트한 전투 배경음(battleBgm/victoryMe/defeatMe)
-     * 트랙명 + 캐스팅(시전 대기) 턴 로그 문구(GambitCatalog::castingMessage(),
-     * "캐스팅" 더미 스킬의 message1 필드로 지정) - 전투 시작 시 한 번만 받아두는
-     * 정적 값들이라 같은 엔드포인트에 묶었다.
+     * 전투 배경음(battleBgm/victoryMe/defeatMe) 트랙명 + 캐스팅(시전 대기) 턴 로그
+     * 문구(GambitCatalog::castingMessage(), "캐스팅" 더미 스킬의 message1 필드로
+     * 지정) - 전투 시작 시 한 번만 받아두는 정적 값들이라 같은 엔드포인트에 묶었다.
+     *
+     * mz_project System.json 시절엔 이 값들이 프로젝트 전역(mz_system_audio) 기본값
+     * 하나였는데, RPGProject/data는 대응 파일이 없는 대신 Troops.json에 트룹별로
+     * battleBgm/victoryMe/defeatMe를 갖고 있다(TypesAndSystemAudioSeeder 주석 참고) -
+     * mz_system_audio는 늘 null로 시딩돼서 예전 코드 그대로면 배경음이 항상 안 남.
+     * 시험전투 트룹이 현재 하나뿐이라(BattleEngine::spawnEnemyTroop()과 동일하게
+     * MzTroop::first()) 그 트룹의 값을 그대로 쓴다.
      */
     public function audio()
     {
-        $audio = MzSystemAudio::current();
+        $troop = MzTroop::first();
 
         return response()->json([
-            'battle_bgm' => $audio?->battle_bgm,
-            'victory_me' => $audio?->victory_me,
-            'defeat_me' => $audio?->defeat_me,
+            'battle_bgm' => $troop?->battle_bgm['name'] ?? null,
+            'victory_me' => $troop?->victory_me['name'] ?? null,
+            'defeat_me' => $troop?->defeat_me['name'] ?? null,
             'casting_message' => GambitCatalog::castingMessage(),
         ]);
     }
