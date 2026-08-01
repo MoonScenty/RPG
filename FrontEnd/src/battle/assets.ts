@@ -1,6 +1,4 @@
 import { Assets } from 'pixi.js'
-import battleback1 from '@/assets/battle/battleback1-grassland.png'
-import battleback2 from '@/assets/battle/battleback2-grassland.png'
 import borderNew from '@/assets/battle/border-new.png'
 import partyHudBack from '@/assets/battle/party-hud-back.png'
 import partyHudHp from '@/assets/battle/party-hud-hp.png'
@@ -15,13 +13,21 @@ import turnOrderActor2 from '@/assets/battle/turn-order-actor2.png'
 import turnOrderEnemy2 from '@/assets/battle/turn-order-enemy2.png'
 import shadow2 from '@/assets/battle/shadow2.png'
 
-// mz_project System.json의 기본 전투 배경(battleback1Name/battleback2Name, 에디터
-// "적 군단" 탭 일반 설정의 "전투 배경 변경"이 실제로 저장되는 곳 - 트룹별이 아니라
-// 프로젝트 전역 기본값 1개) - img/battlebacks{1,2}/에서 그대로 가져옴(현재 값 둘 다
-// "Grassland", mz_project에서 바뀌면 이 파일들도 수동으로 맞춰줘야 함). back1을
-// 화면 전체에 깔고 back2(위쪽만 불투명, 아래쪽 투명)를 그 위에 덮는다 - BattleScene.ts 참고.
-export const BACKGROUND1_URL = battleback1
-export const BACKGROUND2_URL = battleback2
+// 전투 배경은 트룹별(Troops.json의 battleback1/battleback2, BattleEngine::getState()가
+// 그대로 내려줌)이라 빌드 시점에 고정할 수 없다 - img/battlebacks{1,2}/ 전체를
+// public/assets/battlebacks{1,2}/로 그대로 복사해두고, 트룹 이름으로 파일명을
+// 대입해서 쓴다(값이 없으면 예전 기본값과 동일하게 Grassland). back1을 화면
+// 전체에 깔고 back2(위쪽만 불투명, 아래쪽 투명)를 그 위에 덮는다 - BattleScene.ts 참고.
+const DEFAULT_BATTLEBACK_NAME = 'Grassland'
+
+export function battleback1Url(name: string | null): string {
+  return `/assets/battlebacks1/${name ?? DEFAULT_BATTLEBACK_NAME}.png`
+}
+
+export function battleback2Url(name: string | null): string {
+  return `/assets/battlebacks2/${name ?? DEFAULT_BATTLEBACK_NAME}.png`
+}
+
 export const BORDER_URL = borderNew
 
 // 우측 파티 HUD 카드(220x120) - back은 반투명 패널 배경에 HP/MP 게이지 트랙(짙은
@@ -69,8 +75,6 @@ export const ICON_SET_URL = '/assets/icons/IconSet.png'
 
 export async function preloadBattleAssets(): Promise<void> {
   await Assets.load([
-    BACKGROUND1_URL,
-    BACKGROUND2_URL,
     BORDER_URL,
     PARTY_HUD_BACK_URL,
     PARTY_HUD_HP_URL,

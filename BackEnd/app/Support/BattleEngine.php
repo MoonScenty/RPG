@@ -1859,11 +1859,19 @@ class BattleEngine
     {
         $battle->refresh();
 
+        // 시험전투 트룹이 현재 하나뿐이라(spawnEnemyTroop()과 동일하게 MzTroop::first())
+        // 그 트룹의 battleback1/2를 그대로 쓴다 - FrontEnd가 이 값을 무시하고 항상
+        // 고정 grassland 이미지를 그리고 있던 것도 같이 고침(battle-audio의
+        // battleBgm이 항상 null이던 것과 동일한 종류의 누락).
+        $troop = MzTroop::first();
+
         return [
             'id' => $battle->id,
             'status' => $battle->status,
             'winner_side' => $battle->winner_side,
             'turn_number' => $battle->turn_number,
+            'battleback1' => $troop?->battleback1,
+            'battleback2' => $troop?->battleback2,
             'units' => $battle->units()->with(['unit', 'mzClass'])->get()->map(fn (BattleUnit $u) => [
                 'id' => $u->id,
                 'unit_id' => $u->unit_id,

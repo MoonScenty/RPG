@@ -1,4 +1,4 @@
-import { Application, Container, FillGradient, Graphics, Point, Sprite, Text } from 'pixi.js'
+import { Application, Assets, Container, FillGradient, Graphics, Point, Sprite, Text } from 'pixi.js'
 import {
   advanceTurn,
   createOrResumeBattle,
@@ -12,7 +12,7 @@ import {
   type BattleState,
   type BattleUnit,
 } from '@/lib/battleApi'
-import { BACKGROUND1_URL, BACKGROUND2_URL, SHADOW_URL } from './assets'
+import { battleback1Url, battleback2Url, SHADOW_URL } from './assets'
 import { playBattleBgm, playResultMe, playSe, stopBattleBgm } from './audio'
 import { BattlerSprite, LOW_HP_RATIO, type Animator } from './BattlerSprite'
 import { characterKeyForSprite, getCharacterFrames } from './characters'
@@ -81,6 +81,10 @@ export class BattleScene {
   private readonly effekseer: EffekseerOverlay | null
   private readonly onExit: () => void
 
+  // 기본값(Grassland)으로 우선 그려두고, start()가 상태를 받으면 실제 트룹의
+  // battleback1/2로 텍스처만 교체한다(applyBattleback() 참고).
+  private readonly bg1: Sprite
+  private readonly bg2: Sprite
   private readonly unitLayer = new Container()
   private readonly statusText: Text
   // 배틀로그 박스(배경+텍스트)를 한 덩어리로 페이드인/아웃시키기 위한 래퍼.
@@ -112,15 +116,15 @@ export class BattleScene {
     // 하늘/산, 아래쪽은 투명)를 그 위에 풀스크린으로 덮는다. back2의 투명한
     // 아래쪽으로 back1이 그대로 비쳐 보이고, 불투명한 위쪽만 back1을 덮어써서
     // 굳이 높이를 나눠 배치하지 않아도 알파가 알아서 합성해준다.
-    const bg1 = Sprite.from(BACKGROUND1_URL)
-    bg1.width = STAGE_WIDTH
-    bg1.height = STAGE_HEIGHT
-    this.root.addChild(bg1)
+    this.bg1 = Sprite.from(battleback1Url(null))
+    this.bg1.width = STAGE_WIDTH
+    this.bg1.height = STAGE_HEIGHT
+    this.root.addChild(this.bg1)
 
-    const bg2 = Sprite.from(BACKGROUND2_URL)
-    bg2.width = STAGE_WIDTH
-    bg2.height = STAGE_HEIGHT
-    this.root.addChild(bg2)
+    this.bg2 = Sprite.from(battleback2Url(null))
+    this.bg2.width = STAGE_WIDTH
+    this.bg2.height = STAGE_HEIGHT
+    this.root.addChild(this.bg2)
 
     this.root.addChild(this.unitLayer)
 
@@ -211,7 +215,10 @@ export class BattleScene {
       this.effectsCatalog = new Map(effects.map((e) => [e.name, e]))
       this.latestState = state
 
-      await this.renderUnits(state.units)
+      await Promise.all([
+        this.renderUnits(state.units),
+        this.applyBattleback(state.battleback1, state.battleback2),
+      ])
       this.buildEnemyLabels(state.units)
       this.turnOrderStrip.update(state)
 
@@ -239,6 +246,16 @@ export class BattleScene {
     this.stopped = true
     stopBattleBgm()
     this.root.destroy({ children: true })
+  }
+
+  /** 생성자에서 기본값(Grassland)으로 미리 그려둔 배경을 실제 트룹의 battleback1/2로 교체한다. */
+  private async applyBattleback(name1: string | null, name2: string | null): Promise<void> {
+    const [texture1, texture2] = await Promise.all([
+      Assets.load(battleback1Url(name1)),
+      Assets.load(battleback2Url(name2)),
+    ])
+    this.bg1.texture = texture1
+    this.bg2.texture = texture2
   }
 
   private async renderUnits(units: BattleUnit[]): Promise<void> {

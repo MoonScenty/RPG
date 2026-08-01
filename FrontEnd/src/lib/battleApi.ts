@@ -78,6 +78,9 @@ export interface BattleState {
   status: BattleStatus
   winner_side: Side | null
   turn_number: number
+  /** Troops.json의 트룹별 배경 이름(예: "Cyberspace") - null이면 assets.ts가 Grassland로 대체. */
+  battleback1: string | null
+  battleback2: string | null
   units: BattleUnit[]
   logs: BattleLogEntry[]
   finished?: boolean
