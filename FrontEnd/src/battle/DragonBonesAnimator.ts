@@ -19,6 +19,13 @@ export type DragonBonesMotionMap = Partial<Record<AnimName, string>>
 // (느려지지 않도록) 그대로 둔다.
 const ONE_SHOT_TARGET_SECONDS = 0.35
 
+// <DragonBonesMotion> 노트태그의 클립 이름이 실제 스켈레톤에 없거나(오타, 리그
+// 교체 등) 애니메이션이 재생 도중 다른 상태로 끊기면 EventObject.COMPLETE가
+// 영영 안 올 수 있다 - 그러면 playOnce()의 Promise가 영원히 안 풀려서 턴 진행
+// 전체가 멈춰버린다(전투 중 캐릭터가 멈추는 버그로 보고됨). 예상 재생시간을
+// 넘기면 그냥 완료 처리하는 안전장치를 둔다.
+const PLAYONCE_TIMEOUT_SLACK_MS = 1000
+
 /** DragonBones 스켈레톤 애니메이션을 BattlerSprite와 동일한 인터페이스로 감싼 래퍼. */
 export class DragonBonesAnimator implements Animator {
   readonly view: Container
@@ -66,15 +73,24 @@ export class DragonBonesAnimator implements Animator {
     }
 
     return new Promise((resolve) => {
-      const onComplete = () => {
+      let done = false
+      const finish = (): void => {
+        if (done) return
+        done = true
         this.display.removeDBEventListener(EventObject.COMPLETE, onComplete, this)
+        clearTimeout(timer)
         resolve()
       }
+      const onComplete = (): void => finish()
+
       this.display.addDBEventListener(EventObject.COMPLETE, onComplete, this)
       const state = this.display.animation.play(clip, 1)
       if (state && state.totalTime > ONE_SHOT_TARGET_SECONDS) {
         state.timeScale = state.totalTime / ONE_SHOT_TARGET_SECONDS
       }
+
+      const expectedSeconds = state ? Math.min(state.totalTime, ONE_SHOT_TARGET_SECONDS) : ONE_SHOT_TARGET_SECONDS
+      const timer = setTimeout(finish, expectedSeconds * 1000 + PLAYONCE_TIMEOUT_SLACK_MS)
     })
   }
 
