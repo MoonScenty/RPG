@@ -1,0 +1,917 @@
+import { Application, Container, FillGradient, Graphics, Point, Sprite, Text } from 'pixi.js'
+import {
+  advanceTurn,
+  createOrResumeBattle,
+  getBattleAudio,
+  getBattleEffects,
+  isUnitAlive,
+  type BattleAudio,
+  type BattleEffectInfo,
+  type BattleLogEntry,
+  type BattleLogTarget,
+  type BattleState,
+  type BattleUnit,
+} from '@/lib/battleApi'
+import { BACKGROUND1_URL, BACKGROUND2_URL, SHADOW_URL } from './assets'
+import { playBattleBgm, playResultMe, playSe, stopBattleBgm } from './audio'
+import { BattlerSprite, LOW_HP_RATIO, type Animator } from './BattlerSprite'
+import { characterKeyForSprite, getCharacterFrames } from './characters'
+import { loadCircleImage } from './circleImages'
+import { buildArmature } from './dragonbones'
+import { DragonBonesAnimator } from './DragonBonesAnimator'
+import type { EffekseerOverlay } from './effekseer'
+import { slotPosition, STAGE_HEIGHT, STAGE_WIDTH } from './layout'
+import { FONT_FAMILY } from './theme'
+import { easeOutQuad, tween } from './tween'
+import { PartyHud } from './PartyHud'
+import { TurnOrderStrip } from './TurnOrderStrip'
+
+const TURN_INTERVAL_MS = 1100
+
+// 모든 유닛(아군+적)이 동일한 sv 배틀러 스타일 애니메이션 시트를 쓰므로 단일 스케일.
+const BATTLER_SCALE = 1.3
+
+// DragonBones 스켈레톤은 sv 시트와 전혀 다른 내부 좌표 단위로 작업되어(고블린
+// HeadlessHW 리그는 aabb 높이가 1000px대) 고정 배율을 쓸 수 없다 - getLocalBounds()로
+// 실측한 높이를 이 값에 맞춰 매 유닛마다 동적으로 정규화한다. sv 배틀러의 대략적인
+// 화면상 높이(cellHeight*BATTLER_SCALE)에 맞춘 추정값이라, 실제로 보면서 조정이 필요할 수 있다.
+const DRAGONBONES_TARGET_HEIGHT = 150
+
+// MZ 사이드뷰 배틀처럼 대상 앞까지 걸어가지 않고, 제자리에서 이 거리만큼만
+// 살짝 앞으로 내딛고 공격 모션을 취한다(frontstep/backstep은 원래 이런 짧은
+// 스텝용 모션이지, 화면을 가로지르는 이동용이 아니다).
+const ATTACK_STEP_DISTANCE = 60
+
+// 배틀로그 한 줄을 담는 반투명 박스(사용자 지시) - 위에서 124px, 가로 중앙,
+// 폭 600px, 모서리 반경 5, 검정 배경 불투명도 0.2. 항상 떠있지 않고 메시지가
+// 바뀔 때마다 페이드인 -> 잠깐 유지 -> 페이드아웃한다(showLog() 참고).
+const LOG_BOX_TOP = 124
+const LOG_BOX_WIDTH = 600
+const LOG_BOX_PADDING_Y = 10
+const LOG_BOX_RADIUS = 5
+const LOG_BOX_COLOR = 0x000000
+const LOG_BOX_ALPHA = 0.2
+const LOG_FADE_MS = 250
+const LOG_HOLD_MS = 2500
+
+// 적 스프라이트 발밑에 이름을 표시(reference_resource/design/ref5.png 참고, HP 바는 사용자
+// 요청으로 제거됨). 스프라이트가 공격 시 앞으로 살짝 내딛는 애니메이션을 타므로,
+// 라벨은 유닛 컨테이너가 아니라 unitLayer에 별도로 얹어서 흔들리지 않게 고정한다.
+const ENEMY_LABEL_GAP = 10 // 발밑~이름
+
+interface EnemyLabel {
+  group: Container
+}
+
+interface UnitView {
+  unit: BattleUnit
+  container: Container
+  sprite: Container
+  hitOverlay: Container
+  animator: Animator
+  basePos: { x: number; y: number }
+  displayHeight: number
+  /** 부활 스킬 등으로 죽었다 살아나는 걸 감지하기 위한 직전 생존 여부. */
+  wasAlive: boolean
+}
+
+export class BattleScene {
+  readonly root = new Container()
+
+  private readonly app: Application
+  private readonly effekseer: EffekseerOverlay | null
+  private readonly onExit: () => void
+
+  private readonly unitLayer = new Container()
+  private readonly statusText: Text
+  // 배틀로그 박스(배경+텍스트)를 한 덩어리로 페이드인/아웃시키기 위한 래퍼.
+  private readonly logGroup = new Container()
+  private readonly resultLayer = new Container()
+  private readonly turnOrderStrip: TurnOrderStrip
+
+  private unitViews = new Map<number, UnitView>()
+  private enemyLabels = new Map<number, EnemyLabel>()
+  private partyHud: PartyHud | null = null
+  private audio: BattleAudio | null = null
+  private effectsCatalog = new Map<string, BattleEffectInfo>()
+  private battleId = 0
+  private stopped = false
+  // showLog() 호출마다 증가시켜서, 새 메시지가 오면 이전 메시지의 유지/페이드아웃
+  // 대기 중이던 타이머가 뒤늦게 끼어들어 화면을 지우지 않게 막는다.
+  private logToken = 0
+
+  constructor(app: Application, effekseer: EffekseerOverlay | null, onExit: () => void) {
+    this.app = app
+    this.effekseer = effekseer
+    this.onExit = onExit
+    this.turnOrderStrip = new TurnOrderStrip(app)
+
+    // back1(근경 - 들판, 완전 불투명)을 화면 전체에 먼저 깔고, back2(원경 - 위쪽엔
+    // 하늘/산, 아래쪽은 투명)를 그 위에 풀스크린으로 덮는다. back2의 투명한
+    // 아래쪽으로 back1이 그대로 비쳐 보이고, 불투명한 위쪽만 back1을 덮어써서
+    // 굳이 높이를 나눠 배치하지 않아도 알파가 알아서 합성해준다.
+    const bg1 = Sprite.from(BACKGROUND1_URL)
+    bg1.width = STAGE_WIDTH
+    bg1.height = STAGE_HEIGHT
+    this.root.addChild(bg1)
+
+    const bg2 = Sprite.from(BACKGROUND2_URL)
+    bg2.width = STAGE_WIDTH
+    bg2.height = STAGE_HEIGHT
+    this.root.addChild(bg2)
+
+    this.root.addChild(this.unitLayer)
+
+    this.statusText = new Text({
+      text: '전투 준비 중...',
+      style: {
+        fill: 0xffe9a8,
+        fontSize: 22,
+        fontFamily: FONT_FAMILY,
+        stroke: { color: 0x2a1a00, width: 4 },
+      },
+    })
+
+    // 배틀로그 한 줄을 담는 반투명 배경 박스 - 텍스트 높이 기준으로 세로 패딩만
+    // 더해서 한 줄 높이에 딱 맞춘다(내용이 바뀌어도 박스 크기는 고정).
+    const logBoxHeight = this.statusText.height + LOG_BOX_PADDING_Y * 2
+    const logBoxX = STAGE_WIDTH / 2 - LOG_BOX_WIDTH / 2
+    const logBg = new Graphics()
+      .roundRect(logBoxX, LOG_BOX_TOP, LOG_BOX_WIDTH, logBoxHeight, LOG_BOX_RADIUS)
+      .fill({ color: LOG_BOX_COLOR, alpha: LOG_BOX_ALPHA })
+    this.logGroup.addChild(logBg)
+
+    this.statusText.anchor.set(0.5, 0.5)
+    this.statusText.position.set(STAGE_WIDTH / 2, LOG_BOX_TOP + logBoxHeight / 2)
+    this.logGroup.addChild(this.statusText)
+
+    // 항상 떠있지 않고 showLog()가 호출될 때만 페이드인한다.
+    this.logGroup.alpha = 0
+    this.root.addChild(this.logGroup)
+
+    this.root.addChild(this.turnOrderStrip.container)
+
+    this.resultLayer.visible = false
+    this.root.addChild(this.resultLayer)
+  }
+
+  /**
+   * 배틀로그 박스를 페이드인 -> 잠깐 유지 -> 페이드아웃한다(사용자 지시) - 항상
+   * 떠있는 대신 메시지 하나당 한 번씩 재생. 유지/페이드아웃 대기 중에 새
+   * showLog()가 호출되면(다음 턴이 그 사이에 진행되는 경우) logToken이 바뀌어서
+   * 이전 호출의 남은 대기는 화면을 건드리지 않고 조용히 멈춘다.
+   */
+  private showLog(text: string): void {
+    this.statusText.text = text
+    const token = ++this.logToken
+    void this.playLogFade(token)
+  }
+
+  private async playLogFade(token: number): Promise<void> {
+    await tween(this.app, LOG_FADE_MS, (progress) => {
+      this.logGroup.alpha = easeOutQuad(progress)
+    })
+    if (token !== this.logToken) return
+
+    await this.wait(LOG_HOLD_MS)
+    if (token !== this.logToken) return
+
+    await tween(this.app, LOG_FADE_MS, (progress) => {
+      this.logGroup.alpha = 1 - easeOutQuad(progress)
+    })
+  }
+
+  private wait(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+
+  /**
+   * showLog()와 달리 페이드아웃 없이 계속 떠있는 채로 보여준다 - 승패 결과처럼
+   * 더 이상 다음 로그가 오지 않아 자연스럽게 안 사라지면 곤란한 마지막 문구용.
+   * logToken을 증가시켜서 그 시점에 진행 중이던 showLog()의 페이드아웃 대기가
+   * 뒤늦게 이 문구를 지우지 못하게 막는다.
+   */
+  private showLogPersistent(text: string): void {
+    this.statusText.text = text
+    this.logToken++
+    this.logGroup.alpha = 1
+  }
+
+  async start(): Promise<void> {
+    try {
+      const [state, audio, effects] = await Promise.all([
+        createOrResumeBattle(),
+        getBattleAudio(),
+        getBattleEffects(),
+      ])
+      this.battleId = state.id
+      this.audio = audio
+      this.effectsCatalog = new Map(effects.map((e) => [e.name, e]))
+
+      await this.renderUnits(state.units)
+      this.buildEnemyLabels(state.units)
+      this.turnOrderStrip.update(state)
+
+      const allies = state.units.filter((u) => u.side === 'ally')
+      this.partyHud = new PartyHud(this.app, allies)
+      this.root.addChild(this.partyHud.container)
+      this.root.addChild(this.resultLayer) // 승패 오버레이를 맨 위로
+
+      if (state.status === 'finished') {
+        this.finish(state)
+        return
+      }
+
+      playBattleBgm(audio.battle_bgm)
+
+      const lastLog = state.logs[state.logs.length - 1]
+      this.showLog(lastLog ? this.describeTurn(lastLog) : '전투 시작!')
+      this.loop()
+    } catch (err) {
+      this.showLog(`전투를 불러오지 못했습니다: ${(err as Error).message}`)
+    }
+  }
+
+  destroy(): void {
+    this.stopped = true
+    stopBattleBgm()
+    this.root.destroy({ children: true })
+  }
+
+  private async renderUnits(units: BattleUnit[]): Promise<void> {
+    const built = await Promise.all(units.map(async (unit) => ({ unit, ...(await this.buildUnitDisplay(unit)) })))
+
+    for (const { unit, animator, display, hitOverlay, displayHeight } of built) {
+      const basePos = slotPosition(unit.side, unit.slot)
+      const container = new Container()
+      container.position.set(basePos.x, basePos.y)
+
+      // 아군 배틀러 발밑 그림자(사용자 요청) - container 원점(0,0)이 곧 발밑
+      // 접지점(sprite/armature 피벗이 하단 중앙)이라 그 자리에 그대로 겹치면 된다.
+      if (unit.side === 'ally') {
+        const shadow = Sprite.from(SHADOW_URL)
+        shadow.anchor.set(0.5, 0.5)
+        shadow.scale.set(BATTLER_SCALE)
+        container.addChild(shadow)
+      }
+
+      container.addChild(display)
+      container.addChild(hitOverlay)
+
+      this.unitLayer.addChild(container)
+      const view: UnitView = {
+        unit,
+        container,
+        sprite: display,
+        hitOverlay,
+        animator,
+        basePos,
+        displayHeight,
+        wasAlive: isUnitAlive(unit),
+      }
+      this.unitViews.set(unit.id, view)
+      this.setAliveState(view, false)
+    }
+
+    this.resortUnitDepth()
+  }
+
+  /** 뒷줄(basePos.y가 작음)이 항상 앞줄보다 뒤에 그려지도록 고정 depth 정렬 - 슬롯이 바뀔 때도 다시 호출된다. */
+  private resortUnitDepth(): void {
+    const byDepth = [...this.unitViews.values()].sort((a, b) => a.basePos.y - b.basePos.y)
+    for (const view of byDepth) {
+      this.unitLayer.addChild(view.container)
+    }
+  }
+
+  /**
+   * 유닛의 <DragonBonesData>/<DragonBonesTextureAtlasData> 노트태그 유무로 렌더링
+   * 방식을 분기한다. DragonBones 로드가 실패해도(패키지 미설치, 네트워크 오류,
+   * 잘못된 리그 이름 등) 전투 자체가 멈추면 안 되므로 sv 배틀러로 조용히 대체한다.
+   */
+  private async buildUnitDisplay(unit: BattleUnit): Promise<{
+    animator: Animator
+    display: Container
+    hitOverlay: Container
+    displayHeight: number
+  }> {
+    if (unit.dragonbones_skeleton && unit.dragonbones_atlas) {
+      try {
+        return await this.buildDragonBonesDisplay(unit, unit.dragonbones_skeleton, unit.dragonbones_atlas)
+      } catch (err) {
+        console.warn(`DragonBones 로드 실패, sv 배틀러로 대체합니다: ${unit.dragonbones_skeleton}`, err)
+      }
+    }
+
+    return this.buildSvDisplay(unit)
+  }
+
+  private async buildDragonBonesDisplay(
+    unit: BattleUnit,
+    skeletonName: string,
+    atlasName: string,
+  ): Promise<{ animator: Animator; display: Container; hitOverlay: Container; displayHeight: number }> {
+    const armature = await buildArmature(skeletonName, atlasName)
+    const animator = new DragonBonesAnimator(armature, unit.dragonbones_motions ?? {})
+
+    const bounds = armature.getLocalBounds()
+    // 자동 정규화(bounds 실측 기반) 위에 <DragonBonesScale: n>(퍼센트, 기본 100) 노트태그로 미세 조정.
+    const autoScale = bounds.height > 0 ? DRAGONBONES_TARGET_HEIGHT / bounds.height : 1
+    const scale = autoScale * ((unit.dragonbones_scale ?? 100) / 100)
+
+    // sv 배틀러의 anchor(0.5, 1)(발밑 중앙이 원점)과 같은 정렬이 되도록, 피벗을
+    // 실측 바운딩박스의 하단 중앙으로 옮긴다(스켈레톤 원본 원점은 리그마다 제각각).
+    armature.pivot.set(bounds.x + bounds.width / 2, bounds.y + bounds.height)
+    armature.scale.set(scale)
+    // sv 배틀러 시트가 왼쪽을 보도록 그려진 것과 같은 이유로 적 쪽만 좌우 반전.
+    if (unit.side === 'enemy') {
+      armature.scale.x *= -1
+    }
+
+    const displayHeight = bounds.height * scale
+    const displayWidth = bounds.width * scale
+
+    // 슬롯이 여러 장의 텍스처로 나뉘어 있어 sv처럼 텍스처 하나를 틴트 복제할 수
+    // 없으니, 실측 크기의 사각형을 대신 겹쳐서 같은 피격 플래시 연출을 낸다.
+    const hitOverlay = new Graphics()
+      .rect(-displayWidth / 2, -displayHeight, displayWidth, displayHeight)
+      .fill(0xffffff)
+    hitOverlay.tint = 0xff2b2b
+    hitOverlay.blendMode = 'add'
+    hitOverlay.alpha = 0
+
+    return { animator, display: armature, hitOverlay, displayHeight }
+  }
+
+  private buildSvDisplay(unit: BattleUnit): {
+    animator: Animator
+    display: Container
+    hitOverlay: Container
+    displayHeight: number
+  } {
+    const characterKey = characterKeyForSprite(unit.sprite)
+    const frames = (characterKey ? getCharacterFrames(characterKey) : undefined) ?? {}
+    const animator = new BattlerSprite(frames)
+    const sprite = animator.view
+    sprite.anchor.set(0.5, 1)
+    sprite.scale.set(BATTLER_SCALE)
+    const displayHeight = sprite.texture.height * BATTLER_SCALE
+
+    // sv 배틀러 시트는 왼쪽을 보도록 그려져 있다(오른쪽에 서는 아군 기준).
+    // 적은 반대편(왼쪽)에 서서 오른쪽을 봐야 하므로 좌우 반전한다.
+    if (unit.side === 'enemy') {
+      sprite.scale.x *= -1
+    }
+
+    // 같은 텍스처를 빨갛게 틴트+가산블렌드해 겹쳐두고, 피격 시에만 반짝이게 한다.
+    const hitOverlay = new Sprite(sprite.texture)
+    hitOverlay.anchor.copyFrom(sprite.anchor)
+    hitOverlay.scale.copyFrom(sprite.scale)
+    hitOverlay.tint = 0xff2b2b
+    hitOverlay.blendMode = 'add'
+    hitOverlay.alpha = 0
+
+    return { animator, display: sprite, hitOverlay, displayHeight }
+  }
+
+  /** 적 스프라이트 발밑에 이름+HP 바 라벨을 붙인다(reference_resource/design/ref5.png 참고). */
+  private buildEnemyLabels(units: BattleUnit[]): void {
+    for (const unit of units) {
+      if (unit.side !== 'enemy') continue
+      const view = this.unitViews.get(unit.id)
+      if (!view) continue
+
+      const group = new Container()
+      group.position.set(view.basePos.x, view.basePos.y + ENEMY_LABEL_GAP)
+      this.unitLayer.addChild(group)
+
+      const nameText = new Text({
+        text: unit.name,
+        style: {
+          fill: 0xffe9a8,
+          fontSize: 14,
+          fontFamily: FONT_FAMILY,
+          stroke: { color: 0x2a1a00, width: 3 },
+        },
+      })
+      nameText.anchor.set(0.5, 0)
+      group.addChild(nameText)
+
+      this.enemyLabels.set(unit.id, { group })
+    }
+  }
+
+  private updateEnemyLabels(units: BattleUnit[]): void {
+    for (const unit of units) {
+      if (unit.side !== 'enemy') continue
+      const label = this.enemyLabels.get(unit.id)
+      if (!label) continue
+
+      label.group.visible = isUnitAlive(unit)
+    }
+  }
+
+  /**
+   * 죽어도 화면에서 지우지 않고 그 자리에 사망 포즈로 남긴다(소생술 같은 부활
+   * 스킬이 대상으로 삼을 수 있어야 하므로). 죽는 순간에만 dying->dead 애니메이션을
+   * 재생하고, 이미 죽어있던 유닛은 매 턴 다시 재생하지 않는다(wasAlive로 판별).
+   * 죽어있다가 다시 살아나면(부활) 사망 포즈에서 idle로 복귀시킨다.
+   *
+   * 단, 이 캐릭터에 dying/dead 포즈가 아예 없으면(주로 <DragonBonesMotion>에
+   * dying/dead를 안 걸어준 DragonBones 유닛) 죽은 채로 idle 포즈가 얼어붙어
+   * "살아있는 것처럼" 보이는 게 더 어색하므로, 예전처럼 페이드아웃 후 숨긴다.
+   */
+  private setAliveState(view: UnitView, animate: boolean): void {
+    const aliveNow = isUnitAlive(view.unit)
+
+    if (aliveNow) {
+      view.container.visible = true
+      view.container.alpha = 1
+      const hpRatio = view.unit.max_hp > 0 ? view.unit.current_hp / view.unit.max_hp : 0
+      view.animator.setLowHp(hpRatio <= LOW_HP_RATIO)
+      view.animator.setStateMotion(view.unit.state_motion)
+
+      if (!view.wasAlive) {
+        view.animator.playIdleBaseline()
+      }
+      view.wasAlive = true
+      return
+    }
+
+    const hasDeathPose = view.animator.hasAnimation('dying') || view.animator.hasAnimation('dead')
+
+    if (!hasDeathPose) {
+      if (animate && view.wasAlive) {
+        void tween(this.app, 400, (p) => {
+          view.container.alpha = 1 - p
+        }).then(() => {
+          view.container.visible = false
+        })
+      } else {
+        view.container.visible = false
+      }
+      view.wasAlive = false
+      return
+    }
+
+    view.container.visible = true
+    view.container.alpha = 1
+
+    if (animate && view.wasAlive) {
+      void view.animator.playDown()
+    } else if (!animate) {
+      view.animator.snapToDeadPose()
+    }
+
+    view.wasAlive = false
+  }
+
+  private async loop(): Promise<void> {
+    if (this.stopped) return
+
+    try {
+      const state = await advanceTurn(this.battleId)
+      await this.playTurn(state)
+
+      if (state.status === 'finished') {
+        this.finish(state)
+        return
+      }
+    } catch (err) {
+      this.showLog(`오류: ${(err as Error).message}`)
+    }
+
+    if (!this.stopped) {
+      setTimeout(() => this.loop(), TURN_INTERVAL_MS)
+    }
+  }
+
+  private async playTurn(state: BattleState): Promise<void> {
+    const turn = state.logs[state.logs.length - 1]
+
+    if (turn) {
+      // 연출이 끝난 뒤가 아니라 시작할 때 로그 문구를 보여준다.
+      this.showLog(this.describeTurn(turn))
+
+      const actorView = this.unitViews.get(turn.actor_battle_unit_id)
+      const targetView = turn.target_battle_unit_id
+        ? this.unitViews.get(turn.target_battle_unit_id)
+        : undefined
+
+      if (actorView) {
+        await this.animateAction(actorView, targetView, turn)
+      }
+    }
+
+    // "자리 변경"(<SwapPosition>) 등으로 슬롯이 바뀐 유닛은 basePos/화면 위치를
+    // 새 슬롯 기준으로 다시 계산한다 - 스킬 자체엔 별도 이동 연출이 없어(순간이동
+    // 취급) 다음 애니메이션부터 바로 새 자리에서 시작한다.
+    let slotsChanged = false
+    for (const unit of state.units) {
+      const view = this.unitViews.get(unit.id)
+      if (view) {
+        if (view.unit.slot !== unit.slot) {
+          view.basePos = slotPosition(unit.side, unit.slot)
+          view.container.position.set(view.basePos.x, view.basePos.y)
+          slotsChanged = true
+        }
+        view.unit = unit
+        this.setAliveState(view, true)
+      }
+    }
+    if (slotsChanged) {
+      this.resortUnitDepth()
+    }
+
+    this.partyHud?.update(state.units)
+    this.updateEnemyLabels(state.units)
+    this.turnOrderStrip.update(state)
+  }
+
+  private async animateAction(
+    actor: UnitView,
+    target: UnitView | undefined,
+    turn: BattleLogEntry,
+  ): Promise<void> {
+    // cancel(가늠쇠 규칙이 행동을 건너뛰기로 결정)은 대상도 이동도 없다 -
+    // 아직 별도 연출이 없으니 중립색 플래시만 보여준다.
+    if (turn.action_type === 'cancel') {
+      await this.selfFlash(actor, 0x999999)
+      return
+    }
+
+    // 캐스팅(시전 대기) 중인 턴 - 실제로 아무것도 맞지 않으므로 앞으로 나가지 않고
+    // 제자리에서 chant 포즈만 취한다. 시전 중인 스킬에 <CircleImage: 배율, 이름>
+    // 태그가 있으면(turn.circle_image_name) 그 이미지를 발밑에 겹쳐서 보여준다 -
+    // 어떤 이펙트가 뜨는지는 이제 코드가 아니라 스킬 노트태그가 결정한다.
+    if (turn.action_type === 'casting') {
+      const castAnim = actor.animator.playOnce('chant')
+      if (turn.circle_image_name) {
+        void this.playCastingCircle(actor, turn.circle_image_name, turn.circle_image_scale ?? 1)
+      }
+      await castAnim
+      actor.animator.playIdleBaseline()
+      return
+    }
+
+    // 광역기(scope 2/8/10) - 대상이 여럿이라 한쪽으로 다가갔다 물러나는 연출은
+    // 의미가 없으므로 제자리에서 공격 모션만 취하고, 맞는 진영 전원이 동시에
+    // 피격 반응한다(백엔드 resolveAoeSkillUse가 채운 turn.targets).
+    if (turn.targets && turn.targets.length > 0) {
+      await this.animateAoeAction(actor, turn.targets, turn.skill_motion ?? undefined)
+      return
+    }
+
+    const forward = target
+      ? {
+          x: actor.basePos.x + Math.sign(target.basePos.x - actor.basePos.x) * ATTACK_STEP_DISTANCE,
+          y: actor.basePos.y,
+        }
+      : actor.basePos
+
+    const frontstep = actor.animator.playFrontstep()
+    await tween(this.app, 180, (p) => {
+      const e = easeOutQuad(p)
+      actor.container.position.x = actor.basePos.x + (forward.x - actor.basePos.x) * e
+      actor.container.position.y = actor.basePos.y + (forward.y - actor.basePos.y) * e
+    })
+    await frontstep
+
+    // 일반 공격은 장착 무기 모션을, 스킬은 <SkillMotion> 태그가 있으면 그 모션을
+    // 따른다 - 둘 다 없으면(태그 없는 스킬) playAttack()이 기본값(thrust)으로 폴백한다.
+    const motion = turn.action_type === 'attack' ? actor.unit.attack_motion : (turn.skill_motion ?? undefined)
+    const attackAnim = actor.animator.playAttack(motion)
+
+    // 타격 모션이 다 끝난 뒤가 아니라 "취하는 바로 그 순간" 이펙트가 같이 나가야
+    // 자연스럽다 - playAttack을 기다리기 전에 바로 쏜다(일반 공격 + weapon_effect_name이
+    // 연결돼 있을 때만 - 스킬 전용 이펙트는 범위 밖). side 구분 없음: 아군은 장착
+    // 무기(ActorSeeder), 적은 <AttackAnimation> 노트태그(MzImportSeeder)로 채워진다.
+    if (turn.action_type === 'attack' && actor.unit.weapon_effect_name && target) {
+      void this.playWeaponEffect(actor.unit.weapon_effect_name, target)
+    }
+
+    await attackAnim
+
+    if (target) {
+      if (turn.hit_outcome === 'missed') {
+        // 빗나감 - 공격이 대상에게 아예 안 닿았으니 대상은 반응하지 않는다.
+      } else if (turn.hit_outcome === 'evaded') {
+        await target.animator.playOnce('evade')
+        target.animator.playIdleBaseline()
+      } else {
+        await target.animator.playOnce('damage')
+        const targetSurvived = turn.target_hp_after === null || turn.target_hp_after > 0
+        if (targetSurvived) {
+          target.animator.playIdleBaseline()
+        }
+
+        if (turn.damage !== null && turn.damage > 0) {
+          void this.spawnDamageNumber(target, turn.damage, turn.is_critical ?? false)
+        }
+      }
+    }
+
+    const backstep = actor.animator.playOnce('backstep')
+    await tween(this.app, 160, (p) => {
+      const e = easeOutQuad(p)
+      actor.container.position.x = forward.x + (actor.basePos.x - forward.x) * e
+      actor.container.position.y = forward.y + (actor.basePos.y - forward.y) * e
+    })
+    actor.container.position.set(actor.basePos.x, actor.basePos.y)
+    await backstep
+    actor.animator.playIdleBaseline()
+  }
+
+  /**
+   * 광역기(scope 2/8/10) 연출 - 제자리에서 공격 모션 1회, 그동안 맞는 진영
+   * 전원이 동시에 피격 반응 + 데미지 숫자를 띄운다. 대상 하나하나에게 다가가지
+   * 않으므로 forward/backstep 이동이 없다. motion은 <SkillMotion> 태그 값 -
+   * 없으면 playAttack()이 기본값(swing)으로 폴백한다.
+   */
+  private async animateAoeAction(actor: UnitView, targets: BattleLogTarget[], motion?: string): Promise<void> {
+    const attackAnim = actor.animator.playAttack(motion)
+    await attackAnim
+
+    await Promise.all(
+      targets.map(async (t) => {
+        const view = this.unitViews.get(t.battle_unit_id)
+        if (!view) return
+
+        if (t.hit_outcome === 'missed') {
+          return
+        }
+        if (t.hit_outcome === 'evaded') {
+          await view.animator.playOnce('evade')
+          view.animator.playIdleBaseline()
+          return
+        }
+
+        await view.animator.playOnce('damage')
+        if (t.hp_after > 0) {
+          view.animator.playIdleBaseline()
+        }
+        if (t.damage !== null && t.damage > 0) {
+          void this.spawnDamageNumber(view, t.damage, t.critical ?? false)
+        }
+      }),
+    )
+
+    actor.animator.playIdleBaseline()
+  }
+
+  /** 이 캐릭터에게 맞는 포즈가 없는 자기 반응(예: cancel)에 대한 대체 플래시. */
+  private async selfFlash(view: UnitView, color: number): Promise<void> {
+    const originalTint = view.hitOverlay.tint
+    view.hitOverlay.tint = color
+    await tween(this.app, 140, (p) => {
+      view.hitOverlay.alpha = p < 0.5 ? p * 2 : (1 - p) * 2
+    })
+    view.hitOverlay.alpha = 0
+    view.hitOverlay.tint = originalTint
+  }
+
+  /**
+   * 대상의 화면상 위치(체력 절반 높이)에 Effekseer 파티클 이펙트 + 효과음을
+   * 재생한다. scale/sound_timings는 mz_animations 원본 값(effectsCatalog, start()에서
+   * 한 번만 받아둠) - 크기를 안 맞추면 원본(scale=100)보다 과도하게 크게 보인다.
+   * 로드/재생 실패(네트워크, WASM 미지원 브라우저 등)는 전투 진행에 영향 없이
+   * 조용히 무시 - 이펙트는 부가 연출이지 전투 로직의 일부가 아니다.
+   */
+  private async playWeaponEffect(effectName: string, target: UnitView): Promise<void> {
+    if (!this.effekseer) return
+    try {
+      const effect = await this.effekseer.loadEffect(effectName)
+      const point = target.container.toGlobal(new Point(0, -target.displayHeight / 2))
+      const info = this.effectsCatalog.get(effectName)
+      this.effekseer.playAt(effect, point.x, point.y, (info?.scale ?? 100) / 100)
+
+      for (const timing of info?.sound_timings ?? []) {
+        // MZ 기준 1프레임 = 1/60초(rmmz_managers.js SceneManager.updateEffekseer가
+        // 매 프레임 한 번씩 부르는 것과 동일한 가정).
+        setTimeout(() => playSe(timing.se), (timing.frame / 60) * 1000)
+      }
+    } catch (err) {
+      console.warn(`무기 이펙트 재생 실패: ${effectName}`, err)
+    }
+  }
+
+  /**
+   * 캐스팅 스킬의 <CircleImage: 배율, 이름> 태그로 지정된 정지 이미지를 시전자
+   * 발밑(container 원점 - sv/DragonBones 공통으로 발밑이 (0,0))에 겹쳐서
+   * 페이드인 -> 유지 -> 페이드아웃한다. 캐릭터보다 뒤에 그리도록 맨 아래(0번
+   * 인덱스)에 넣는다. 로드 실패는 조용히 무시(부가 연출).
+   */
+  private async playCastingCircle(actor: UnitView, imageName: string, scale: number): Promise<void> {
+    try {
+      const texture = await loadCircleImage(imageName)
+      const sprite = new Sprite(texture)
+      sprite.anchor.set(0.5, 1)
+      sprite.scale.set(scale)
+      sprite.alpha = 0
+      actor.container.addChildAt(sprite, 0)
+
+      await tween(this.app, 200, (p) => {
+        sprite.alpha = p
+      })
+      await tween(this.app, 400, () => {})
+      await tween(this.app, 200, (p) => {
+        sprite.alpha = 1 - p
+      })
+
+      actor.container.removeChild(sprite)
+      sprite.destroy()
+    } catch (err) {
+      console.warn(`캐스팅 서클 이미지 로드 실패: ${imageName}`, err)
+    }
+  }
+
+  /**
+   * 빨강/흰색 그라디언트 채움의 떠오르며 페이드아웃하는 데미지 숫자. 치명타면
+   * 금색 그라디언트+더 큰 글자+"!" 접미사로 한눈에 구분되게 한다.
+   */
+  private async spawnDamageNumber(target: UnitView, damage: number, critical = false): Promise<void> {
+    const gradient = new FillGradient(0, 0, 0, 1)
+    if (critical) {
+      gradient.addColorStop(0, '#fff4b8')
+      gradient.addColorStop(1, '#ff8c00')
+    } else {
+      gradient.addColorStop(0, '#ffffff')
+      gradient.addColorStop(1, '#ff2b2b')
+    }
+
+    const text = new Text({
+      text: critical ? `${damage}!` : String(damage),
+      style: {
+        fontSize: critical ? 48 : 36,
+        fill: gradient,
+        stroke: { color: critical ? 0x4a2600 : 0x4a0000, width: 5 },
+        fontFamily: FONT_FAMILY,
+      },
+    })
+    text.anchor.set(0.5)
+    text.position.set(0, -target.displayHeight - 40)
+    target.container.addChild(text)
+
+    await tween(this.app, 700, (p) => {
+      text.position.y = -target.displayHeight - 40 - 30 * p
+      text.alpha = 1 - p
+    })
+
+    target.container.removeChild(text)
+    text.destroy()
+  }
+
+  /** 상단 상태 텍스트에 표시할, 턴 하나를 요약한 한 줄. */
+  private describeTurn(turn: BattleLogEntry): string {
+    const actorName = this.unitViews.get(turn.actor_battle_unit_id)?.unit.name ?? '???'
+    const targetName = turn.target_battle_unit_id
+      ? (this.unitViews.get(turn.target_battle_unit_id)?.unit.name ?? '???')
+      : null
+
+    switch (turn.action_type) {
+      case 'attack': {
+        if (turn.hit_outcome === 'missed') {
+          return `${actorName}의 공격! 빗나갔다!`
+        }
+        if (turn.hit_outcome === 'evaded') {
+          return `${actorName}의 공격! ${targetName}이(가) 회피했다!`
+        }
+        const critPrefix = turn.is_critical ? '치명타! ' : ''
+        return `${critPrefix}${actorName}의 공격! ${targetName}에게 ${turn.damage ?? 0}의 피해`
+      }
+      case 'skill':
+        // 광역기(scope 2/8/10)는 target_battle_unit_id가 없고 대신 targets 배열에
+        // 대상별 결과가 담긴다 - 명중한 대상만 골라 피해를 합산해서 보여주고, 하나라도
+        // 치명타가 있었으면 접두어를 붙인다. 전원이 빗나가거나 회피했으면 그것대로 표시.
+        if (turn.targets && turn.targets.length > 0) {
+          const hitTargets = turn.targets.filter((t) => t.hit_outcome === 'hit')
+          if (hitTargets.length === 0) {
+            return `${actorName}의 광역 스킬! 전부 빗나가거나 회피당했다`
+          }
+          const total = hitTargets.reduce((sum, t) => sum + Math.max(0, t.damage ?? 0), 0)
+          const anyCrit = hitTargets.some((t) => t.critical)
+          return `${anyCrit ? '치명타! ' : ''}${actorName}의 광역 스킬! 전체 대상에게 ${total}의 피해`
+        }
+        if (turn.hit_outcome === 'missed') {
+          return `${actorName}의 스킬! 빗나갔다!`
+        }
+        if (turn.hit_outcome === 'evaded') {
+          return `${actorName}의 스킬! ${targetName}이(가) 회피했다!`
+        }
+        return `${turn.is_critical ? '치명타! ' : ''}${actorName}의 강력한 스킬! ${targetName}에게 ${turn.damage ?? 0}의 피해`
+      case 'item': {
+        // 소모 아이템은 명중/회피 판정이 없어(항상 성공) hit_outcome 분기가 필요 없다.
+        // damage는 HP 회복 스킬과 동일 컨벤션으로 음수(회복량) - MP 회복/상태 부여·해제는
+        // 별도 로그 필드가 없어 문구에 수치로는 안 뜨고 다음 상태 갱신에 바로 반영된다.
+        const itemLabel = turn.item_name ?? '아이템'
+        if (turn.damage !== null && turn.damage < 0) {
+          return `${actorName}이(가) ${itemLabel}을(를) 사용해 ${targetName}의 HP를 ${-turn.damage} 회복!`
+        }
+        return `${actorName}이(가) ${targetName}에게 ${itemLabel}을(를) 사용했다`
+      }
+      case 'casting': {
+        // GambitCatalog::CASTING_SKILL_NAME("캐스팅") 더미 스킬의 message1(MZ 표준
+        // %1/%2 치환 문법) - %1은 시전자, %2는 대상으로 치환한다(이 스킬 하나가 모든
+        // 캐스팅 턴에 재사용되므로 다른 스킬처럼 %2가 스킬명은 아님). 비어있으면 기본 문구.
+        const template = this.audio?.casting_message
+        if (template) {
+          return template.replaceAll('%1', actorName).replaceAll('%2', targetName ?? '???')
+        }
+        return `${actorName}이(가) ${targetName ?? '???'}을(를) 향해 주문을 준비하고 있다...`
+      }
+      case 'cancel':
+        return `${actorName}이(가) 아무 행동도 하지 않았다`
+      default:
+        return `${actorName}의 행동`
+    }
+  }
+
+  private finish(state: BattleState): void {
+    const won = state.winner_side === 'ally'
+    this.showLogPersistent(won ? '승리!' : '패배...')
+
+    stopBattleBgm()
+    playResultMe(won ? (this.audio?.victory_me ?? null) : (this.audio?.defeat_me ?? null))
+
+    if (won) {
+      for (const view of this.unitViews.values()) {
+        if (view.unit.side === 'ally' && isUnitAlive(view.unit)) {
+          void view.animator.playOnce('victory')
+        }
+      }
+    }
+
+    const overlay = new Graphics().rect(0, 0, STAGE_WIDTH, STAGE_HEIGHT).fill({ color: 0x000000, alpha: 0.5 })
+    this.resultLayer.addChild(overlay)
+
+    const label = new Text({
+      text: won ? '승리했습니다!' : '패배했습니다...',
+      style: { fill: won ? 0xffe066 : 0xff8a80, fontSize: 48, fontFamily: FONT_FAMILY },
+    })
+    label.anchor.set(0.5)
+    label.position.set(STAGE_WIDTH / 2, STAGE_HEIGHT / 2 - 40)
+    this.resultLayer.addChild(label)
+
+    const buttonY = STAGE_HEIGHT / 2 + 50
+
+    // 승리했을 때만 "재도전"을 같이 보여준다(패배는 기존처럼 메인으로만) - 둘 다
+    // 있을 땐 가운데 기준으로 나란히, 하나만 있을 땐 정중앙에 둔다.
+    if (won) {
+      this.resultLayer.addChild(this.buildResultButton('재도전', STAGE_WIDTH / 2 - 130, buttonY, () => void this.retry()))
+      this.resultLayer.addChild(this.buildResultButton('메인으로', STAGE_WIDTH / 2 + 130, buttonY, () => this.onExit()))
+    } else {
+      this.resultLayer.addChild(this.buildResultButton('메인으로', STAGE_WIDTH / 2, buttonY, () => this.onExit()))
+    }
+
+    this.resultLayer.visible = true
+  }
+
+  private buildResultButton(label: string, x: number, y: number, onClick: () => void): Container {
+    const button = new Container()
+    button.eventMode = 'static'
+    button.cursor = 'pointer'
+    const btnBg = new Graphics()
+      .roundRect(-120, -28, 240, 56, 10)
+      .fill({ color: 0x2b2320 })
+      .stroke({ color: 0xc8a24a, width: 2 })
+    const btnText = new Text({
+      text: label,
+      style: { fill: 0xf0e0b0, fontSize: 22, fontFamily: FONT_FAMILY },
+    })
+    btnText.anchor.set(0.5)
+    button.addChild(btnBg, btnText)
+    button.position.set(x, y)
+    button.on('pointertap', onClick)
+
+    return button
+  }
+
+  /**
+   * "재도전" - 메인 화면으로 나가지 않고 같은 진형·같은 트룹으로 새 전투를 바로
+   * 시작한다. 방금 끝난 전투는 status='finished'라 createOrResumeBattle()이
+   * 자동으로 새 전투를 만들어준다(BattleEngine::createOrResume() 참고) - 여기서는
+   * 화면에 남아있는 이전 전투의 유닛/HUD를 정리하고 start()를 다시 타면 된다.
+   */
+  private async retry(): Promise<void> {
+    this.resultLayer.removeChildren()
+    this.resultLayer.visible = false
+
+    for (const view of this.unitViews.values()) {
+      view.container.destroy({ children: true })
+    }
+    this.unitViews.clear()
+
+    for (const label of this.enemyLabels.values()) {
+      label.group.destroy({ children: true })
+    }
+    this.enemyLabels.clear()
+
+    this.partyHud?.container.destroy({ children: true })
+    this.partyHud = null
+
+    this.stopped = false
+    this.statusText.text = '전투 준비 중...'
+
+    await this.start()
+  }
+}

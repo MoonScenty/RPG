@@ -1,0 +1,64 @@
+@import './base.css';
+
+#app {
+  height: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.field input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: hsla(160, 100%, 37%, 0.8);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  background: hsla(160, 100%, 37%, 1);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.form-error {
+  color: #e5484d;
+  font-size: 0.85rem;
+  margin: -0.25rem 0 1rem;
+}
+
+.auth-switch {
+  display: block;
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: hsla(160, 100%, 37%, 1);
+  text-decoration: none;
+}
+
+.auth-switch:hover {
+  text-decoration: underline;
+}
