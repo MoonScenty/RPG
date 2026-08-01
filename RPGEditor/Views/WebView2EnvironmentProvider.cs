@@ -17,7 +17,12 @@ internal static class WebView2EnvironmentProvider
     {
         _environment ??= CoreWebView2Environment.CreateAsync(options: new CoreWebView2EnvironmentOptions
         {
-            AdditionalBrowserArguments = "--autoplay-policy=no-user-gesture-required",
+            // preview.local(페이지)과 effects.local/audio.local/img.local(SetVirtualHostNameToFolderMapping로
+            // 매핑한 에셋)은 서로 다른 오리진이라, 기본 웹 보안 모델 하에서는 WebGL이 그
+            // 이미지를 "오염된(tainted)" 텍스처로 취급해 실제 픽셀 대신 검은색을 반환한다
+            // (Effekseer 파티클이 전부 불투명한 검은 사각형으로 나오던 원인). 오직 우리가
+            // 직접 서빙하는 로컬 파일만 로드하는 내부 개발 도구라 안전하게 꺼도 된다.
+            AdditionalBrowserArguments = "--autoplay-policy=no-user-gesture-required --disable-web-security",
         });
         return _environment;
     }

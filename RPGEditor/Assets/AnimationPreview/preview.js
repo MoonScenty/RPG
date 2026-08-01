@@ -7,6 +7,7 @@
   const statusDiv = document.getElementById("status");
 
   let gl = null;
+  let glVersion = "";
   let context = null;
   let handle = null;
   let audioCtx = null;
@@ -20,7 +21,9 @@
   let maxTimingFrame = 0;
 
   function setStatus(text) {
-    statusDiv.textContent = text;
+    // 진단용 - 사용자 화면에서 webgl2/webgl 중 뭐가 잡혔는지 바로 보이게(개발자
+    // 도구를 열 수 없는 배포 빌드에서도 확인 가능하도록).
+    statusDiv.textContent = glVersion ? `${text} [${glVersion}]` : text;
   }
 
   // FrontEnd/src/battle/effekseer.ts(EffekseerOverlay)와 좌표계를 맞추기 위해
@@ -40,7 +43,9 @@
     // 나온다(straight-alpha 텍스처를 premultiplied 블렌딩으로 합성할 때 생기는
     // 전형적인 증상) - Effekseer가 straight alpha를 전제하므로 반드시 꺼야 한다.
     const contextOptions = { alpha: true, premultipliedAlpha: false };
-    gl = canvas.getContext("webgl2", contextOptions) || canvas.getContext("webgl", contextOptions);
+    gl = canvas.getContext("webgl2", contextOptions);
+    glVersion = gl ? "webgl2" : "webgl";
+    gl ??= canvas.getContext("webgl", contextOptions);
 
     if (!gl) {
       setStatus("WebGL을 사용할 수 없습니다.");
