@@ -176,7 +176,7 @@
                         </Border>
 
                         <TextBlock Text="사용 효과" FontWeight="Bold" Margin="0,0,0,6" />
-                        <DataGrid ItemsSource="{Binding Selected.Effects}"
+                        <DataGrid x:Name="EffectsDataGrid" ItemsSource="{Binding Selected.Effects}"
                                   AutoGenerateColumns="False"
                                   CanUserAddRows="True"
                                   CanUserDeleteRows="True"
@@ -201,7 +201,37 @@
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Header="퍼센트(%)" Binding="{Binding PercentValue}" Width="80" />
                                 <DataGridTextColumn Header="고정값" Binding="{Binding FlatValue}" Width="80" />
-                                <DataGridTextColumn Header="상태 ID" Binding="{Binding StateId}" Width="70" />
+                                <DataGridTemplateColumn Header="상태 ID" Width="160">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock VerticalAlignment="Center" Margin="4,0">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource StateIdToNameConverter}">
+                                                        <Binding Path="StateId" />
+                                                        <Binding Path="Tag" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <ComboBox ItemsSource="{Binding Tag, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                      SelectedValuePath="Id"
+                                                      SelectedValue="{Binding StateId, Mode=TwoWay}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Id}" />
+                                                            <TextBlock Text=": " />
+                                                            <TextBlock Text="{Binding Name}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
                                 <DataGridTextColumn Header="확률(%)" Binding="{Binding Chance}" Width="70" />
                             </DataGrid.Columns>
                         </DataGrid>

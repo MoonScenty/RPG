@@ -13,6 +13,7 @@
         <conv:EnumEqualsVisibilityConverter x:Key="EnumEqualsVisibilityConverter" />
         <conv:IndexToDisplayConverter x:Key="IndexToDisplayConverter" />
         <conv:EnumDisplayConverter x:Key="EnumDisplayConverter" />
+        <conv:StateIdToNameConverter x:Key="StateIdToNameConverter" />
 
         <DataTemplate x:Key="EnumDisplayItemTemplate">
             <TextBlock Text="{Binding Converter={StaticResource EnumDisplayConverter}}" />
