@@ -18,7 +18,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Id}" Width="26" Foreground="Gray"
+                        <TextBlock Text="{Binding Id}" Width="34" Margin="0,0,4,0" Foreground="Gray"
                                    Visibility="{Binding ShowId, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BoolToVisibilityConverter}}" />
                         <TextBlock Text="{Binding Name}" />
                     </StackPanel>
