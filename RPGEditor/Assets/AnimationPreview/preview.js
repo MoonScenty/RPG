@@ -62,10 +62,11 @@
       () => {
         context = effekseer.createContext();
         context.init(gl);
-        // FrontEnd와 동일 - Effekseer가 매 draw마다 GL 상태를 통째로 저장/복원하지
-        // 않게 막는다(우리는 별도 오프스크린 캔버스라 복원이 필요 없고, 그대로 두면
-        // 불필요한 상태 복원 과정에서 렌더링이 미묘하게 어긋나 보일 수 있다).
-        context.setRestorationOfStatesFlag(false);
+        // setRestorationOfStatesFlag(false)로 끄면 beginDraw/endDraw가 GL 상태를
+        // save/restore하지 않는다(effekseer.min.js 내부 확인: flag=false일 때
+        // endDraw()가 contextStates.restore()를 아예 건너뜀) - 이펙트 draw가 남긴
+        // blend/texture 상태가 다음 draw로 새어나가 검은 얼룩으로 보이는 원인이었다.
+        // 기본값(true)을 그대로 둔다.
         setStatus("준비됨");
         requestAnimationFrame(render);
       },

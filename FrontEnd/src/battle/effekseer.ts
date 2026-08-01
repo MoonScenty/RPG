@@ -149,7 +149,12 @@ export class EffekseerOverlay {
 
     this.context = effekseer.createContext()
     this.context.init(this.gl)
-    this.context.setRestorationOfStatesFlag(false)
+    // setRestorationOfStatesFlag(false)로 끄면 beginDraw/endDraw가 GL 상태를
+    // save/restore하지 않는다(effekseer.min.js 내부: endDraw()가 flag=false일 때
+    // contextStates.restore()를 아예 건너뜀) - 한 프레임에 이펙트를 여러 개 순회하며
+    // beginDraw/drawHandle/endDraw를 반복 호출하는 우리 렌더 루프에서는 한 이펙트가
+    // 남긴 blend/texture 상태가 다음 이펙트·다음 프레임으로 새어나가 검은 얼룩으로
+    // 보이는 원인이었다. 기본값(true)을 그대로 둔다.
 
     this.renderLoop()
   }
