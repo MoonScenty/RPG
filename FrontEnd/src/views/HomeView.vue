@@ -213,6 +213,7 @@ const partyInitial = computed(() => (auth.user?.name ?? '?').charAt(0).toUpperCa
         v-else-if="activePanel === 'adventure'"
         @close="activePanel = null"
         @preparing="showToast(strings.home.toasts.itemPreparing($event))"
+        @toast="showToast($event)"
       />
       <div v-else class="quest-panel">
         <div class="quest-panel-title">{{ strings.home.quest.title }}</div>

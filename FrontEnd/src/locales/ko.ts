@@ -48,6 +48,7 @@ const ko = {
       itemPreparing: (label: string) => `${label} 준비 중입니다`,
       noticePreparing: '공지사항 준비 중입니다',
       messagePreparing: '메시지 기능 준비 중입니다',
+      formationRequired: '용병을 진형에 배치해야 모험을 시작할 수 있습니다',
     },
     menu: {
       auctionHouse: '경매장',

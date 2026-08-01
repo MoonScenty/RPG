@@ -2,9 +2,10 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { markBattleEntryIntentional } from '@/battle/battleEntry'
+import { getFormation } from '@/lib/mercenaryApi'
 import strings from '@/locales/ko'
 
-const emit = defineEmits<{ close: []; preparing: [label: string] }>()
+const emit = defineEmits<{ close: []; preparing: [label: string]; toast: [message: string] }>()
 const router = useRouter()
 
 // reference_resource/design/ref4.png 참고 - 항목을 고르면 하이라이트만 되고, 실제
@@ -22,11 +23,27 @@ const items: Array<{ key: string; label: string; image: string; size: number }> 
 
 const selectedKey = ref<string | null>(null)
 
-function start() {
+async function start() {
   const item = items.find((i) => i.key === selectedKey.value)
   if (!item) return
 
   if (item.key === 'trial') {
+    // 진형에 아무도 없으면 적만 있는 전투로 넘어가 버리니, 이동하기 전에
+    // 미리 막는다(백엔드 BattleEngine::createOrResume()도 최종 방어선으로
+    // 동일하게 막아둠 - 여기 체크가 실패해도 안전).
+    try {
+      const formation = await getFormation()
+      const preset = formation.presets[String(formation.active_preset)]
+      const hasAnyPlaced = preset ? Object.values(preset.slots).some((unit) => unit !== null) : false
+      if (!hasAnyPlaced) {
+        emit('toast', strings.home.toasts.formationRequired)
+        return
+      }
+    } catch {
+      // 진형 조회 자체가 실패하면 여기서 막지 않고 넘어간다 - 실제 전투
+      // 생성 시 백엔드 검증이 다시 한번 걸러준다.
+    }
+
     markBattleEntryIntentional()
     router.push('/battle')
     return

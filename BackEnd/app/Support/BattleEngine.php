@@ -22,6 +22,7 @@ use App\Models\User;
 use App\Models\UserItem;
 use App\Models\UserMercenary;
 use Illuminate\Support\Collection;
+use Illuminate\Validation\ValidationException;
 
 /**
  * 시험전투 전용 - 계정당 진행 중인 전투 1개, 상대는 mz_project Troops.json의 고정
@@ -83,11 +84,20 @@ class BattleEngine
             return $existing;
         }
 
-        $battle = Battle::create(['user_id' => $user->id, 'status' => 'in_progress', 'turn_number' => 0]);
-
         $allySlots = FormationSlot::where('user_id', $user->id)
             ->where('preset_number', $user->active_formation_preset)
             ->get();
+
+        // 프론트(AdventureMenu.vue)에서도 미리 막지만, 최종 방어선은 여기 -
+        // 진형에 용병이 한 명도 없으면 적만 있는 전투가 만들어져 버린다.
+        if ($allySlots->isEmpty()) {
+            throw ValidationException::withMessages([
+                'formation' => ['용병을 진형에 배치해야 모험을 시작할 수 있습니다.'],
+            ]);
+        }
+
+        $battle = Battle::create(['user_id' => $user->id, 'status' => 'in_progress', 'turn_number' => 0]);
+
         $allyUnits = Unit::whereIn('id', $allySlots->pluck('unit_id'))->get()->keyBy('id');
 
         foreach ($allySlots as $slotRow) {
