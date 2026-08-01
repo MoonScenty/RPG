@@ -132,8 +132,14 @@ class EnemySeeder extends Seeder
                     'sprite' => 'Enemy:' . $enemy['image'],
                     'attack_motion' => 'thrust',
                     'weapon_effect_name' => $weaponEffectName,
-                    'dragonbones_skeleton' => $enemy['imageType'] === 'dragonBones' ? $enemy['image'] : ($tags['dragonbones_skeleton'] ?? null),
-                    'dragonbones_atlas' => $tags['dragonbones_atlas'],
+                    // FrontEnd/public/assets/dragonbones/*의 실제 파일명은 "{image}_ske.json"
+                    // /"{image}_tex.json"(+"_tex.png") 컨벤션이라(effekseer 등과 달리 스켈레톤/
+                    // 아틀라스가 별 파일), image 필드만으로 폴백할 땐 이 접미사를 직접 붙여야
+                    // 한다 - dragonbones.ts의 buildArmature()가 두 이름을 그대로
+                    // "{name}.json"으로 fetch하기 때문에 접미사 없이 넘기면 404로 조용히
+                    // sv 배틀러 폴백行(존재하지 않는 sv 시트라 결국 아무것도 안 그려짐).
+                    'dragonbones_skeleton' => $enemy['imageType'] === 'dragonBones' ? "{$enemy['image']}_ske" : ($tags['dragonbones_skeleton'] ?? null),
+                    'dragonbones_atlas' => $enemy['imageType'] === 'dragonBones' ? "{$enemy['image']}_tex" : ($tags['dragonbones_atlas'] ?? null),
                     'dragonbones_motions' => $motionMap === [] ? null : $motionMap,
                     'dragonbones_scale' => $tags['dragonbones_scale'] ?? (int) round($enemy['scale']),
                     'max_hp' => $stats['max_hp'], 'max_mp' => $stats['max_mp'],
