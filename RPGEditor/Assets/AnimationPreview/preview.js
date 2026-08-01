@@ -23,23 +23,20 @@
     statusDiv.textContent = text;
   }
 
+  // FrontEnd/src/battle/effekseer.ts(EffekseerOverlay)와 좌표계를 맞추기 위해
+  // 디바이스 픽셀 배율은 일부러 적용하지 않는다(CSS 픽셀 그대로) - HiDPI 화면에서
+  // VIEWPORT_SIZE(고정 4096px) 기준 투영행렬과 실제 캔버스 해상도가 어긋나면
+  // 이펙트가 실제 게임보다 작게/이상하게 보인다(사용자 확인).
   function resizeCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.max(1, Math.floor(canvas.clientWidth * dpr));
-    canvas.height = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+    canvas.width = Math.max(1, canvas.clientWidth);
+    canvas.height = Math.max(1, canvas.clientHeight);
   }
 
   function init() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    gl = canvas.getContext("webgl", {
-      alpha: true,
-      antialias: true,
-      premultipliedAlpha: false,
-      depth: true,
-      stencil: false,
-    });
+    gl = canvas.getContext("webgl2", { alpha: true }) || canvas.getContext("webgl", { alpha: true });
 
     if (!gl) {
       setStatus("WebGL을 사용할 수 없습니다.");
@@ -51,6 +48,10 @@
       () => {
         context = effekseer.createContext();
         context.init(gl);
+        // FrontEnd와 동일 - Effekseer가 매 draw마다 GL 상태를 통째로 저장/복원하지
+        // 않게 막는다(우리는 별도 오프스크린 캔버스라 복원이 필요 없고, 그대로 두면
+        // 불필요한 상태 복원 과정에서 렌더링이 미묘하게 어긋나 보일 수 있다).
+        context.setRestorationOfStatesFlag(false);
         setStatus("준비됨");
         requestAnimationFrame(render);
       },
