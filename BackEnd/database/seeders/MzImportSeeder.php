@@ -299,7 +299,7 @@ class MzImportSeeder extends Seeder
      *
      * note의 <AttackAnimation: 이름> 태그(MzNoteTagParser::parseEnemyTags())를 읽어
      * units.weapon_effect_name에도 반영한다 - 컬럼명은 "무기"지만 아군(장착 무기)/
-     * 적(이 노트태그) 어느 쪽에서 온 값이든 frontend/src/battle/BattleScene.ts가 똑같이
+     * 적(이 노트태그) 어느 쪽에서 온 값이든 FrontEnd/src/battle/BattleScene.ts가 똑같이
      * "일반 공격 시 재생할 이펙트"로만 취급하므로 컬럼을 나누지 않고 재사용했다.
      */
     private function syncEnemyUnits(array $enemies): void

@@ -1,7 +1,7 @@
 {
     "name": "rpg/backend",
     "type": "project",
-    "description": "RPG backend API (Laravel).",
+    "description": "RPG BackEnd API (Laravel).",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

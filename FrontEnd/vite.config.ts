@@ -16,10 +16,10 @@ export default defineConfig({
     },
   },
   build: {
-    // backend/(Laravel) serves this app from the same origin as its API -
+    // BackEnd/(Laravel) serves this app from the same origin as its API -
     // build straight into its public/ dir. emptyOutDir must stay false or
     // every build wipes out Laravel's own public/index.php and .htaccess.
-    outDir: '../backend/public',
+    outDir: '../BackEnd/public',
     emptyOutDir: false,
   },
   server: {

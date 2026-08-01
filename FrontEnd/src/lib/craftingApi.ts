@@ -1,6 +1,6 @@
 import { apiRequest } from './api'
 
-/** 연구소(포션류)/대장간(무기·방어구) - backend CraftingController와 1:1 대응. */
+/** 연구소(포션류)/대장간(무기·방어구) - BackEnd CraftingController와 1:1 대응. */
 export type Workshop = 'lab' | 'smithy'
 export type RecipeType = 'item' | 'weapon' | 'armor'
 /** 조합 재료의 소속 인벤토리 종류 - RecipeType과 값 집합은 같지만 의미가 달라 별도 타입으로 둠. */

@@ -2,7 +2,7 @@
 // mz_animations.sound_timings에 걸린 이펙트 효과음(SE)을 재생한다. PixiJS 사운드
 // 라이브러리 없이 HTML5 Audio만으로 충분한 단순 재생이라 별도 의존성을 추가하지
 // 않았다. 실제 파일은 mz_project/audio/에서 통째로 복사한
-// frontend/public/assets/audio/{bgm,me,se}/*.ogg(Vite 번들 대상 아님, 정적 서빙).
+// FrontEnd/public/assets/audio/{bgm,me,se}/*.ogg(Vite 번들 대상 아님, 정적 서빙).
 const BGM_VOLUME = 0.5
 const ME_VOLUME = 0.7
 // SE는 MZ 자체 볼륨(0~100)이 이미 있어서, 여기 배율은 그걸 BGM/ME와 균형 맞추는

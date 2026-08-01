@@ -2,7 +2,7 @@
 
 return [
 
-    // frontend/(SPA)가 backend/와 다른 origin에서 서빙되므로 CORS를 열어야 한다.
+    // FrontEnd/(SPA)가 BackEnd/와 다른 origin에서 서빙되므로 CORS를 열어야 한다.
     // 이전 CI4 백엔드에서 mz_project 로컬 테스트용 origin을 여기 등록해뒀던
     // 것과 같은 이유 - 실제 배포/개발 origin에 맞게 CORS_ALLOWED_ORIGINS를
     // 콤마로 구분해 설정한다.

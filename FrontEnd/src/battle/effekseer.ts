@@ -1,5 +1,5 @@
 // mz_project가 실제로 쓰는 Effekseer 런타임(js/libs/effekseer.min.js + .wasm)을
-// 그대로 가져와서(frontend/public/assets/effekseer/) .efkefc 파티클 이펙트를 재생한다.
+// 그대로 가져와서(FrontEnd/public/assets/effekseer/) .efkefc 파티클 이펙트를 재생한다.
 // RPG Maker MZ 코어(mz_project/js/rmmz_sprites.js의 Sprite_Animation, mz_project/js/
 // rmmz_core.js의 Graphics._createEffekseerContext)가 하는 걸 그대로 따라가되, MZ는
 // Effekseer를 PixiJS와 같은 WebGL 컨텍스트/캔버스에 얹어서 그리는 반면(Pixi 5 기준

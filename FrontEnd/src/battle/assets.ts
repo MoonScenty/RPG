@@ -55,14 +55,14 @@ export const TURN_ORDER_ENEMY2_URL = turnOrderEnemy2
 // 쓰는 표준 타원 그림자). BattleScene.ts 참고.
 export const SHADOW_URL = shadow2
 
-// mz_project 액터 얼굴 시트 - frontend/src/lib/portrait.ts(DOM용)와 동일한 파일을 그대로
-// public/에서 서빙 받는다(frontend/public/assets/portraits/*.png, Vite 번들 대상 아님).
+// mz_project 액터 얼굴 시트 - FrontEnd/src/lib/portrait.ts(DOM용)와 동일한 파일을 그대로
+// public/에서 서빙 받는다(FrontEnd/public/assets/portraits/*.png, Vite 번들 대상 아님).
 export const FACE_SHEET_URLS: Record<string, string> = {
   Actor1: '/assets/portraits/Actor1.png',
   Actor2: '/assets/portraits/Actor2.png',
 }
 
-// mz_project/img/system/IconSet.png(32px 그리드, 16열) - frontend/src/lib/mzIcon.ts(DOM용
+// mz_project/img/system/IconSet.png(32px 그리드, 16열) - FrontEnd/src/lib/mzIcon.ts(DOM용
 // CSS 배경 크롭)와 동일한 파일을 public/에서 그대로 서빙 받는다. 파티 HUD 카드의 직업
 // 아이콘(<PartyHudIcon> 노트태그)을 PixiJS 텍스처 프레임으로 크롭할 때 쓴다 - PartyHud.ts 참고.
 export const ICON_SET_URL = '/assets/icons/IconSet.png'

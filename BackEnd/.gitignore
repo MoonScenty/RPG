@@ -3,7 +3,7 @@
 /public/build
 /public/hot
 /public/storage
-# fe/'s build output (vite.config.ts outDir points here) - generated, not committed.
+# FrontEnd/'s build output (vite.config.ts outDir points here) - generated, not committed.
 /public/assets
 /public/index.html
 /public/favicon.ico

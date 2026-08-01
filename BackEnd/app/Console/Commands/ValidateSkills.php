@@ -24,7 +24,7 @@ class ValidateSkills extends Command
     /** BattleEngine이 실제로 aVars/bVars에 채워주는 공식 변수 - 이 밖의 이름은 항상 0으로 계산된다. */
     private const KNOWN_FORMULA_VARS = ['atk', 'def', 'mat', 'mdf', 'mhp', 'mp'];
 
-    /** frontend/src/battle/characters.ts의 SV_MOTION_INDEX와 동일(MZ 표준 18개 모션). */
+    /** FrontEnd/src/battle/characters.ts의 SV_MOTION_INDEX와 동일(MZ 표준 18개 모션). */
     private const KNOWN_MOTIONS = [
         'walk', 'wait', 'chant', 'guard', 'damage', 'evade', 'thrust', 'swing',
         'missile', 'skill', 'spell', 'item', 'escape', 'victory', 'dying',

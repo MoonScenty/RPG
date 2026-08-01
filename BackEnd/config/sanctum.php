@@ -9,7 +9,7 @@ return [
     | Stateful Domains
     |--------------------------------------------------------------------------
     |
-    | frontend/(Vue SPA)가 backend/와 다른 origin에서 서빙되므로, 세션 쿠키 기반 인증을
+    | FrontEnd/(Vue SPA)가 BackEnd/와 다른 origin에서 서빙되므로, 세션 쿠키 기반 인증을
     | 쓰려면 그 origin이 여기 등록돼 있어야 한다. 로컬 개발 포트와 실제
     | 배포 도메인을 SANCTUM_STATEFUL_DOMAINS 환경변수로 관리한다.
     */

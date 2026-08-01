@@ -1,7 +1,7 @@
 // MZ 얼굴 시트 공통 규격: 4열 x 2행, 셀 144x144 (576x288 전체).
 const FACE_SHEET = { width: 576, height: 288, cols: 4, cell: 144 }
 
-/** sprite는 "Actor1:0" 형식(파일명:faceIndex). frontend/public/assets/portraits/{파일명}.png를 크롭한다. */
+/** sprite는 "Actor1:0" 형식(파일명:faceIndex). FrontEnd/public/assets/portraits/{파일명}.png를 크롭한다. */
 export function portraitStyle(sprite: string | undefined, size: number) {
   const match = sprite ? /^([A-Za-z0-9_]+):(\d+)$/.exec(sprite) : null
   if (!match) return { width: `${size}px`, height: `${size}px` }

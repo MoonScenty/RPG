@@ -14,7 +14,7 @@ import {
 } from '@/lib/craftingApi'
 import strings from '@/locales/ko'
 
-// backend CraftingController::SLOT_CAP과 동일 - 서버가 진짜 판정하는 값이고
+// BackEnd CraftingController::SLOT_CAP과 동일 - 서버가 진짜 판정하는 값이고
 // 여기서는 버튼을 미리 비활성화해서 헛수고 요청을 줄이는 용도로만 쓴다.
 const SLOT_CAP = 5
 // 재료가 아이템/무기/방어구 여러 종류일 수 있어(예: "강화 검"은 아이템+무기가

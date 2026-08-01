@@ -36,7 +36,7 @@ return [
 
     'domain' => env('SESSION_DOMAIN'),
 
-    // frontend/(SPA)는 backend/와 다른 origin에서 서빙되므로, 크로스 오리진
+    // FrontEnd/(SPA)는 BackEnd/와 다른 origin에서 서빙되므로, 크로스 오리진
     // 요청에도 세션 쿠키가 실리려면 SameSite=None + Secure가 필요하다
     // (배포 서버는 항상 HTTPS라 안전하게 켤 수 있다).
     'secure' => env('SESSION_SECURE_COOKIE', true),

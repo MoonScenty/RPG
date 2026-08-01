@@ -12,7 +12,7 @@ class MzNoteTagParser
     /**
      * CircleImage는 <Casting: n>이 있는 스킬 전용 - 캐스팅 중 화면에 뭘 보여줄지
      * 코드가 아니라 이 데이터로 결정한다. "<CircleImage: 배율, 이름>" 형태(배율은
-     * 1이 원본 크기, 이름은 frontend/public/assets/circle/{이름}.png 파일명).
+     * 1이 원본 크기, 이름은 FrontEnd/public/assets/circle/{이름}.png 파일명).
      *
      * @return array<string, mixed>
      */
@@ -56,7 +56,7 @@ class MzNoteTagParser
      *
      * DragonBonesMotion은 "<DragonBonesMotion: 우리쪽모션이름, 스켈레톤 클립이름>"
      * 형태로 한 적에 여러 번 반복 가능하다(우리쪽모션이름은 idle/damage/swing/thrust/
-     * missile/dying/dead/victory/frontstep/backstep/pinch 등 frontend/src/battle의 sv
+     * missile/dying/dead/victory/frontstep/backstep/pinch 등 FrontEnd/src/battle의 sv
      * 배틀러가 쓰는 것과 같은 이름 - 스켈레톤 클립 이름은 리그마다 제각각이라 이렇게
      * 노트태그로 직접 연결해줘야 한다. 매핑 안 된 모션은 그냥 재생 안 됨(sv 배틀러가
      * 없는 포즈를 조용히 건너뛰는 것과 동일한 방식).

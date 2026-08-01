@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * <DragonBonesScale: n>(퍼센트, mz_animations.scale과 동일한 관례) 노트태그 값.
- * frontend/src/battle/BattleScene.ts가 bounding box 실측으로 자동 정규화한 크기 위에
+ * FrontEnd/src/battle/BattleScene.ts가 bounding box 실측으로 자동 정규화한 크기 위에
  * 추가로 곱하는 배율 - null이면 100%(추가 조정 없음)로 취급.
  */
 return new class extends Migration

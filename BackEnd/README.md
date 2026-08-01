@@ -1,4 +1,4 @@
-# 배포 가이드 (RPG Backend)
+# 배포 가이드 (RPG BackEnd)
 
 Laravel API를 `rpg.moonscenty.me` 도메인으로 라이브 서비스하기 위한 절차. SSH 접속 → 프로젝트 배치 → 폴더 퍼미션 → Nginx 설정 순서로 정리했다.
 
@@ -22,7 +22,7 @@ Laravel API를 `rpg.moonscenty.me` 도메인으로 라이브 서비스하기 위
 - **로컬에 키가 아예 없으면** 한 번만 만들고 `ssh-copy-id`로 등록:
 
 ```bash
-ssh-keygen -t ed25519 -C "rpg-backend-deploy"   # 기본 경로(~/.ssh/id_ed25519)로 생성
+ssh-keygen -t ed25519 -C "rpg-BackEnd-deploy"   # 기본 경로(~/.ssh/id_ed25519)로 생성
 ssh-copy-id <유저>@<서버 IP>                      # 비밀번호로 한 번 접속해서 공개키를 서버에 등록
 ssh <유저>@<서버 IP>                              # 이후로는 키로 바로 접속됨
 ```
@@ -77,15 +77,16 @@ cd RPG/BackEnd
 composer install --no-dev --optimize-autoloader
 ```
 
-프론트 빌드 결과물을 Laravel의 `public/` 안에 넣는다 (Node가 이 서버에 없다면 로컬/CI에서 빌드해서 `dist/` 내용만 `rsync`/`scp`로 올려도 된다):
+프론트를 빌드한다 — `vite.config.ts`의 `outDir`가 `../BackEnd/public`으로 지정돼 있어서 `npm run build`만 하면 Laravel의 `public/`(`index.php`/`.htaccess` 옆) 안에 바로 빌드된다. 별도 복사 단계가 필요 없다 (`emptyOutDir: false`라 Laravel 파일도 안 지워짐):
 
 ```bash
 cd ../FrontEnd
 npm ci
-npm run build
-cp -r dist/* ../BackEnd/public/    # index.html, assets/ 가 Laravel의 index.php/.htaccess 옆에 같이 들어감
+npm run build   # 결과물이 ../BackEnd/public/ 안에 바로 들어감
 cd ../BackEnd
 ```
+
+Node가 서버에 없다면 로컬/CI에서 `npm run build`까지 돌린 뒤 `BackEnd/public/`(빌드 결과물만, `index.php` 등 라라벨 파일은 건드리지 말고) 내용을 `rsync`/`scp`로 올려도 된다.
 
 ---
 
@@ -136,9 +137,10 @@ php artisan migrate --force
 ```bash
 php artisan config:cache
 php artisan route:cache
-php artisan view:cache
 php artisan event:cache
 ```
+
+- `view:cache`는 안 쓴다 — 이 프로젝트는 API + 정적 SPA 서빙(프론트가 `index.html`을 직접 반환)만 있고 Blade 뷰(`resources/views`) 자체가 없어서, 돌리면 `The "resources/views" directory does not exist` 에러만 난다.
 
 ---
 
@@ -282,10 +284,10 @@ git pull
 cd BackEnd
 composer install --no-dev --optimize-autoloader
 php artisan migrate --force
-php artisan config:cache && php artisan route:cache && php artisan view:cache
+php artisan config:cache && php artisan route:cache && php artisan event:cache
 
 # 프론트도 바뀌었으면 다시 빌드해서 public/에 덮어쓰기
-cd ../FrontEnd && npm ci && npm run build && cp -r dist/* ../BackEnd/public/ && cd ../BackEnd
+cd ../FrontEnd && npm ci && npm run build && cd ../BackEnd   # 빌드 결과물이 public/에 바로 들어감
 
 sudo chgrp -R www-data storage bootstrap/cache
 sudo chmod -R 775 storage bootstrap/cache
