@@ -69,17 +69,20 @@ return new class extends Migration
         $this->dropForeignIfExists('user_mercenaries', 'accessory_id');
 
         // 2. mz_troop_members는 폐지 - Troops.json처럼 mz_troops에 6슬롯 컬럼을 직접 둔다.
+        // 드롭 순서 주의: mz_actors/mz_skills가 mz_classes를, mz_troops가 mz_enemies를
+        // 참조하므로(이번 마이그레이션 자신이 만드는 FK) 참조하는 쪽을 먼저 지워야 한다.
+        // 재실행(직전 시도가 중간에 실패해 이 테이블들이 이미 새 스키마로 만들어져
+        // 있는 경우)에도 안전하려면 이 순서가 꼭 지켜져야 한다.
         Schema::dropIfExists('mz_troop_members');
-
         Schema::dropIfExists('mz_skills');
+        Schema::dropIfExists('mz_actors');
+        Schema::dropIfExists('mz_troops');
         Schema::dropIfExists('mz_items');
         Schema::dropIfExists('mz_weapons');
         Schema::dropIfExists('mz_armors');
         Schema::dropIfExists('mz_states');
         Schema::dropIfExists('mz_classes');
         Schema::dropIfExists('mz_enemies');
-        Schema::dropIfExists('mz_troops');
-        Schema::dropIfExists('mz_actors');
         Schema::dropIfExists('mz_animations');
         Schema::dropIfExists('mz_types');
 
