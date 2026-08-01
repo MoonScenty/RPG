@@ -39,11 +39,11 @@ class ActorSeeder extends Seeder
             $stats = StatFormula::deriveCombatStats($class->rawStatsAtLevel($actor['initialLevel']));
 
             Unit::updateOrCreate(
-                ['sprite' => $this->faceSprite($actor['battlerName']), 'type' => 'ally'],
+                ['type' => 'ally', 'mz_actor_id' => $actor['id']],
                 [
                     'name' => $actor['name'],
                     'class_id' => $actor['classId'],
-                    'mz_actor_id' => $actor['id'],
+                    'sprite' => $this->faceSprite($actor['battlerName']),
                     'attack_motion' => 'thrust',
                     'weapon_effect_name' => null,
                     'equip_traits' => [],
