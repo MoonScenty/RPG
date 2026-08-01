@@ -51,7 +51,7 @@ const ko = {
     },
     menu: {
       auctionHouse: '경매장',
-      friends: '친구 관리',
+      friends: '친구',
       inventory: '인벤토리',
       bakery: '제빵소',
       lab: '연구소',
