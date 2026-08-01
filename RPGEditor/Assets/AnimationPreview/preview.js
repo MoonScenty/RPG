@@ -36,7 +36,11 @@
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    gl = canvas.getContext("webgl2", { alpha: true }) || canvas.getContext("webgl", { alpha: true });
+    // premultipliedAlpha:false가 빠지면 파티클 텍스처의 투명 영역이 검은 박스로
+    // 나온다(straight-alpha 텍스처를 premultiplied 블렌딩으로 합성할 때 생기는
+    // 전형적인 증상) - Effekseer가 straight alpha를 전제하므로 반드시 꺼야 한다.
+    const contextOptions = { alpha: true, premultipliedAlpha: false };
+    gl = canvas.getContext("webgl2", contextOptions) || canvas.getContext("webgl", contextOptions);
 
     if (!gl) {
       setStatus("WebGL을 사용할 수 없습니다.");
