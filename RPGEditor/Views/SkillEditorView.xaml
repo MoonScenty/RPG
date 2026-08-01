@@ -252,8 +252,9 @@
                                 <ColumnDefinition Width="160" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="요구 상태 ID (States.json, 0=없음)" Margin="0,0,0,4" />
-                                <TextBox Text="{Binding Selected.RequiredStateId, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock Text="요구 상태 (States.json)" Margin="0,0,0,4" />
+                                <views:StateField x:Name="RequiredStateField"
+                                                   StateId="{Binding Selected.RequiredStateId, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2" VerticalAlignment="Bottom">
                                 <CheckBox Content="사용 시 요구 상태 해제" IsChecked="{Binding Selected.RemoveRequiredStateOnUse}" />
