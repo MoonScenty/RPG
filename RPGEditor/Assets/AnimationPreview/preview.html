@@ -4,12 +4,18 @@
 <meta charset="utf-8" />
 <style>
   html, body { margin: 0; padding: 0; background: #1e1e1e; overflow: hidden; width: 100%; height: 100%; }
-  #canvas { display: block; width: 100%; height: 100%; }
+  #bg1, #bg2 { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+  #canvas { position: absolute; left: 0; top: 0; display: block; width: 100%; height: 100%; }
   #flash { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
-  #status { position: absolute; left: 8px; bottom: 6px; color: #aaa; font: 11px sans-serif; }
+  #status { position: absolute; left: 8px; bottom: 6px; color: #aaa; font: 11px sans-serif; text-shadow: 0 0 3px #000; }
 </style>
 </head>
 <body>
+<!-- 검정 배경에서는 이펙트가 잘 안 보여서, 실제 전투 배경(battlebacks1+2의
+     Grassland)을 캔버스 뒤에 깔아둔다 - img.local 매핑 없으면(effects/audio
+     처럼 프로젝트 루트 필요) 조용히 안 뜨고 넘어감. -->
+<img id="bg1" src="https://img.local/battlebacks1/Grassland.png" onerror="this.style.display='none'" />
+<img id="bg2" src="https://img.local/battlebacks2/Grassland.png" onerror="this.style.display='none'" />
 <canvas id="canvas"></canvas>
 <div id="flash"></div>
 <div id="status">런타임 로딩 중...</div>

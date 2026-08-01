@@ -34,7 +34,7 @@
     window.addEventListener("resize", resizeCanvas);
 
     gl = canvas.getContext("webgl", {
-      alpha: false,
+      alpha: true,
       antialias: true,
       premultipliedAlpha: false,
       depth: true,
@@ -185,7 +185,7 @@
     }
 
     gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.clearColor(0.12, 0.12, 0.14, 1);
+    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     if (handle && handle.exists) {

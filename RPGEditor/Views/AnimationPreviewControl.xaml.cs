@@ -46,6 +46,13 @@ public partial class AnimationPreviewControl : UserControl
             if (Directory.Exists(audioFolder))
                 WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
                     "audio.local", audioFolder, CoreWebView2HostResourceAccessKind.Allow);
+
+            // 검정 배경에서는 이펙트가 잘 안 보인다는 지적으로, 실제 전투처럼
+            // battlebacks1/2의 Grassland를 배경으로 깔아준다(preview.html/js 참고).
+            var imgFolder = Path.Combine(ProjectRootPath, "img");
+            if (Directory.Exists(imgFolder))
+                WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
+                    "img.local", imgFolder, CoreWebView2HostResourceAccessKind.Allow);
         }
 
         WebView.CoreWebView2.NavigationCompleted += (s, e) => _pageReady.TrySetResult(e.IsSuccess);
