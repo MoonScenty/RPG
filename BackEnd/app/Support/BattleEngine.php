@@ -103,7 +103,7 @@ class BattleEngine
         return $battle;
     }
 
-    /** 시험전투 고정 트룹(id 1) 전체를 스폰 - members 순서를 그대로 슬롯 1-6에 배치. */
+    /** 시험전투 고정 트룹(id 1) 전체를 스폰 - mz_troops의 6슬롯 컬럼(memberSlots())을 그대로 슬롯 1-6에 배치. */
     private function spawnEnemyTroop(Battle $battle): void
     {
         $troop = MzTroop::find(1);
@@ -111,15 +111,15 @@ class BattleEngine
             return;
         }
 
-        $enemyIds = $troop->members->pluck('enemy_id')->unique();
-        $unitsByEnemyId = Unit::where('type', 'enemy')->whereIn('mz_enemy_id', $enemyIds)->get()->keyBy('mz_enemy_id');
+        $slots = $troop->memberSlots();
+        $unitsByEnemyId = Unit::where('type', 'enemy')->whereIn('mz_enemy_id', array_unique($slots))->get()->keyBy('mz_enemy_id');
 
-        foreach ($troop->members as $member) {
-            $unit = $unitsByEnemyId->get($member->enemy_id);
+        foreach ($slots as $position => $enemyId) {
+            $unit = $unitsByEnemyId->get($enemyId);
             if ($unit === null) {
                 continue;
             }
-            $this->spawn($battle, $unit, 'enemy', $member->position);
+            $this->spawn($battle, $unit, 'enemy', $position);
         }
     }
 

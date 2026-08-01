@@ -12,8 +12,9 @@ class MzItem extends Model
 
     protected $fillable = [
         'id', 'name', 'item_type_id', 'consumable', 'price', 'icon_index', 'animation_id',
-        'scope', 'occasion', 'hit_type', 'speed', 'success_rate', 'repeats', 'tp_gain',
-        'damage_type', 'damage_formula', 'variance', 'element_id', 'description', 'note', 'effects', 'tags',
+        'scope', 'occasion', 'hit_type', 'speed', 'success_rate', 'repeats',
+        'damage_type', 'damage_formula', 'variance', 'element_id', 'description', 'note',
+        'crafting_cost', 'crafting_time', 'effects', 'tags',
     ];
 
     protected $casts = ['consumable' => 'boolean', 'effects' => 'array', 'tags' => 'array'];

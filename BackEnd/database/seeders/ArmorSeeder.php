@@ -2,45 +2,47 @@
 
 namespace Database\Seeders;
 
-use App\Support\MzNoteTagParser;
+use App\Support\StatFormula;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 /**
- * mz_project/data/Armors.json -> mz_armors. id는 원본과 1:1 고정 유지(Actors.json
- * equips[1..4]가 참조). 이름이 빈 슬롯이거나 "-----"로 시작하는 에디터 구분선
- * 더미는 스킵(WeaponSeeder/Skills 임포트와 동일 컨벤션). 아직 장비 시스템 자체가
- * 없어서 BattleEngine/units가 이 테이블을 참조하지는 않고, 데이터만 원본 그대로
- * 보관한다. note의 <Crafting> 태그만 미리 해석해 tags에 저장(CraftingController가
- * 읽음). 재실행해도 안전하게 매번 전체를 지우고 다시 채운다.
+ * RPGProject/data/Items.json 중 kind=armor만 -> mz_armors. WeaponSeeder와 동일한
+ * 패턴. etype_id는 MZ 표준(1=무기/2=방패/3=머리/4=몸/5=장신구) - 우리 EquipTypeId
+ * (0=무기/1=방패/2=머리/3=몸/4=장신구, Types.json equipTypes 배열 순서)에 +1.
  */
 class ArmorSeeder extends Seeder
 {
-    private const MZ_DATA_PATH = __DIR__ . '/../../../mz_project/data';
+    private const DATA_PATH = __DIR__ . '/../../../RPGProject/data';
 
     public function run(): void
     {
-        $armors = $this->readJson('Armors.json');
+        $items = $this->readJson('Items.json');
 
         DB::table('mz_armors')->delete();
 
         $rows = [];
-        foreach ($armors as $armor) {
-            if ($armor === null || $armor['name'] === '' || str_starts_with($armor['name'], '-----')) {
+        foreach ($items as $item) {
+            if ($item['kind'] !== 'armor') {
                 continue;
             }
+            $a = $item['armor'];
+            $p = $a['params'];
+
             $rows[] = [
-                'id' => $armor['id'],
-                'name' => $armor['name'],
-                'atype_id' => $armor['atypeId'],
-                'etype_id' => $armor['etypeId'],
-                'icon_index' => $armor['iconIndex'],
-                'price' => $armor['price'],
-                'description' => $armor['description'] ?: null,
-                'note' => $armor['note'] ?: null,
-                'params' => json_encode($armor['params']),
-                'traits' => json_encode($armor['traits'] ?? []),
-                'tags' => json_encode(['crafting' => MzNoteTagParser::parseCraftingTag($armor['note'] ?? '')]),
+                'id' => $item['id'],
+                'name' => $item['name'],
+                'note' => $item['note'] ?: null,
+                'atype_id' => $a['armorTypeId'],
+                'etype_id' => $a['equipTypeId'] + 1,
+                'icon_index' => $item['iconIndex'],
+                'price' => $item['price'],
+                'description' => $item['description'] ?: null,
+                'params' => json_encode(StatFormula::equipParamsToMzArray($p)),
+                'traits' => json_encode(array_merge($a['traits'] ?? [], StatFormula::equipXparamTraits($p))),
+                'crafting_cost' => $a['craftingCost'],
+                'crafting_time' => $a['craftingTime'],
+                'tags' => json_encode(['crafting' => $this->craftingTag($a, $items)]),
             ];
         }
         DB::table('mz_armors')->insert($rows);
@@ -48,12 +50,37 @@ class ArmorSeeder extends Seeder
         $this->command?->info('mz_armors 임포트 완료 (' . count($rows) . '개).');
     }
 
+    private function craftingTag(array $equip, array $allItems): ?array
+    {
+        $materials = $equip['craftingMaterials'] ?? [];
+        if ($materials === []) {
+            return null;
+        }
+
+        $byId = collect($allItems)->keyBy('id');
+        $resolved = [];
+        foreach ($materials as $m) {
+            $source = $byId->get($m['itemId']);
+            if ($source === null) {
+                continue;
+            }
+            $type = match ($source['kind']) {
+                'weapon' => 'weapon', 'armor' => 'armor', default => 'item',
+            };
+            $key = "{$type}:{$source['name']}";
+            $resolved[$key] ??= ['type' => $type, 'name' => $source['name'], 'count' => 0];
+            $resolved[$key]['count'] += $m['quantity'];
+        }
+
+        return ['seconds' => $equip['craftingTime'], 'materials' => array_values($resolved), 'gold_cost' => $equip['craftingCost']];
+    }
+
     private function readJson(string $file): array
     {
-        $path = self::MZ_DATA_PATH . '/' . $file;
+        $path = self::DATA_PATH . '/' . $file;
         $json = file_get_contents($path);
         if ($json === false) {
-            throw new \RuntimeException("mz_project 데이터를 읽지 못했습니다: {$path}");
+            throw new \RuntimeException("RPGProject 데이터를 읽지 못했습니다: {$path}");
         }
 
         return json_decode($json, true, flags: JSON_THROW_ON_ERROR);

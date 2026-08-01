@@ -2144,7 +2144,7 @@
   {
     "id": 64,
     "name": "소생술",
-    "note": "<Cooldown: 5>\n<SkillMotion: skill>",
+    "note": "<TargetDead>\n<Cooldown: 5>\n<SkillMotion: skill>",
     "iconIndex": 72,
     "description": "",
     "skillTypeId": 0,

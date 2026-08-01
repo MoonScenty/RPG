@@ -12,7 +12,7 @@ class MzArmor extends Model
 
     protected $fillable = [
         'id', 'name', 'atype_id', 'etype_id', 'icon_index',
-        'price', 'description', 'note', 'params', 'traits', 'tags',
+        'price', 'description', 'note', 'params', 'traits', 'crafting_cost', 'crafting_time', 'tags',
     ];
 
     protected $casts = ['params' => 'array', 'traits' => 'array', 'tags' => 'array'];

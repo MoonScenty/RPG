@@ -3,18 +3,22 @@
 namespace Database\Seeders;
 
 use App\Support\MzNoteTagParser;
+use App\Support\StatFormula;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 /**
- * mz_project/data/Classes.json -> mz_classes. id는 원본과 1:1 고정 유지(Skills.json
- * learnings, Actors.json classId가 숫자로 참조하기 때문). params(레벨별 스탯 곡선)까지
- * 원본 그대로 저장해서 ActorSeeder가 액터 레벨 시점 스탯을 뽑아 쓸 수 있게 한다.
- * 재실행해도 안전하게 매번 전체를 지우고 다시 채운다.
+ * RPGProject/data/Classes.json -> mz_classes. id는 원본과 1:1 고정 유지(Skills.json
+ * learnings 역산, Actors.json classId가 참조). paramCurve(레벨별 STR/VIT/MND/DEX/
+ * AGI/LUK/INT+HP/MP)를 그대로 json으로 보관하고, 레벨 1 시점 스탯으로 HIT/EVA/CRI 등
+ * xparam 트레잇을 합성해 traits에 얹는다(StatFormula::xparamTraits() 참고 - 이
+ * 게임엔 레벨업이 없어 initialLevel이 사실상 고정 레벨이지만, 직업 하나를 여러
+ * 액터가 공유할 수 있어 여기선 레벨 1 기준으로 통일했다 - 감쇠형 공식이라 레벨별
+ * 오차는 크지 않다).
  */
 class ClassSeeder extends Seeder
 {
-    private const MZ_DATA_PATH = __DIR__ . '/../../../mz_project/data';
+    private const DATA_PATH = __DIR__ . '/../../../RPGProject/data';
 
     public function run(): void
     {
@@ -24,18 +28,24 @@ class ClassSeeder extends Seeder
 
         $rows = [];
         foreach ($classes as $class) {
-            if ($class === null) {
-                continue;
-            }
-            $note = $class['note'] ?: '';
+            $note = $class['note'] ?? '';
             $tags = MzNoteTagParser::parseClassTags($note);
+            $lv1 = collect($class['paramCurve'])->firstWhere('level', 1) ?? $class['paramCurve'][0];
+
+            $traits = array_merge(
+                $class['traits'] ?? [],
+                StatFormula::xparamTraits((int) $lv1['dex'], (int) $lv1['agi'], (int) $lv1['luk']),
+            );
+
             $rows[] = [
                 'id' => $class['id'],
                 'name' => $class['name'],
-                'note' => $class['note'] ?: null,
-                'params' => json_encode($class['params']),
-                'traits' => json_encode($class['traits'] ?? []),
+                'note' => $note ?: null,
+                'icon_index' => $class['iconIndex'],
+                'exp_curve' => json_encode($class['expCurve']),
+                'param_curve' => json_encode($class['paramCurve']),
                 'party_hud_icon' => $tags['party_hud_icon'],
+                'traits' => json_encode($traits),
             ];
         }
         DB::table('mz_classes')->insert($rows);
@@ -45,10 +55,10 @@ class ClassSeeder extends Seeder
 
     private function readJson(string $file): array
     {
-        $path = self::MZ_DATA_PATH . '/' . $file;
+        $path = self::DATA_PATH . '/' . $file;
         $json = file_get_contents($path);
         if ($json === false) {
-            throw new \RuntimeException("mz_project 데이터를 읽지 못했습니다: {$path}");
+            throw new \RuntimeException("RPGProject 데이터를 읽지 못했습니다: {$path}");
         }
 
         return json_decode($json, true, flags: JSON_THROW_ON_ERROR);

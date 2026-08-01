@@ -11,15 +11,16 @@ class MzSkill extends Model
     protected $keyType = 'int';
 
     protected $fillable = [
-        'id', 'class_id', 'name', 'mp_cost', 'tp_cost', 'scope', 'hit_type', 'stype_id', 'occasion',
-        'damage_type', 'critical', 'damage_formula', 'variance', 'element_id', 'repeats', 'success_rate', 'tags',
+        'id', 'class_id', 'learn_level', 'name', 'note', 'icon_index', 'description', 'mp_cost',
+        'scope', 'hit_type', 'stype_id', 'occasion', 'damage_type', 'critical', 'damage_formula',
+        'variance', 'element_id', 'repeats', 'success_rate', 'effects', 'tags',
     ];
 
     protected $casts = [
-        'tags' => 'array',
+        'effects' => 'array', 'tags' => 'array',
         'scope' => 'integer', 'hit_type' => 'integer', 'stype_id' => 'integer', 'occasion' => 'integer', 'damage_type' => 'integer',
         'variance' => 'integer', 'element_id' => 'integer', 'repeats' => 'integer', 'success_rate' => 'integer',
-        'mp_cost' => 'integer', 'tp_cost' => 'integer', 'critical' => 'boolean',
+        'mp_cost' => 'integer', 'learn_level' => 'integer', 'critical' => 'boolean',
     ];
 
     public function mzClass()

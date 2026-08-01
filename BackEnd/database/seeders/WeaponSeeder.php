@@ -2,46 +2,51 @@
 
 namespace Database\Seeders;
 
-use App\Support\MzNoteTagParser;
+use App\Support\StatFormula;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 /**
- * mz_project/data/Weapons.json -> mz_weapons. id는 원본과 1:1 고정 유지(Actors.json
- * equips[0]이 참조). 이름이 빈 슬롯(MZ 기본 템플릿이 미리 깔아두는 빈 자리)은
- * 스킵 - Enemies.json 임포트와 동일한 컨벤션. 아직 장비 시스템 자체가 없어서
- * BattleEngine/units가 이 테이블을 참조하지는 않고, 데이터만 원본 그대로 보관한다.
- * note의 <Crafting> 태그만 미리 해석해 tags에 저장(CraftingController가 읽음).
- * 재실행해도 안전하게 매번 전체를 지우고 다시 채운다.
+ * RPGProject/data/Items.json 중 kind=weapon만 -> mz_weapons. id는 원본과 1:1 고정
+ * 유지(Actors.json equips[0], CraftMaterial.itemId가 참조). params는 EquipParams
+ * (9 원시 스탯 + atk/def/matk/mdef 직접 보너스)를 StatFormula::equipParamsToMzArray()로
+ * MZ 8스탯 배열([max_hp,max_mp,atk,def,mat,mdf,agi,luk])로 접어서 저장 - 그래야
+ * BattleEngine::equipmentStatsFor()가 지금 코드 그대로 합산할 수 있다. hit/eva/crit
+ * 직접 보너스는 traits(code=22 xparam)로 변환.
  */
 class WeaponSeeder extends Seeder
 {
-    private const MZ_DATA_PATH = __DIR__ . '/../../../mz_project/data';
+    private const DATA_PATH = __DIR__ . '/../../../RPGProject/data';
 
     public function run(): void
     {
-        $weapons = $this->readJson('Weapons.json');
+        $items = $this->readJson('Items.json');
 
         DB::table('mz_weapons')->delete();
 
         $rows = [];
-        foreach ($weapons as $weapon) {
-            if ($weapon === null || $weapon['name'] === '') {
+        foreach ($items as $item) {
+            if ($item['kind'] !== 'weapon') {
                 continue;
             }
+            $w = $item['weapon'];
+            $p = $w['params'];
+
             $rows[] = [
-                'id' => $weapon['id'],
-                'name' => $weapon['name'],
-                'wtype_id' => $weapon['wtypeId'],
-                'etype_id' => $weapon['etypeId'],
-                'animation_id' => $weapon['animationId'],
-                'icon_index' => $weapon['iconIndex'],
-                'price' => $weapon['price'],
-                'description' => $weapon['description'] ?: null,
-                'note' => $weapon['note'] ?: null,
-                'params' => json_encode($weapon['params']),
-                'traits' => json_encode($weapon['traits'] ?? []),
-                'tags' => json_encode(['crafting' => MzNoteTagParser::parseCraftingTag($weapon['note'] ?? '')]),
+                'id' => $item['id'],
+                'name' => $item['name'],
+                'note' => $item['note'] ?: null,
+                'wtype_id' => $w['weaponTypeId'],
+                'etype_id' => 1, // MZ 표준 etype(1=무기/2=방패/3=머리/4=몸/5=장신구) - EquipmentController가 이 값 기준.
+                'animation_id' => $w['animationId'],
+                'icon_index' => $item['iconIndex'],
+                'price' => $item['price'],
+                'description' => $item['description'] ?: null,
+                'params' => json_encode(StatFormula::equipParamsToMzArray($p)),
+                'traits' => json_encode(array_merge($w['traits'] ?? [], StatFormula::equipXparamTraits($p))),
+                'crafting_cost' => $w['craftingCost'],
+                'crafting_time' => $w['craftingTime'],
+                'tags' => json_encode(['crafting' => $this->craftingTag($w, $items)]),
             ];
         }
         DB::table('mz_weapons')->insert($rows);
@@ -49,12 +54,42 @@ class WeaponSeeder extends Seeder
         $this->command?->info('mz_weapons 임포트 완료 (' . count($rows) . '개).');
     }
 
+    /**
+     * CraftMaterial[]({itemId,quantity})을 CraftingController가 읽는
+     * {seconds, materials:[{type,name,count}], gold_cost} 형태로 변환한다 - type은
+     * 그 itemId가 Items.json에서 실제로 어느 kind인지 찾아서 결정.
+     */
+    private function craftingTag(array $equip, array $allItems): ?array
+    {
+        $materials = $equip['craftingMaterials'] ?? [];
+        if ($materials === []) {
+            return null;
+        }
+
+        $byId = collect($allItems)->keyBy('id');
+        $resolved = [];
+        foreach ($materials as $m) {
+            $source = $byId->get($m['itemId']);
+            if ($source === null) {
+                continue;
+            }
+            $type = match ($source['kind']) {
+                'weapon' => 'weapon', 'armor' => 'armor', default => 'item',
+            };
+            $key = "{$type}:{$source['name']}";
+            $resolved[$key] ??= ['type' => $type, 'name' => $source['name'], 'count' => 0];
+            $resolved[$key]['count'] += $m['quantity'];
+        }
+
+        return ['seconds' => $equip['craftingTime'], 'materials' => array_values($resolved), 'gold_cost' => $equip['craftingCost']];
+    }
+
     private function readJson(string $file): array
     {
-        $path = self::MZ_DATA_PATH . '/' . $file;
+        $path = self::DATA_PATH . '/' . $file;
         $json = file_get_contents($path);
         if ($json === false) {
-            throw new \RuntimeException("mz_project 데이터를 읽지 못했습니다: {$path}");
+            throw new \RuntimeException("RPGProject 데이터를 읽지 못했습니다: {$path}");
         }
 
         return json_decode($json, true, flags: JSON_THROW_ON_ERROR);

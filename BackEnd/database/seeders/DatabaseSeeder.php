@@ -14,18 +14,23 @@ class DatabaseSeeder extends Seeder
     {
         $this->clearBattleSessions();
 
-        // ActorSeeder가 mz_classes.params(직업별 스탯 곡선)를 참조하므로 ClassSeeder가
-        // 먼저 실행돼야 한다(무기 보너스는 더 이상 units에 안 박히지만, WeaponSeeder는
-        // EquipmentBackfillSeeder가 참조할 mz_weapons를 채워야 해서 여전히 ActorSeeder
-        // 전에 필요). MzImportSeeder는 Classes.json을 직접 읽어(스킬 class_id 역산용)
-        // 순서 의존성은 없지만 관례상 같이 앞에 둔다. ArmorSeeder/ItemSeeder/
-        // AnimationSeeder는 다른 시더와 참조 관계가 없어 순서 무관.
+        // RPGProject/data 기준 재작성(2026-08) - ClassSeeder가 제일 먼저(SkillSeeder의
+        // class_id/learn_level 역산, ActorSeeder의 rawStatsAtLevel이 참조).
+        // StateSeeder는 SkillSeeder/ItemSeeder보다 먼저(둘 다 상태 이름 존재 검증에
+        // States 테이블 대신 직접 States.json을 다시 읽으므로 순서 자체는 무관하지만
+        // 관례상 앞에 둔다). AnimationSeeder는 EnemySeeder의 <AttackAnimation> 태그
+        // 조회(mz_animations.effect_name)가 필요해서 EnemySeeder보다 먼저 와야 한다.
+        // WeaponSeeder/ArmorSeeder는 ActorSeeder(equips 참조)보다 먼저.
+        $this->call(TypesAndSystemAudioSeeder::class);
         $this->call(ClassSeeder::class);
+        $this->call(StateSeeder::class);
+        $this->call(SkillSeeder::class);
         $this->call(WeaponSeeder::class);
         $this->call(ArmorSeeder::class);
         $this->call(ItemSeeder::class);
         $this->call(AnimationSeeder::class);
-        $this->call(MzImportSeeder::class);
+        $this->call(EnemySeeder::class);
+        $this->call(TroopSeeder::class);
         $this->call(ActorSeeder::class);
         // ActorSeeder가 units.mz_actor_id를 채운 뒤에 실행해야 이 유닛들의
         // Actors.json 기본 무기를 조회할 수 있다 - 장비 시스템이 생기기 전에 이미

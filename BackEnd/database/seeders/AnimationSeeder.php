@@ -5,16 +5,12 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-/**
- * mz_project/data/Animations.json -> mz_animations. id는 원본과 1:1 고정 유지
- * (Skills.json의 animationId가 참조). 전부 이름이 채워진 MZ 기본 이펙트 라이브러리라
- * Weapons.json과 달리 빈 슬롯 스킵 로직은 없음(null만 스킵). 아직 PixiJS 쪽에
- * Effekseer 이펙트 재생기가 없어서 데이터만 원본 그대로 보관한다.
- * 재실행해도 안전하게 매번 전체를 지우고 다시 채운다.
- */
+/** RPGProject/data/Animations.json -> mz_animations. id는 원본과 1:1 고정 유지(Skills.json animationId가 참조). */
 class AnimationSeeder extends Seeder
 {
-    private const MZ_DATA_PATH = __DIR__ . '/../../../mz_project/data';
+    private const DATA_PATH = __DIR__ . '/../../../RPGProject/data';
+
+    private const DISPLAY_TYPE_MAP = ['onEachTarget' => 0, 'centerOfTargets' => 1, 'centerOfScreen' => 2];
 
     public function run(): void
     {
@@ -24,14 +20,12 @@ class AnimationSeeder extends Seeder
 
         $rows = [];
         foreach ($animations as $animation) {
-            if ($animation === null) {
-                continue;
-            }
             $rows[] = [
                 'id' => $animation['id'],
                 'name' => $animation['name'],
+                'note' => $animation['note'] ?? null,
+                'display_type' => self::DISPLAY_TYPE_MAP[$animation['displayType']] ?? 0,
                 'effect_name' => $animation['effectName'] ?: null,
-                'display_type' => $animation['displayType'],
                 'offset_x' => $animation['offsetX'],
                 'offset_y' => $animation['offsetY'],
                 'scale' => $animation['scale'],
@@ -48,10 +42,10 @@ class AnimationSeeder extends Seeder
 
     private function readJson(string $file): array
     {
-        $path = self::MZ_DATA_PATH . '/' . $file;
+        $path = self::DATA_PATH . '/' . $file;
         $json = file_get_contents($path);
         if ($json === false) {
-            throw new \RuntimeException("mz_project 데이터를 읽지 못했습니다: {$path}");
+            throw new \RuntimeException("RPGProject 데이터를 읽지 못했습니다: {$path}");
         }
 
         return json_decode($json, true, flags: JSON_THROW_ON_ERROR);

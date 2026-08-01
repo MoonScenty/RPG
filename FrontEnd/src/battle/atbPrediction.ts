@@ -9,28 +9,57 @@ import type { BattleUnit } from '@/lib/battleApi'
 const ATB_READY_THRESHOLD = 100
 const ATB_MAX_TICKS = 1000
 
+/**
+ * 게이지 1틱 당 실제 경과 시간(ms) - 백엔드는 순간적으로 계산하지만, 프론트는
+ * 이 값으로 "체감 시간"을 만들어서 게이지가 실제로 차오르는 것처럼 보여준다
+ * (사용자 요청: 진짜 ATB처럼 시간이 흘러가는 게 보여야 함). 폴링 주기를 서버가
+ * 아니라 이 상수 하나로 조절하므로, 템포를 바꾸고 싶으면 여기만 고치면 된다.
+ */
+export const MS_PER_GAUGE_TICK = 500
+
+/** 대기 연출이 너무 짧아 뚝뚝 끊기거나(스피드 매우 높음), 너무 길어 멈춘 것처럼 보이지 않게(스피드 매우 낮음) 하는 클램프. */
+export const MIN_TURN_DELAY_MS = 350
+export const MAX_TURN_DELAY_MS = 3000
+
+interface TickResult {
+  ready: BattleUnit
+  gauges: Map<number, number>
+  ticks: number
+}
+
+/** 한 명이 준비될 때까지(gauge>=100) 시뮬레이션 - predictNextActors와 예측 delay 계산이 공유하는 핵심 로직. */
+function simulateUntilReady(living: BattleUnit[], startGauges: Map<number, number>): TickResult | null {
+  const gauges = new Map(startGauges)
+  let ready: BattleUnit | undefined
+  let ticks = 0
+
+  for (; ticks < ATB_MAX_TICKS && !ready; ticks++) {
+    for (const u of living) {
+      gauges.set(u.id, (gauges.get(u.id) ?? 0) + Math.max(1, u.spd))
+    }
+    ready = living
+      .filter((u) => (gauges.get(u.id) ?? 0) >= ATB_READY_THRESHOLD)
+      .sort((a, b) => {
+        const diff = (gauges.get(b.id) ?? 0) - (gauges.get(a.id) ?? 0)
+        return diff !== 0 ? diff : b.spd - a.spd
+      })[0]
+  }
+
+  return ready ? { ready, gauges, ticks } : null
+}
+
 /** 살아있는 유닛 목록의 현재 atb_gauge를 시작점으로, 앞으로 행동할 순서를 count개 예측한다. */
 export function predictNextActors(living: BattleUnit[], count: number): BattleUnit[] {
-  const gauges = new Map(living.map((u) => [u.id, u.atb_gauge]))
+  let gauges = new Map(living.map((u) => [u.id, u.atb_gauge]))
   const result: BattleUnit[] = []
 
   for (let step = 0; step < count; step++) {
-    let ready: BattleUnit | undefined
-    for (let tick = 0; tick < ATB_MAX_TICKS && !ready; tick++) {
-      for (const u of living) {
-        gauges.set(u.id, (gauges.get(u.id) ?? 0) + Math.max(1, u.spd))
-      }
-      ready = living
-        .filter((u) => (gauges.get(u.id) ?? 0) >= ATB_READY_THRESHOLD)
-        .sort((a, b) => {
-          const diff = (gauges.get(b.id) ?? 0) - (gauges.get(a.id) ?? 0)
-          return diff !== 0 ? diff : b.spd - a.spd
-        })[0]
-    }
-    if (!ready) break
+    const outcome = simulateUntilReady(living, gauges)
+    if (!outcome) break
 
-    gauges.set(ready.id, (gauges.get(ready.id) ?? 0) - ATB_READY_THRESHOLD)
-    result.push(ready)
+    gauges = outcome.gauges
+    gauges.set(outcome.ready.id, (gauges.get(outcome.ready.id) ?? 0) - ATB_READY_THRESHOLD)
+    result.push(outcome.ready)
   }
 
   return result
@@ -39,4 +68,38 @@ export function predictNextActors(living: BattleUnit[], count: number): BattleUn
 /** 지금 살아있는 유닛들 중 바로 다음 차례로 예측되는 유닛의 id(없으면 null). */
 export function predictCurrentActorId(living: BattleUnit[]): number | null {
   return predictNextActors(living, 1)[0]?.id ?? null
+}
+
+/**
+ * 다음 행동까지 실제로 몇 ms를 기다려야 자연스러운지 예측한다(MIN/MAX_TURN_DELAY_MS로
+ * 클램프). BattleScene.loop()가 advanceTurn() 호출 전에 이 시간만큼 게이지 연출을
+ * 재생한 뒤 다음 턴을 요청한다.
+ */
+export function estimateNextTurnDelayMs(living: BattleUnit[]): number {
+  const outcome = simulateUntilReady(living, new Map(living.map((u) => [u.id, u.atb_gauge])))
+  if (!outcome) return MIN_TURN_DELAY_MS
+
+  const raw = outcome.ticks * MS_PER_GAUGE_TICK
+  return Math.min(MAX_TURN_DELAY_MS, Math.max(MIN_TURN_DELAY_MS, raw))
+}
+
+/**
+ * progress(0~1) 시점의 각 유닛 게이지를 선형 보간한다 - BattleScene.loop()가 대기
+ * 연출 중 매 프레임 이걸로 PartyHud/TurnOrderStrip을 다시 그려서 게이지가 실제로
+ * 차오르는 것처럼 보이게 한다. 다음 행동자의 게이지는 정확히 progress=1에서 100에
+ * 도달하도록(estimateNextTurnDelayMs와 같은 시뮬레이션 결과 기준) 스케일한다.
+ */
+export function interpolateGauges(living: BattleUnit[], progress: number): Map<number, number> {
+  const start = new Map(living.map((u) => [u.id, u.atb_gauge]))
+  const outcome = simulateUntilReady(living, start)
+  if (!outcome) return start
+
+  const clamped = Math.min(1, Math.max(0, progress))
+  const result = new Map<number, number>()
+  for (const u of living) {
+    const target = outcome.gauges.get(u.id) ?? u.atb_gauge
+    result.set(u.id, u.atb_gauge + (target - u.atb_gauge) * clamped)
+  }
+
+  return result
 }

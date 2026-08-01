@@ -23,10 +23,9 @@ import type { EffekseerOverlay } from './effekseer'
 import { slotPosition, STAGE_HEIGHT, STAGE_WIDTH } from './layout'
 import { FONT_FAMILY } from './theme'
 import { easeOutQuad, tween } from './tween'
+import { estimateNextTurnDelayMs, interpolateGauges } from './atbPrediction'
 import { PartyHud } from './PartyHud'
 import { TurnOrderStrip } from './TurnOrderStrip'
-
-const TURN_INTERVAL_MS = 1100
 
 // 모든 유닛(아군+적)이 동일한 sv 배틀러 스타일 애니메이션 시트를 쓰므로 단일 스케일.
 const BATTLER_SCALE = 1.3
@@ -96,6 +95,9 @@ export class BattleScene {
   private effectsCatalog = new Map<string, BattleEffectInfo>()
   private battleId = 0
   private stopped = false
+  // loop()가 다음 advanceTurn() 호출 전에 "게이지가 실제로 차오르는" 대기 연출을
+  // 계산/재생하는 데 쓰는 가장 최근 상태 스냅샷(atb_gauge/spd 기준).
+  private latestState: BattleState | null = null
   // showLog() 호출마다 증가시켜서, 새 메시지가 오면 이전 메시지의 유지/페이드아웃
   // 대기 중이던 타이머가 뒤늦게 끼어들어 화면을 지우지 않게 막는다.
   private logToken = 0
@@ -207,6 +209,7 @@ export class BattleScene {
       this.battleId = state.id
       this.audio = audio
       this.effectsCatalog = new Map(effects.map((e) => [e.name, e]))
+      this.latestState = state
 
       await this.renderUnits(state.units)
       this.buildEnemyLabels(state.units)
@@ -466,11 +469,41 @@ export class BattleScene {
     view.wasAlive = false
   }
 
+  /**
+   * 다음 행동을 서버에 요청하기 전에, 실제로 게이지가 차오르는 것처럼 보이는
+   * 대기 연출을 먼저 재생한다(사용자 요청 - 예전엔 고정 1.1초 대기였는데, 이제는
+   * 다음 행동자의 spd/atb_gauge로 실제 걸리는 시간을 추정해서 그만큼만 기다리고,
+   * 그 동안 PartyHud/TurnOrderStrip을 매 프레임 보간된 게이지로 다시 그린다).
+   * 캐스팅 턴도 그 유닛의 ATB 주기가 한 번 더 도는 것뿐이라 별도 처리 없이 이
+   * 대기 연출을 그대로 통과한다.
+   */
+  private async playGaugeFillDelay(): Promise<void> {
+    const living = this.latestState?.units.filter(isUnitAlive) ?? []
+    if (living.length === 0) return
+
+    const delayMs = estimateNextTurnDelayMs(living)
+    await tween(this.app, delayMs, (progress) => {
+      if (this.stopped) return
+      this.renderInterpolatedGauges(interpolateGauges(living, progress))
+    })
+  }
+
+  private renderInterpolatedGauges(gauges: Map<number, number>): void {
+    if (!this.latestState) return
+    const units = this.latestState.units.map((u) => ({ ...u, atb_gauge: gauges.get(u.id) ?? u.atb_gauge }))
+    this.partyHud?.update(units)
+    this.turnOrderStrip.update({ ...this.latestState, units })
+  }
+
   private async loop(): Promise<void> {
+    if (this.stopped) return
+
+    await this.playGaugeFillDelay()
     if (this.stopped) return
 
     try {
       const state = await advanceTurn(this.battleId)
+      this.latestState = state
       await this.playTurn(state)
 
       if (state.status === 'finished') {
@@ -482,7 +515,7 @@ export class BattleScene {
     }
 
     if (!this.stopped) {
-      setTimeout(() => this.loop(), TURN_INTERVAL_MS)
+      void this.loop()
     }
   }
 
