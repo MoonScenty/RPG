@@ -5,7 +5,7 @@ defineProps<{ title?: string }>()
 <template>
   <div class="auth-screen">
     <div class="auth-card">
-      <h1 class="auth-title">{{ title ?? 'Hall of Avarice' }}</h1>
+      <h1 class="auth-title">{{ title ?? 'RPG 만들기 좋은 날' }}</h1>
       <slot />
     </div>
   </div>
