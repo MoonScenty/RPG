@@ -84,8 +84,6 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="6" />
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="6" />
-                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.Column="0">
                                         <TextBlock Text="속도 보정" Margin="0,0,0,4" />
@@ -98,10 +96,6 @@
                                     <StackPanel Grid.Column="4">
                                         <TextBlock Text="연속 횟수" Margin="0,0,0,4" />
                                         <TextBox Text="{Binding Selected.Consumable.Invocation.RepeatCount, UpdateSourceTrigger=PropertyChanged}" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Column="6">
-                                        <TextBlock Text="TP 획득량" Margin="0,0,0,4" />
-                                        <TextBox Text="{Binding Selected.Consumable.Invocation.TpGain, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                 </Grid>
                                 <Grid>

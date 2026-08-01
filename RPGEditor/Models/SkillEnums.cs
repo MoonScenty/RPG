@@ -42,10 +42,8 @@ public enum SkillEffectKind
 {
     TargetRecoverHp,
     TargetRecoverMp,
-    TargetRecoverTp,
     UserRecoverHp,
     UserRecoverMp,
-    UserRecoverTp,
     TargetAddState,
     TargetRemoveState,
     UserAddState,

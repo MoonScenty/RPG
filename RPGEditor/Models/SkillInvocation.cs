@@ -14,9 +14,6 @@ public partial class SkillInvocation : ObservableObject
     private int repeatCount = 1;
 
     [ObservableProperty]
-    private int tpGain;
-
-    [ObservableProperty]
     private SkillHitType hitType = SkillHitType.Physical;
 
     [ObservableProperty]

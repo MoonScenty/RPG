@@ -7,13 +7,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 0,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 5,
       "hitType": "physical",
       "animationId": 0
     },
@@ -40,13 +38,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 0,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -73,13 +69,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 4,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -106,13 +100,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -139,13 +131,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -172,13 +162,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -195,7 +183,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 34,
+        "stateId": 33,
         "chance": 100
       }
     ],
@@ -213,13 +201,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -254,13 +240,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "allAllies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -277,7 +261,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 35,
+        "stateId": 34,
         "chance": 100
       }
     ],
@@ -295,13 +279,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -328,13 +310,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -361,13 +341,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -394,13 +372,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 2,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -427,13 +403,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -460,13 +434,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -501,13 +473,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 24,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -534,13 +504,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 30,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -567,13 +535,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 0,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -600,13 +566,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -633,13 +597,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 2,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -666,13 +628,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -689,7 +649,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 36,
+        "stateId": 35,
         "chance": 100
       }
     ],
@@ -707,13 +667,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -740,13 +698,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -781,13 +737,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -814,13 +768,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -847,13 +799,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -880,13 +830,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -913,13 +861,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 3,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -946,13 +892,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -969,7 +913,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 37,
+        "stateId": 36,
         "chance": 100
       }
     ],
@@ -987,13 +931,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -1020,13 +962,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 24,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -1061,13 +1001,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 30,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -1094,13 +1032,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1127,13 +1063,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1160,13 +1094,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1201,13 +1133,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1234,13 +1164,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1267,13 +1195,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1308,13 +1234,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1341,13 +1265,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 40,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -1374,13 +1296,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1407,13 +1327,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1440,13 +1358,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 22,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1473,13 +1389,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1514,13 +1428,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1547,13 +1459,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 26,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1580,13 +1490,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 1,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -1613,13 +1521,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -1646,13 +1552,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -1679,13 +1583,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -1748,13 +1650,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -1771,7 +1671,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 34,
+        "stateId": 33,
         "chance": 100
       }
     ],
@@ -1789,13 +1689,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -1812,7 +1710,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 40,
+        "stateId": 39,
         "chance": 100
       }
     ],
@@ -1830,301 +1728,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "none",
-      "elementId": 0,
-      "formula": "0",
-      "variance": 0,
-      "criticalEnabled": false
-    },
-    "effects": [
-      {
-        "kind": "targetAddState",
-        "percentValue": 0,
-        "flatValue": 0,
-        "stateId": 25,
-        "chance": 100
-      }
-    ],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 52,
-    "name": "축복",
-    "note": "<SkillMotion: skill>",
-    "iconIndex": 72,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 16,
-    "tpCost": 0,
-    "scope": "allAllies",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpRecover",
-      "elementId": 0,
-      "formula": "a.mat*2",
-      "variance": 10,
-      "criticalEnabled": false
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 53,
-    "name": "정화의 빛",
-    "note": "<RequireBack>\n<SkillMotion: spell>",
-    "iconIndex": 64,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 14,
-    "tpCost": 0,
-    "scope": "oneEnemy",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "magical",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpDamage",
-      "elementId": 8,
-      "formula": "a.mat*3-b.mdf",
-      "variance": 20,
-      "criticalEnabled": true
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 54,
-    "name": "저항의 축복",
-    "note": "<SkillMotion: skill>",
-    "iconIndex": 32,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 10,
-    "tpCost": 0,
-    "scope": "oneAlly",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "none",
-      "elementId": 0,
-      "formula": "0",
-      "variance": 0,
-      "criticalEnabled": false
-    },
-    "effects": [
-      {
-        "kind": "targetAddState",
-        "percentValue": 0,
-        "flatValue": 0,
-        "stateId": 29,
-        "chance": 100
-      }
-    ],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 55,
-    "name": "큐아가",
-    "note": "<SkillMotion: skill>",
-    "iconIndex": 72,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 20,
-    "tpCost": 0,
-    "scope": "oneAlly",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpRecover",
-      "elementId": 0,
-      "formula": "a.mat*8",
-      "variance": 10,
-      "criticalEnabled": false
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 56,
-    "name": "소생술",
-    "note": "<SkillMotion: skill>",
-    "iconIndex": 72,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 26,
-    "tpCost": 0,
-    "scope": "oneAlly",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpRecover",
-      "elementId": 0,
-      "formula": "a.mhp*0.3",
-      "variance": 10,
-      "criticalEnabled": false
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 57,
-    "name": "신성 폭발",
-    "note": "<RequireBack>\n<SkillMotion: spell>",
-    "iconIndex": 64,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 16,
-    "tpCost": 0,
-    "scope": "oneEnemy",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "magical",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpDamage",
-      "elementId": 8,
-      "formula": "a.mat*3-b.mdf",
-      "variance": 20,
-      "criticalEnabled": true
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 58,
-    "name": "수호의 결계",
-    "note": "<RequireFront>\n<SkillMotion: spell>",
-    "iconIndex": 81,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 18,
-    "tpCost": 0,
-    "scope": "allAllies",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "none",
-      "elementId": 0,
-      "formula": "0",
-      "variance": 0,
-      "criticalEnabled": false
-    },
-    "effects": [
-      {
-        "kind": "targetAddState",
-        "percentValue": 0,
-        "flatValue": 0,
-        "stateId": 41,
-        "chance": 100
-      }
-    ],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 59,
-    "name": "필멸의 저항",
-    "note": "<SkillMotion: spell>",
-    "iconIndex": 32,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 16,
-    "tpCost": 0,
-    "scope": "oneAlly",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2152,6 +1760,278 @@
     "magicCircleImage": ""
   },
   {
+    "id": 52,
+    "name": "축복",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*2",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 53,
+    "name": "정화의 빛",
+    "note": "<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 8,
+      "formula": "a.mat*3-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 54,
+    "name": "저항의 축복",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 28,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 55,
+    "name": "큐아가",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*8",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 56,
+    "name": "소생술",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 26,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mhp*0.3",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 57,
+    "name": "신성 폭발",
+    "note": "<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 8,
+      "formula": "a.mat*3-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 58,
+    "name": "수호의 결계",
+    "note": "<RequireFront>\n<SkillMotion: spell>",
+    "iconIndex": 81,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 40,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 59,
+    "name": "필멸의 저항",
+    "note": "<SkillMotion: spell>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 23,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
     "id": 60,
     "name": "천사의 노래",
     "note": "<Cooldown: 5>\n<SkillMotion: spell>",
@@ -2159,13 +2039,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 40,
-    "tpCost": 0,
     "scope": "allAllies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2214,13 +2092,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2237,7 +2113,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 27,
+        "stateId": 26,
         "chance": 100
       }
     ],
@@ -2255,13 +2131,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2296,13 +2170,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2319,7 +2191,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 34,
+        "stateId": 33,
         "chance": 100
       }
     ],
@@ -2337,13 +2209,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneAlly",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2360,7 +2230,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 26,
+        "stateId": 25,
         "chance": 100
       }
     ],
@@ -2378,13 +2248,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2401,7 +2269,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 28,
+        "stateId": 27,
         "chance": 100
       }
     ],
@@ -2419,13 +2287,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2442,7 +2308,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 41,
+        "stateId": 40,
         "chance": 100
       }
     ],
@@ -2460,13 +2326,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2483,7 +2347,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 18,
+        "stateId": 17,
         "chance": 100
       }
     ],
@@ -2501,13 +2365,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2534,13 +2396,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2567,13 +2427,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 26,
-    "tpCost": 0,
     "scope": "allAllies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2590,7 +2448,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 42,
+        "stateId": 41,
         "chance": 100
       }
     ],
@@ -2608,13 +2466,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2641,13 +2497,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2664,7 +2518,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 24,
+        "stateId": 23,
         "chance": 100
       }
     ],
@@ -2682,13 +2536,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2723,13 +2575,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "allAllies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2746,7 +2596,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 34,
+        "stateId": 33,
         "chance": 100
       }
     ],
@@ -2764,13 +2614,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 22,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2797,13 +2645,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 0,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2830,13 +2676,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2863,13 +2707,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2896,13 +2738,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2937,13 +2777,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 2,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -2970,13 +2808,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -2993,7 +2829,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 37,
+        "stateId": 36,
         "chance": 100
       }
     ],
@@ -3011,13 +2847,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3052,13 +2886,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3085,13 +2917,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3118,13 +2948,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 3,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3151,13 +2979,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3192,13 +3018,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3225,13 +3049,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 26,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3258,13 +3080,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 24,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3291,13 +3111,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 30,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3324,13 +3142,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3347,7 +3163,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 18,
+        "stateId": 17,
         "chance": 100
       }
     ],
@@ -3365,13 +3181,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3406,13 +3220,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3447,13 +3259,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3488,13 +3298,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -3521,13 +3329,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3562,13 +3368,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 10,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -3595,13 +3399,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3618,7 +3420,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 43,
+        "stateId": 42,
         "chance": 100
       }
     ],
@@ -3636,13 +3438,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3659,7 +3459,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 19,
+        "stateId": 18,
         "chance": 100
       }
     ],
@@ -3677,13 +3477,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3718,13 +3516,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3759,13 +3555,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3782,7 +3576,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 18,
+        "stateId": 17,
         "chance": 100
       }
     ],
@@ -3800,13 +3594,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 20,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -3841,13 +3633,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 12,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -3864,7 +3654,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 37,
+        "stateId": 36,
         "chance": 100
       }
     ],
@@ -3882,13 +3672,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 30,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "magical",
       "animationId": 0
     },
@@ -3915,13 +3703,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -3948,128 +3734,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 6,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "none",
-      "elementId": 0,
-      "formula": "0",
-      "variance": 0,
-      "criticalEnabled": false
-    },
-    "effects": [
-      {
-        "kind": "userAddState",
-        "percentValue": 0,
-        "flatValue": 0,
-        "stateId": 35,
-        "chance": 100
-      }
-    ],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 108,
-    "name": "어둠의 손길",
-    "note": "<Lifesteal: 15>\n<RequireFront>\n<SkillMotion: swing>",
-    "iconIndex": 76,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 10,
-    "tpCost": 0,
-    "scope": "oneEnemy",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "physical",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpDamage",
-      "elementId": 0,
-      "formula": "a.atk*2-b.def",
-      "variance": 20,
-      "criticalEnabled": true
-    },
-    "effects": [
-      {
-        "kind": "targetAddState",
-        "percentValue": 0,
-        "flatValue": 0,
-        "stateId": 18,
-        "chance": 60
-      }
-    ],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 109,
-    "name": "흡정",
-    "note": "<MpRecover: 12>\n<RequireFront>\n<SkillMotion: swing>",
-    "iconIndex": 79,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 8,
-    "tpCost": 0,
-    "scope": "oneEnemy",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "physical",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "hpDamage",
-      "elementId": 0,
-      "formula": "a.atk*2-b.def",
-      "variance": 20,
-      "criticalEnabled": true
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
-    "id": 110,
-    "name": "악마의 가호",
-    "note": "<SkillMotion: skill>",
-    "iconIndex": 32,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 10,
-    "tpCost": 0,
-    "scope": "user",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -4097,6 +3766,115 @@
     "magicCircleImage": ""
   },
   {
+    "id": 108,
+    "name": "어둠의 손길",
+    "note": "<Lifesteal: 15>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 17,
+        "chance": 60
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 109,
+    "name": "흡정",
+    "note": "<MpRecover: 12>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 110,
+    "name": "악마의 가호",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 33,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
     "id": 111,
     "name": "절규",
     "note": "<RequireFront>\n<SkillMotion: chant>",
@@ -4104,13 +3882,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -4145,13 +3921,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -4178,13 +3952,50 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 43,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 114,
+    "name": "어둠의 갑주",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
       "hitType": "certain",
       "animationId": 0
     },
@@ -4212,47 +4023,6 @@
     "magicCircleImage": ""
   },
   {
-    "id": 114,
-    "name": "어둠의 갑주",
-    "note": "<SkillMotion: skill>",
-    "iconIndex": 32,
-    "description": "",
-    "skillTypeId": 0,
-    "mpCost": 16,
-    "tpCost": 0,
-    "scope": "user",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 사용합니다!",
-    "damage": {
-      "type": "none",
-      "elementId": 0,
-      "formula": "0",
-      "variance": 0,
-      "criticalEnabled": false
-    },
-    "effects": [
-      {
-        "kind": "userAddState",
-        "percentValue": 0,
-        "flatValue": 0,
-        "stateId": 45,
-        "chance": 100
-      }
-    ],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
-  },
-  {
     "id": 115,
     "name": "저주받은 피",
     "note": "<Lifesteal: 15>\n<RequireFront>\n<SkillMotion: swing>",
@@ -4260,13 +4030,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -4301,13 +4069,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 16,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -4342,13 +4108,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 14,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -4375,13 +4139,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 18,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },
@@ -4398,7 +4160,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 46,
+        "stateId": 45,
         "chance": 100
       }
     ],
@@ -4416,13 +4178,11 @@
     "description": "",
     "skillTypeId": 0,
     "mpCost": 22,
-    "tpCost": 0,
     "scope": "allEnemies",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -4457,13 +4217,11 @@
     "description": "",
     "skillTypeId": 1,
     "mpCost": 30,
-    "tpCost": 0,
     "scope": "oneEnemy",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "physical",
       "animationId": 0
     },
@@ -4490,13 +4248,11 @@
     "description": "모든 직업 공용 스킬. 전열에 있으면 후열로, 후열에 있으면 전열로 이동한다. 이동하려는 줄에 빈 슬롯이 없으면 그 줄에 있는 아군 1명과 무작위로 자리를 맞바꾼다.",
     "skillTypeId": 0,
     "mpCost": 8,
-    "tpCost": 0,
     "scope": "user",
     "invocation": {
       "speedCorrection": 0,
       "successRate": 100,
       "repeatCount": 1,
-      "tpGain": 0,
       "hitType": "certain",
       "animationId": 0
     },

@@ -19,13 +19,13 @@
     "maxTurns": 1,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uC4F0\uB7EC\uC84C\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC774(\uAC00) \uC8FD\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 쓰러졌습니다!",
+    "messageWhenAddedEnemy": "%1이(가) 죽었습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uBD80\uD65C\uD569\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 부활합니다!",
     "id": 0,
-    "name": "\uC804\uD22C \uBD88\uB2A5",
-    "note": "HP\uAC00 0\uC774 \uB418\uBA74 \uC0C1\uD0DC #1\uC774(\uAC00) \uCD94\uAC00\uB429\uB2C8\uB2E4."
+    "name": "전투 불능",
+    "note": "HP가 0이 되면 상태 #1이(가) 추가됩니다."
   },
   {
     "traits": [
@@ -52,7 +52,7 @@
     "messageWhileActive": "",
     "messageWhenRemoved": "",
     "id": 1,
-    "name": "\uBC29\uC5B4",
+    "name": "방어",
     "note": ""
   },
   {
@@ -74,8 +74,8 @@
     "messageWhileActive": "",
     "messageWhenRemoved": "",
     "id": 2,
-    "name": "\uCD9C\uD608",
-    "note": "\u003CDotPercent: 4\u003E"
+    "name": "출혈",
+    "note": "<DotPercent: 4>"
   },
   {
     "traits": [
@@ -97,12 +97,12 @@
     "maxTurns": 1,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uC911\uB3C5\uB418\uC5C8\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uC744) \uC911\uB3C5\uC2DC\uCF30\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 중독되었습니다!",
+    "messageWhenAddedEnemy": "%1을(을) 중독시켰습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uC911\uB3C5 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 중독 상태에서 벗어났습니다!",
     "id": 3,
-    "name": "\uB3C5",
+    "name": "독",
     "note": ""
   },
   {
@@ -125,12 +125,12 @@
     "maxTurns": 5,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uC554\uD751 \uC0C1\uD0DC\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uC554\uD751 \uC0C1\uD0DC\uC5D0 \uBE60\uB728\uB838\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 암흑 상태에 빠졌습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 암흑 상태에 빠뜨렸습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uC554\uD751 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 암흑 상태에서 벗어났습니다!",
     "id": 4,
-    "name": "\uC554\uD751",
+    "name": "암흑",
     "note": ""
   },
   {
@@ -158,12 +158,12 @@
     "maxTurns": 5,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uCE68\uBB35 \uC0C1\uD0DC\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uCE68\uBB35 \uC0C1\uD0DC\uC5D0 \uBE60\uB728\uB838\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 침묵 상태에 빠졌습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 침묵 상태에 빠뜨렸습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uCE68\uBB35 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 침묵 상태에서 벗어났습니다!",
     "id": 5,
-    "name": "\uCE68\uBB35",
+    "name": "침묵",
     "note": ""
   },
   {
@@ -180,12 +180,12 @@
     "maxTurns": 4,
     "removeByDamage": true,
     "removeByDamageChance": 50,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uACA9\uBD84\uD588\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uACA9\uBD84\uD558\uAC8C \uB9CC\uB4E4\uC5C8\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 격분했습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 격분하게 만들었습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uBD84\uB178 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 분노 상태에서 벗어났습니다!",
     "id": 6,
-    "name": "\uBD84\uB178",
+    "name": "분노",
     "note": ""
   },
   {
@@ -202,12 +202,12 @@
     "maxTurns": 4,
     "removeByDamage": true,
     "removeByDamageChance": 50,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uD63C\uB780 \uC0C1\uD0DC\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uD63C\uB780 \uC0C1\uD0DC\uC5D0 \uBE60\uB728\uB838\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 혼란 상태에 빠졌습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 혼란 상태에 빠뜨렸습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uD63C\uB780 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 혼란 상태에서 벗어났습니다!",
     "id": 7,
-    "name": "\uD63C\uB780",
+    "name": "혼란",
     "note": ""
   },
   {
@@ -224,12 +224,12 @@
     "maxTurns": 4,
     "removeByDamage": true,
     "removeByDamageChance": 50,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uB9E4\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uB9E4\uB8CC\uC2DC\uCF30\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 매료되었습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 매료시켰습니다!",
     "messageWhileActive": "",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uB9E4\uB8CC \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenRemoved": "%1이(가) 매료 상태에서 벗어났습니다!",
     "id": 8,
-    "name": "\uB9E4\uB8CC",
+    "name": "매료",
     "note": ""
   },
   {
@@ -252,12 +252,12 @@
     "maxTurns": 5,
     "removeByDamage": true,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uC7A0\uB4E4\uC5C8\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uC7A0\uB4E4\uAC8C \uD588\uC2B5\uB2C8\uB2E4!",
-    "messageWhileActive": "%1\uC774(\uAC00) \uC790\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uAE68\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 잠들었습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 잠들게 했습니다!",
+    "messageWhileActive": "%1이(가) 자고 있습니다.",
+    "messageWhenRemoved": "%1이(가) 깨어났습니다!",
     "id": 9,
-    "name": "\uC218\uBA74",
+    "name": "수면",
     "note": ""
   },
   {
@@ -285,7 +285,7 @@
     "messageWhileActive": "",
     "messageWhenRemoved": "",
     "id": 10,
-    "name": "\uBC29\uC5B4\uB825 \uD558\uB77D",
+    "name": "방어력 하락",
     "note": ""
   },
   {
@@ -308,12 +308,12 @@
     "maxTurns": 3,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC740(\uB294) \uB9C8\uBE44\uB418\uC5B4 \uC6C0\uC9C1\uC77C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC744(\uB97C) \uB9C8\uBE44\uC2DC\uCF30\uC2B5\uB2C8\uB2E4!",
-    "messageWhileActive": "%1\uC740(\uB294) \uBAB8\uC774 \uB9C8\uBE44\uB418\uC5B4 \uC6C0\uC9C1\uC77C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4!",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uB9C8\uBE44 \uC0C1\uD0DC\uC5D0\uC11C \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1은(는) 마비되어 움직일 수 없습니다!",
+    "messageWhenAddedEnemy": "%1을(를) 마비시켰습니다!",
+    "messageWhileActive": "%1은(는) 몸이 마비되어 움직일 수 없습니다!",
+    "messageWhenRemoved": "%1이(가) 마비 상태에서 벗어났습니다!",
     "id": 11,
-    "name": "\uB9C8\uBE44",
+    "name": "마비",
     "note": ""
   },
   {
@@ -336,12 +336,12 @@
     "maxTurns": 2,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC774(\uAC00) \uADE0\uD615\uC744 \uC783\uC5C8\uC2B5\uB2C8\uB2E4!",
-    "messageWhenAddedEnemy": "%1\uC774(\uAC00) \uADE0\uD615\uC744 \uC783\uC5C8\uC2B5\uB2C8\uB2E4!",
-    "messageWhileActive": "%1\uC774(\uAC00) \uADE0\uD615\uC744 \uC7A1\uC9C0 \uBABB\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4...",
-    "messageWhenRemoved": "%1\uC774(\uAC00) \uB2E4\uC2DC \uADE0\uD615\uC744 \uC7A1\uC558\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1이(가) 균형을 잃었습니다!",
+    "messageWhenAddedEnemy": "%1이(가) 균형을 잃었습니다!",
+    "messageWhileActive": "%1이(가) 균형을 잡지 못하고 있습니다...",
+    "messageWhenRemoved": "%1이(가) 다시 균형을 잡았습니다!",
     "id": 12,
-    "name": "\uAE30\uC808",
+    "name": "기절",
     "note": ""
   },
   {
@@ -369,7 +369,7 @@
     "messageWhileActive": "",
     "messageWhenRemoved": "",
     "id": 13,
-    "name": "\uC18D\uB3C4 \uD558\uB77D",
+    "name": "속도 하락",
     "note": ""
   },
   {
@@ -391,8 +391,8 @@
     "messageWhileActive": "",
     "messageWhenRemoved": "",
     "id": 14,
-    "name": "\uAC10\uC804",
-    "note": "\u003CDotPercent: 5\u003E"
+    "name": "감전",
+    "note": "<DotPercent: 5>"
   },
   {
     "traits": [
@@ -419,35 +419,7 @@
     "messageWhileActive": "",
     "messageWhenRemoved": "",
     "id": 15,
-    "name": "MP \uC7AC\uC0DD",
-    "note": ""
-  },
-  {
-    "traits": [
-      {
-        "code": 22,
-        "dataId": 9,
-        "value": 0.1
-      }
-    ],
-    "iconIndex": 72,
-    "priority": 40,
-    "overlay": 0,
-    "restriction": "none",
-    "motion": "",
-    "removeAtBattleEnd": true,
-    "removeByRestriction": false,
-    "autoRemovalTiming": "turnEnd",
-    "minTurns": 4,
-    "maxTurns": 4,
-    "removeByDamage": false,
-    "removeByDamageChance": 100,
-    "messageWhenAdded": "",
-    "messageWhenAddedEnemy": "",
-    "messageWhileActive": "",
-    "messageWhenRemoved": "",
-    "id": 16,
-    "name": "TP \uC7AC\uC0DD",
+    "name": "MP 재생",
     "note": ""
   },
   {
@@ -474,8 +446,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 17,
-    "name": "\uB9C8\uBC95 \uBC18\uC0AC",
+    "id": 16,
+    "name": "마법 반사",
     "note": ""
   },
   {
@@ -502,8 +474,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 18,
-    "name": "\uACF5\uACA9\uB825 \uD558\uB77D",
+    "id": 17,
+    "name": "공격력 하락",
     "note": ""
   },
   {
@@ -524,9 +496,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 19,
-    "name": "\uCDE8\uC57D \uD45C\uC2DD",
-    "note": "\u003CDamageTakenRate: 115\u003E"
+    "id": 18,
+    "name": "취약 표식",
+    "note": "<DamageTakenRate: 115>"
   },
   {
     "traits": [
@@ -548,12 +520,12 @@
     "maxTurns": 5,
     "removeByDamage": false,
     "removeByDamageChance": 100,
-    "messageWhenAdded": "%1\uC744(\uB97C) \uB9DE\uCD94\uAE30 \uD798\uB4E4\uC5B4\uC84C\uC2B5\uB2C8\uB2E4!",
+    "messageWhenAdded": "%1을(를) 맞추기 힘들어졌습니다!",
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 20,
-    "name": "\uC228\uAE30",
+    "id": 19,
+    "name": "숨기",
     "note": ""
   },
   {
@@ -580,8 +552,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 21,
-    "name": "\uC18C\uBE44 MP \uAC10\uC18C",
+    "id": 20,
+    "name": "소비 MP 감소",
     "note": ""
   },
   {
@@ -608,8 +580,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 22,
-    "name": "\uC778\uCE74\uC6B4\uD2B8 \uD655\uB960 \uBC18\uAC10",
+    "id": 21,
+    "name": "인카운트 확률 반감",
     "note": ""
   },
   {
@@ -641,8 +613,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 23,
-    "name": "\uB3C8/\uC544\uC774\uD15C 2\uBC30",
+    "id": 22,
+    "name": "돈/아이템 2배",
     "note": ""
   },
   {
@@ -669,9 +641,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 24,
-    "name": "\uBD88\uBA78",
-    "note": "\u003CUndying\u003E"
+    "id": 23,
+    "name": "불멸",
+    "note": "<Undying>"
   },
   {
     "traits": [
@@ -697,9 +669,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 25,
-    "name": "HP \uC7AC\uC0DD",
-    "note": "\u003CHotPercent: 6\u003E"
+    "id": 24,
+    "name": "HP 재생",
+    "note": "<HotPercent: 6>"
   },
   {
     "traits": [
@@ -725,9 +697,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 26,
-    "name": "\uAC10\uC2F8\uAE30",
-    "note": "\u003CGuardAlly\u003E"
+    "id": 25,
+    "name": "감싸기",
+    "note": "<GuardAlly>"
   },
   {
     "traits": [
@@ -753,9 +725,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 27,
-    "name": "\uB3C4\uBC1C",
-    "note": "\u003CTaunt\u003E"
+    "id": 26,
+    "name": "도발",
+    "note": "<Taunt>"
   },
   {
     "traits": [
@@ -781,8 +753,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 28,
-    "name": "\uBC18\uACA9",
+    "id": 27,
+    "name": "반격",
     "note": ""
   },
   {
@@ -849,8 +821,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 29,
-    "name": "\uC0C1\uD0DC \uC774\uC0C1 \uCC28\uB2E8",
+    "id": 28,
+    "name": "상태 이상 차단",
     "note": ""
   },
   {
@@ -887,9 +859,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 30,
-    "name": "\uD654\uC5FC \uD0DC\uC138",
-    "note": "\u003CNote\u003E\uD654\uC5FC \uC6D0\uC18C \uC2A4\uD0AC \uC0AC\uC6A9 \uC2DC \uC2DC\uC804\uC790 \uC790\uC2E0\uC5D0\uAC8C \uAC78\uB9AC\uB294 \uD0DC\uC138. \uBE59\uACB0 \uD0DC\uC138\uC640 \uB3D9\uC2DC\uC5D0 \uAC78\uB9B4 \uC218 \uC5C6\uB2E4(\uBE59\uACB0 \uD0DC\uC138\uB97C \uAC78\uBA74 \uC774 \uC0C1\uD0DC\uB294 \uC81C\uAC70\uB428) - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 29,
+    "name": "화염 태세",
+    "note": "<Note>화염 원소 스킬 사용 시 시전자 자신에게 걸리는 태세. 빙결 태세와 동시에 걸릴 수 없다(빙결 태세를 걸면 이 상태는 제거됨) - 전투엔진 구현 필요"
   },
   {
     "traits": [
@@ -925,9 +897,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 31,
-    "name": "\uBE59\uACB0 \uD0DC\uC138",
-    "note": "\u003CNote\u003E\uB0C9\uAE30 \uC6D0\uC18C \uC2A4\uD0AC \uC0AC\uC6A9 \uC2DC \uC2DC\uC804\uC790 \uC790\uC2E0\uC5D0\uAC8C \uAC78\uB9AC\uB294 \uD0DC\uC138. \uD654\uC5FC \uD0DC\uC138\uC640 \uB3D9\uC2DC\uC5D0 \uAC78\uB9B4 \uC218 \uC5C6\uB2E4. \uD654\uC5FC \uD0DC\uC138\uC5D0\uC11C \uC774 \uC0C1\uD0DC\uB85C \uC804\uD658\uB418\uB294 \uC21C\uAC04 \uC6D0\uC18C\uAC01\uC778 \uAC00\uB2A5 \uC0C1\uD0DC\uB3C4 \uD568\uAED8 \uBD80\uC5EC\uB41C\uB2E4 - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 30,
+    "name": "빙결 태세",
+    "note": "<Note>냉기 원소 스킬 사용 시 시전자 자신에게 걸리는 태세. 화염 태세와 동시에 걸릴 수 없다. 화염 태세에서 이 상태로 전환되는 순간 원소각인 가능 상태도 함께 부여된다 - 전투엔진 구현 필요"
   },
   {
     "traits": [
@@ -963,8 +935,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 32,
-    "name": "\uC804\uACA9 \uD0DC\uC138",
+    "id": 31,
+    "name": "전격 태세",
     "note": ""
   },
   {
@@ -985,9 +957,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 33,
-    "name": "\uCF64\uBCF4",
-    "note": "\u003CNote\u003E\uAC80\uC0AC \uC804\uC6A9 \uCF64\uBCF4 \uCE74\uC6B4\uD130 \uB9C8\uCEE4 - \uC2A4\uD0DD \uB85C\uC9C1\uC740 \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 32,
+    "name": "콤보",
+    "note": "<Note>검사 전용 콤보 카운터 마커 - 스택 로직은 전투엔진 구현 필요"
   },
   {
     "traits": [
@@ -1013,8 +985,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 34,
-    "name": "\uBC29\uC5B4\uB825 \uC0C1\uC2B9",
+    "id": 33,
+    "name": "방어력 상승",
     "note": ""
   },
   {
@@ -1041,8 +1013,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 35,
-    "name": "\uACF5\uACA9\uB825 \uC0C1\uC2B9",
+    "id": 34,
+    "name": "공격력 상승",
     "note": ""
   },
   {
@@ -1069,8 +1041,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 36,
-    "name": "\uD68C\uD53C\uC728 \uC0C1\uC2B9",
+    "id": 35,
+    "name": "회피율 상승",
     "note": ""
   },
   {
@@ -1097,8 +1069,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 37,
-    "name": "\uD06C\uB9AC\uD2F0\uCEEC\uC728 \uC0C1\uC2B9",
+    "id": 36,
+    "name": "크리티컬율 상승",
     "note": ""
   },
   {
@@ -1119,9 +1091,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 38,
-    "name": "\uC6D0\uC18C\uAC01\uC778 \uAC00\uB2A5",
-    "note": "\u003CNote\u003E\uC774 \uC0C1\uD0DC\uC77C \uB54C\uB9CC \uC2A4\uD0AC \u0022\uC6D0\uC18C \uAC01\uC778\u0022\uC744 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB2E4(\uC2DC\uC804\uC790 \uC790\uC2E0\uC774 \uD654\uC5FC \uD0DC\uC138\uC5D0\uC11C \uBE59\uACB0 \uD0DC\uC138\uB85C \uC804\uD658\uB418\uBA74 \uBD80\uC5EC\uB428) - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 37,
+    "name": "원소각인 가능",
+    "note": "<Note>이 상태일 때만 스킬 \"원소 각인\"을 사용할 수 있다(시전자 자신이 화염 태세에서 빙결 태세로 전환되면 부여됨) - 전투엔진 구현 필요"
   },
   {
     "traits": [],
@@ -1141,9 +1113,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 39,
-    "name": "\uC0BC\uC911 \uC601\uCC3D \uAC00\uB2A5",
-    "note": "\u003CNote\u003E\uC774 \uC0C1\uD0DC\uAC00 \uC788\uB294 \uB3D9\uC548 \u003CCasting: n\u003E\uC774 \uBD99\uC740 \uC2A4\uD0AC\uC744 \uB300\uAE30 \uC5C6\uC774 \uC989\uC2DC \uBC1C\uB3D9\uD560 \uC218 \uC788\uB2E4. \uADF8\uB7F0 \uC2A4\uD0AC\uC744 \uC0AC\uC6A9\uD558\uBA74 \uC774 \uC0C1\uD0DC\uB294 \uC18C\uBAA8(\uC81C\uAC70)\uB41C\uB2E4 - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 38,
+    "name": "삼중 영창 가능",
+    "note": "<Note>이 상태가 있는 동안 <Casting: n>이 붙은 스킬을 대기 없이 즉시 발동할 수 있다. 그런 스킬을 사용하면 이 상태는 소모(제거)된다 - 전투엔진 구현 필요"
   },
   {
     "traits": [
@@ -1169,8 +1141,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 40,
-    "name": "\uB9C8\uBC95\uBC29\uC5B4 \uC0C1\uC2B9",
+    "id": 39,
+    "name": "마법방어 상승",
     "note": ""
   },
   {
@@ -1191,9 +1163,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 41,
-    "name": "\uBC1B\uB294\uD53C\uD574 \uAC10\uC18C",
-    "note": "\u003CDamageTakenRate: 60\u003E"
+    "id": 40,
+    "name": "받는피해 감소",
+    "note": "<DamageTakenRate: 60>"
   },
   {
     "traits": [],
@@ -1213,9 +1185,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 42,
-    "name": "\uBCF4\uD638\uB9C9",
-    "note": "\u003CShield: 30\u003E"
+    "id": 41,
+    "name": "보호막",
+    "note": "<Shield: 30>"
   },
   {
     "traits": [
@@ -1241,8 +1213,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 43,
-    "name": "\uB9C8\uBC95\uACF5\uACA9 \uC0C1\uC2B9",
+    "id": 42,
+    "name": "마법공격 상승",
     "note": ""
   },
   {
@@ -1269,8 +1241,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 44,
-    "name": "\uCE58\uBA85\uD0C0 \uBB34\uD6A8",
+    "id": 43,
+    "name": "치명타 무효",
     "note": ""
   },
   {
@@ -1291,9 +1263,9 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 45,
-    "name": "\uD761\uD608\uB960 \uC0C1\uC2B9",
-    "note": "\u003CNote\u003E\uD761\uD608 \uC2A4\uD0AC \uD761\uD608\uB7C9 \u002B50% - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 44,
+    "name": "흡혈률 상승",
+    "note": "<Note>흡혈 스킬 흡혈량 +50% - 전투엔진 구현 필요"
   },
   {
     "traits": [],
@@ -1313,8 +1285,8 @@
     "messageWhenAddedEnemy": "",
     "messageWhileActive": "",
     "messageWhenRemoved": "",
-    "id": 46,
-    "name": "\uD53C\uD574\uD761\uD608\uC804\uD658",
-    "note": "\u003CNote\u003E\uC774\uBC88 \uC0C1\uD0DC \uC9C0\uC18D \uC911 \uBC1B\uC740 \uD53C\uD574\uC758 \uC77C\uBD80\uB97C \uC790\uC2E0 \uD68C\uBCF5\uC73C\uB85C \uC804\uD658 - \uC804\uD22C\uC5D4\uC9C4 \uAD6C\uD604 \uD544\uC694"
+    "id": 45,
+    "name": "피해흡혈전환",
+    "note": "<Note>이번 상태 지속 중 받은 피해의 일부를 자신 회복으로 전환 - 전투엔진 구현 필요"
   }
 ]

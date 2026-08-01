@@ -50,10 +50,8 @@ public class EnumDisplayConverter : IValueConverter
             {
                 SkillEffectKind.TargetRecoverHp => "대상 HP 회복",
                 SkillEffectKind.TargetRecoverMp => "대상 MP 회복",
-                SkillEffectKind.TargetRecoverTp => "대상 TP 회복",
                 SkillEffectKind.UserRecoverHp => "사용자 HP 회복",
                 SkillEffectKind.UserRecoverMp => "사용자 MP 회복",
-                SkillEffectKind.UserRecoverTp => "사용자 TP 회복",
                 SkillEffectKind.TargetAddState => "대상 상태 추가",
                 SkillEffectKind.TargetRemoveState => "대상 상태 해제",
                 SkillEffectKind.UserAddState => "사용자 상태 추가",

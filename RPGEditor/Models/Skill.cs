@@ -19,9 +19,6 @@ public partial class Skill : DatabaseEntry
     private int mpCost;
 
     [ObservableProperty]
-    private int tpCost;
-
-    [ObservableProperty]
     private SkillScope scope = SkillScope.OneEnemy;
 
     public SkillInvocation Invocation { get; set; } = new();
