@@ -129,13 +129,23 @@ export class EffekseerOverlay {
     this.canvas.style.zIndex = '1'
     host.appendChild(this.canvas)
 
+    // premultipliedAlpha:false가 빠지면 파티클 텍스처의 투명 영역이 검은 박스로
+    // 나온다(straight-alpha 텍스처를 premultiplied 블렌딩으로 합성할 때 생기는
+    // 전형적인 증상 - Effekseer는 straight alpha를 전제함). RPGEditor의 애니메이션
+    // 미리보기(preview.js)에서 먼저 발견/수정한 것과 동일한 옵션을 여기도 맞춘다.
+    const contextOptions: WebGLContextAttributes = { alpha: true, premultipliedAlpha: false }
     const gl =
-      this.canvas.getContext('webgl2', { alpha: true }) ?? this.canvas.getContext('webgl', { alpha: true })
+      this.canvas.getContext('webgl2', contextOptions) ?? this.canvas.getContext('webgl', contextOptions)
     if (!gl) {
       this.canvas.remove()
       throw new Error('WebGL 컨텍스트를 생성하지 못했습니다')
     }
     this.gl = gl
+
+    // Effekseer는 매 파티클마다 blendFunc/blendEquation만 바꿔가며 그리고, gl.BLEND
+    // 자체를 켜는 건 호스트 책임으로 가정한다 - 이게 꺼져 있으면 블렌드 모드와
+    // 무관하게 텍스처가 통째로 불투명하게(검은 배경 포함) 그려진다.
+    this.gl.enable(this.gl.BLEND)
 
     this.context = effekseer.createContext()
     this.context.init(this.gl)
