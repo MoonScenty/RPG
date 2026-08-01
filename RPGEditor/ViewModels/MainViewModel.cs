@@ -210,6 +210,7 @@ public partial class MainViewModel : ObservableObject
                 DataContext = new DatabaseListViewModel<Skill>("스킬", context.Skills),
                 ProjectRootPath = context.ProjectRootPath,
                 States = context.States,
+                Animations = context.Animations,
             },
         });
         Tabs.Add(new EditorTab

@@ -111,8 +111,9 @@
                                                   ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2">
-                                        <TextBlock Text="애니메이션 ID" Margin="0,0,0,4" />
-                                        <TextBox Text="{Binding Selected.Invocation.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Text="애니메이션" Margin="0,0,0,4" />
+                                        <views:AnimationField x:Name="SkillAnimationField"
+                                                               AnimationId="{Binding Selected.Invocation.AnimationId, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
