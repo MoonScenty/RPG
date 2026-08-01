@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 /**
@@ -23,21 +24,49 @@ use Illuminate\Support\Facades\Schema;
  */
 return new class extends Migration
 {
+    /**
+     * 이 마이그레이션은 처음 서버에서 돌렸을 때 user_items/user_weapons/user_armors/
+     * user_mercenaries의 FK를 빠뜨려서 "drop table mz_items" 도중 실패했다(재고/장비
+     * 슬롯이 mz_items/mz_weapons/mz_armors를 참조 중이라). 그 실패 시점까지 이미
+     * 실행된 DDL(FK 일부 drop, mz_troop_members/mz_skills drop)은 MySQL에서 각각
+     * 즉시 커밋되므로 되돌아가지 않았다 - 그래서 재실행 시 "이미 없는 FK를 또 drop"
+     * 하다 에러 나지 않도록, 모든 FK drop을 존재할 때만 시도하는 형태로 감싼다.
+     */
+    private function dropForeignIfExists(string $table, string $column): void
+    {
+        $exists = DB::table('information_schema.KEY_COLUMN_USAGE')
+            ->where('TABLE_SCHEMA', DB::getDatabaseName())
+            ->where('TABLE_NAME', $table)
+            ->where('COLUMN_NAME', $column)
+            ->whereNotNull('REFERENCED_TABLE_NAME')
+            ->exists();
+
+        if ($exists) {
+            Schema::table($table, function (Blueprint $t) use ($column) {
+                $t->dropForeign([$column]);
+            });
+        }
+    }
+
     public function up(): void
     {
-        // 1. 카탈로그 테이블을 가리키는 FK부터 끊는다 (없으면 드롭 시 에러).
-        Schema::table('units', function (Blueprint $table) {
-            $table->dropForeign(['class_id']);
-            $table->dropForeign(['mz_enemy_id']);
-            $table->dropForeign(['mz_actor_id']);
-        });
-        Schema::table('battle_units', function (Blueprint $table) {
-            $table->dropForeign(['class_id']);
-            $table->dropForeign(['casting_skill_id']);
-        });
-        Schema::table('battle_unit_states', function (Blueprint $table) {
-            $table->dropForeign(['state_id']);
-        });
+        // 1. 카탈로그 테이블을 가리키는 FK부터 끊는다 (없으면 드롭 시 에러). user_items/
+        // user_weapons/user_armors/user_mercenaries도 mz_items/mz_weapons/mz_armors를
+        // 가리키는 FK가 있다(재고/장비 슬롯) - 처음 작성할 때 빠뜨려서 서버에서
+        // "Cannot delete or update a parent row" 에러가 났다(위 dropForeignIfExists() 참고).
+        $this->dropForeignIfExists('units', 'class_id');
+        $this->dropForeignIfExists('units', 'mz_enemy_id');
+        $this->dropForeignIfExists('units', 'mz_actor_id');
+        $this->dropForeignIfExists('battle_units', 'class_id');
+        $this->dropForeignIfExists('battle_units', 'casting_skill_id');
+        $this->dropForeignIfExists('battle_unit_states', 'state_id');
+        $this->dropForeignIfExists('user_items', 'mz_item_id');
+        $this->dropForeignIfExists('user_weapons', 'mz_weapon_id');
+        $this->dropForeignIfExists('user_armors', 'mz_armor_id');
+        $this->dropForeignIfExists('user_mercenaries', 'weapon_id');
+        $this->dropForeignIfExists('user_mercenaries', 'shield_id');
+        $this->dropForeignIfExists('user_mercenaries', 'body_armor_id');
+        $this->dropForeignIfExists('user_mercenaries', 'accessory_id');
 
         // 2. mz_troop_members는 폐지 - Troops.json처럼 mz_troops에 6슬롯 컬럼을 직접 둔다.
         Schema::dropIfExists('mz_troop_members');
@@ -285,7 +314,19 @@ return new class extends Migration
             $table->json('equip_types');
         });
 
-        // ---- 4. units/battle_units/battle_unit_states의 FK를 새 테이블로 다시 건다 ----
+        // ---- 4. 재구축 전 카탈로그를 참조하던 행 중, 새 카탈로그에 없는 id를 가리키는
+        // 건 FK를 다시 걸기 전에 정리한다(id 구성이 완전히 바뀌었으므로) - 이 시점엔
+        // 아직 정식 서비스 전이라 테스트 계정의 재고/장비 슬롯 정도만 있을 것으로
+        // 보고, 참조가 깨진 행만 지운다(테이블 전체를 비우지 않음).
+        DB::table('user_items')->whereNotIn('mz_item_id', DB::table('mz_items')->pluck('id'))->delete();
+        DB::table('user_weapons')->whereNotIn('mz_weapon_id', DB::table('mz_weapons')->pluck('id'))->delete();
+        DB::table('user_armors')->whereNotIn('mz_armor_id', DB::table('mz_armors')->pluck('id'))->delete();
+        DB::table('user_mercenaries')->whereNotNull('weapon_id')->whereNotIn('weapon_id', DB::table('mz_weapons')->pluck('id'))->update(['weapon_id' => null]);
+        foreach (['shield_id', 'body_armor_id', 'accessory_id'] as $column) {
+            DB::table('user_mercenaries')->whereNotNull($column)->whereNotIn($column, DB::table('mz_armors')->pluck('id'))->update([$column => null]);
+        }
+
+        // ---- 5. FK를 새 테이블로 다시 건다 ----
         Schema::table('units', function (Blueprint $table) {
             $table->foreign('class_id')->references('id')->on('mz_classes')->nullOnDelete();
             $table->foreign('mz_enemy_id')->references('id')->on('mz_enemies')->nullOnDelete();
@@ -298,22 +339,38 @@ return new class extends Migration
         Schema::table('battle_unit_states', function (Blueprint $table) {
             $table->foreign('state_id')->references('id')->on('mz_states');
         });
+        Schema::table('user_items', function (Blueprint $table) {
+            $table->foreign('mz_item_id')->references('id')->on('mz_items')->cascadeOnDelete();
+        });
+        Schema::table('user_weapons', function (Blueprint $table) {
+            $table->foreign('mz_weapon_id')->references('id')->on('mz_weapons')->cascadeOnDelete();
+        });
+        Schema::table('user_armors', function (Blueprint $table) {
+            $table->foreign('mz_armor_id')->references('id')->on('mz_armors')->cascadeOnDelete();
+        });
+        Schema::table('user_mercenaries', function (Blueprint $table) {
+            $table->foreign('weapon_id')->references('id')->on('mz_weapons')->nullOnDelete();
+            $table->foreign('shield_id')->references('id')->on('mz_armors')->nullOnDelete();
+            $table->foreign('body_armor_id')->references('id')->on('mz_armors')->nullOnDelete();
+            $table->foreign('accessory_id')->references('id')->on('mz_armors')->nullOnDelete();
+        });
     }
 
     public function down(): void
     {
-        Schema::table('units', function (Blueprint $table) {
-            $table->dropForeign(['class_id']);
-            $table->dropForeign(['mz_enemy_id']);
-            $table->dropForeign(['mz_actor_id']);
-        });
-        Schema::table('battle_units', function (Blueprint $table) {
-            $table->dropForeign(['class_id']);
-            $table->dropForeign(['casting_skill_id']);
-        });
-        Schema::table('battle_unit_states', function (Blueprint $table) {
-            $table->dropForeign(['state_id']);
-        });
+        $this->dropForeignIfExists('units', 'class_id');
+        $this->dropForeignIfExists('units', 'mz_enemy_id');
+        $this->dropForeignIfExists('units', 'mz_actor_id');
+        $this->dropForeignIfExists('battle_units', 'class_id');
+        $this->dropForeignIfExists('battle_units', 'casting_skill_id');
+        $this->dropForeignIfExists('battle_unit_states', 'state_id');
+        $this->dropForeignIfExists('user_items', 'mz_item_id');
+        $this->dropForeignIfExists('user_weapons', 'mz_weapon_id');
+        $this->dropForeignIfExists('user_armors', 'mz_armor_id');
+        $this->dropForeignIfExists('user_mercenaries', 'weapon_id');
+        $this->dropForeignIfExists('user_mercenaries', 'shield_id');
+        $this->dropForeignIfExists('user_mercenaries', 'body_armor_id');
+        $this->dropForeignIfExists('user_mercenaries', 'accessory_id');
 
         Schema::dropIfExists('mz_types');
         Schema::dropIfExists('mz_animations');
