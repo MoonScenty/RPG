@@ -20750,7 +20750,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -20838,7 +20838,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -20926,7 +20926,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21014,7 +21014,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21102,7 +21102,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21190,7 +21190,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21278,7 +21278,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21366,7 +21366,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21454,7 +21454,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21542,7 +21542,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21630,7 +21630,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21718,7 +21718,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21806,7 +21806,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21894,7 +21894,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -21982,7 +21982,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22070,7 +22070,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22158,7 +22158,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22246,7 +22246,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22334,7 +22334,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22422,7 +22422,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22510,7 +22510,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 1,
-      "animationId": 2,
+      "animationId": 1,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22598,7 +22598,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22686,7 +22686,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22774,7 +22774,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22862,7 +22862,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -22950,7 +22950,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23038,7 +23038,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23126,7 +23126,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23214,7 +23214,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23302,7 +23302,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23390,7 +23390,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23478,7 +23478,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23566,7 +23566,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23654,7 +23654,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23742,7 +23742,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23830,7 +23830,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -23918,7 +23918,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24006,7 +24006,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24094,7 +24094,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24182,7 +24182,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24270,7 +24270,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24358,7 +24358,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 2,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24446,7 +24446,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24534,7 +24534,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24622,7 +24622,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24710,7 +24710,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24798,7 +24798,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24886,7 +24886,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -24974,7 +24974,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25062,7 +25062,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25150,7 +25150,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25238,7 +25238,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25326,7 +25326,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25414,7 +25414,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25502,7 +25502,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25590,7 +25590,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25678,7 +25678,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25766,7 +25766,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25854,7 +25854,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -25942,7 +25942,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26030,7 +26030,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26118,7 +26118,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26206,7 +26206,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 3,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26294,7 +26294,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26382,7 +26382,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26470,7 +26470,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26558,7 +26558,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26646,7 +26646,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26734,7 +26734,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26822,7 +26822,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26910,7 +26910,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -26998,7 +26998,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27086,7 +27086,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27174,7 +27174,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27262,7 +27262,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27350,7 +27350,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27438,7 +27438,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27526,7 +27526,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27614,7 +27614,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27702,7 +27702,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27790,7 +27790,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27878,7 +27878,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -27966,7 +27966,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28054,7 +28054,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 4,
-      "animationId": 11,
+      "animationId": 10,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28142,7 +28142,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28230,7 +28230,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28318,7 +28318,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28406,7 +28406,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28494,7 +28494,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28582,7 +28582,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28670,7 +28670,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28758,7 +28758,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28846,7 +28846,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -28934,7 +28934,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29022,7 +29022,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29110,7 +29110,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29198,7 +29198,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29286,7 +29286,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29374,7 +29374,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29462,7 +29462,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29550,7 +29550,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29638,7 +29638,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29726,7 +29726,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29814,7 +29814,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29902,7 +29902,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 5,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -29990,7 +29990,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30078,7 +30078,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30166,7 +30166,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30254,7 +30254,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30342,7 +30342,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30430,7 +30430,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30518,7 +30518,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30606,7 +30606,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30694,7 +30694,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30782,7 +30782,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30870,7 +30870,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -30958,7 +30958,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31046,7 +31046,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31134,7 +31134,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31222,7 +31222,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31310,7 +31310,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31398,7 +31398,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31486,7 +31486,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31574,7 +31574,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31662,7 +31662,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
@@ -31750,7 +31750,7 @@
       "traits": [],
       "craftingMaterials": [],
       "weaponTypeId": 6,
-      "animationId": 1,
+      "animationId": 0,
       "craftingCost": 0,
       "craftingTime": 0
     },
