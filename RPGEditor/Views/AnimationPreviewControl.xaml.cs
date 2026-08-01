@@ -30,17 +30,16 @@ public partial class AnimationPreviewControl : UserControl
 
         await WebView.EnsureCoreWebView2Async(await WebView2EnvironmentProvider.GetAsync());
 
-        var previewFolder = Path.Combine(AppContext.BaseDirectory, "Assets", "AnimationPreview");
-        WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
-            "preview.local", previewFolder, CoreWebView2HostResourceAccessKind.Allow);
-
-        // effects/audio/img를 예전엔 effects.local/audio.local/img.local이라는 별도
-        // 가상 호스트로 매핑했는데, 그러면 preview.local(페이지)과 서로 다른
-        // 오리진이 되어 WebGL이 텍스처를 오염된(tainted) 것으로 취급해 검게
-        // 렌더링하는 문제가 있었다(--disable-web-security로 우회를 시도했지만
-        // WebView2가 이 플래그를 지원하지 않아 효과가 없었음). 대신 같은
-        // preview.local 오리진의 /effects//audio//img/ 하위 경로 요청을 직접
-        // 가로채서 프로젝트 폴더 파일로 응답한다 - 전부 진짜 같은 오리진이 된다.
+        // preview.local 전체를 SetVirtualHostNameToFolderMapping이 아니라
+        // WebResourceRequested로만 서빙한다. 처음엔 preview.local은 폴더 매핑,
+        // effects/audio/img만 WebResourceRequested로 가로채려 했는데, 실제로는
+        // SetVirtualHostNameToFolderMapping이 그 호스트의 모든 요청을 자기
+        // 매핑 폴더(Assets/AnimationPreview) 기준으로 먼저 처리해버려서
+        // WebResourceRequested가 effects/audio/img 경로에 대해 전혀 호출되지
+        // 않았다(전부 ERR_FILE_NOT_FOUND로 실패 - 사용자 콘솔에서 확인). 그래서
+        // 폴더 매핑은 아예 안 쓰고 이 핸들러 하나가 preview.local의 모든 요청을
+        // 처리한다: /effects, /audio, /img는 프로젝트 폴더에서, 나머지(/,
+        // preview.html, effekseer.min.js/wasm, preview.js)는 앱 번들 폴더에서.
         WebView.CoreWebView2.AddWebResourceRequestedFilter(
             "https://preview.local/*", CoreWebView2WebResourceContext.All);
         WebView.CoreWebView2.WebResourceRequested += OnWebResourceRequested;
@@ -86,25 +85,30 @@ public partial class AnimationPreviewControl : UserControl
     }
 
     /// <summary>
-    /// https://preview.local/effects/**, /audio/**, /img/**를 프로젝트 폴더(ProjectRootPath)
-    /// 파일로 직접 서빙한다 - preview.html/js는 이 경로들을 상대 경로로 요청한다.
+    /// preview.local의 모든 요청을 이 핸들러 하나가 처리한다: /effects, /audio, /img
+    /// 하위 경로는 프로젝트 폴더(ProjectRootPath)에서, 나머지(빈 경로 포함 -
+    /// preview.html/effekseer.min.js/effekseer.wasm/preview.js)는 앱 번들의
+    /// Assets/AnimationPreview 폴더에서 읽어 응답한다.
     /// </summary>
     private void OnWebResourceRequested(object? sender, CoreWebView2WebResourceRequestedEventArgs e)
     {
-        if (string.IsNullOrEmpty(ProjectRootPath))
-            return;
+        var path = Uri.UnescapeDataString(new Uri(e.Request.Uri).AbsolutePath.TrimStart('/'));
+        if (path.Length == 0)
+            path = "preview.html";
 
-        var trimmedPath = new Uri(e.Request.Uri).AbsolutePath.TrimStart('/'); // "effects/Poison.efkefc" 등
-        var slashIndex = trimmedPath.IndexOf('/');
-        if (slashIndex < 0)
-            return;
-
-        var subfolder = trimmedPath[..slashIndex];
-        if (subfolder is not ("effects" or "audio" or "img"))
-            return;
-
-        var relativePath = Uri.UnescapeDataString(trimmedPath[(slashIndex + 1)..]);
-        var filePath = Path.Combine(ProjectRootPath, subfolder, relativePath.Replace('/', Path.DirectorySeparatorChar));
+        string filePath;
+        var slashIndex = path.IndexOf('/');
+        var subfolder = slashIndex > 0 ? path[..slashIndex] : null;
+        if (subfolder is "effects" or "audio" or "img" && !string.IsNullOrEmpty(ProjectRootPath))
+        {
+            var relativePath = path[(slashIndex + 1)..].Replace('/', Path.DirectorySeparatorChar);
+            filePath = Path.Combine(ProjectRootPath, subfolder, relativePath);
+        }
+        else
+        {
+            var previewFolder = Path.Combine(AppContext.BaseDirectory, "Assets", "AnimationPreview");
+            filePath = Path.Combine(previewFolder, path.Replace('/', Path.DirectorySeparatorChar));
+        }
 
         var environment = WebView.CoreWebView2.Environment;
         if (!File.Exists(filePath))
@@ -115,12 +119,12 @@ public partial class AnimationPreviewControl : UserControl
 
         var stream = File.OpenRead(filePath);
         var contentType = ContentTypeFor(filePath);
-        e.Response = environment.CreateWebResourceResponse(
-            stream, 200, "OK", $"Content-Type: {contentType}\nAccess-Control-Allow-Origin: *");
+        e.Response = environment.CreateWebResourceResponse(stream, 200, "OK", $"Content-Type: {contentType}");
     }
 
     private static string ContentTypeFor(string filePath) => Path.GetExtension(filePath).ToLowerInvariant() switch
     {
+        ".html" => "text/html",
         ".png" => "image/png",
         ".json" => "application/json",
         ".js" => "text/javascript",
