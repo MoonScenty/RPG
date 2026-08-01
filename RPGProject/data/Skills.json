@@ -4514,38 +4514,5 @@
     "requiredStateId": 0,
     "removeRequiredStateOnUse": false,
     "magicCircleImage": ""
-  },
-  {
-    "id": 122,
-    "name": "캐스팅",
-    "note": "",
-    "iconIndex": 0,
-    "description": "실제 배틀 로직에서는 쓰이지 않는 가짜 스킬 - 캐스팅(시전 대기) 턴의 로그 문구(message1)만 지정하는 용도로 쓰인다(연출은 이제 실제 캐스팅 스킬 각각의 <CircleImage> 노트태그로 지정). message1의 %1은 시전자, %2는 대상으로 치환된다(다른 스킬처럼 %2가 스킬명이 아님 - 이 스킬 하나가 모든 캐스팅 턴에 재사용되므로).",
-    "skillTypeId": 0,
-    "mpCost": 0,
-    "tpCost": 0,
-    "scope": "user",
-    "invocation": {
-      "speedCorrection": 0,
-      "successRate": 100,
-      "repeatCount": 1,
-      "tpGain": 0,
-      "hitType": "certain",
-      "animationId": 0
-    },
-    "message": "%1이(가) %2을(를) 준비하고 있습니다!",
-    "damage": {
-      "type": "none",
-      "elementId": 0,
-      "formula": "0",
-      "variance": 0,
-      "criticalEnabled": false
-    },
-    "effects": [],
-    "usablePosition": "any",
-    "motion": "",
-    "requiredStateId": 0,
-    "removeRequiredStateOnUse": false,
-    "magicCircleImage": ""
   }
 ]

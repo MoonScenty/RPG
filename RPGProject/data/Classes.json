@@ -1203,63 +1203,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 2
+        "skillId": 1
       },
       {
         "level": 3,
-        "skillId": 3
+        "skillId": 2
       },
       {
         "level": 5,
-        "skillId": 4
+        "skillId": 3
       },
       {
         "level": 7,
-        "skillId": 5
+        "skillId": 4
       },
       {
         "level": 9,
-        "skillId": 6
+        "skillId": 5
       },
       {
         "level": 12,
-        "skillId": 7
+        "skillId": 6
       },
       {
         "level": 15,
-        "skillId": 8
+        "skillId": 7
       },
       {
         "level": 18,
-        "skillId": 9
+        "skillId": 8
       },
       {
         "level": 21,
-        "skillId": 10
+        "skillId": 9
       },
       {
         "level": 25,
-        "skillId": 11
+        "skillId": 10
       },
       {
         "level": 29,
-        "skillId": 12
+        "skillId": 11
       },
       {
         "level": 33,
-        "skillId": 13
+        "skillId": 12
       },
       {
         "level": 37,
-        "skillId": 14
+        "skillId": 13
       },
       {
         "level": 41,
-        "skillId": 15
+        "skillId": 14
       },
       {
         "level": 45,
-        "skillId": 16
+        "skillId": 15
       }
     ],
     "traits": []
@@ -2468,63 +2468,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 18
+        "skillId": 16
       },
       {
         "level": 3,
-        "skillId": 19
+        "skillId": 17
       },
       {
         "level": 5,
-        "skillId": 20
+        "skillId": 18
       },
       {
         "level": 7,
-        "skillId": 21
+        "skillId": 19
       },
       {
         "level": 9,
-        "skillId": 22
+        "skillId": 20
       },
       {
         "level": 12,
-        "skillId": 23
+        "skillId": 21
       },
       {
         "level": 15,
-        "skillId": 24
+        "skillId": 22
       },
       {
         "level": 18,
-        "skillId": 25
+        "skillId": 23
       },
       {
         "level": 21,
-        "skillId": 26
+        "skillId": 24
       },
       {
         "level": 25,
-        "skillId": 27
+        "skillId": 25
       },
       {
         "level": 29,
-        "skillId": 28
+        "skillId": 26
       },
       {
         "level": 33,
-        "skillId": 29
+        "skillId": 27
       },
       {
         "level": 37,
-        "skillId": 30
+        "skillId": 28
       },
       {
         "level": 41,
-        "skillId": 31
+        "skillId": 29
       },
       {
         "level": 45,
-        "skillId": 32
+        "skillId": 30
       }
     ],
     "traits": []
@@ -3733,63 +3733,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 34
+        "skillId": 31
       },
       {
         "level": 3,
-        "skillId": 35
+        "skillId": 32
       },
       {
         "level": 5,
-        "skillId": 36
+        "skillId": 33
       },
       {
         "level": 7,
-        "skillId": 37
+        "skillId": 34
       },
       {
         "level": 9,
-        "skillId": 38
+        "skillId": 35
       },
       {
         "level": 12,
-        "skillId": 39
+        "skillId": 36
       },
       {
         "level": 15,
-        "skillId": 40
+        "skillId": 37
       },
       {
         "level": 18,
-        "skillId": 41
+        "skillId": 38
       },
       {
         "level": 21,
-        "skillId": 42
+        "skillId": 39
       },
       {
         "level": 25,
-        "skillId": 43
+        "skillId": 40
       },
       {
         "level": 29,
-        "skillId": 44
+        "skillId": 41
       },
       {
         "level": 33,
-        "skillId": 45
+        "skillId": 42
       },
       {
         "level": 37,
-        "skillId": 46
+        "skillId": 43
       },
       {
         "level": 41,
-        "skillId": 47
+        "skillId": 44
       },
       {
         "level": 45,
-        "skillId": 48
+        "skillId": 45
       }
     ],
     "traits": []
@@ -4998,63 +4998,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 50
+        "skillId": 46
       },
       {
         "level": 3,
-        "skillId": 51
+        "skillId": 47
       },
       {
         "level": 5,
-        "skillId": 52
+        "skillId": 48
       },
       {
         "level": 7,
-        "skillId": 53
+        "skillId": 49
       },
       {
         "level": 9,
-        "skillId": 54
+        "skillId": 50
       },
       {
         "level": 12,
-        "skillId": 55
+        "skillId": 51
       },
       {
         "level": 15,
-        "skillId": 56
+        "skillId": 52
       },
       {
         "level": 18,
-        "skillId": 57
+        "skillId": 53
       },
       {
         "level": 21,
-        "skillId": 58
+        "skillId": 54
       },
       {
         "level": 25,
-        "skillId": 59
+        "skillId": 55
       },
       {
         "level": 29,
-        "skillId": 60
+        "skillId": 56
       },
       {
         "level": 33,
-        "skillId": 61
+        "skillId": 57
       },
       {
         "level": 37,
-        "skillId": 62
+        "skillId": 58
       },
       {
         "level": 41,
-        "skillId": 63
+        "skillId": 59
       },
       {
         "level": 45,
-        "skillId": 64
+        "skillId": 60
       }
     ],
     "traits": []
@@ -6263,63 +6263,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 66
+        "skillId": 61
       },
       {
         "level": 3,
-        "skillId": 67
+        "skillId": 62
       },
       {
         "level": 5,
-        "skillId": 68
+        "skillId": 63
       },
       {
         "level": 7,
-        "skillId": 69
+        "skillId": 64
       },
       {
         "level": 9,
-        "skillId": 70
+        "skillId": 65
       },
       {
         "level": 12,
-        "skillId": 71
+        "skillId": 66
       },
       {
         "level": 15,
-        "skillId": 72
+        "skillId": 67
       },
       {
         "level": 18,
-        "skillId": 73
+        "skillId": 68
       },
       {
         "level": 21,
-        "skillId": 74
+        "skillId": 69
       },
       {
         "level": 25,
-        "skillId": 75
+        "skillId": 70
       },
       {
         "level": 29,
-        "skillId": 76
+        "skillId": 71
       },
       {
         "level": 33,
-        "skillId": 77
+        "skillId": 72
       },
       {
         "level": 37,
-        "skillId": 78
+        "skillId": 73
       },
       {
         "level": 41,
-        "skillId": 79
+        "skillId": 74
       },
       {
         "level": 45,
-        "skillId": 80
+        "skillId": 75
       }
     ],
     "traits": []
@@ -7528,63 +7528,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 82
+        "skillId": 76
       },
       {
         "level": 3,
-        "skillId": 83
+        "skillId": 77
       },
       {
         "level": 5,
-        "skillId": 84
+        "skillId": 78
       },
       {
         "level": 7,
-        "skillId": 85
+        "skillId": 79
       },
       {
         "level": 9,
-        "skillId": 86
+        "skillId": 80
       },
       {
         "level": 12,
-        "skillId": 87
+        "skillId": 81
       },
       {
         "level": 15,
-        "skillId": 88
+        "skillId": 82
       },
       {
         "level": 18,
-        "skillId": 89
+        "skillId": 83
       },
       {
         "level": 21,
-        "skillId": 90
+        "skillId": 84
       },
       {
         "level": 25,
-        "skillId": 91
+        "skillId": 85
       },
       {
         "level": 29,
-        "skillId": 92
+        "skillId": 86
       },
       {
         "level": 33,
-        "skillId": 93
+        "skillId": 87
       },
       {
         "level": 37,
-        "skillId": 94
+        "skillId": 88
       },
       {
         "level": 41,
-        "skillId": 95
+        "skillId": 89
       },
       {
         "level": 45,
-        "skillId": 96
+        "skillId": 90
       }
     ],
     "traits": []
@@ -8793,63 +8793,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 98
+        "skillId": 91
       },
       {
         "level": 3,
-        "skillId": 99
+        "skillId": 92
       },
       {
         "level": 5,
-        "skillId": 100
+        "skillId": 93
       },
       {
         "level": 7,
-        "skillId": 101
+        "skillId": 94
       },
       {
         "level": 9,
-        "skillId": 102
+        "skillId": 95
       },
       {
         "level": 12,
-        "skillId": 103
+        "skillId": 96
       },
       {
         "level": 15,
-        "skillId": 104
+        "skillId": 97
       },
       {
         "level": 18,
-        "skillId": 105
+        "skillId": 98
       },
       {
         "level": 21,
-        "skillId": 106
+        "skillId": 99
       },
       {
         "level": 25,
-        "skillId": 107
+        "skillId": 100
       },
       {
         "level": 29,
-        "skillId": 108
+        "skillId": 101
       },
       {
         "level": 33,
-        "skillId": 109
+        "skillId": 102
       },
       {
         "level": 37,
-        "skillId": 110
+        "skillId": 103
       },
       {
         "level": 41,
-        "skillId": 111
+        "skillId": 104
       },
       {
         "level": 45,
-        "skillId": 112
+        "skillId": 105
       }
     ],
     "traits": []
@@ -10058,63 +10058,63 @@
     "learnings": [
       {
         "level": 1,
-        "skillId": 114
+        "skillId": 106
       },
       {
         "level": 3,
-        "skillId": 115
+        "skillId": 107
       },
       {
         "level": 5,
-        "skillId": 116
+        "skillId": 108
       },
       {
         "level": 7,
-        "skillId": 117
+        "skillId": 109
       },
       {
         "level": 9,
-        "skillId": 118
+        "skillId": 110
       },
       {
         "level": 12,
-        "skillId": 119
+        "skillId": 111
       },
       {
         "level": 15,
-        "skillId": 120
+        "skillId": 112
       },
       {
         "level": 18,
-        "skillId": 121
+        "skillId": 113
       },
       {
         "level": 21,
-        "skillId": 122
+        "skillId": 114
       },
       {
         "level": 25,
-        "skillId": 123
+        "skillId": 115
       },
       {
         "level": 29,
-        "skillId": 124
+        "skillId": 116
       },
       {
         "level": 33,
-        "skillId": 125
+        "skillId": 117
       },
       {
         "level": 37,
-        "skillId": 126
+        "skillId": 118
       },
       {
         "level": 41,
-        "skillId": 127
+        "skillId": 119
       },
       {
         "level": 45,
-        "skillId": 128
+        "skillId": 120
       }
     ],
     "traits": []
