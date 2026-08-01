@@ -195,7 +195,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 110,
+        "stateId": 34,
         "chance": 100
       }
     ],
@@ -277,7 +277,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 111,
+        "stateId": 35,
         "chance": 100
       }
     ],
@@ -689,7 +689,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 112,
+        "stateId": 36,
         "chance": 100
       }
     ],
@@ -969,7 +969,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 113,
+        "stateId": 37,
         "chance": 100
       }
     ],
@@ -1771,7 +1771,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 110,
+        "stateId": 34,
         "chance": 100
       }
     ],
@@ -1812,7 +1812,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 116,
+        "stateId": 40,
         "chance": 100
       }
     ],
@@ -1853,7 +1853,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 101,
+        "stateId": 25,
         "chance": 100
       }
     ],
@@ -1960,7 +1960,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 105,
+        "stateId": 29,
         "chance": 100
       }
     ],
@@ -2100,7 +2100,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 117,
+        "stateId": 41,
         "chance": 100
       }
     ],
@@ -2141,7 +2141,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 100,
+        "stateId": 24,
         "chance": 100
       }
     ],
@@ -2237,7 +2237,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 103,
+        "stateId": 27,
         "chance": 100
       }
     ],
@@ -2319,7 +2319,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 110,
+        "stateId": 34,
         "chance": 100
       }
     ],
@@ -2360,7 +2360,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 102,
+        "stateId": 26,
         "chance": 100
       }
     ],
@@ -2401,7 +2401,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 104,
+        "stateId": 28,
         "chance": 100
       }
     ],
@@ -2442,7 +2442,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 117,
+        "stateId": 41,
         "chance": 100
       }
     ],
@@ -2590,7 +2590,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 118,
+        "stateId": 42,
         "chance": 100
       }
     ],
@@ -2664,7 +2664,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 100,
+        "stateId": 24,
         "chance": 100
       }
     ],
@@ -2746,7 +2746,7 @@
         "kind": "targetAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 110,
+        "stateId": 34,
         "chance": 100
       }
     ],
@@ -2993,7 +2993,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 113,
+        "stateId": 37,
         "chance": 100
       }
     ],
@@ -3618,7 +3618,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 119,
+        "stateId": 43,
         "chance": 100
       }
     ],
@@ -3864,7 +3864,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 113,
+        "stateId": 37,
         "chance": 100
       }
     ],
@@ -3971,7 +3971,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 111,
+        "stateId": 35,
         "chance": 100
       }
     ],
@@ -4086,7 +4086,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 110,
+        "stateId": 34,
         "chance": 100
       }
     ],
@@ -4201,7 +4201,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 120,
+        "stateId": 44,
         "chance": 100
       }
     ],
@@ -4242,7 +4242,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 121,
+        "stateId": 45,
         "chance": 100
       }
     ],
@@ -4398,7 +4398,7 @@
         "kind": "userAddState",
         "percentValue": 0,
         "flatValue": 0,
-        "stateId": 122,
+        "stateId": 46,
         "chance": 100
       }
     ],
