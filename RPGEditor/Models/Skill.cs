@@ -38,9 +38,10 @@ public partial class Skill : DatabaseEntry
     [ObservableProperty]
     private string motion = string.Empty;
 
-    /// <summary>스킬 사용에 필요한 States.json ID. 0 = 요구 상태 없음.</summary>
+    /// <summary>스킬 사용에 필요한 States.json ID. null이면 요구 상태 없음(0번 상태가
+    /// 실제로 등록돼 있을 수 있어 0을 "없음" sentinel로 못 씀).</summary>
     [ObservableProperty]
-    private int requiredStateId;
+    private int? requiredStateId;
 
     [ObservableProperty]
     private bool removeRequiredStateOnUse;
