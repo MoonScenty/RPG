@@ -1,1 +1,4551 @@
-[]
+[
+  {
+    "id": 0,
+    "name": "공격",
+    "note": "스킬 #1은 공격 명령에 해당합니다.",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 0,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 5,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) 공격합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk * 4 - b.def * 2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 1,
+    "name": "베기Ⅰ",
+    "note": "<RequireFront>\n<SkillMotion: thrust>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 0,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 2,
+    "name": "베기Ⅱ",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 4,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2.5-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 3,
+    "name": "베기Ⅲ",
+    "note": "<RequireFront>\n<SkillMotion: thrust>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 4,
+    "name": "대검 강타",
+    "note": "<RequireFront>\n<SkillMotion: thrust>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3.5-b.def*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 5,
+    "name": "칼날 막기",
+    "note": "<SkillMotion: guard>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 110,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 6,
+    "name": "출혈 베기",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 2,
+        "chance": 80
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 7,
+    "name": "전장의 함성",
+    "note": "<SkillMotion: victory>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 111,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 8,
+    "name": "마력 파쇄",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 9,
+    "name": "불굴의 의지",
+    "note": "<SkillMotion: victory>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mhp*0.2",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 10,
+    "name": "재정비",
+    "note": "<RequireBack>\n<SkillMotion: chant>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mhp*0.15",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 11,
+    "name": "쌍검 연격",
+    "note": "<RequireFront>\n<SkillMotion: missile>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 2,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*1.8-b.def",
+      "variance": 12,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 12,
+    "name": "처형자의 일격",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4-b.def*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 13,
+    "name": "파쇄격",
+    "note": "<RequireFront>\n<SkillMotion: missile>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*5-b.def*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 10,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 14,
+    "name": "완벽한 콤보",
+    "note": "<RequireFront>\n<SkillMotion: missile>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 24,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*6-b.def*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 15,
+    "name": "일도양단",
+    "note": "<RequireFront>\n<Cooldown: 5>\n<SkillMotion: missile>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 30,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*8-b.def*2.5",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 16,
+    "name": "속사",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 77,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 0,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 17,
+    "name": "조준 사격",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 77,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2.5-b.def*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 18,
+    "name": "다중 사격",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 77,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 2,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*1.5-b.def",
+      "variance": 12,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 19,
+    "name": "회피 강화",
+    "note": "<SkillMotion: chant>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 112,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 20,
+    "name": "신속의 화살",
+    "note": "<GaugeBoost: 50>\n<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 77,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 21,
+    "name": "독침",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 77,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*1.8-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 3,
+        "chance": 80
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 22,
+    "name": "저격",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4-b.def*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 23,
+    "name": "응급처치 화살",
+    "note": "<SkillMotion: thrust>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*2.5",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 24,
+    "name": "폭발 화살",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 25,
+    "name": "전열 견제",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 26,
+    "name": "연속 사격",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 77,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 3,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*1.5-b.def",
+      "variance": 12,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 27,
+    "name": "급소 저격",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4.5-b.def*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 113,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 28,
+    "name": "그림자 화살",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 29,
+    "name": "최후의 화살",
+    "note": "<RequireBack>\n<SkillMotion: thrust>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 24,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*5-b.def*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 13,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 30,
+    "name": "필중의 일격",
+    "note": "<RequireBack>\n<Cooldown: 5>\n<SkillMotion: thrust>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 30,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*7-b.def*2",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 31,
+    "name": "파이어",
+    "note": "<Casting: 1>\n<RemoveState: 빙결 태세>\n<ApplySelfState: 화염 태세>\n<RequireBack>\n<CircleImage: 1, circle1>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 2,
+      "formula": "a.mat*2.8-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 32,
+    "name": "블리자드",
+    "note": "<MpRecover: 15>\n<ApplySelfStateIfSelfHas: 화염 태세,원소각인 가능>\n<RemoveState: 화염 태세>\n<ApplySelfState: 빙결 태세>\n<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 65,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 3,
+      "formula": "a.mat*0.8-b.mdf*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 33,
+    "name": "선더",
+    "note": "<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 66,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 4,
+      "formula": "a.mat*0.9-b.mdf*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 14,
+        "chance": 60
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 34,
+    "name": "파이라",
+    "note": "<Casting: 2>\n<RemoveState: 빙결 태세>\n<ApplySelfState: 화염 태세>\n<RequireBack>\n<CircleImage: 1, circle1>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 2,
+      "formula": "a.mat*3.8-b.mdf*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 35,
+    "name": "블리자라",
+    "note": "<MpRecover: 25>\n<ApplySelfStateIfSelfHas: 화염 태세,원소각인 가능>\n<RemoveState: 화염 태세>\n<ApplySelfState: 빙결 태세>\n<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 65,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 3,
+      "formula": "a.mat*1.2-b.mdf*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 36,
+    "name": "선더라",
+    "note": "<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 66,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 4,
+      "formula": "a.mat*1.3-b.mdf*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 14,
+        "chance": 75
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 37,
+    "name": "원소 각인",
+    "note": "<RequireSelfState: 원소각인 가능>\n<RemoveState: 원소각인 가능>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*5-b.mdf*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 38,
+    "name": "삼중 영창",
+    "note": "<ApplySelfState: 삼중 영창 가능>\n<SkillMotion: skill>",
+    "iconIndex": 67,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 40,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 39,
+    "name": "마나 번",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*2-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 40,
+    "name": "근접 억제",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*2-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 41,
+    "name": "익스플로전",
+    "note": "<Casting: 2>\n<RemoveState: 빙결 태세>\n<ApplySelfState: 화염 태세>\n<RequireBack>\n<CircleImage: 1, circle1>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 22,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 2,
+      "formula": "a.mat*5.5-b.mdf*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 42,
+    "name": "빙결 선고",
+    "note": "<MpRecover: 20>\n<RequireSelfState: 빙결 태세>\n<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 65,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 3,
+      "formula": "a.mat*1.8-b.mdf*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 12,
+        "chance": 70
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 43,
+    "name": "화상 폭발",
+    "note": "<Casting: 1>\n<RequireSelfState: 화염 태세>\n<RequireBack>\n<CircleImage: 1, circle1>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 2,
+      "formula": "a.mat*4.5-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 44,
+    "name": "마나 폭주",
+    "note": "<RequireTargetState: 감전>\n<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 26,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 4,
+      "formula": "a.mat*5.5-b.mdf*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 45,
+    "name": "멸화의 대주문",
+    "note": "<Casting: 2>\n<RequireSelfState: 화염 태세>\n<ConsumeAllMp>\n<RequireBack>\n<CircleImage: 1, circle1>\n<Cooldown: 5>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 1,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 2,
+      "formula": "a.mp*4-b.mdf",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 46,
+    "name": "큐어",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*3",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 47,
+    "name": "큐라",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*5",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 48,
+    "name": "리커버",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 2,
+        "chance": 100
+      },
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 12,
+        "chance": 100
+      },
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 3,
+        "chance": 100
+      },
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 11,
+        "chance": 100
+      },
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 14,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 49,
+    "name": "프로텍트",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 110,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 50,
+    "name": "쉘",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 116,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 51,
+    "name": "리제너레이션",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 101,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 52,
+    "name": "축복",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*2",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 53,
+    "name": "정화의 빛",
+    "note": "<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 8,
+      "formula": "a.mat*3-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 54,
+    "name": "저항의 축복",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 105,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 55,
+    "name": "큐아가",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*8",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 56,
+    "name": "소생술",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 26,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mhp*0.3",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 57,
+    "name": "신성 폭발",
+    "note": "<RequireBack>\n<SkillMotion: spell>",
+    "iconIndex": 64,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 8,
+      "formula": "a.mat*3-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 58,
+    "name": "수호의 결계",
+    "note": "<RequireFront>\n<SkillMotion: spell>",
+    "iconIndex": 81,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 117,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 59,
+    "name": "필멸의 저항",
+    "note": "<SkillMotion: spell>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 100,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 60,
+    "name": "천사의 노래",
+    "note": "<Cooldown: 5>\n<SkillMotion: spell>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 40,
+    "tpCost": 0,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mat*10",
+      "variance": 30,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 2,
+        "chance": 100
+      },
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 12,
+        "chance": 100
+      },
+      {
+        "kind": "targetRemoveState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 14,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 61,
+    "name": "도발",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 5,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 103,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 62,
+    "name": "방패 강타",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 3,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 12,
+        "chance": 20
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 63,
+    "name": "굳건한 의지",
+    "note": "<RequireFront>\n<SkillMotion: victory>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 110,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 64,
+    "name": "수호의 맹세",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 81,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneAlly",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 102,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 65,
+    "name": "반격 태세",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 84,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 104,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 66,
+    "name": "철벽 방어",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 81,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 117,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 67,
+    "name": "위압",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 18,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 68,
+    "name": "회복의 축복",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mhp*0.25",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 69,
+    "name": "정의의 강타",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 70,
+    "name": "최후의 보루",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 81,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 26,
+    "tpCost": 0,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 118,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 71,
+    "name": "대지 강타",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 72,
+    "name": "불굴",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 100,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 73,
+    "name": "사슬 결박",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 13,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 74,
+    "name": "수호자의 외침",
+    "note": "<SkillMotion: chant>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "allAllies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 110,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 75,
+    "name": "심판의 방패",
+    "note": "<RequireFront>\n<Cooldown: 5>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 22,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4-b.def*2",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 76,
+    "name": "찌르기",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 0,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 77,
+    "name": "관통격",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2.5-b.def*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 78,
+    "name": "회전창",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 79,
+    "name": "대지 흔들기",
+    "note": "<RequireFront>\n<SkillMotion: skill>",
+    "iconIndex": 3,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*1.5-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 12,
+        "chance": 15
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 80,
+    "name": "쌍룡창",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 2,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*1.8-b.def",
+      "variance": 12,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 81,
+    "name": "필살의 창",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 113,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 82,
+    "name": "창날 베기",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2.5-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 2,
+        "chance": 80
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 83,
+    "name": "천공찌르기",
+    "note": "<RequireBack>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 84,
+    "name": "대지의 창",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def*1.5+a.def*0.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 85,
+    "name": "창격 연환",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 3,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 12,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 86,
+    "name": "파쇄의 창격",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 10,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 87,
+    "name": "낙뢰창",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 4,
+      "formula": "a.atk*3.5-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 88,
+    "name": "창의 폭풍",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 26,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def*1.5",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 89,
+    "name": "필멸의 돌격",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 24,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*5-b.def*2",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 90,
+    "name": "용의 창격",
+    "note": "<RequireFront>\n<Cooldown: 5>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 30,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*7-b.def*2",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 91,
+    "name": "저주 인챈트",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 18,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 92,
+    "name": "슬로우",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 13,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 93,
+    "name": "사일런스",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 4,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 5,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 94,
+    "name": "위크니스",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 10,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 95,
+    "name": "아르카나 스트라이크",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*2.5-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 96,
+    "name": "매혹",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 6,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 11,
+        "chance": 25
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 97,
+    "name": "마나 흡수",
+    "note": "<MpRecover: 10>\n<SkillMotion: skill>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*2-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 98,
+    "name": "그림자 계약",
+    "note": "<SkillMotion: spell>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 119,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 99,
+    "name": "파멸의 표식",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 71,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 19,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 100,
+    "name": "침묵의 저주",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 4,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 101,
+    "name": "시간 왜곡",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 13,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 102,
+    "name": "이중 저주",
+    "note": "<RequireBack>\n<SkillMotion: skill>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 18,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 103,
+    "name": "심연의 응시",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 20,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*3.5-b.mdf",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 11,
+        "chance": 10
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 104,
+    "name": "운명의 실",
+    "note": "<SkillMotion: spell>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 12,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 113,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 105,
+    "name": "종말의 주문",
+    "note": "<Cooldown: 5>\n<SkillMotion: spell>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 30,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "magical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.mat*3-b.mdf",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 106,
+    "name": "흡혈 강타",
+    "note": "<Lifesteal: 30>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2.5-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 107,
+    "name": "피의 계약",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 6,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 111,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 108,
+    "name": "어둠의 손길",
+    "note": "<Lifesteal: 15>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 18,
+        "chance": 60
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 109,
+    "name": "흡정",
+    "note": "<MpRecover: 12>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 79,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 110,
+    "name": "악마의 가호",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 10,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 110,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 111,
+    "name": "절규",
+    "note": "<RequireFront>\n<SkillMotion: chant>",
+    "iconIndex": 33,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 4,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 112,
+    "name": "생명 착취",
+    "note": "<Lifesteal: 40>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3.5-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 113,
+    "name": "불멸의 육체",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 120,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 114,
+    "name": "어둠의 갑주",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 32,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 121,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 115,
+    "name": "저주받은 피",
+    "note": "<Lifesteal: 15>\n<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*3-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 2,
+        "chance": 80
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 116,
+    "name": "공포의 손아귀",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 6,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 16,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 11,
+        "chance": 15
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 117,
+    "name": "사혈",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 14,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 118,
+    "name": "재생의 계약",
+    "note": "<SkillMotion: skill>",
+    "iconIndex": 72,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 18,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpRecover",
+      "elementId": 0,
+      "formula": "a.mhp*0.25",
+      "variance": 10,
+      "criticalEnabled": false
+    },
+    "effects": [
+      {
+        "kind": "userAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 122,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 119,
+    "name": "지옥의 사슬",
+    "note": "<RequireFront>\n<SkillMotion: swing>",
+    "iconIndex": 78,
+    "description": "",
+    "skillTypeId": 0,
+    "mpCost": 22,
+    "tpCost": 0,
+    "scope": "allEnemies",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*2-b.def",
+      "variance": 20,
+      "criticalEnabled": true
+    },
+    "effects": [
+      {
+        "kind": "targetAddState",
+        "percentValue": 0,
+        "flatValue": 0,
+        "stateId": 13,
+        "chance": 100
+      }
+    ],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 120,
+    "name": "심연의 포식",
+    "note": "<Lifesteal: 50>\n<RequireFront>\n<Cooldown: 5>\n<SkillMotion: swing>",
+    "iconIndex": 76,
+    "description": "",
+    "skillTypeId": 1,
+    "mpCost": 30,
+    "tpCost": 0,
+    "scope": "oneEnemy",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "physical",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "hpDamage",
+      "elementId": 0,
+      "formula": "a.atk*4-b.def*2",
+      "variance": 30,
+      "criticalEnabled": true
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 121,
+    "name": "자리 변경",
+    "note": "<SwapPosition>",
+    "iconIndex": 82,
+    "description": "모든 직업 공용 스킬. 전열에 있으면 후열로, 후열에 있으면 전열로 이동한다. 이동하려는 줄에 빈 슬롯이 없으면 그 줄에 있는 아군 1명과 무작위로 자리를 맞바꾼다.",
+    "skillTypeId": 0,
+    "mpCost": 8,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 사용합니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  },
+  {
+    "id": 122,
+    "name": "캐스팅",
+    "note": "",
+    "iconIndex": 0,
+    "description": "실제 배틀 로직에서는 쓰이지 않는 가짜 스킬 - 캐스팅(시전 대기) 턴의 로그 문구(message1)만 지정하는 용도로 쓰인다(연출은 이제 실제 캐스팅 스킬 각각의 <CircleImage> 노트태그로 지정). message1의 %1은 시전자, %2는 대상으로 치환된다(다른 스킬처럼 %2가 스킬명이 아님 - 이 스킬 하나가 모든 캐스팅 턴에 재사용되므로).",
+    "skillTypeId": 0,
+    "mpCost": 0,
+    "tpCost": 0,
+    "scope": "user",
+    "invocation": {
+      "speedCorrection": 0,
+      "successRate": 100,
+      "repeatCount": 1,
+      "tpGain": 0,
+      "hitType": "certain",
+      "animationId": 0
+    },
+    "message": "%1이(가) %2을(를) 준비하고 있습니다!",
+    "damage": {
+      "type": "none",
+      "elementId": 0,
+      "formula": "0",
+      "variance": 0,
+      "criticalEnabled": false
+    },
+    "effects": [],
+    "usablePosition": "any",
+    "motion": "",
+    "requiredStateId": 0,
+    "removeRequiredStateOnUse": false,
+    "magicCircleImage": ""
+  }
+]

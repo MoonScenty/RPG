@@ -93,6 +93,26 @@ public class EnumDisplayConverter : IValueConverter
                 AnimationDisplayType.CenterOfScreen => "화면 중심",
                 _ => v.ToString(),
             },
+            SkillScope v => v switch
+            {
+                SkillScope.OneEnemy => "적 하나",
+                SkillScope.AllEnemies => "적 전체",
+                SkillScope.OneAlly => "아군 하나",
+                SkillScope.AllAllies => "아군 전체",
+                SkillScope.User => "사용자",
+                SkillScope.EnemyFrontRow => "적 전열",
+                SkillScope.EnemyBackRow => "적 후열",
+                SkillScope.AllyFrontRow => "아군 전열",
+                SkillScope.AllyBackRow => "아군 후열",
+                _ => v.ToString(),
+            },
+            SkillUsablePosition v => v switch
+            {
+                SkillUsablePosition.Front => "전열",
+                SkillUsablePosition.Back => "후열",
+                SkillUsablePosition.Any => "무관",
+                _ => v.ToString(),
+            },
             null => string.Empty,
             _ => value.ToString() ?? string.Empty,
         };
