@@ -133,7 +133,15 @@ export class EffekseerOverlay {
     // 나온다(straight-alpha 텍스처를 premultiplied 블렌딩으로 합성할 때 생기는
     // 전형적인 증상 - Effekseer는 straight alpha를 전제함). RPGEditor의 애니메이션
     // 미리보기(preview.js)에서 먼저 발견/수정한 것과 동일한 옵션을 여기도 맞춘다.
-    const contextOptions: WebGLContextAttributes = { alpha: true, premultipliedAlpha: false }
+    //
+    // stencil:true는 필수다 - mz_project/js/libs/pixi.js의 Renderer가 실제로 만드는
+    // WebGL 컨텍스트는 항상 stencil:true로 생성되고(PIXI.Renderer.initFromOptions,
+    // stencil 옵션이 무조건 true로 하드코딩됨), effekseer.min.js 안에는
+    // _emscripten_glStencilFunc 등 스텐실 버퍼를 실제로 쓰는 WASM 코드가 들어있다.
+    // 이 옵션이 빠지면 브라우저가 스텐실 버퍼 없는 컨텍스트를 만들어서, 스텐실
+    // 마스킹/클리핑을 쓰는 일부 파티클만 골라 깨지고 나머지는 멀쩡한(=지금까지
+    // 봐온 "일부 이펙트에만 거뭏거뭏") 증상이 났다.
+    const contextOptions: WebGLContextAttributes = { alpha: true, premultipliedAlpha: false, stencil: true }
     const gl =
       this.canvas.getContext('webgl2', contextOptions) ?? this.canvas.getContext('webgl', contextOptions)
     if (!gl) {

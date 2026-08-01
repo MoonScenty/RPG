@@ -42,7 +42,12 @@
     // premultipliedAlpha:false가 빠지면 파티클 텍스처의 투명 영역이 검은 박스로
     // 나온다(straight-alpha 텍스처를 premultiplied 블렌딩으로 합성할 때 생기는
     // 전형적인 증상) - Effekseer가 straight alpha를 전제하므로 반드시 꺼야 한다.
-    const contextOptions = { alpha: true, premultipliedAlpha: false };
+    //
+    // stencil:true는 필수다 - mz_project/js/libs/pixi.js의 Renderer가 실제로 만드는
+    // WebGL 컨텍스트는 항상 stencil:true로 생성되고, effekseer.min.js 안에는
+    // _emscripten_glStencilFunc 등 스텐실 버퍼를 실제로 쓰는 WASM 코드가 들어있다.
+    // 이 옵션이 빠지면 스텐실 마스킹/클리핑을 쓰는 일부 파티클만 골라 깨진다.
+    const contextOptions = { alpha: true, premultipliedAlpha: false, stencil: true };
     gl = canvas.getContext("webgl2", contextOptions);
     glVersion = gl ? "webgl2" : "webgl";
     gl ??= canvas.getContext("webgl", contextOptions);
