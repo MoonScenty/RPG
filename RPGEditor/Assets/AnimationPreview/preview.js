@@ -147,7 +147,7 @@
 
   function playSe(se) {
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const url = "https://audio.local/se/" + encodeURIComponent(se.name) + ".ogg";
+    const url = "/audio/se/" + encodeURIComponent(se.name) + ".ogg";
     const audio = new Audio(url);
     audio.playbackRate = (se.pitch || 100) / 100;
     try {

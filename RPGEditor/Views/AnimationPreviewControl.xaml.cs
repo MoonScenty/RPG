@@ -34,26 +34,16 @@ public partial class AnimationPreviewControl : UserControl
         WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
             "preview.local", previewFolder, CoreWebView2HostResourceAccessKind.Allow);
 
-        if (!string.IsNullOrEmpty(ProjectRootPath))
-        {
-            var effectsFolder = Path.Combine(ProjectRootPath, "effects");
-            var audioFolder = Path.Combine(ProjectRootPath, "audio");
-
-            if (Directory.Exists(effectsFolder))
-                WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
-                    "effects.local", effectsFolder, CoreWebView2HostResourceAccessKind.Allow);
-
-            if (Directory.Exists(audioFolder))
-                WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
-                    "audio.local", audioFolder, CoreWebView2HostResourceAccessKind.Allow);
-
-            // 검정 배경에서는 이펙트가 잘 안 보인다는 지적으로, 실제 전투처럼
-            // battlebacks1/2의 Grassland를 배경으로 깔아준다(preview.html/js 참고).
-            var imgFolder = Path.Combine(ProjectRootPath, "img");
-            if (Directory.Exists(imgFolder))
-                WebView.CoreWebView2.SetVirtualHostNameToFolderMapping(
-                    "img.local", imgFolder, CoreWebView2HostResourceAccessKind.Allow);
-        }
+        // effects/audio/img를 예전엔 effects.local/audio.local/img.local이라는 별도
+        // 가상 호스트로 매핑했는데, 그러면 preview.local(페이지)과 서로 다른
+        // 오리진이 되어 WebGL이 텍스처를 오염된(tainted) 것으로 취급해 검게
+        // 렌더링하는 문제가 있었다(--disable-web-security로 우회를 시도했지만
+        // WebView2가 이 플래그를 지원하지 않아 효과가 없었음). 대신 같은
+        // preview.local 오리진의 /effects//audio//img/ 하위 경로 요청을 직접
+        // 가로채서 프로젝트 폴더 파일로 응답한다 - 전부 진짜 같은 오리진이 된다.
+        WebView.CoreWebView2.AddWebResourceRequestedFilter(
+            "https://preview.local/*", CoreWebView2WebResourceContext.All);
+        WebView.CoreWebView2.WebResourceRequested += OnWebResourceRequested;
 
         WebView.CoreWebView2.NavigationCompleted += (s, e) => _pageReady.TrySetResult(e.IsSuccess);
         WebView.Source = new Uri("https://preview.local/preview.html");
@@ -71,7 +61,7 @@ public partial class AnimationPreviewControl : UserControl
         {
             type = "play",
             name = animation.Name,
-            effectUrl = $"https://effects.local/{Uri.EscapeDataString(animation.EffectName)}.efkefc",
+            effectUrl = $"/effects/{Uri.EscapeDataString(animation.EffectName)}.efkefc",
             offsetX = animation.OffsetX,
             offsetY = animation.OffsetY,
             scale = animation.Scale,
@@ -94,4 +84,49 @@ public partial class AnimationPreviewControl : UserControl
         await _pageReady.Task;
         WebView.CoreWebView2.PostWebMessageAsJson(JsonSerializer.Serialize(new { type = "stop" }));
     }
+
+    /// <summary>
+    /// https://preview.local/effects/**, /audio/**, /img/**를 프로젝트 폴더(ProjectRootPath)
+    /// 파일로 직접 서빙한다 - preview.html/js는 이 경로들을 상대 경로로 요청한다.
+    /// </summary>
+    private void OnWebResourceRequested(object? sender, CoreWebView2WebResourceRequestedEventArgs e)
+    {
+        if (string.IsNullOrEmpty(ProjectRootPath))
+            return;
+
+        var trimmedPath = new Uri(e.Request.Uri).AbsolutePath.TrimStart('/'); // "effects/Poison.efkefc" 등
+        var slashIndex = trimmedPath.IndexOf('/');
+        if (slashIndex < 0)
+            return;
+
+        var subfolder = trimmedPath[..slashIndex];
+        if (subfolder is not ("effects" or "audio" or "img"))
+            return;
+
+        var relativePath = Uri.UnescapeDataString(trimmedPath[(slashIndex + 1)..]);
+        var filePath = Path.Combine(ProjectRootPath, subfolder, relativePath.Replace('/', Path.DirectorySeparatorChar));
+
+        var environment = WebView.CoreWebView2.Environment;
+        if (!File.Exists(filePath))
+        {
+            e.Response = environment.CreateWebResourceResponse(null, 404, "Not Found", "");
+            return;
+        }
+
+        var stream = File.OpenRead(filePath);
+        var contentType = ContentTypeFor(filePath);
+        e.Response = environment.CreateWebResourceResponse(
+            stream, 200, "OK", $"Content-Type: {contentType}\nAccess-Control-Allow-Origin: *");
+    }
+
+    private static string ContentTypeFor(string filePath) => Path.GetExtension(filePath).ToLowerInvariant() switch
+    {
+        ".png" => "image/png",
+        ".json" => "application/json",
+        ".js" => "text/javascript",
+        ".wasm" => "application/wasm",
+        ".ogg" => "audio/ogg",
+        ".efkefc" or ".efk" => "application/octet-stream",
+        _ => "application/octet-stream",
+    };
 }
