@@ -60,7 +60,8 @@ const PINK_LABEL_COLOR = 0xed74b0
 
 // TG와 %PERCENT 사이 빈 칸 정중앙에 진짜 ATB 게이지(0~100+, atb_gauge)를
 // 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
-const ATB_PERCENT_CENTER_X = (189 + 235) / 2
+// 사용자 지시로 오른쪽 10px 이동.
+const ATB_PERCENT_CENTER_X = (189 + 235) / 2 + 10
 // 기준 67에서 사용자 지시로 2px 위로.
 const ATB_PERCENT_CENTER_Y = 65
 // 13 -> 16 -> 19 -> 22 -> 24 -> 22(사용자 지시로 최종 축소).
