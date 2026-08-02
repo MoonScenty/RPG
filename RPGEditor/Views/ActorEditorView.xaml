@@ -77,6 +77,12 @@
                                            FileName="{Binding Selected.FaceName, UpdateSourceTrigger=PropertyChanged}"
                                            Margin="0,0,0,10" />
 
+                        <TextBlock Text="HUD 얼굴 그래픽 (img/hud_faces)" Margin="0,0,0,4" />
+                        <views:ImageField x:Name="HudFaceField" SubFolder="img/hud_faces"
+                                           PickerTitle="HUD 얼굴 그래픽 선택"
+                                           FileName="{Binding Selected.HudFaceName, UpdateSourceTrigger=PropertyChanged}"
+                                           Margin="0,0,0,10" />
+
                         <TextBlock Text="장비 (Items.json ID, 0=없음)" Margin="0,0,0,4" />
                         <Grid>
                             <Grid.ColumnDefinitions>

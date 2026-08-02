@@ -12,7 +12,7 @@ public class ProjectContext
     private static readonly string[] ImageFolders =
     [
         "animations", "battleback1", "battleback2", "magic_circles", "dragonbones",
-        "faces", "pictures", "sv_actors", "sv_enemies", "system",
+        "faces", "hud_faces", "pictures", "sv_actors", "sv_enemies", "system",
     ];
 
     private static readonly JsonSerializerOptions JsonOptions = new()

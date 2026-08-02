@@ -14,6 +14,9 @@ public partial class Actor : DatabaseEntry
     private string faceName = string.Empty;
 
     [ObservableProperty]
+    private string hudFaceName = string.Empty;
+
+    [ObservableProperty]
     private int initialLevel = 1;
 
     [ObservableProperty]

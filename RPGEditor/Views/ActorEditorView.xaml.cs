@@ -13,6 +13,7 @@ public partial class ActorEditorView : UserControl
         {
             BattlerField.ProjectRootPath = value;
             FaceField.ProjectRootPath = value;
+            HudFaceField.ProjectRootPath = value;
         }
     }
 
