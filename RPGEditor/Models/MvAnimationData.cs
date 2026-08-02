@@ -34,8 +34,12 @@ public partial class MvAnimationData : ObservableObject
     [ObservableProperty]
     private int position = 1;
 
-    /// <summary>프레임마다 셀 목록 - 셀 하나는 [pattern, x, y, scale, rotation, mirror, opacity, blendType] 8개 값.</summary>
-    public List<List<int[]>> Frames { get; set; } = [];
+    /// <summary>
+    /// 프레임마다 셀 목록 - 셀 하나는 [pattern, x, y, scale, rotation, mirror, opacity,
+    /// blendType] 8개 값. x/y 등에 소수점 좌표(예: 60.5)가 실제로 존재해서 int[]가
+    /// 아니라 double[]이어야 한다(정수로 읽으면 System.Text.Json이 예외를 던짐).
+    /// </summary>
+    public List<List<double[]>> Frames { get; set; } = [];
 
     public List<MvAnimationTiming> Timings { get; set; } = [];
 }
