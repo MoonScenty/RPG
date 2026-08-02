@@ -18,9 +18,10 @@ const HEX_PITCH = 34
 const HEX_COUNT = 7
 
 // 육각형 줄 오른쪽 끝 ~ 화면 우측 끝 여백, 줄 아래쪽 ~ 화면 하단 여백 -
-// ReferenceResource/turn_hud/ref.png 배치를 픽셀로 실측해서 맞춘 값.
-const RIGHT_MARGIN = 30
-const BOTTOM_MARGIN = 65
+// ReferenceResource/turn_hud/ref.png 배치를 픽셀로 실측해서 맞춘 값(초기값), 실제
+// 화면에서 너무 오른쪽/위쪽에 붙어 보인다는 사용자 지시로 왼쪽·아래로 이동.
+const RIGHT_MARGIN = 50
+const BOTTOM_MARGIN = 50
 
 const ROW_TOP = STAGE_HEIGHT - BOTTOM_MARGIN - HEX_HEIGHT
 const ROW_RIGHT = STAGE_WIDTH - RIGHT_MARGIN
