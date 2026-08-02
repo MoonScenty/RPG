@@ -13,10 +13,10 @@
 * 배틀 시스템은 ATB Side View Battle System(Full Auto)
 
 ## 폴더 구조
-* FrontEnd
-* BackEnd
-* RPGEditor
-* RPGProject
+* FrontEnd - Vue 3 + Pixi.js 프론트엔드(자세한 내용은 아래 FrontEnd 섹션 참고)
+* BackEnd - Laravel API 서버(자세한 내용은 아래 BackEnd 섹션 참고)
+* RPGEditor - C# WPF 데이터 편집기(자세한 내용은 아래 RPGEditor 섹션 참고)
+* RPGProject - RPGEditor로 관리하는 게임 원본 데이터/에셋(audio/data/img, 자세한 구조는 아래 RPGEditor 섹션의 "프로젝트 구조" 참고)
 
 ## FrontEnd
 * Vue 3(TypeScript) + Pixi.js 8(구현됨) - ATB 사이드뷰 배틀은 Pixi 캔버스, 마을/로그인/진형 편집 등은 일반 DOM(Vue) 화면으로 구현
@@ -50,29 +50,26 @@
     * bgs
     * me
     * se
+    * se_mz
   * data
     * Actors.json
-    * Animations.json
-    * Items.json
+    * Animations.json(RPG Maker MV 스프라이트시트 포맷 - Effekseer에서 이걸로 전환함)
     * Classes.json
     * Enemies.json
+    * Items.json(무기/방어구/소모품/재료 전부 포함, kind로 구분)
     * Skills.json
     * States.json
-    * System.json
     * Troops.json
-  * effects
-    * Model
-    * Texture
-    * efkefc files..
+    * Types.json
   * img
-    * battleback1
-    * battleback2
-    * magic_circles
+    * animations(Animations.json이 참조하는 MV 스프라이트시트 이미지)
+    * battlebacks1 / battlebacks2
     * dragonbones
-    * faces
+    * faces / hud_faces(파티 HUD 전용, faces와 별개 에셋)
+    * icons
+    * magic_circles
     * pictures
-    * sv_actors
-    * sv_enemies
+    * sv_actors / sv_enemies
     * system
   * RPGProject.rpgprj(해당 파일엔 data들이 링크되어 있음, json타입)
 * 메인 화면
