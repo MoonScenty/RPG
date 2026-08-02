@@ -1,4 +1,4 @@
-import { Container, Graphics, Sprite, Text } from 'pixi.js'
+import { Container, FillGradient, Graphics, Sprite, Text } from 'pixi.js'
 import { isUnitAlive, type BattleUnit } from '@/lib/battleApi'
 import { PARTY_HUD_BACK_URL, PARTY_HUD_HP_URL, PARTY_HUD_MP_URL } from './assets'
 import { STAGE_HEIGHT } from './layout'
@@ -35,7 +35,10 @@ const VALUE_GAP_X = 6
 // 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
 const ATB_PERCENT_CENTER_X = (189 + 235) / 2
 const ATB_PERCENT_CENTER_Y = 67
-const ATB_PERCENT_FONT_SIZE = 11
+const ATB_PERCENT_FONT_SIZE = 13
+// 사용자 지시: 폰트 내부 그라데이션(위쪽 흰색 -> 아래쪽 핑크), 테두리는 검정 50% 불투명.
+const ATB_PERCENT_GRADIENT_TOP = '#ffffff'
+const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
 
 interface Slot {
   card: Container
@@ -80,7 +83,7 @@ export class PartyHud {
       slot.mpMask.scale.x = mpRatio
       slot.hpValue.text = `${unit.current_hp}`
       slot.mpValue.text = `${unit.current_mp}`
-      slot.atbValue.text = `${Math.round(Math.min(100, Math.max(0, unit.atb_gauge)))}%`
+      slot.atbValue.text = `${Math.round(Math.min(100, Math.max(0, unit.atb_gauge)))}`
 
       slot.card.alpha = isUnitAlive(unit) ? 1 : 0.35
     }
@@ -96,13 +99,17 @@ export class PartyHud {
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
     const mp = this.buildBar(card, PARTY_HUD_MP_URL, MP_BAR_RECT)
 
+    const atbGradient = new FillGradient(0, 0, 0, 1)
+    atbGradient.addColorStop(0, ATB_PERCENT_GRADIENT_TOP)
+    atbGradient.addColorStop(1, ATB_PERCENT_GRADIENT_BOTTOM)
+
     const atbValue = new Text({
       text: '',
       style: {
-        fill: VALUE_COLOR,
+        fill: atbGradient,
         fontSize: ATB_PERCENT_FONT_SIZE,
         fontFamily: FONT_FAMILY,
-        stroke: { color: 0x1a1a1a, width: 2 },
+        stroke: { color: 0x000000, width: 2, alpha: 0.5 },
       },
     })
     atbValue.anchor.set(0.5, 0.5)
