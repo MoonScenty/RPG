@@ -297,7 +297,18 @@ class BattleEngine
         }
 
         foreach ($living as $u) {
-            $u->atb_gauge = $gauges[$u->id] - ($u->id === $actor->id ? 100 : 0);
+            if ($u->id === $actor->id) {
+                $u->atb_gauge = $gauges[$u->id] - 100;
+            } elseif ($gauges[$u->id] >= 100) {
+                // 이번 틱에 같이 100을 넘었지만 선택되지 못한 유닛 - 다음 advanceTurn()
+                // 호출에서도 계속 안 뽑히면 틱마다 무한정 쌓여서(200, 300, ...) 실제로
+                // 자기 턴이 와도 -100만 차감되니 계속 100 이상으로 남아 TG% 표시가
+                // 영영 100%에서 안 내려오는 버그가 있었다 - 100에 고정해서 "내 턴 올
+                // 때까지 대기"만 하도록 막는다.
+                $u->atb_gauge = 100;
+            } else {
+                $u->atb_gauge = $gauges[$u->id];
+            }
             $u->save();
         }
 
