@@ -550,10 +550,15 @@ export class BattleScene {
   private async loop(): Promise<void> {
     if (this.stopped) return
 
-    await this.playGaugeFillDelay()
-    if (this.stopped) return
-
+    // playGaugeFillDelay()(게이지 보간 렌더링 - PartyHud/TurnOrderStrip.update() 호출)가
+    // try 밖에 있으면, 그 안에서 예외가 하나라도 던져질 때 loop()의 재귀 호출(void this.loop())까지
+    // 아무 캐치 없이 통째로 끊겨서 이후로 다시는 안 불린다 - 화면엔 에러 메시지도 안 뜨고
+    // 그냥 "게임이 멈추는" 것처럼 보이는 버그였다(사용자 보고). 턴 사이클 전체를 try로
+    // 감싸서 어떤 단계에서 문제가 생겨도 로그만 띄우고 다음 루프를 계속 이어가게 한다.
     try {
+      await this.playGaugeFillDelay()
+      if (this.stopped) return
+
       const state = await advanceTurn(this.battleId)
       this.latestState = state
       await this.playTurn(state)

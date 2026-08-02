@@ -74,7 +74,9 @@ export const HUD_FACE_SHEET_URLS: Record<string, string> = {
 // 즉석에서 URL만 만들고(preloadBattleAssets에 등록 안 함) 필요할 때
 // Texture.from()으로 그때그때 로드한다 - TurnOrderStrip.ts 참고.
 export function enemyFaceUrl(name: string): string {
-  return `/assets/enemy_faces/${name}.png`
+  // "Forest Goblin Axe.png"처럼 파일명에 공백이 들어있는 경우가 많아 인코딩 없이
+  // 그대로 URL에 넣으면 요청이 깨질 수 있다.
+  return `/assets/enemy_faces/${encodeURIComponent(name)}.png`
 }
 
 export async function preloadBattleAssets(): Promise<void> {
