@@ -27,6 +27,13 @@ import { tween } from './tween'
 // 유닛 집합을 diff해서: 계속 큐에 남아있지만 자리가 바뀐 유닛은 새 위치로
 // 이동(move), 큐에서 빠진 유닛(방금 행동했거나 순위 밖으로 밀림)은 페이드아웃 후
 // 제거, 새로 큐에 들어온 유닛은 페이드인으로 등장시킨다.
+//
+// predictNextActors()는 spd가 빠른 유닛이 같은 예측 창 안에서 여러 번(예:
+// [43,44,41,43,44,42,43]) 등장할 수 있다 - 그냥 unit.id를 키로 쓰면 중복
+// 항목이 서로 덮어써서 실제로 몇 칸 빠지고 위치도 뒤엉키는 버그가 있었다
+// (실서버에서 확인 - 적 육각형이 아예 안 보이고 아군 육각형도 자리가 밀림).
+// 배열에 나온 순서대로 "이 id의 n번째 등장"까지 합쳐 키로 써서 각 등장을
+// 독립된 칸으로 추적한다.
 const HEX_WIDTH = 32
 const HEX_HEIGHT = 25
 const HEX_PITCH = 34
@@ -87,7 +94,7 @@ export class TurnOrderStrip {
   readonly container = new Container()
 
   private readonly app: Application
-  private readonly visuals = new Map<number, SlotVisual>()
+  private readonly visuals = new Map<string, SlotVisual>()
   private readonly currentGlow: Sprite
   private readonly currentLabel: Text
 
@@ -129,8 +136,8 @@ export class TurnOrderStrip {
   update(state: BattleState): void {
     const living = state.units.filter(isUnitAlive)
     if (living.length === 0) {
-      for (const id of [...this.visuals.keys()]) {
-        this.removeVisual(id)
+      for (const key of [...this.visuals.keys()]) {
+        this.removeVisual(key)
       }
       this.currentGlow.visible = false
       this.currentLabel.visible = false
@@ -139,21 +146,30 @@ export class TurnOrderStrip {
 
     const totalCount = Math.min(HEX_COUNT, living.length)
     const queue = predictNextActors(living, totalCount)
-    const newIndexById = new Map(queue.map((u, i) => [u.id, i]))
+
+    // 같은 유닛이 큐에 여러 번 나올 수 있어(빠른 유닛이 예측 창 안에서 여러 번
+    // 행동) "이 id의 n번째 등장"까지 합친 키로 각 등장을 독립된 칸으로 다룬다.
+    const occurrenceCounts = new Map<number, number>()
+    const keyedQueue = queue.map((unit) => {
+      const occurrence = occurrenceCounts.get(unit.id) ?? 0
+      occurrenceCounts.set(unit.id, occurrence + 1)
+      return { unit, key: `${unit.id}:${occurrence}` }
+    })
+    const newIndexByKey = new Map(keyedQueue.map((entry, i) => [entry.key, i]))
 
     // 큐에서 빠진 유닛(방금 행동했거나 순위 밖으로 밀림) - 페이드아웃 후 제거.
-    for (const id of [...this.visuals.keys()]) {
-      if (!newIndexById.has(id)) {
-        this.removeVisual(id)
+    for (const key of [...this.visuals.keys()]) {
+      if (!newIndexByKey.has(key)) {
+        this.removeVisual(key)
       }
     }
 
-    queue.forEach((unit, index) => {
+    keyedQueue.forEach(({ unit, key }, index) => {
       const targetX = slotX(index)
-      const existing = this.visuals.get(unit.id)
+      const existing = this.visuals.get(key)
 
       if (!existing) {
-        this.addVisual(unit, targetX)
+        this.addVisual(key, unit, targetX)
         return
       }
 
@@ -171,8 +187,8 @@ export class TurnOrderStrip {
     this.currentLabel.visible = queue.length > 0
   }
 
-  /** 새로 큐에 들어온 유닛 - 제자리에서 페이드인으로 등장(사용자 지시 - 자연스러운 애니메이션). */
-  private addVisual(unit: BattleUnit, x: number): void {
+  /** 새로 큐에 들어온 유닛(등장) - 제자리에서 페이드인으로 등장(사용자 지시 - 자연스러운 애니메이션). */
+  private addVisual(key: string, unit: BattleUnit, x: number): void {
     const hex = Sprite.from(unit.side === 'ally' ? TURN_HEX_ACTOR_URL : TURN_HEX_ENEMY_URL)
     hex.position.set(x, ROW_TOP)
     this.container.addChild(hex)
@@ -193,7 +209,7 @@ export class TurnOrderStrip {
     this.container.addChild(face)
 
     const visual: SlotVisual = { hex, face, faceMask, x }
-    this.visuals.set(unit.id, visual)
+    this.visuals.set(key, visual)
 
     hex.alpha = 0
     face.alpha = face.visible ? 0 : 1
@@ -219,11 +235,11 @@ export class TurnOrderStrip {
     })
   }
 
-  /** 큐에서 빠진 유닛 - 페이드아웃 후 파괴(사용자 지시). */
-  private removeVisual(unitId: number): void {
-    const visual = this.visuals.get(unitId)
+  /** 큐에서 빠진 등장(유닛+n번째) - 페이드아웃 후 파괴(사용자 지시). */
+  private removeVisual(key: string): void {
+    const visual = this.visuals.get(key)
     if (!visual) return
-    this.visuals.delete(unitId)
+    this.visuals.delete(key)
 
     // 페이드인이 채 안 끝난 상태에서 바로 빠질 수도 있으니(위 moveVisual과 같은
     // 이유) 지금 실제 알파에서 이어서 줄인다.
