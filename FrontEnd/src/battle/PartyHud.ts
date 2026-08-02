@@ -98,6 +98,13 @@ const STATUS_LABEL_CENTER_Y = 83
 const STATUS_LABEL_FONT_SIZE = 11
 const STATUS_LABEL_COLOR = 0xb8b0a0
 
+// 좌측 하단에 레벨 표시(사용자 지시) - 카드 내용물이 위쪽에 몰려있는 레이아웃이라
+// STATUS와 같은 y(83)에 맞추고, 얼굴 그래픽(FACE_X=0) 바로 아래 좌측 정렬로 둔다.
+const LEVEL_LABEL_X = 10
+const LEVEL_LABEL_Y = STATUS_LABEL_CENTER_Y
+const LEVEL_LABEL_FONT_SIZE = STATUS_LABEL_FONT_SIZE
+const LEVEL_LABEL_COLOR = STATUS_LABEL_COLOR
+
 interface Slot {
   card: Container
   back: Sprite
@@ -213,6 +220,9 @@ export class PartyHud {
     card.addChild(atbValue)
 
     this.buildStaticLabel(card, 'STATUS', STATUS_LABEL_CENTER_X, STATUS_LABEL_CENTER_Y, STATUS_LABEL_FONT_SIZE, STATUS_LABEL_COLOR)
+    // 레벨업이 없는 게임이라(README 참고) 전투 중 안 바뀌는 고정값 - update()에서
+    // 다시 그릴 필요 없이 여기서 한 번만 만든다.
+    this.buildStaticLabel(card, `Lv. ${unit.level ?? '?'}`, LEVEL_LABEL_X, LEVEL_LABEL_Y, LEVEL_LABEL_FONT_SIZE, LEVEL_LABEL_COLOR, 0)
     this.buildStaticLabel(card, 'HP', HP_LABEL_X, HP_LABEL_Y, LABEL_FONT_SIZE, HP_LABEL_COLOR, 1)
     this.buildStaticLabel(card, 'MP', MP_LABEL_X, MP_LABEL_Y, LABEL_FONT_SIZE, MP_LABEL_COLOR, 1)
     this.buildStaticLabel(card, 'TG', TG_LABEL_CENTER_X, TG_PERCENT_LABEL_Y, LABEL_FONT_SIZE, PINK_LABEL_COLOR)

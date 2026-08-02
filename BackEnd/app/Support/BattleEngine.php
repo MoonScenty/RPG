@@ -1979,13 +1979,18 @@ class BattleEngine
             'turn_number' => $battle->turn_number,
             'battleback1' => $troop?->battleback1,
             'battleback2' => $troop?->battleback2,
-            'units' => $battle->units()->with(['unit', 'mzClass'])->get()->map(fn (BattleUnit $u) => [
+            'units' => $battle->units()->with(['unit.mzActor', 'mzClass'])->get()->map(fn (BattleUnit $u) => [
                 'id' => $u->id,
                 'unit_id' => $u->unit_id,
                 'name' => $u->unit->name,
                 'sprite' => $u->unit->sprite,
                 'hud_sprite' => $u->unit->hud_sprite,
                 'enemy_face' => $u->unit->enemy_face,
+                // 이 게임엔 실제 레벨업이 없다(README ATB 스탯 섹션 참고) - Actors.json
+                // initialLevel이 사실상 고정 레벨이라, 전투 중 바뀌지 않는 표시용 값으로
+                // 그대로 내려준다. 적은 mzActor 관계가 없어 항상 null(PartyHud가 아군만
+                // 그리므로 프론트에서 쓸 일 없음).
+                'level' => $u->unit->mzActor?->initial_level,
                 'side' => $u->side,
                 'slot' => $u->slot,
                 // pickReadyActor()가 실제로 쓰는 값은 effectiveSpd(spd*paramRate) - 버프/디버프로

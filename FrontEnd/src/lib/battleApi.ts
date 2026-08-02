@@ -15,6 +15,8 @@ export interface BattleUnit {
   hud_sprite: string | null
   /** units.enemy_face(img/faces 파일명, 시트 아님 - 적 한 마리당 독립 이미지 한 장) - 아군이거나 아직 얼굴을 안 채운 적이면 null. */
   enemy_face: string | null
+  /** Actors.json initialLevel - 이 게임엔 레벨업이 없어 전투 중 안 바뀌는 고정 표시값. 적은 항상 null. */
+  level: number | null
   side: Side
   slot: number
   spd: number
