@@ -41,8 +41,10 @@ class MzNoteTagParser
 
     /**
      * 적 전용 태그. AttackAnimation은 mz_animations.id(Animations_mv.json 원본 ID)를
-     * 직접 가리키는 숫자다 - MV 포맷 전환 이후 mz_animations.name이 인코딩 깨짐으로
-     * 못 쓰게 돼서(원본 파일 자체가 깨진 채로 옴) 이름 참조 대신 ID 참조로 바꿨다.
+     * 직접 가리키는 숫자다 - mz_animations.name은 정상(RPG Maker 에디터에 보이는
+     * 한글 이름 그대로 저장돼 있음)이지만, 그 에디터의 데이터베이스 창이 애초에
+     * "0003 타격/불"처럼 번호와 이름을 나란히 보여주므로 사용자가 숫자를 그대로
+     * 노트태그에 옮겨 적는 게 이름 매칭보다 더 직관적이라 ID 참조로 정했다.
      *
      * DragonBonesData/DragonBonesTextureAtlasData는 DB 데이터가 아니라
      * mz_project/img/dragonbones/{값}.json 파일명 자체를 가리키므로 이름-참조
