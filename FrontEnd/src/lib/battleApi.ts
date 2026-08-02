@@ -13,6 +13,8 @@ export interface BattleUnit {
   sprite: string
   /** units.hud_sprite("Actor1:0" 형식) - 파티 HUD 좌측 얼굴 그래픽 전용(sprite와 다른 에셋일 수 있음), 없으면 null(적 등). */
   hud_sprite: string | null
+  /** units.enemy_face(img/faces 파일명, 시트 아님 - 적 한 마리당 독립 이미지 한 장) - 아군이거나 아직 얼굴을 안 채운 적이면 null. */
+  enemy_face: string | null
   side: Side
   slot: number
   spd: number

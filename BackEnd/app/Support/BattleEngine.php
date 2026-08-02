@@ -1888,6 +1888,7 @@ class BattleEngine
                 'name' => $u->unit->name,
                 'sprite' => $u->unit->sprite,
                 'hud_sprite' => $u->unit->hud_sprite,
+                'enemy_face' => $u->unit->enemy_face,
                 'side' => $u->side,
                 'slot' => $u->slot,
                 'spd' => $u->spd,

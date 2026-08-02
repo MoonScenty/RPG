@@ -121,6 +121,7 @@ class EnemySeeder extends Seeder
                 [
                     'mz_enemy_id' => $enemy['id'],
                     'sprite' => 'Enemy:' . $enemy['image'],
+                    'enemy_face' => ($enemy['faceName'] ?? '') !== '' ? $enemy['faceName'] : null,
                     'attack_motion' => 'thrust',
                     'weapon_animation_id' => $weaponAnimationId,
                     // FrontEnd/public/assets/dragonbones/*의 실제 파일명은 "{image}_ske.json"

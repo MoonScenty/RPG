@@ -67,6 +67,16 @@ export const HUD_FACE_SHEET_URLS: Record<string, string> = {
   Actor2: '/assets/hud_faces/Actor2.png',
 }
 
+// 적 얼굴(units.enemy_face) - 액터 얼굴시트와 달리 적은 한 마리당 독립된 이미지
+// 파일 한 장이라(8칸 시트 아님) 미리 합칠 필요 없이 RPGProject/img/faces의
+// 파일을 FrontEnd/public/assets/enemy_faces/에 그대로 복사해뒀다. 어떤 적이
+// 새로 추가될지 미리 알 수 없어 battleback1Url/battleback2Url처럼 이름으로
+// 즉석에서 URL만 만들고(preloadBattleAssets에 등록 안 함) 필요할 때
+// Texture.from()으로 그때그때 로드한다 - TurnOrderStrip.ts 참고.
+export function enemyFaceUrl(name: string): string {
+  return `/assets/enemy_faces/${name}.png`
+}
+
 export async function preloadBattleAssets(): Promise<void> {
   await Assets.load([
     BORDER_URL,
