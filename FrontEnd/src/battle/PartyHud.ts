@@ -50,7 +50,8 @@ const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
 // "STATUS" 고정 텍스트) - PIL로 원래 STATUS 텍스트 위치를 실측해 중심을 잡음.
 const STATUS_LABEL_CENTER_X = 313
 const STATUS_LABEL_CENTER_Y = 83
-const STATUS_LABEL_FONT_SIZE = 10
+// 10 -> 11(사용자 지시로 1px 확대).
+const STATUS_LABEL_FONT_SIZE = 11
 const STATUS_LABEL_COLOR = 0xb8b0a0
 
 interface Slot {
@@ -135,6 +136,7 @@ export class PartyHud {
         fill: STATUS_LABEL_COLOR,
         fontSize: STATUS_LABEL_FONT_SIZE,
         fontFamily: FONT_FAMILY,
+        align: 'center',
         stroke: { color: 0x000000, width: 2, alpha: 0.6 },
       },
     })
