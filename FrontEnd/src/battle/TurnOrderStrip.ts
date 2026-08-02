@@ -140,7 +140,7 @@ export class TurnOrderStrip {
     // 현재 턴 칸 바로 밑에 뜨는 라벨(사용자 지시). slotX(0)은 큐 순서와 무관하게
     // 항상 고정된 자리라 라벨 위치는 이동 애니메이션이 필요 없다.
     this.currentLabel = new Text({
-      text: 'CURRENT TURN',
+      text: 'NEXT ACTION',
       style: {
         fill: 0xffffff,
         fontSize: CURRENT_LABEL_FONT_SIZE,
