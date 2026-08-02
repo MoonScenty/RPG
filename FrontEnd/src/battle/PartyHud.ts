@@ -4,13 +4,13 @@ import { PARTY_HUD_BACK_URL, PARTY_HUD_HP_URL, PARTY_HUD_MP_URL } from './assets
 import { STAGE_HEIGHT } from './layout'
 import { FONT_FAMILY } from './theme'
 
-// ReferenceResource/party_hud(2026-08 재디자인) 기반 - back(360x120)에 HP/MP
-// 라벨+게이지 트랙과 장식 텍스트(TG/%PERCENT, 기능 없음 - 사용자 확인)가 이미
-// 그려져 있고, hp/mp는 같은 캔버스 크기에 그 트랙 자리와 정확히 겹치는 색칠된
-// 게이지만 그려진 오버레이다. 이름/TBP 점/직업 아이콘은 이번 재디자인에서 뺐다
-// (사용자 지시) - HP/MP 바 + 현재 수치만 표시. 우하단 뱃지의 "STATUS" 글자는
-// base.png에서 지워졌지만(사용자가 직접 에셋 수정) 문구 자체는 그대로 유지하고
-// 싶다고 해서 같은 위치에 코드에서 Text로 다시 그린다(사용자 지시).
+// ReferenceResource/party_hud(2026-08 재디자인) 기반 - back(360x120)에는 원래
+// HP/MP/TG/%PERCENT/STATUS 글자가 전부 박혀 있었지만, 사용자가 base.png를 두
+// 차례에 걸쳐 직접 수정해 게이지 트랙 두 줄만 남기고 글자를 전부 지웠다. 그
+// 문구들은 그대로 유지하고 싶다고 해서(사용자 지시) 전부 코드에서 Text로 다시
+// 그린다 - 위치/색상은 PIL로 예전 base.png의 글자 픽셀을 실측해서 맞춘 값.
+// hp/mp 오버레이는 같은 캔버스 크기에 그 트랙 자리와 정확히 겹치는 색칠된
+// 게이지만 그려져 있다. 이름/TBP 점/직업 아이콘은 이번 재디자인에서 뺐다(사용자 지시).
 
 // 좌하단 2x2 그리드 배치 - ReferenceResource/party_hud/ref1.png 목업 배치를
 // 픽셀로 실측해서 맞춘 값(카드 캔버스 자체는 위쪽에 내용이 몰려있고 아래쪽은
@@ -33,8 +33,24 @@ const VALUE_COLOR = 0xffffff
 // "382/382" 전부 넣을 자리가 없다) - 바 우측 끝에서 이 만큼 띄운다.
 const VALUE_GAP_X = 6
 
-// base.png에 박힌 "TG"(x178~189)와 "%PERCENT"(x235~291) 라벨 사이 빈 칸(PIL로
-// 핑크색 텍스트 픽셀만 골라 실측) 정중앙에 진짜 ATB 게이지(0~100+, atb_gauge)를
+// "HP"/"MP" 라벨: 각 바 시작 x좌표 바로 왼쪽에 우측 정렬로 붙는다(실측한 여백 3px).
+const LABEL_FONT_SIZE = 10
+const LABEL_GAP_X = 3
+const HP_LABEL_COLOR = 0x08eabc
+const MP_LABEL_COLOR = 0x03cff6
+const HP_LABEL_X = HP_BAR_RECT.x - LABEL_GAP_X
+const HP_LABEL_Y = HP_BAR_RECT.y + HP_BAR_RECT.height / 2
+const MP_LABEL_X = MP_BAR_RECT.x - LABEL_GAP_X
+const MP_LABEL_Y = MP_BAR_RECT.y + MP_BAR_RECT.height / 2
+
+// 예전 base.png에 박혀 있던 "TG"(x178~189)와 "%PERCENT"(x235~291) 라벨 위치를
+// PIL로 실측한 값 - 지금은 base.png에서 지워져서 코드에서 Text로 다시 그린다.
+const TG_LABEL_CENTER_X = (177 + 189) / 2
+const PERCENT_LABEL_CENTER_X = (235 + 291) / 2
+const TG_PERCENT_LABEL_Y = 67
+const PINK_LABEL_COLOR = 0xed74b0
+
+// TG와 %PERCENT 사이 빈 칸 정중앙에 진짜 ATB 게이지(0~100+, atb_gauge)를
 // 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
 const ATB_PERCENT_CENTER_X = (189 + 235) / 2
 // 기준 67에서 사용자 지시로 2px 위로.
@@ -131,19 +147,11 @@ export class PartyHud {
     atbValue.position.set(ATB_PERCENT_CENTER_X, ATB_PERCENT_CENTER_Y)
     card.addChild(atbValue)
 
-    const statusLabel = new Text({
-      text: 'STATUS',
-      style: {
-        fill: STATUS_LABEL_COLOR,
-        fontSize: STATUS_LABEL_FONT_SIZE,
-        fontFamily: FONT_FAMILY,
-        align: 'center',
-        stroke: { color: 0x000000, width: 2, alpha: 0.6 },
-      },
-    })
-    statusLabel.anchor.set(0.5, 0.5)
-    statusLabel.position.set(STATUS_LABEL_CENTER_X, STATUS_LABEL_CENTER_Y)
-    card.addChild(statusLabel)
+    this.buildStaticLabel(card, 'STATUS', STATUS_LABEL_CENTER_X, STATUS_LABEL_CENTER_Y, STATUS_LABEL_FONT_SIZE, STATUS_LABEL_COLOR)
+    this.buildStaticLabel(card, 'HP', HP_LABEL_X, HP_LABEL_Y, LABEL_FONT_SIZE, HP_LABEL_COLOR, 1)
+    this.buildStaticLabel(card, 'MP', MP_LABEL_X, MP_LABEL_Y, LABEL_FONT_SIZE, MP_LABEL_COLOR, 1)
+    this.buildStaticLabel(card, 'TG', TG_LABEL_CENTER_X, TG_PERCENT_LABEL_Y, LABEL_FONT_SIZE, PINK_LABEL_COLOR)
+    this.buildStaticLabel(card, '%PERCENT', PERCENT_LABEL_CENTER_X, TG_PERCENT_LABEL_Y, LABEL_FONT_SIZE, PINK_LABEL_COLOR)
 
     return {
       card,
@@ -153,6 +161,32 @@ export class PartyHud {
       mpValue: mp.valueText,
       atbValue,
     }
+  }
+
+  /** base.png에서 지워진 고정 문구(STATUS/HP/MP/TG/%PERCENT)를 같은 자리에 Text로 그린다. anchorX=1이면 x를 우측 정렬 기준으로 쓴다. */
+  private buildStaticLabel(
+    card: Container,
+    text: string,
+    x: number,
+    y: number,
+    fontSize: number,
+    color: number,
+    anchorX = 0.5,
+  ): Text {
+    const label = new Text({
+      text,
+      style: {
+        fill: color,
+        fontSize,
+        fontFamily: FONT_FAMILY,
+        align: 'center',
+        stroke: { color: 0x000000, width: 2, alpha: 0.6 },
+      },
+    })
+    label.anchor.set(anchorX, 0.5)
+    label.position.set(x, y)
+    card.addChild(label)
+    return label
   }
 
   private buildBar(
