@@ -1,4 +1,4 @@
-import { Container, Sprite, Text, Texture } from 'pixi.js'
+import { Container, Graphics, Sprite, Text, Texture } from 'pixi.js'
 import { isUnitAlive, type BattleState, type BattleUnit } from '@/lib/battleApi'
 import { enemyFaceUrl, TURN_HEX_ACTOR_URL, TURN_HEX_CURRENT_GLOW_URL, TURN_HEX_ENEMY_URL } from './assets'
 import { predictNextActors } from './atbPrediction'
@@ -50,6 +50,13 @@ const FACE_MASK_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
 const FACE_SIZE = FACE_MASK_HEIGHT
 const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
 
+// turn-hex-actor.png(32x25) 알파 채널을 픽셀 단위로 실측해서 뽑은 육각형 윤곽선
+// 좌표(플랫탑 육각형) - Sprite를 마스크로 쓰니(renderable=false로 숨겨도) 얼굴
+// 위에 육각형이 덧그려져 얼굴을 가리는 문제가 있어서, PartyHud.ts의 게이지
+// 마스킹과 동일하게 검증된 Graphics 마스크로 교체(사용자 지시 - 얼굴이 프레임
+// 보다 뒤에 나오던 문제의 진짜 원인).
+const HEX_POLYGON_POINTS = [6, 0, 25, 0, 31, 12, 25, 24, 6, 24, 0, 12]
+
 // 현재 턴 칸 밑에 붙는 라벨(사용자 지시).
 const CURRENT_LABEL_FONT_SIZE = 10
 const CURRENT_LABEL_GAP = 4 // 육각형 바닥 ~ 라벨 상단 간격
@@ -57,7 +64,7 @@ const CURRENT_LABEL_GAP = 4 // 육각형 바닥 ~ 라벨 상단 간격
 interface HexSlot {
   hex: Sprite
   face: Sprite
-  faceMask: Sprite
+  faceMask: Graphics
 }
 
 /** 우하단 턴 순서 큐: 육각형 7개(현재 턴 + 다음 6턴), 진영색 육각형 안에 얼굴을 마스킹해서 얹는다. */
@@ -86,15 +93,12 @@ export class TurnOrderStrip {
       hex.visible = false
       this.container.addChild(hex)
 
-      // 육각형 원본 실루엣을 그대로 얼굴 마스크로 재사용 - 안쪽으로 들인 자리에
-      // 축소해서 겹치면 바깥 테두리만 진영색 육각형이 남는다. renderable=false로
-      // 꺼야 마스크 전용으로만 쓰이고 얼굴 위에 별도 육각형으로 겹쳐 그려지지
-      // 않는다(사용자 지시 - 얼굴이 프레임보다 뒤에 나오던 원인).
-      const faceMask = Sprite.from(TURN_HEX_ACTOR_URL)
-      faceMask.position.set(x + FACE_INSET, ROW_TOP + FACE_INSET)
-      faceMask.width = FACE_MASK_WIDTH
-      faceMask.height = FACE_MASK_HEIGHT
-      faceMask.renderable = false
+      // 육각형 윤곽선 Graphics 마스크(PartyHud.ts 게이지 마스킹과 동일한 패턴) -
+      // 네이티브 32x25 좌표로 그린 뒤 얼굴 크기(FACE_SIZE 정사각형)에 맞게
+      // scale로 축소한다.
+      const faceMask = new Graphics().poly(HEX_POLYGON_POINTS).fill(0xffffff)
+      faceMask.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
+      faceMask.scale.set(FACE_SIZE / HEX_WIDTH, FACE_SIZE / HEX_HEIGHT)
       this.container.addChild(faceMask)
 
       const face = new Sprite()
