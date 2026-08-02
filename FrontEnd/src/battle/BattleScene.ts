@@ -648,7 +648,7 @@ export class BattleScene {
     // 의미가 없으므로 제자리에서 공격 모션만 취하고, 맞는 진영 전원이 동시에
     // 피격 반응한다(백엔드 resolveAoeSkillUse가 채운 turn.targets).
     if (turn.targets && turn.targets.length > 0) {
-      await this.animateAoeAction(actor, turn.targets, turn.skill_motion ?? undefined)
+      await this.animateAoeAction(actor, turn.targets, turn.skill_motion ?? undefined, turn.skill_animation_id ?? undefined)
       return
     }
 
@@ -673,11 +673,14 @@ export class BattleScene {
     const attackAnim = actor.animator.playAttack(motion)
 
     // 타격 모션이 다 끝난 뒤가 아니라 "취하는 바로 그 순간" 이펙트가 같이 나가야
-    // 자연스럽다 - playAttack을 기다리기 전에 바로 쏜다(일반 공격 + weapon_animation_id가
-    // 연결돼 있을 때만 - 스킬 전용 애니메이션은 범위 밖). side 구분 없음: 아군은 장착
-    // 무기(ActorSeeder), 적은 <AttackAnimation> 노트태그(EnemySeeder)로 채워진다.
+    // 자연스럽다 - playAttack을 기다리기 전에 바로 쏜다. 일반 공격은 weapon_animation_id
+    // (side 구분 없음: 아군은 장착 무기(ActorSeeder), 적은 <AttackAnimation> 노트태그
+    // (EnemySeeder)), 스킬은 skill_animation_id(RPGEditor 스킬 편집 화면의 "애니메이션"
+    // 필드, SkillSeeder)를 그대로 쓴다 - 둘 다 없으면 이펙트 없이 모션만 재생.
     if (turn.action_type === 'attack' && actor.unit.weapon_animation_id !== null && target) {
       void this.playWeaponEffect(actor.unit.weapon_animation_id, target)
+    } else if (turn.action_type === 'skill' && turn.skill_animation_id !== null && target) {
+      void this.playWeaponEffect(turn.skill_animation_id, target)
     }
 
     await attackAnim
@@ -718,8 +721,24 @@ export class BattleScene {
    * 않으므로 forward/backstep 이동이 없다. motion은 <SkillMotion> 태그 값 -
    * 없으면 playAttack()이 기본값(swing)으로 폴백한다.
    */
-  private async animateAoeAction(actor: UnitView, targets: BattleLogTarget[], motion?: string): Promise<void> {
+  private async animateAoeAction(
+    actor: UnitView,
+    targets: BattleLogTarget[],
+    motion?: string,
+    animationId?: number,
+  ): Promise<void> {
     const attackAnim = actor.animator.playAttack(motion)
+
+    // 단일 대상 스킬과 동일하게 "모션을 취하는 바로 그 순간" 이펙트가 나가야 하고,
+    // 광역기라 맞은 대상 전원(빗나간 대상 제외) 위치에 각각 재생한다.
+    if (animationId !== undefined) {
+      for (const t of targets) {
+        if (t.hit_outcome === 'missed') continue
+        const view = this.unitViews.get(t.battle_unit_id)
+        if (view) void this.playWeaponEffect(animationId, view)
+      }
+    }
+
     await attackAnim
 
     await Promise.all(

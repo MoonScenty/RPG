@@ -11,7 +11,7 @@ class BattleLog extends Model
     protected $fillable = [
         'battle_id', 'turn_number', 'actor_battle_unit_id', 'target_battle_unit_id',
         'action_type', 'damage', 'is_critical', 'hit_outcome', 'target_hp_after', 'targets', 'circle_image_name', 'circle_image_scale',
-        'skill_motion', 'item_name',
+        'skill_motion', 'skill_animation_id', 'item_name',
     ];
 
     protected $casts = [

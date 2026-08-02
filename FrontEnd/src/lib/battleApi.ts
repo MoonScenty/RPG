@@ -69,6 +69,8 @@ export interface BattleLogEntry {
   targets: BattleLogTarget[] | null
   /** <SkillMotion: 모션이름> 스킬 노트태그 - action_type이 'skill'일 때 재생할 SV 모션 이름(swing/thrust/missile/spell/skill/chant 등, sv 배틀러의 18개 MZ 표준 모션 중 하나). 태그가 없으면 null이고, 이때 프론트는 기존처럼 swing으로 폴백한다. action_type이 'item'일 때는 항상 'item' 모션 고정. */
   skill_motion: string | null
+  /** <스킬의 Invocation.AnimationId(RPGEditor "애니메이션" 필드) - action_type이 'skill'일 때 재생할 mz_animations.id(playWeaponEffect용, 캐릭터 모션과 별개의 이펙트 스프라이트). 0(없음)이거나 미설정이면 null이라 이펙트 없이 모션만 재생. */
+  skill_animation_id: number | null
   /** <CircleImage: 배율, 이름> 스킬 노트태그(캐스팅 스킬 전용) - action_type이 'casting'일 때만 값이 있음. 이름은 /assets/circle/{이름}.png 파일명. */
   circle_image_name: string | null
   /** 위 태그의 배율 - 1이 원본 크기(Pixi scale.set()에 그대로 씀, 퍼센트 아님). */

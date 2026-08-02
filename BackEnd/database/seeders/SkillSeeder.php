@@ -70,6 +70,11 @@ class SkillSeeder extends Seeder
             // 이 두 필드가 유일한 기준이다.
             $tags['require_position'] = $skill['usablePosition'] === 'any' ? null : $skill['usablePosition'];
             $tags['skill_motion'] = $skill['motion'] ?: null;
+            // MZ 관례상 animationId 0은 "없음" - 무기의 animation_id > 0 체크(EnemySeeder/
+            // ActorSeeder 참고)와 동일한 규칙.
+            $tags['skill_animation_id'] = ($skill['invocation']['animationId'] ?? 0) > 0
+                ? $skill['invocation']['animationId']
+                : null;
             [$targetAdd, $targetRemove, $referenced] = $this->resolveEffects($skill['effects'] ?? [], $stateNames);
             $tags['target_add_states'] = $targetAdd;
             $tags['target_remove_states'] = $targetRemove;
