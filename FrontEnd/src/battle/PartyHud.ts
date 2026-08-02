@@ -76,6 +76,13 @@ const PERCENT_LABEL_CENTER_X = (235 + 291) / 2
 const TG_PERCENT_LABEL_Y = 67
 const PINK_LABEL_COLOR = 0xed74b0
 
+// TG 라벨 왼쪽에 캐릭터 이름 표시(사용자 지시) - TG 실측 좌측 끝(178)에서
+// 3px(다른 라벨들과 동일한 LABEL_GAP_X) 띄워서 우측 정렬로 붙인다.
+const NAME_LABEL_X = 178 - LABEL_GAP_X
+const NAME_LABEL_Y = TG_PERCENT_LABEL_Y
+const NAME_LABEL_FONT_SIZE = LABEL_FONT_SIZE
+const NAME_LABEL_COLOR = 0xffffff
+
 // TG와 %PERCENT 사이 빈 칸 정중앙에 진짜 ATB 게이지(0~100+, atb_gauge)를
 // 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
 // 사용자 지시로 오른쪽 10px씩 두 차례 이동(총 20px).
@@ -226,6 +233,7 @@ export class PartyHud {
     this.buildStaticLabel(card, `Lv. ${unit.level ?? '?'}`, LEVEL_LABEL_X, LEVEL_LABEL_Y, LEVEL_LABEL_FONT_SIZE, LEVEL_LABEL_COLOR, 0)
     this.buildStaticLabel(card, 'HP', HP_LABEL_X, HP_LABEL_Y, LABEL_FONT_SIZE, HP_LABEL_COLOR, 1)
     this.buildStaticLabel(card, 'MP', MP_LABEL_X, MP_LABEL_Y, LABEL_FONT_SIZE, MP_LABEL_COLOR, 1)
+    this.buildStaticLabel(card, unit.name, NAME_LABEL_X, NAME_LABEL_Y, NAME_LABEL_FONT_SIZE, NAME_LABEL_COLOR, 1)
     this.buildStaticLabel(card, 'TG', TG_LABEL_CENTER_X, TG_PERCENT_LABEL_Y, LABEL_FONT_SIZE, PINK_LABEL_COLOR)
     this.buildStaticLabel(card, '%PERCENT', PERCENT_LABEL_CENTER_X, TG_PERCENT_LABEL_Y, LABEL_FONT_SIZE, PINK_LABEL_COLOR)
 
