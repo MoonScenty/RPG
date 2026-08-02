@@ -34,7 +34,8 @@ const VALUE_COLOR = 0xffffff
 const VALUE_GAP_X = 6
 
 // "HP"/"MP" 라벨: 각 바 시작 x좌표 바로 왼쪽에 우측 정렬로 붙는다(실측한 여백 3px).
-const LABEL_FONT_SIZE = 10
+// 10 -> 11(사용자 지시로 1px 확대).
+const LABEL_FONT_SIZE = 11
 const LABEL_GAP_X = 3
 const HP_LABEL_COLOR = 0x08eabc
 const MP_LABEL_COLOR = 0x03cff6
