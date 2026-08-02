@@ -9,8 +9,8 @@ import { STAGE_HEIGHT, STAGE_WIDTH } from './layout'
 // BattleEngine::pickReadyActor()와 동일한 ATB 예측으로 다음 몇 턴이 아군/적 중
 // 누구 차례인지만 단순 표시)로 교체했다(사용자 지시). 공유 바닥 이미지(base.png)는
 // 빼고 - 각 칸은 그 자체로 완성된 육각형 그림(actor/enemy)이라 데이터 없는 칸은
-// 그냥 숨긴다. 맨 앞(현재 턴) 칸에만 은은한 강조 장식(turn.png)을 원본 비율
-// 그대로 겹쳐서 다른 칸과 구분되게 한다(사용자 지시).
+// 그냥 숨긴다. 맨 오른쪽(현재 턴) 칸에만 은은한 강조 장식(turn.png)을 육각형보다
+// 뒤에 원본 비율 그대로 겹쳐서 다른 칸과 구분되게 한다(사용자 지시).
 const HEX_WIDTH = 32
 const HEX_HEIGHT = 25
 const HEX_PITCH = 34
@@ -25,6 +25,11 @@ const ROW_TOP = STAGE_HEIGHT - BOTTOM_MARGIN - HEX_HEIGHT
 const ROW_RIGHT = STAGE_WIDTH - RIGHT_MARGIN
 const ROW_LEFT = ROW_RIGHT - HEX_WIDTH - (HEX_COUNT - 1) * HEX_PITCH
 
+/** queue[0](현재 턴)이 맨 오른쪽에 오도록 순서를 뒤집는다(사용자 지시). */
+function slotX(queueIndex: number): number {
+  return ROW_LEFT + (HEX_COUNT - 1 - queueIndex) * HEX_PITCH
+}
+
 /** 우하단 턴 순서 큐: 육각형 7개(현재 턴 + 다음 6턴), 캐릭터 표시 없이 진영색만. */
 export class TurnOrderStrip {
   readonly container = new Container()
@@ -33,21 +38,22 @@ export class TurnOrderStrip {
   private readonly currentGlow: Sprite
 
   constructor() {
+    // 현재 턴 칸(맨 오른쪽, slotX(0)) 중심에 원본 비율(116x31) 그대로 겹친다 -
+    // 가운데가 비어있고 양쪽 끝에만 흐려지는 셰브런 무늬가 있는 모양이라 육각형
+    // 자체를 안 가린다. 육각형보다 먼저 addChild해서 셰브런이 뒤로 가게 한다(사용자 지시).
+    this.currentGlow = Sprite.from(TURN_HEX_CURRENT_GLOW_URL)
+    this.currentGlow.anchor.set(0.5)
+    this.currentGlow.position.set(slotX(0) + HEX_WIDTH / 2, ROW_TOP + HEX_HEIGHT / 2)
+    this.currentGlow.visible = false
+    this.container.addChild(this.currentGlow)
+
     this.slots = Array.from({ length: HEX_COUNT }, (_, i) => {
       const sprite = Sprite.from(TURN_HEX_ACTOR_URL)
-      sprite.position.set(ROW_LEFT + i * HEX_PITCH, ROW_TOP)
+      sprite.position.set(slotX(i), ROW_TOP)
       sprite.visible = false
       this.container.addChild(sprite)
       return sprite
     })
-
-    // 현재 턴 칸(슬롯 0) 중심에 원본 비율(116x31) 그대로 겹친다 - 가운데가 비어있고
-    // 양쪽 끝에만 흐려지는 셰브런 무늬가 있는 모양이라 육각형 자체를 가리지 않는다.
-    this.currentGlow = Sprite.from(TURN_HEX_CURRENT_GLOW_URL)
-    this.currentGlow.anchor.set(0.5)
-    this.currentGlow.position.set(ROW_LEFT + HEX_WIDTH / 2, ROW_TOP + HEX_HEIGHT / 2)
-    this.currentGlow.visible = false
-    this.container.addChild(this.currentGlow)
   }
 
   update(state: BattleState): void {
