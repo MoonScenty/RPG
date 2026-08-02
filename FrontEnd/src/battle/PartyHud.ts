@@ -36,8 +36,8 @@ const VALUE_GAP_X = 6
 const ATB_PERCENT_CENTER_X = (189 + 235) / 2
 const ATB_PERCENT_CENTER_Y = 67
 // 중앙(anchor 0.5,0.5) 고정한 채로 키워서 위로 자라게 해 MP 바 밑단(y=59)에
-// 살짝 걸치게 한다(사용자 요청, 1px 정도) - 13 -> 16.
-const ATB_PERCENT_FONT_SIZE = 16
+// 살짝 걸치게 한다(사용자 요청) - 13 -> 16 -> 19(사용자 확인 후 추가 확대).
+const ATB_PERCENT_FONT_SIZE = 19
 // 사용자 지시: 폰트 내부 그라데이션(위쪽 흰색 -> 아래쪽 핑크), 테두리는 검정 50% 불투명.
 const ATB_PERCENT_GRADIENT_TOP = '#ffffff'
 const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
