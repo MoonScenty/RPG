@@ -19,10 +19,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('id')->primary();
             $table->string('name', 50);
             $table->unsignedTinyInteger('class_id');
-            $table->string('character_name', 50);
-            $table->unsignedTinyInteger('character_index');
             $table->string('face_name', 50);
-            $table->unsignedTinyInteger('face_index');
             $table->string('battler_name', 50)->nullable();
             $table->unsignedTinyInteger('initial_level')->default(1);
             $table->unsignedTinyInteger('max_level')->default(99);
