@@ -30,12 +30,20 @@ const VALUE_COLOR = 0xffffff
 // "382/382" 전부 넣을 자리가 없다) - 바 우측 끝에서 이 만큼 띄운다.
 const VALUE_GAP_X = 6
 
+// base.png에 박힌 "TG"(x178~189)와 "%PERCENT"(x235~291) 라벨 사이 빈 칸(PIL로
+// 핑크색 텍스트 픽셀만 골라 실측) 정중앙에 진짜 ATB 게이지(0~100+, atb_gauge)를
+// 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
+const ATB_PERCENT_CENTER_X = (189 + 235) / 2
+const ATB_PERCENT_CENTER_Y = 67
+const ATB_PERCENT_FONT_SIZE = 11
+
 interface Slot {
   card: Container
   hpMask: Graphics
   hpValue: Text
   mpMask: Graphics
   mpValue: Text
+  atbValue: Text
 }
 
 interface BarResult {
@@ -72,6 +80,7 @@ export class PartyHud {
       slot.mpMask.scale.x = mpRatio
       slot.hpValue.text = `${unit.current_hp}`
       slot.mpValue.text = `${unit.current_mp}`
+      slot.atbValue.text = `${Math.round(Math.min(100, Math.max(0, unit.atb_gauge)))}%`
 
       slot.card.alpha = isUnitAlive(unit) ? 1 : 0.35
     }
@@ -87,12 +96,26 @@ export class PartyHud {
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
     const mp = this.buildBar(card, PARTY_HUD_MP_URL, MP_BAR_RECT)
 
+    const atbValue = new Text({
+      text: '',
+      style: {
+        fill: VALUE_COLOR,
+        fontSize: ATB_PERCENT_FONT_SIZE,
+        fontFamily: FONT_FAMILY,
+        stroke: { color: 0x1a1a1a, width: 2 },
+      },
+    })
+    atbValue.anchor.set(0.5, 0.5)
+    atbValue.position.set(ATB_PERCENT_CENTER_X, ATB_PERCENT_CENTER_Y)
+    card.addChild(atbValue)
+
     return {
       card,
       hpMask: hp.mask,
       hpValue: hp.valueText,
       mpMask: mp.mask,
       mpValue: mp.valueText,
+      atbValue,
     }
   }
 
