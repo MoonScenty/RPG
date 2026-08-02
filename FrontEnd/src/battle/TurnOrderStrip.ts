@@ -42,8 +42,13 @@ function slotX(queueIndex: number): number {
 // 얼굴을 육각형보다 이만큼씩 안쪽으로 들여서, 육각형 원본 테두리가 진영색 테두리로
 // 남게 한다(사용자 지시 - 별도 링 에셋 없이 기존 육각형 그림만으로 프레임 효과).
 const FACE_INSET = 3
-const FACE_WIDTH = HEX_WIDTH - FACE_INSET * 2
-const FACE_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
+const FACE_MASK_WIDTH = HEX_WIDTH - FACE_INSET * 2
+const FACE_MASK_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
+// 얼굴 원본(144x144/96x96)이 정사각형이라 가로:세로를 억지로 안 늘리고 1:1
+// 유지(사용자 지시) - 육각형이 세로보다 가로가 넓어서 세로 길이(FACE_MASK_HEIGHT)
+// 기준으로 정사각형을 만들고 안쪽 자리에서 가로 중앙 정렬한다.
+const FACE_SIZE = FACE_MASK_HEIGHT
+const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
 
 // 현재 턴 칸 밑에 붙는 라벨(사용자 지시).
 const CURRENT_LABEL_FONT_SIZE = 10
@@ -82,17 +87,20 @@ export class TurnOrderStrip {
       this.container.addChild(hex)
 
       // 육각형 원본 실루엣을 그대로 얼굴 마스크로 재사용 - 안쪽으로 들인 자리에
-      // 축소해서 겹치면 바깥 테두리만 진영색 육각형이 남는다.
+      // 축소해서 겹치면 바깥 테두리만 진영색 육각형이 남는다. renderable=false로
+      // 꺼야 마스크 전용으로만 쓰이고 얼굴 위에 별도 육각형으로 겹쳐 그려지지
+      // 않는다(사용자 지시 - 얼굴이 프레임보다 뒤에 나오던 원인).
       const faceMask = Sprite.from(TURN_HEX_ACTOR_URL)
       faceMask.position.set(x + FACE_INSET, ROW_TOP + FACE_INSET)
-      faceMask.width = FACE_WIDTH
-      faceMask.height = FACE_HEIGHT
+      faceMask.width = FACE_MASK_WIDTH
+      faceMask.height = FACE_MASK_HEIGHT
+      faceMask.renderable = false
       this.container.addChild(faceMask)
 
       const face = new Sprite()
-      face.position.set(x + FACE_INSET, ROW_TOP + FACE_INSET)
-      face.width = FACE_WIDTH
-      face.height = FACE_HEIGHT
+      face.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
+      face.width = FACE_SIZE
+      face.height = FACE_SIZE
       face.mask = faceMask
       face.visible = false
       this.container.addChild(face)
