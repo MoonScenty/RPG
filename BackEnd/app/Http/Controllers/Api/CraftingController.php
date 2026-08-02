@@ -17,9 +17,8 @@ use Illuminate\Validation\Rule;
 
 /**
  * 연구소(포션류)/대장간(무기·방어구) 제작. 완성품(mz_items/mz_weapons/mz_armors)의
- * note에 붙은 <Crafting: 시간(초), [(종류, 재료이름),...], 소모 골드> 태그
- * (MzNoteTagParser::parseCraftingTag(), 시딩 시점에 tags['crafting']으로 미리
- * 해석돼 있음)를 레시피로 쓴다. recipe_type이 'item'이면 무조건 lab, 'weapon'/
+ * CraftingEditor(시간/골드/재료 구조화 필드)를 각 Seeder가 시딩 시점에
+ * tags['crafting']으로 미리 만들어둔 걸 레시피로 쓴다. recipe_type이 'item'이면 무조건 lab, 'weapon'/
  * 'armor'면 무조건 smithy - 클라이언트가 workshop을 잘못 보내 슬롯 캡을 우회하지
  * 못하도록 서버에서 강제한다. 재료는 종류(아이템/무기/방어구)마다 다른 테이블
  * 소속일 수 있어 각 재료의 type으로 어느 카탈로그/인벤토리 테이블을 볼지 정하고,

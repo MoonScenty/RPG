@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Unit;
-use App\Support\MzNoteTagParser;
 use App\Support\StatFormula;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -95,19 +94,11 @@ class EnemySeeder extends Seeder
                 continue;
             }
 
-            $tags = MzNoteTagParser::parseEnemyTags($enemy['note'] ?? '');
             $weaponAnimationId = $enemy['attackAnimationId'] ?? 0;
 
             $motionMap = [];
-            foreach ($tags['dragonbones_motions'] as [$motionName, $clipName]) {
-                $motionMap[$motionName] = $clipName;
-            }
-            // note의 <DragonBonesMotion> 태그가 없으면 Enemy.motionMap(RPGEditor에서
-            // 직접 관리하는 SV모션<->클립 매핑)을 그대로 쓴다.
-            if ($motionMap === []) {
-                foreach ($enemy['motionMap'] ?? [] as $m) {
-                    $motionMap[$m['motion']] = $m['animationName'];
-                }
+            foreach ($enemy['motionMap'] ?? [] as $m) {
+                $motionMap[$m['motion']] = $m['animationName'];
             }
 
             $stats = StatFormula::deriveCombatStats([
@@ -131,10 +122,10 @@ class EnemySeeder extends Seeder
                     // 한다 - dragonbones.ts의 buildArmature()가 두 이름을 그대로
                     // "{name}.json"으로 fetch하기 때문에 접미사 없이 넘기면 404로 조용히
                     // sv 배틀러 폴백行(존재하지 않는 sv 시트라 결국 아무것도 안 그려짐).
-                    'dragonbones_skeleton' => $enemy['imageType'] === 'dragonBones' ? "{$enemy['image']}_ske" : ($tags['dragonbones_skeleton'] ?? null),
-                    'dragonbones_atlas' => $enemy['imageType'] === 'dragonBones' ? "{$enemy['image']}_tex" : ($tags['dragonbones_atlas'] ?? null),
+                    'dragonbones_skeleton' => $enemy['imageType'] === 'dragonBones' ? "{$enemy['image']}_ske" : null,
+                    'dragonbones_atlas' => $enemy['imageType'] === 'dragonBones' ? "{$enemy['image']}_tex" : null,
                     'dragonbones_motions' => $motionMap === [] ? null : $motionMap,
-                    'dragonbones_scale' => $tags['dragonbones_scale'] ?? (int) round($enemy['scale']),
+                    'dragonbones_scale' => (int) round($enemy['scale']),
                     'max_hp' => $stats['max_hp'], 'max_mp' => $stats['max_mp'],
                     'atk' => $stats['atk'], 'def' => $stats['def'], 'mat' => $stats['mat'], 'mdf' => $stats['mdf'],
                     'spd' => $stats['spd'], 'luk' => $stats['luk'],
