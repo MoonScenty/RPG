@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Support\MzNoteTagParser;
 use App\Support\StatFormula;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +28,6 @@ class ClassSeeder extends Seeder
         $rows = [];
         foreach ($classes as $class) {
             $note = $class['note'] ?? '';
-            $tags = MzNoteTagParser::parseClassTags($note);
             $lv1 = collect($class['paramCurve'])->firstWhere('level', 1) ?? $class['paramCurve'][0];
 
             $traits = array_merge(
@@ -44,7 +42,7 @@ class ClassSeeder extends Seeder
                 'icon_index' => $class['iconIndex'],
                 'exp_curve' => json_encode($class['expCurve']),
                 'param_curve' => json_encode($class['paramCurve']),
-                'party_hud_icon' => $tags['party_hud_icon'],
+                'party_hud_icon' => $class['partyHudIcon'] ?? null,
                 'traits' => json_encode($traits),
             ];
         }

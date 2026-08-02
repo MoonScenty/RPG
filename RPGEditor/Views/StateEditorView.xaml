@@ -113,6 +113,47 @@
                                 </Grid>
                             </StackPanel>
                         </Border>
+
+                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,10,0,0" Padding="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="전투 효과 (비우면 없음)" FontWeight="Bold" Margin="0,0,0,6" />
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="매 턴 도트 피해(최대HP %)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.DotPercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="매 턴 지속 회복(최대HP %)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.HotPercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="받는 피해율(%, 100=변화 없음)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.DamageTakenRate, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="보호막(최대HP %, 1회 흡수 후 소멸)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.ShieldAbsorbPercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                </Grid>
+                                <WrapPanel>
+                                    <CheckBox Content="도발(적 AI가 우선 타겟팅)" IsChecked="{Binding Selected.Taunt}" Margin="0,0,16,0" />
+                                    <CheckBox Content="감싸기(아군 대신 피해를 받음)" IsChecked="{Binding Selected.GuardAlly}" Margin="0,0,16,0" />
+                                    <CheckBox Content="빈사 방지(HP 1 밑으로 안 떨어짐)" IsChecked="{Binding Selected.Undying}" />
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">

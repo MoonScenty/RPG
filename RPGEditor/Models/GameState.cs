@@ -58,4 +58,32 @@ public partial class GameState : DatabaseEntry
     private string messageWhenRemoved = string.Empty;
 
     public List<object> Traits { get; set; } = [];
+
+    /// <summary>매 턴 최대 HP의 이 %만큼 피해(도트 데미지). null이면 없음.</summary>
+    [ObservableProperty]
+    private int? dotPercent;
+
+    /// <summary>매 턴 최대 HP의 이 %만큼 회복(지속 회복). null이면 없음.</summary>
+    [ObservableProperty]
+    private int? hotPercent;
+
+    /// <summary>이 상태를 가진 유닛을 적 AI가 우선 타겟팅하도록 강제(도발).</summary>
+    [ObservableProperty]
+    private bool taunt;
+
+    /// <summary>같은 편 아군이 받을 피해를 이 유닛이 대신 받는다(감싸기).</summary>
+    [ObservableProperty]
+    private bool guardAlly;
+
+    /// <summary>받는 피해에 곱해지는 비율(%) - 100=변화 없음, 0=완전 무효, 90=10% 경감. null이면 없음.</summary>
+    [ObservableProperty]
+    private int? damageTakenRate;
+
+    /// <summary>최대 HP의 이 %만큼 피해를 1회 흡수하고 소멸하는 보호막. null이면 없음.</summary>
+    [ObservableProperty]
+    private int? shieldAbsorbPercent;
+
+    /// <summary>이 상태를 가진 동안 HP가 1 밑으로 떨어지지 않는다(빈사 방지).</summary>
+    [ObservableProperty]
+    private bool undying;
 }

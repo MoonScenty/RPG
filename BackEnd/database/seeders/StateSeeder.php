@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Support\MzNoteTagParser;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -46,7 +45,15 @@ class StateSeeder extends Seeder
                 'message_while_active' => $state['messageWhileActive'] ?: null,
                 'message_when_removed' => $state['messageWhenRemoved'] ?: null,
                 'traits' => json_encode($state['traits'] ?? []),
-                'tags' => json_encode(MzNoteTagParser::parseStateTags($state['note'] ?? '')),
+                'tags' => json_encode([
+                    'dot_percent' => $state['dotPercent'] ?? null,
+                    'hot_percent' => $state['hotPercent'] ?? null,
+                    'taunt' => $state['taunt'] ?? false,
+                    'guard_ally' => $state['guardAlly'] ?? false,
+                    'damage_taken_rate' => $state['damageTakenRate'] ?? null,
+                    'shield_pct' => $state['shieldAbsorbPercent'] ?? null,
+                    'undying' => $state['undying'] ?? false,
+                ]),
             ];
         }
         DB::table('mz_states')->insert($rows);

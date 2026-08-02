@@ -117,33 +117,6 @@ class MzNoteTagParser
         };
     }
 
-    /**
-     * 직업 전용. "<PartyHudIcon: n>" - n은 IconSet.png 아이콘 인덱스, 파티 HUD
-     * 카드 우측 상단에 그 직업 아이콘으로 그린다(PartyHud.ts 참고).
-     *
-     * @return array<string, mixed>
-     */
-    public static function parseClassTags(string $note): array
-    {
-        return [
-            'party_hud_icon' => self::intValue($note, 'PartyHudIcon'),
-        ];
-    }
-
-    /** @return array<string, mixed> */
-    public static function parseStateTags(string $note): array
-    {
-        return [
-            'dot_percent' => self::intValue($note, 'DotPercent'),
-            'hot_percent' => self::intValue($note, 'HotPercent'),
-            'taunt' => self::hasFlag($note, 'Taunt'),
-            'guard_ally' => self::hasFlag($note, 'GuardAlly'),
-            'damage_taken_rate' => self::intValue($note, 'DamageTakenRate'),
-            'shield_pct' => self::intValue($note, 'Shield'),
-            'undying' => self::hasFlag($note, 'Undying'),
-        ];
-    }
-
     private static function hasFlag(string $note, string $tag): bool
     {
         return preg_match('/<' . preg_quote($tag, '/') . '(?::[^>]*)?>/', $note) === 1;
