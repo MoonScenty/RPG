@@ -35,7 +35,9 @@ const VALUE_GAP_X = 6
 // 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
 const ATB_PERCENT_CENTER_X = (189 + 235) / 2
 const ATB_PERCENT_CENTER_Y = 67
-const ATB_PERCENT_FONT_SIZE = 13
+// 중앙(anchor 0.5,0.5) 고정한 채로 키워서 위로 자라게 해 MP 바 밑단(y=59)에
+// 살짝 걸치게 한다(사용자 요청, 1px 정도) - 13 -> 16.
+const ATB_PERCENT_FONT_SIZE = 16
 // 사용자 지시: 폰트 내부 그라데이션(위쪽 흰색 -> 아래쪽 핑크), 테두리는 검정 50% 불투명.
 const ATB_PERCENT_GRADIENT_TOP = '#ffffff'
 const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
