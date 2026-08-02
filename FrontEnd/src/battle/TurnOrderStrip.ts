@@ -61,8 +61,10 @@ const FACE_MASK_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
 // 얼굴 원본(144x144/96x96)이 정사각형이라 가로:세로를 억지로 안 늘리고 1:1
 // 유지(사용자 지시) - 육각형이 세로보다 가로가 넓어서 세로 길이(FACE_MASK_HEIGHT)
 // 기준으로 정사각형을 만들고 안쪽 자리에서 가로 중앙 정렬한다.
-const FACE_SIZE = FACE_MASK_HEIGHT
+// 사용자 지시로 2px 확대 + 아래로 1px 이동(마스크도 FACE_SIZE를 그대로 쓰므로 같이 커짐).
+const FACE_SIZE = FACE_MASK_HEIGHT + 2
 const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
+const FACE_Y_OFFSET = FACE_INSET + 1
 
 // turn-hex-actor.png(32x25) 알파 채널을 픽셀 단위로 실측해서 뽑은 육각형 윤곽선
 // 좌표(플랫탑 육각형).
@@ -211,12 +213,12 @@ export class TurnOrderStrip {
     this.container.addChild(hex)
 
     const faceMask = new Graphics().poly(HEX_POLYGON_POINTS).fill(0xffffff)
-    faceMask.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
+    faceMask.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_Y_OFFSET)
     faceMask.scale.set(FACE_SIZE / HEX_WIDTH, FACE_SIZE / HEX_HEIGHT)
     this.container.addChild(faceMask)
 
     const face = new Sprite()
-    face.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
+    face.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_Y_OFFSET)
     face.width = FACE_SIZE
     face.height = FACE_SIZE
     face.mask = faceMask
