@@ -17,7 +17,8 @@ const GRID_LEFT = 52
 const COLUMN_PITCH = 410
 const COLUMNS = 2
 const ROW_PITCH = 71
-const GRID_TOP = STAGE_HEIGHT - ROW_PITCH * 2 - 18
+// 화면 하단에 딱 붙어 보여서 사용자 지시로 전체를 10px 위로.
+const GRID_TOP = STAGE_HEIGHT - ROW_PITCH * 2 - 18 - 10
 
 // party_hud_hp.png/party_hud_mp.png 안에서 실제 게이지가 차지하는 영역(카드 캔버스
 // 360x120 기준 픽셀 좌표) - PIL로 non-transparent 영역을 실측한 값.
