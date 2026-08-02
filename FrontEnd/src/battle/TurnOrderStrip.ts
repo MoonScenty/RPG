@@ -65,7 +65,8 @@ const FACE_MASK_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
 // FACE_SIZE를 그대로 쓰므로 같이 커짐).
 const FACE_SIZE = FACE_MASK_HEIGHT + 4
 const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
-const FACE_Y_OFFSET = FACE_INSET + 1
+// +1(아래) -> +0(사용자 지시로 위로 1px).
+const FACE_Y_OFFSET = FACE_INSET
 
 // turn-hex-actor.png(32x25) 알파 채널을 픽셀 단위로 실측해서 뽑은 육각형 윤곽선
 // 좌표(플랫탑 육각형).
