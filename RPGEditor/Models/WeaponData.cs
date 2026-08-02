@@ -9,7 +9,7 @@ public partial class WeaponData : ObservableObject
     [ObservableProperty]
     private int weaponTypeId;
 
-    /// <summary>공격 시 재생할 Animations_mv.json ID.</summary>
+    /// <summary>공격 시 재생할 Animations.json ID.</summary>
     [ObservableProperty]
     private int animationId;
 

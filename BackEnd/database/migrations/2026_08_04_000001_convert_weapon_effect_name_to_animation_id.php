@@ -8,7 +8,7 @@ return new class extends Migration
 {
     /**
      * Effekseer 폐지 - 일반 공격 시 재생할 애니메이션을 파일명(weapon_effect_name)
-     * 대신 mz_animations.id(Animations_mv.json 원본 ID)로 직접 가리킨다. 무기의
+     * 대신 mz_animations.id(Animations.json 원본 ID)로 직접 가리킨다. 무기의
      * animation_id를 그대로 저장하면 되므로 mz_animations 조회 없이 시딩 시점에
      * 바로 대입 가능해졌다.
      */

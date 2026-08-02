@@ -105,7 +105,7 @@ public partial class AnimationPreviewControl : UserControl
         string filePath;
         var slashIndex = path.IndexOf('/');
         var subfolder = slashIndex > 0 ? path[..slashIndex] : null;
-        if (subfolder is "effects" or "audio" or "img" && !string.IsNullOrEmpty(ProjectRootPath))
+        if (subfolder is "audio" or "img" && !string.IsNullOrEmpty(ProjectRootPath))
         {
             var relativePath = path[(slashIndex + 1)..].Replace('/', Path.DirectorySeparatorChar);
             filePath = Path.Combine(ProjectRootPath, subfolder, relativePath);

@@ -9,10 +9,9 @@ namespace RPGEditor.Project;
 public class ProjectContext
 {
     private static readonly string[] AudioFolders = ["bgm", "bgs", "me", "se"];
-    private static readonly string[] EffectFolders = ["Model", "Texture"];
     private static readonly string[] ImageFolders =
     [
-        "battleback1", "battleback2", "magic_circles", "dragonbones",
+        "animations", "battleback1", "battleback2", "magic_circles", "dragonbones",
         "faces", "pictures", "sv_actors", "sv_enemies", "system",
     ];
 
@@ -51,8 +50,6 @@ public class ProjectContext
 
         foreach (var folder in AudioFolders)
             Directory.CreateDirectory(Path.Combine(root, "audio", folder));
-        foreach (var folder in EffectFolders)
-            Directory.CreateDirectory(Path.Combine(root, "effects", folder));
         foreach (var folder in ImageFolders)
             Directory.CreateDirectory(Path.Combine(root, "img", folder));
         Directory.CreateDirectory(Path.Combine(root, "data"));
@@ -134,10 +131,10 @@ public class ProjectContext
     }
 
     /// <summary>
-    /// Animations_mv.json은 RPG Maker MV 원본은 배열 index 0이 항상 null(id가 1부터
+    /// Animations.json은 RPG Maker MV 원본은 배열 index 0이 항상 null(id가 1부터
     /// 시작)이지만, 이 프로젝트의 다른 데이터(Skills/Items 등)는 전부 id가 0부터
     /// 시작하는 관례라 그것과 맞춘다 - 임포트 시 이미 0-indexed로 재정렬해서 저장했으므로
-    /// (RPGProject/data/Animations_mv.json 참고) 여기서는 null을 만나면 방어적으로
+    /// (RPGProject/data/Animations.json 참고) 여기서는 null을 만나면 방어적으로
     /// 건너뛸 뿐, 저장할 때 다시 끼워 넣지 않는다.
     /// </summary>
     private static void LoadAnimations(string root, string relativePath, ObservableCollection<MvAnimationData> target)

@@ -40,7 +40,7 @@ class MzNoteTagParser
     }
 
     /**
-     * 적 전용 태그. AttackAnimation은 mz_animations.id(Animations_mv.json 원본 ID)를
+     * 적 전용 태그. AttackAnimation은 mz_animations.id(Animations.json 원본 ID)를
      * 직접 가리키는 숫자다 - mz_animations.name은 정상(RPG Maker 에디터에 보이는
      * 한글 이름 그대로 저장돼 있음)이지만, 그 에디터의 데이터베이스 창이 애초에
      * "0003 타격/불"처럼 번호와 이름을 나란히 보여주므로 사용자가 숫자를 그대로

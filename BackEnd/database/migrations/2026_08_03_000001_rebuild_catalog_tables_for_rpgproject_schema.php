@@ -293,7 +293,7 @@ return new class extends Migration
             $table->json('defeat_me');
         });
 
-        // Animations_mv.json(RPG Maker MV 원본 포맷) 그대로 임포트 - id 고정
+        // Animations.json(RPG Maker MV 원본 포맷) 그대로 임포트 - id 고정
         // 유지(Items.json weapon.animationId, Enemies.json <AttackAnimation: id>가 참조).
         // Effekseer(.efkefc) 대신 스프라이트시트 셀 애니메이션(animation1/2Name,
         // frames, timings)으로 재생한다 - FrontEnd의 mvAnimation.ts 참고.

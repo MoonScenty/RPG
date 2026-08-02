@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 namespace RPGEditor.Models;
 
 /// <summary>
-/// RPG Maker MV 원본 스프라이트시트 셀 애니메이션 포맷(data/Animations_mv.json) 그대로.
+/// RPG Maker MV 원본 스프라이트시트 셀 애니메이션 포맷(data/Animations.json) 그대로.
 /// Frames/Timings는 실제 RPG Maker MV 에디터에서만 편집되는 참조 전용 데이터라
 /// RPGEditor에서는 읽기 전용으로만 다룬다(미리보기 재생 + Weapon.AnimationId/
 /// SkillInvocation.AnimationId 선택 용도) - 프레임 단위 셀 배치 편집기는 만들지 않는다.

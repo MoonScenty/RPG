@@ -7,6 +7,6 @@
   "enemies": "data/Enemies.json",
   "troops": "data/Troops.json",
   "states": "data/States.json",
-  "animations": "data/Animations_mv.json",
+  "animations": "data/Animations.json",
   "types": "data/Types.json"
 }

@@ -11,6 +11,6 @@ public class ProjectFile
     public string Enemies { get; set; } = "data/Enemies.json";
     public string Troops { get; set; } = "data/Troops.json";
     public string States { get; set; } = "data/States.json";
-    public string Animations { get; set; } = "data/Animations_mv.json";
+    public string Animations { get; set; } = "data/Animations.json";
     public string Types { get; set; } = "data/Types.json";
 }
