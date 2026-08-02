@@ -75,7 +75,7 @@ const CURRENT_LABEL_GAP = 4 // 육각형 바닥 ~ 라벨 상단 간격
 
 // 턴 순서 UI 전체 확대 배율(사용자 지시) - 우하단(현재 턴 칸 바닥 오른쪽) 기준으로
 // 확대해서 화면 밖으로 안 밀려나게 그 점을 고정축(pivot)으로 잡는다.
-const UI_SCALE = 1.8
+const UI_SCALE = 1.5
 const SCALE_ANCHOR_X = ROW_RIGHT
 const SCALE_ANCHOR_Y = ROW_TOP + HEX_HEIGHT
 
