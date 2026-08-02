@@ -32,6 +32,11 @@ public partial class Enemy : DatabaseEntry
     [ObservableProperty]
     private string faceName = string.Empty;
 
+    /// <summary>기본 공격 시 재생할 Animations.json의 애니메이션 ID. 무기 장비가 없는
+    /// 적의 "장착 무기 애니메이션"에 해당(스킬 편집 화면과 동일한 AnimationField 사용).</summary>
+    [ObservableProperty]
+    private int attackAnimationId;
+
     /// <summary>DragonBones 아마추어 표시 배율(%). 아마추어마다 원본 크기가 달라 개별 조정이 필요하다.</summary>
     [ObservableProperty]
     private double scale = 100;

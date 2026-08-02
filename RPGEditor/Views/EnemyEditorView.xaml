@@ -121,6 +121,13 @@
                                            FileName="{Binding Selected.FaceName, UpdateSourceTrigger=PropertyChanged}"
                                            Margin="0,0,0,10" />
 
+                        <TextBlock Text="공격 애니메이션" Margin="0,0,0,4" />
+                        <views:AnimationField x:Name="AttackAnimationField"
+                                               AnimationId="{Binding Selected.AttackAnimationId, UpdateSourceTrigger=PropertyChanged}"
+                                               Margin="0,0,0,10" />
+                        <TextBlock Text="무기를 장비하지 않는 적의 기본 공격 시 재생할 이펙트입니다(아군의 장착 무기 애니메이션과 동일한 역할)."
+                                   FontStyle="Italic" Foreground="Gray" TextWrapping="Wrap" Margin="0,0,0,10" />
+
                         <StackPanel Margin="0,10,0,0"
                                     Visibility="{Binding Selected.ImageType, Converter={StaticResource EnumEqualsVisibilityConverter}, ConverterParameter=DragonBones}">
                             <TextBlock Text="표시 배율(%)" Margin="0,0,0,4" />

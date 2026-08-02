@@ -231,6 +231,7 @@ public partial class MainViewModel : ObservableObject
             {
                 DataContext = new DatabaseListViewModel<Enemy>("적 캐릭터", context.Enemies),
                 ProjectRootPath = context.ProjectRootPath,
+                Animations = context.Animations,
             },
         });
         Tabs.Add(new EditorTab

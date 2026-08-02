@@ -13,7 +13,7 @@ class MzEnemy extends Model
     protected $fillable = [
         'id', 'name', 'note', 'hp', 'mp', 'str', 'vit', 'mnd', 'dex', 'agi', 'luk', 'int',
         'reward_exp', 'reward_gold', 'drops', 'actions', 'image_type', 'image', 'face_name',
-        'scale', 'motion_map', 'traits',
+        'attack_animation_id', 'scale', 'motion_map', 'traits',
     ];
 
     protected $casts = ['actions' => 'array', 'traits' => 'array'];

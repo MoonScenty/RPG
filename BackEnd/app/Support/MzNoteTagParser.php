@@ -40,11 +40,9 @@ class MzNoteTagParser
     }
 
     /**
-     * 적 전용 태그. AttackAnimation은 mz_animations.id(Animations.json 원본 ID)를
-     * 직접 가리키는 숫자다 - mz_animations.name은 정상(RPG Maker 에디터에 보이는
-     * 한글 이름 그대로 저장돼 있음)이지만, 그 에디터의 데이터베이스 창이 애초에
-     * "0003 타격/불"처럼 번호와 이름을 나란히 보여주므로 사용자가 숫자를 그대로
-     * 노트태그에 옮겨 적는 게 이름 매칭보다 더 직관적이라 ID 참조로 정했다.
+     * 적 전용 태그. AttackAnimation은 Enemy.AttackAnimationId 구조화 필드(RPGEditor
+     * 적 편집 화면의 "공격 애니메이션" AnimationField 피커)로 대체되어 더 이상
+     * 노트태그로 안 쓴다 - EnemySeeder가 그 필드를 직접 읽는다.
      *
      * DragonBonesData/DragonBonesTextureAtlasData는 DB 데이터가 아니라
      * mz_project/img/dragonbones/{값}.json 파일명 자체를 가리키므로 이름-참조
@@ -68,7 +66,6 @@ class MzNoteTagParser
     public static function parseEnemyTags(string $note): array
     {
         return [
-            'attack_animation_id' => self::intValue($note, 'AttackAnimation'),
             'dragonbones_skeleton' => self::stringValue($note, 'DragonBonesData'),
             'dragonbones_atlas' => self::stringValue($note, 'DragonBonesTextureAtlasData'),
             'dragonbones_motions' => self::pairValues($note, 'DragonBonesMotion'),

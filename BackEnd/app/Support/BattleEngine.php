@@ -404,7 +404,8 @@ class BattleEngine
      */
     private function performBasicAttack(Battle $battle, BattleUnit $actor, BattleUnit $target, bool $allowCounterReflect = true): void
     {
-        // 무기(또는 적의 <AttackAnimation>)에 애니메이션이 있으면 그걸 우선 쓰고, 없는
+        // 무기(또는 적의 Enemy.AttackAnimationId - EnemySeeder가 units.weapon_animation_id로
+        // 그대로 옮겨 저장)에 애니메이션이 있으면 그걸 우선 쓰고, 없는
         // 경우(무기 미장착 등)에만 이 "공격"(id 0) 스킬 자체의 animationId를 기본
         // 이펙트로 대신 쓴다(프론트 BattleScene.ts가 actor.unit.weapon_animation_id ??
         // turn.skill_animation_id 순으로 폴백) - 그 외 필드(hitType/successRate 등)는

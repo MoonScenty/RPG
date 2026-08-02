@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 /**
  * RPGProject/data/Animations.json(RPG Maker MV 원본 포맷, 배열 index 0은 항상
  * null) -> mz_animations. id는 원본과 1:1 고정 유지(Items.json weapon.animationId,
- * Enemies.json note의 <AttackAnimation: id>가 참조). name은 RPG Maker 에디터에
- * 보이는 한글 이름 그대로 정상 저장돼 있다(참고/검색용으로 그대로 채워두되, 참조는
- * MzNoteTagParser 주석대로 번호가 더 직관적이라 id로 한다).
+ * Enemies.json attackAnimationId, Skills.json invocation.animationId가 참조).
+ * name은 RPG Maker 에디터에 보이는 한글 이름 그대로 정상 저장돼 있다(참고/검색용으로
+ * 그대로 채워두되, 참조는 번호가 더 직관적이라 id로 한다).
  */
 class AnimationSeeder extends Seeder
 {

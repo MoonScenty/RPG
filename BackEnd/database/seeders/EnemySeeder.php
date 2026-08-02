@@ -59,6 +59,7 @@ class EnemySeeder extends Seeder
                 'image_type' => $enemy['imageType'],
                 'image' => $enemy['image'],
                 'face_name' => ($enemy['faceName'] ?? '') !== '' ? $enemy['faceName'] : null,
+                'attack_animation_id' => $enemy['attackAnimationId'] ?? null,
                 'scale' => $enemy['scale'],
                 'motion_map' => json_encode($enemy['motionMap'] ?? []),
                 'traits' => json_encode($traits),
@@ -95,7 +96,7 @@ class EnemySeeder extends Seeder
             }
 
             $tags = MzNoteTagParser::parseEnemyTags($enemy['note'] ?? '');
-            $weaponAnimationId = $tags['attack_animation_id'];
+            $weaponAnimationId = $enemy['attackAnimationId'] ?? 0;
 
             $motionMap = [];
             foreach ($tags['dragonbones_motions'] as [$motionName, $clipName]) {

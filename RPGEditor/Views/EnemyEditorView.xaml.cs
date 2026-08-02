@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +12,18 @@ public partial class EnemyEditorView : UserControl
     public string? ProjectRootPath
     {
         get => FaceField.ProjectRootPath;
-        set => FaceField.ProjectRootPath = value;
+        set
+        {
+            FaceField.ProjectRootPath = value;
+            AttackAnimationField.ProjectRootPath = value;
+        }
+    }
+
+    /// <summary>공격 애니메이션 선택 다이얼로그에 사용되는 Animations.json 데이터.</summary>
+    public IEnumerable<MvAnimationData>? Animations
+    {
+        get => AttackAnimationField.Animations;
+        set => AttackAnimationField.Animations = value;
     }
 
     public EnemyEditorView()
