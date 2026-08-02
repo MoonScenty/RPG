@@ -4,8 +4,7 @@ import type { BattleUnit } from '@/lib/battleApi'
 // (최소 1) 매 틱 증가하다 100 이상에 먼저 도달하는 유닛이 그 턴의 주인공. 동시
 // 도달이면 게이지가 높은 쪽, 그다음 spd가 높은 쪽을 우선한다. ATB_MAX_TICKS는
 // spd 데이터가 비정상적으로 낮아도(0 등) 예측 루프가 무한히 돌지 않게 막는 안전장치.
-// TurnOrderStrip(좌상단 턴 순서 UI)과 PartyHud(우측 파티 카드의 "자기 턴" 강조) 둘 다
-// "지금 누구 차례인지"를 같은 로직으로 예측해야 해서 공용 함수로 뺐다.
+// TurnOrderStrip(우하단 턴 순서 큐)이 "앞으로 몇 턴이 누구 차례인지"를 예측하는 데 쓴다.
 const ATB_READY_THRESHOLD = 100
 const ATB_MAX_TICKS = 1000
 
@@ -63,11 +62,6 @@ export function predictNextActors(living: BattleUnit[], count: number): BattleUn
   }
 
   return result
-}
-
-/** 지금 살아있는 유닛들 중 바로 다음 차례로 예측되는 유닛의 id(없으면 null). */
-export function predictCurrentActorId(living: BattleUnit[]): number | null {
-  return predictNextActors(living, 1)[0]?.id ?? null
 }
 
 /**

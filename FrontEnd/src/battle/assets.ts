@@ -3,13 +3,8 @@ import borderNew from '@/assets/battle/border-new.png'
 import partyHudBack from '@/assets/battle/party-hud-back.png'
 import partyHudHp from '@/assets/battle/party-hud-hp.png'
 import partyHudMp from '@/assets/battle/party-hud-mp.png'
-import turnOrderBar from '@/assets/battle/turn-order-bar.png'
-import turnOrderFrameCurrent from '@/assets/battle/turn-order-frame-current.png'
-import turnOrderFrameWait from '@/assets/battle/turn-order-frame-wait.png'
-import turnOrderActor from '@/assets/battle/turn-order-actor.png'
-import turnOrderEnemy from '@/assets/battle/turn-order-enemy.png'
-import turnOrderActor2 from '@/assets/battle/turn-order-actor2.png'
-import turnOrderEnemy2 from '@/assets/battle/turn-order-enemy2.png'
+import turnHexActor from '@/assets/battle/turn-hex-actor.png'
+import turnHexEnemy from '@/assets/battle/turn-hex-enemy.png'
 import shadow2 from '@/assets/battle/shadow2.png'
 
 // 전투 배경은 트룹별(Troops.json의 battleback1/battleback2, BattleEngine::getState()가
@@ -39,20 +34,12 @@ export const PARTY_HUD_BACK_URL = partyHudBack
 export const PARTY_HUD_HP_URL = partyHudHp
 export const PARTY_HUD_MP_URL = partyHudMp
 
-// 좌상단 턴 순서 UI(옥토패스 스타일) - frame1은 현재 턴 캐릭터(큰 다이아몬드),
-// frame2는 대기 턴 캐릭터(작은 다이아몬드), bar는 대기열 뒤 배경 바. TurnOrderStrip.ts 참고.
-export const TURN_ORDER_BAR_URL = turnOrderBar
-export const TURN_ORDER_FRAME_CURRENT_URL = turnOrderFrameCurrent
-export const TURN_ORDER_FRAME_WAIT_URL = turnOrderFrameWait
-
-// frame1(191x191)과 같은 캔버스 크기 - 현재 턴 아이콘에서만 frame1 위에 겹쳐
-// 진영 색을 표시하는 삼각형 그라데이션(아군=보라, 적군=빨강).
-export const TURN_ORDER_ACTOR_URL = turnOrderActor
-export const TURN_ORDER_ENEMY_URL = turnOrderEnemy
-
-// frame2(79x79)와 같은 캔버스 크기 - 대기열 아이콘용 진영 색 삼각형.
-export const TURN_ORDER_ACTOR2_URL = turnOrderActor2
-export const TURN_ORDER_ENEMY2_URL = turnOrderEnemy2
+// 우하단 턴 순서 큐(ReferenceResource/turn_hud 기반 - 2026-08 재디자인, 캐릭터
+// 초상화 없이 육각형 7개로만 단순 표시) - 각 칸은 그 차례가 아군/적 중 누구
+// 턴인지에 따라 이 두 육각형 중 하나를 그대로 쓴다(32x25, 배경 없이 완성된
+// 그림이라 별도 base 오버레이가 필요 없음). TurnOrderStrip.ts 참고.
+export const TURN_HEX_ACTOR_URL = turnHexActor
+export const TURN_HEX_ENEMY_URL = turnHexEnemy
 
 // mz_project/img/system/Shadow2.png - 아군 배틀러 발밑 그림자(MZ 사이드뷰 배틀에서
 // 쓰는 표준 타원 그림자). BattleScene.ts 참고.
@@ -71,13 +58,8 @@ export async function preloadBattleAssets(): Promise<void> {
     PARTY_HUD_BACK_URL,
     PARTY_HUD_HP_URL,
     PARTY_HUD_MP_URL,
-    TURN_ORDER_BAR_URL,
-    TURN_ORDER_FRAME_CURRENT_URL,
-    TURN_ORDER_FRAME_WAIT_URL,
-    TURN_ORDER_ACTOR_URL,
-    TURN_ORDER_ENEMY_URL,
-    TURN_ORDER_ACTOR2_URL,
-    TURN_ORDER_ENEMY2_URL,
+    TURN_HEX_ACTOR_URL,
+    TURN_HEX_ENEMY_URL,
     SHADOW_URL,
     ...Object.values(FACE_SHEET_URLS),
   ])
