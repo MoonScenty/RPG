@@ -44,9 +44,11 @@ const HP_LABEL_Y = HP_BAR_RECT.y + HP_BAR_RECT.height / 2
 const MP_LABEL_X = MP_BAR_RECT.x - LABEL_GAP_X
 const MP_LABEL_Y = MP_BAR_RECT.y + MP_BAR_RECT.height / 2
 
-// MP 수치 텍스트를 TG 수치(atbValue)와 동일한 그라디언트로(사용자 지시, 크기/테두리도
-// atbValue와 동일하게 맞춤 - ATB_PERCENT_FONT_SIZE 재사용).
-const MP_VALUE_GRADIENT_TOP = '#ffffff'
+// HP/MP 수치 텍스트를 TG 수치(atbValue)와 동일한 크기/테두리로 맞추고(사용자 지시,
+// ATB_PERCENT_FONT_SIZE 재사용), 그라디언트만 각자 색으로: 상단은 공통 흰색, 하단은
+// HP=틸그린(#01d0a2)/MP=네이비(#053f7c). 정렬: HP 좌측/MP·TG 우측(사용자 지시).
+const BIG_VALUE_GRADIENT_TOP = '#ffffff'
+const HP_VALUE_GRADIENT_BOTTOM = '#01d0a2'
 const MP_VALUE_GRADIENT_BOTTOM = '#053f7c'
 
 // 예전 base.png에 박혀 있던 "TG"(x178~189)와 "%PERCENT"(x235~291) 라벨 위치를
@@ -136,17 +138,9 @@ export class PartyHud {
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
     const mp = this.buildBar(card, PARTY_HUD_MP_URL, MP_BAR_RECT)
 
-    // MP 수치를 TG 수치(atbValue)와 같은 크기/그라디언트/테두리로 맞춘다(사용자 지시) -
-    // 위치·정렬(좌측 정렬, 바 오른쪽)은 그대로 두고 스타일만 덮어씀.
-    const mpValueGradient = new FillGradient(0, 0, 0, 1)
-    mpValueGradient.addColorStop(0, MP_VALUE_GRADIENT_TOP)
-    mpValueGradient.addColorStop(1, MP_VALUE_GRADIENT_BOTTOM)
-    mp.valueText.style = {
-      fill: mpValueGradient,
-      fontSize: ATB_PERCENT_FONT_SIZE,
-      fontFamily: FONT_FAMILY,
-      stroke: { color: 0x000000, width: 2, alpha: 0.5 },
-    }
+    // 위치는 그대로 두고 스타일(크기/그라디언트/테두리)과 정렬만 덮어씀(사용자 지시).
+    this.applyBigValueStyle(hp.valueText, HP_VALUE_GRADIENT_BOTTOM, 0)
+    this.applyBigValueStyle(mp.valueText, MP_VALUE_GRADIENT_BOTTOM, 1)
 
     const atbGradient = new FillGradient(0, 0, 0, 1)
     atbGradient.addColorStop(0, ATB_PERCENT_GRADIENT_TOP)
@@ -161,7 +155,8 @@ export class PartyHud {
         stroke: { color: 0x000000, width: 2, alpha: 0.5 },
       },
     })
-    atbValue.anchor.set(0.5, 0.5)
+    // 중앙 -> 우측 정렬(사용자 지시).
+    atbValue.anchor.set(1, 0.5)
     atbValue.position.set(ATB_PERCENT_CENTER_X, ATB_PERCENT_CENTER_Y)
     card.addChild(atbValue)
 
@@ -179,6 +174,20 @@ export class PartyHud {
       mpValue: mp.valueText,
       atbValue,
     }
+  }
+
+  /** HP/MP 수치를 TG 수치(atbValue)와 같은 큰 그라디언트 스타일로 바꾼다(사용자 지시). 위치는 그대로 두고 스타일+정렬만 덮어씀. */
+  private applyBigValueStyle(text: Text, gradientBottom: string, anchorX: number): void {
+    const gradient = new FillGradient(0, 0, 0, 1)
+    gradient.addColorStop(0, BIG_VALUE_GRADIENT_TOP)
+    gradient.addColorStop(1, gradientBottom)
+    text.style = {
+      fill: gradient,
+      fontSize: ATB_PERCENT_FONT_SIZE,
+      fontFamily: FONT_FAMILY,
+      stroke: { color: 0x000000, width: 2, alpha: 0.5 },
+    }
+    text.anchor.set(anchorX, 0.5)
   }
 
   /** base.png에서 지워진 고정 문구(STATUS/HP/MP/TG/%PERCENT)를 같은 자리에 Text로 그린다. anchorX=1이면 x를 우측 정렬 기준으로 쓴다. */
