@@ -440,8 +440,9 @@ export class BattleScene {
    * dying/dead를 안 걸어준 DragonBones 유닛) 죽은 채로 idle 포즈가 얼어붙어
    * "살아있는 것처럼" 보이는 게 더 어색하므로, 예전처럼 페이드아웃 후 숨긴다.
    *
-   * 적은 부활 스킬의 대상이 될 일이 없어서(사용자 확인) 사망 포즈로 남겨둘
-   * 이유가 없다 - dead/dying 포즈가 있어도 무시하고 항상 페이드아웃 후 숨긴다.
+   * 적은 부활 스킬의 대상이 될 일이 없어서(사용자 확인) 사망 포즈로 화면에
+   * 계속 남겨두지 않는다 - dying/dead 포즈가 있으면 그 모션을 재생한 뒤에
+   * 페이드아웃하며 사라지고, 없으면 기존처럼 바로 페이드아웃한다.
    */
   private setAliveState(view: UnitView, animate: boolean): void {
     const aliveNow = isUnitAlive(view.unit)
@@ -460,17 +461,26 @@ export class BattleScene {
       return
     }
 
-    const hasDeathPose =
-      view.unit.side !== 'enemy' && (view.animator.hasAnimation('dying') || view.animator.hasAnimation('dead'))
+    const isEnemy = view.unit.side === 'enemy'
+    const hasDeathPose = view.animator.hasAnimation('dying') || view.animator.hasAnimation('dead')
 
     if (!hasDeathPose) {
       if (animate && view.wasAlive) {
-        void tween(this.app, 400, (p) => {
-          view.container.alpha = 1 - p
-        }).then(() => {
-          view.container.visible = false
-        })
+        void this.fadeOutAndHide(view)
       } else {
+        view.container.visible = false
+      }
+      view.wasAlive = false
+      return
+    }
+
+    if (isEnemy) {
+      if (animate && view.wasAlive) {
+        view.container.visible = true
+        view.container.alpha = 1
+        void view.animator.playDown().then(() => this.fadeOutAndHide(view))
+      } else {
+        // 전투 재개 시점에 이미 죽어있던 적은 모션을 다시 재생할 필요 없이 바로 숨긴다.
         view.container.visible = false
       }
       view.wasAlive = false
@@ -487,6 +497,14 @@ export class BattleScene {
     }
 
     view.wasAlive = false
+  }
+
+  private fadeOutAndHide(view: UnitView): Promise<void> {
+    return tween(this.app, 400, (p) => {
+      view.container.alpha = 1 - p
+    }).then(() => {
+      view.container.visible = false
+    })
   }
 
   /**
