@@ -40,10 +40,11 @@ const DRAGONBONES_TARGET_HEIGHT = 150
 // 스텝용 모션이지, 화면을 가로지르는 이동용이 아니다).
 const ATTACK_STEP_DISTANCE = 60
 
-// 배틀로그 한 줄을 담는 반투명 박스(사용자 지시) - 위에서 124px, 가로 중앙,
-// 폭 600px, 모서리 반경 5, 검정 배경 불투명도 0.2. 항상 떠있지 않고 메시지가
-// 바뀔 때마다 페이드인 -> 잠깐 유지 -> 페이드아웃한다(showLog() 참고).
-const LOG_BOX_TOP = 124
+// 배틀로그 한 줄을 담는 반투명 박스(사용자 지시) - 화면 최상단에서 10px, 가로
+// 중앙, 폭 600px, 모서리 반경 5, 검정 배경 불투명도 0.2. 항상 떠있지 않고
+// 메시지가 바뀔 때마다 페이드인 -> 잠깐 유지 -> 페이드아웃한다(showLog() 참고).
+// 124 -> 10(사용자 지시).
+const LOG_BOX_TOP = 10
 const LOG_BOX_WIDTH = 600
 const LOG_BOX_PADDING_Y = 10
 const LOG_BOX_RADIUS = 5
