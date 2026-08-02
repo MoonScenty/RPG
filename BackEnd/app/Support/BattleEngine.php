@@ -1015,12 +1015,12 @@ class BattleEngine
         }
 
         foreach ($tags['remove_states'] ?? [] as $entry) {
-            if (mt_rand() / mt_getrandmax() <= $entry['chance']) {
+            if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
                 $this->removeState($target, $entry['state']);
             }
         }
         foreach ($tags['add_states'] ?? [] as $entry) {
-            $chance = $entry['chance'] * $this->stateRateMultiplier($target, $entry['state']);
+            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($target, $entry['state']);
             if (mt_rand() / mt_getrandmax() <= $chance) {
                 $this->applyState($target, $entry['state'], $battle->turn_number);
             }
@@ -1480,20 +1480,17 @@ class BattleEngine
 
         $tags = $skill->tags;
         foreach ($tags['target_remove_states'] ?? [] as $entry) {
-            if (mt_rand() / mt_getrandmax() <= $entry['chance']) {
+            if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
                 $this->removeState($target, $entry['state']);
             }
         }
         foreach ($tags['target_add_states'] ?? [] as $entry) {
-            $chance = $entry['chance'] * $this->stateRateMultiplier($target, $entry['state']);
+            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($target, $entry['state']);
             if (mt_rand() / mt_getrandmax() <= $chance) {
                 $this->applyState($target, $entry['state'], $battle->turn_number);
             }
         }
         // 대상 회복 사용효과(targetRecoverHp/Mp) - 대상 최대치 대비 퍼센트 + 고정치.
-        // chance는 위 두 루프와 달리 100분율로 나눠서 비교한다(위 두 루프는 예전부터
-        // /100이 빠져있어 chance가 사실상 항상 100%로 동작하는 별개의 버그로 보임 -
-        // 이번 작업 범위 밖이라 건드리지 않고 사용자에게 별도 보고).
         foreach ($tags['target_recover_hp'] ?? [] as $entry) {
             if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
                 $amount = (int) round($target->max_hp * $entry['percent'] / 100) + $entry['flat'];
