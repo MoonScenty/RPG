@@ -404,8 +404,16 @@ class BattleEngine
      */
     private function performBasicAttack(Battle $battle, BattleUnit $actor, BattleUnit $target, bool $allowCounterReflect = true): void
     {
+        // 무기(또는 적의 <AttackAnimation>)에 애니메이션이 있으면 그걸 우선 쓰고, 없는
+        // 경우(무기 미장착 등)에만 이 "공격"(id 0) 스킬 자체의 animationId를 기본
+        // 이펙트로 대신 쓴다(프론트 BattleScene.ts가 actor.unit.weapon_animation_id ??
+        // turn.skill_animation_id 순으로 폴백) - 그 외 필드(hitType/successRate 등)는
+        // 여전히 이 메서드가 하드코딩(위 주석 참고), mz_skills id 0을 실제로 참조하는
+        // 건 이 animationId 폴백 하나뿐이다.
+        $attackSkill = $this->attackSkill();
+
         if ($allowCounterReflect && $this->checkCounter($battle, $actor, $target)) {
-            $this->log($battle, $actor, $target->fresh(), 'attack', null, $target->fresh()->current_hp, null, null, null, 'evaded');
+            $this->log($battle, $actor, $target->fresh(), 'attack', null, $target->fresh()->current_hp, $attackSkill, null, null, 'evaded');
 
             return;
         }
@@ -413,7 +421,7 @@ class BattleEngine
         $hitOutcome = $this->rollHit($actor, $target->fresh(), 1, 100);
         if ($hitOutcome !== 'hit') {
             $freshTarget = $target->fresh();
-            $this->log($battle, $actor, $freshTarget, 'attack', null, $freshTarget->current_hp, null, null, null, $hitOutcome);
+            $this->log($battle, $actor, $freshTarget, 'attack', null, $freshTarget->current_hp, $attackSkill, null, null, $hitOutcome);
 
             return;
         }
@@ -428,7 +436,13 @@ class BattleEngine
         $freshTarget->current_hp = max(0, $freshTarget->current_hp - $damage);
         $freshTarget->save();
 
-        $this->log($battle, $actor, $freshTarget, 'attack', $damage, $freshTarget->current_hp, null, null, $isCritical, 'hit');
+        $this->log($battle, $actor, $freshTarget, 'attack', $damage, $freshTarget->current_hp, $attackSkill, null, $isCritical, 'hit');
+    }
+
+    /** mz_skills id 0("공격", 공통) - 무기에 애니메이션이 없을 때 폴백 effect 소스로만 참조. */
+    private function attackSkill(): ?MzSkill
+    {
+        return MzSkill::find(0);
     }
 
     /**

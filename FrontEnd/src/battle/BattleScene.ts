@@ -675,10 +675,13 @@ export class BattleScene {
     // 타격 모션이 다 끝난 뒤가 아니라 "취하는 바로 그 순간" 이펙트가 같이 나가야
     // 자연스럽다 - playAttack을 기다리기 전에 바로 쏜다. 일반 공격은 weapon_animation_id
     // (side 구분 없음: 아군은 장착 무기(ActorSeeder), 적은 <AttackAnimation> 노트태그
-    // (EnemySeeder)), 스킬은 skill_animation_id(RPGEditor 스킬 편집 화면의 "애니메이션"
-    // 필드, SkillSeeder)를 그대로 쓴다 - 둘 다 없으면 이펙트 없이 모션만 재생.
-    if (turn.action_type === 'attack' && actor.unit.weapon_animation_id !== null && target) {
-      void this.playWeaponEffect(actor.unit.weapon_animation_id, target)
+    // (EnemySeeder))를 우선 쓰고, 무기가 없어 그 값이 없을 때만 turn.skill_animation_id
+    // (백엔드가 "공격"(id 0) 스킬 자체의 애니메이션을 폴백으로 실어보낸 값)로 대신한다.
+    // 스킬은 skill_animation_id(RPGEditor 스킬 편집 화면의 "애니메이션" 필드,
+    // SkillSeeder)를 그대로 쓴다 - 전부 없으면 이펙트 없이 모션만 재생.
+    if (turn.action_type === 'attack' && target) {
+      const attackAnimationId = actor.unit.weapon_animation_id ?? turn.skill_animation_id
+      if (attackAnimationId !== null) void this.playWeaponEffect(attackAnimationId, target)
     } else if (turn.action_type === 'skill' && turn.skill_animation_id !== null && target) {
       void this.playWeaponEffect(turn.skill_animation_id, target)
     }
