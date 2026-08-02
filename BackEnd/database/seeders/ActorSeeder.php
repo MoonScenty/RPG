@@ -86,6 +86,7 @@ class ActorSeeder extends Seeder
                 'battler_name' => $actor['battlerName'] ?: null,
                 'class_id' => $actor['classId'],
                 'face_name' => $actor['faceName'] ?: null,
+                'hud_face_name' => $actor['hudFaceName'] ?: null,
                 'initial_level' => $actor['initialLevel'],
                 'max_level' => $actor['maxLevel'],
                 'profile' => $actor['profile'] ?: null,

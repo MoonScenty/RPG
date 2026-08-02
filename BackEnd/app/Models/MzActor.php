@@ -12,7 +12,8 @@ class MzActor extends Model
 
     protected $fillable = [
         'id', 'name', 'class_id', 'character_name', 'character_index', 'face_name', 'face_index',
-        'battler_name', 'initial_level', 'max_level', 'nickname', 'note', 'profile', 'equips', 'traits',
+        'hud_face_name', 'battler_name', 'initial_level', 'max_level', 'nickname', 'note', 'profile',
+        'equips', 'traits',
     ];
 
     protected $casts = ['equips' => 'array', 'traits' => 'array'];

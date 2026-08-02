@@ -236,6 +236,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('class_id');
             $table->foreign('class_id')->references('id')->on('mz_classes');
             $table->string('face_name', 50)->nullable();
+            $table->string('hud_face_name', 50)->nullable();
             $table->unsignedTinyInteger('initial_level')->default(1);
             $table->unsignedTinyInteger('max_level')->default(99);
             $table->text('profile')->nullable();
