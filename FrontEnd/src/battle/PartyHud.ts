@@ -99,10 +99,11 @@ const STATUS_LABEL_FONT_SIZE = 11
 const STATUS_LABEL_COLOR = 0xb8b0a0
 
 // 좌측 하단에 레벨 표시(사용자 지시) - 카드 내용물이 위쪽에 몰려있는 레이아웃이라
-// STATUS와 같은 y(83)에 맞추고, 얼굴 그래픽(FACE_X=0) 바로 아래 좌측 정렬로 둔다.
+// STATUS와 같은 y(83)에서 시작해, 얼굴 그래픽(FACE_X=0) 바로 아래 좌측 정렬로 둔다.
+// 폰트 11->13(2px 확대), y 83->73(10px 위)는 사용자 지시.
 const LEVEL_LABEL_X = 10
-const LEVEL_LABEL_Y = STATUS_LABEL_CENTER_Y
-const LEVEL_LABEL_FONT_SIZE = STATUS_LABEL_FONT_SIZE
+const LEVEL_LABEL_Y = STATUS_LABEL_CENTER_Y - 10
+const LEVEL_LABEL_FONT_SIZE = STATUS_LABEL_FONT_SIZE + 2
 const LEVEL_LABEL_COLOR = STATUS_LABEL_COLOR
 
 interface Slot {
