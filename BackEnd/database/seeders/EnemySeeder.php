@@ -58,6 +58,7 @@ class EnemySeeder extends Seeder
                 'actions' => json_encode($this->convertActions($enemy['actions'] ?? [])),
                 'image_type' => $enemy['imageType'],
                 'image' => $enemy['image'],
+                'face_name' => ($enemy['faceName'] ?? '') !== '' ? $enemy['faceName'] : null,
                 'scale' => $enemy['scale'],
                 'motion_map' => json_encode($enemy['motionMap'] ?? []),
                 'traits' => json_encode($traits),

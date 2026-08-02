@@ -11,7 +11,9 @@ class MzEnemy extends Model
     protected $keyType = 'int';
 
     protected $fillable = [
-        'id', 'name', 'battler_name', 'note', 'mhp', 'mmp', 'atk', 'def', 'mat', 'mdf', 'agi', 'luk', 'actions', 'traits',
+        'id', 'name', 'note', 'hp', 'mp', 'str', 'vit', 'mnd', 'dex', 'agi', 'luk', 'int',
+        'reward_exp', 'reward_gold', 'drops', 'actions', 'image_type', 'image', 'face_name',
+        'scale', 'motion_map', 'traits',
     ];
 
     protected $casts = ['actions' => 'array', 'traits' => 'array'];

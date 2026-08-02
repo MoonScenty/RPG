@@ -8,7 +8,11 @@ namespace RPGEditor.Views;
 
 public partial class EnemyEditorView : UserControl
 {
-    public string? ProjectRootPath { get; set; }
+    public string? ProjectRootPath
+    {
+        get => FaceField.ProjectRootPath;
+        set => FaceField.ProjectRootPath = value;
+    }
 
     public EnemyEditorView()
     {

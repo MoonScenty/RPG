@@ -28,6 +28,10 @@ public partial class Enemy : DatabaseEntry
     [ObservableProperty]
     private string image = string.Empty;
 
+    /// <summary>img/faces 파일명 - 액터와 동일한 얼굴시트 폴더를 공유한다.</summary>
+    [ObservableProperty]
+    private string faceName = string.Empty;
+
     /// <summary>DragonBones 아마추어 표시 배율(%). 아마추어마다 원본 크기가 달라 개별 조정이 필요하다.</summary>
     [ObservableProperty]
     private double scale = 100;
