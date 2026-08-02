@@ -18,8 +18,24 @@
 * RPGEditor
 * RPGProject
 
-## FrontEnd 및 BackEnd
-* 예전 Hall of Avarice 에서 가져와서 진행할 예정(지금 구현 해야 하는것은 아님)
+## FrontEnd
+* Vue 3(TypeScript) + Pixi.js 8(구현됨) - ATB 사이드뷰 배틀은 Pixi 캔버스, 마을/로그인/진형 편집 등은 일반 DOM(Vue) 화면으로 구현
+
+### FrontEnd 상세
+* 상태 관리 Pinia, 라우팅 Vue Router, DragonBones 스켈레톤 애니메이션은 pixi-dragonbones-runtime
+* 주요 디렉터리
+  * src/battle - Pixi 배틀 씬(BattleScene.ts), ATB 게이지 실시간 보간/예측(atbPrediction.ts), 유닛 애니메이터, MV 애니메이션 렌더러
+  * src/views - 마을/로그인/진형 편집 등 DOM 화면
+  * src/lib - BackEnd REST API 클라이언트
+  * src/stores - Pinia 스토어
+
+## BackEnd
+* Laravel 12(PHP 8.2) + Sanctum(SPA 세션 인증) + MySQL(구현됨) - REST API 서버
+
+### BackEnd 상세
+* app/Support/BattleEngine.php - ATB 전투 엔진(명중/회피/치명타/상태이상/스킬 사용효과 등 MZ 표준 공식 재현)
+* database/seeders - RPGProject/data/*.json(RPGEditor로 관리하는 원본 데이터)을 DB로 임포트
+* 데이터의 세부 옵션(캐스팅/쿨다운/상태 조건부 효과 등)은 노트태그가 아니라 RPGEditor 각 편집 화면의 구조화 필드로 표현하는 게 원칙(App\Support\MzNoteTagParser 참고)
 
 ## RPGEditor
 * C# .NET 10.0 + WPF Visual Studio Project(지금 구현 해야 하는것)
