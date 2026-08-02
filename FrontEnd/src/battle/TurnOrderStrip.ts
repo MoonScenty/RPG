@@ -71,7 +71,8 @@ const HEX_POLYGON_POINTS = [6, 0, 25, 0, 31, 12, 25, 24, 6, 24, 0, 12]
 // 현재 턴 칸 밑에 붙는 라벨(사용자 지시).
 // 10 -> 11(사용자 지시로 1px 확대).
 const CURRENT_LABEL_FONT_SIZE = 11
-const CURRENT_LABEL_GAP = 4 // 육각형 바닥 ~ 라벨 상단 간격
+// 4 -> 5(사용자 지시로 1px 아래로).
+const CURRENT_LABEL_GAP = 5 // 육각형 바닥 ~ 라벨 상단 간격
 
 // 턴 순서 UI 전체 확대 배율(사용자 지시) - 우하단(현재 턴 칸 바닥 오른쪽) 기준으로
 // 확대해서 화면 밖으로 안 밀려나게 그 점을 고정축(pivot)으로 잡는다.
