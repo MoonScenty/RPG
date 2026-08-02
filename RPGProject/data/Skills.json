@@ -5,7 +5,7 @@
       "successRate": 100,
       "repeatCount": 1,
       "hitType": "physical",
-      "animationId": 1
+      "animationId": 0
     },
     "damage": {
       "type": "hpDamage",

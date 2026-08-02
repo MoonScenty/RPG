@@ -70,11 +70,12 @@ class SkillSeeder extends Seeder
             // 이 두 필드가 유일한 기준이다.
             $tags['require_position'] = $skill['usablePosition'] === 'any' ? null : $skill['usablePosition'];
             $tags['skill_motion'] = $skill['motion'] ?: null;
-            // MZ 관례상 animationId 0은 "없음" - 무기의 animation_id > 0 체크(EnemySeeder/
-            // ActorSeeder 참고)와 동일한 규칙.
-            $tags['skill_animation_id'] = ($skill['invocation']['animationId'] ?? 0) > 0
-                ? $skill['invocation']['animationId']
-                : null;
+            // RPGEditor AnimationField(무기 쪽과 별개 컨트롤)는 0도 목록에 있는 진짜
+            // 애니메이션("0: 타격/물리적")이라 선택 가능하게 다룬다 - "없음"은 매칭되는
+            // 항목이 아예 없을 때만 표시되지, 0을 "미설정"으로 취급하는 별도 규칙이
+            // 없다(무기의 animation_id > 0 체크와 착각해서 여기도 0을 걸러냈다가
+            // 사용자가 실제로 골라둔 0을 지워버린 사고가 있었음 - 그대로 저장한다).
+            $tags['skill_animation_id'] = $skill['invocation']['animationId'] ?? null;
             [$targetAdd, $targetRemove, $referenced] = $this->resolveEffects($skill['effects'] ?? [], $stateNames);
             $tags['target_add_states'] = $targetAdd;
             $tags['target_remove_states'] = $targetRemove;
