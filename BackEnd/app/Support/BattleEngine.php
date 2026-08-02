@@ -8,7 +8,6 @@ use App\Models\BattleUnit;
 use App\Models\BattleUnitState;
 use App\Models\FormationSlot;
 use App\Models\MercenaryGambit;
-use App\Models\MzAnimation;
 use App\Models\MzArmor;
 use App\Models\MzClass;
 use App\Models\MzItem;
@@ -147,7 +146,7 @@ class BattleEngine
             'luk' => $unit->luk,
         ];
         $attackMotion = $unit->attack_motion;
-        $weaponEffectName = $unit->weapon_effect_name;
+        $weaponAnimationId = $unit->weapon_animation_id;
         $equipTraits = $unit->equip_traits ?? [];
 
         // 아군만 유저별 장비 슬롯(user_mercenaries)이 있다 - 적은 units 스탯이 그대로 최종값.
@@ -159,7 +158,7 @@ class BattleEngine
                     $stats[$key] += $value;
                 }
                 $attackMotion = $equipment['attack_motion'];
-                $weaponEffectName = $equipment['weapon_effect_name'];
+                $weaponAnimationId = $equipment['weapon_animation_id'];
                 $equipTraits = array_merge($equipTraits, $equipment['traits']);
             }
         }
@@ -172,7 +171,7 @@ class BattleEngine
             'class_id' => $unit->class_id,
             ...$stats,
             'attack_motion' => $attackMotion,
-            'weapon_effect_name' => $weaponEffectName,
+            'weapon_animation_id' => $weaponAnimationId,
             'equip_traits' => $equipTraits,
             'dragonbones_skeleton' => $unit->dragonbones_skeleton,
             'dragonbones_atlas' => $unit->dragonbones_atlas,
@@ -185,18 +184,18 @@ class BattleEngine
 
     /**
      * user_mercenaries의 장비 4슬롯(무기/방패/몸/장신구)에서 스탯 보너스+트레잇을
-     * 합산하고, 무기의 wtypeId/animationId로 공격 모션과 일반 공격 이펙트를 정한다 -
+     * 합산하고, 무기의 wtypeId/animationId로 공격 모션과 일반 공격 애니메이션을 정한다 -
      * ActorSeeder가 예전에 시딩 시점에 하던 일을 이제 스폰 시점에 유저 장비 기준으로
      * 매번 계산한다(EquipmentController가 장비를 바꿀 수 있게 됐으므로).
      *
-     * @return array{bonus: array<string,int>, traits: array, attack_motion: string, weapon_effect_name: ?string}
+     * @return array{bonus: array<string,int>, traits: array, attack_motion: string, weapon_animation_id: ?int}
      */
     private function equipmentStatsFor(UserMercenary $mercenary): array
     {
         $bonus = ['max_hp' => 0, 'max_mp' => 0, 'atk' => 0, 'def' => 0, 'mat' => 0, 'mdf' => 0, 'spd' => 0, 'luk' => 0];
         $traits = [];
         $wtypeId = 0;
-        $weaponEffectName = null;
+        $weaponAnimationId = null;
 
         if ($mercenary->weapon_id !== null) {
             $weapon = MzWeapon::find($mercenary->weapon_id);
@@ -207,7 +206,7 @@ class BattleEngine
                 array_push($traits, ...($weapon->traits ?? []));
                 $wtypeId = $weapon->wtype_id;
                 if ($weapon->animation_id > 0) {
-                    $weaponEffectName = MzAnimation::find($weapon->animation_id)?->effect_name;
+                    $weaponAnimationId = $weapon->animation_id;
                 }
             }
         }
@@ -230,7 +229,7 @@ class BattleEngine
             'bonus' => $bonus,
             'traits' => $traits,
             'attack_motion' => MzSystemAudio::current()?->motionForWeaponType($wtypeId) ?? 'thrust',
-            'weapon_effect_name' => $weaponEffectName,
+            'weapon_animation_id' => $weaponAnimationId,
         ];
     }
 
@@ -1882,7 +1881,7 @@ class BattleEngine
                 'spd' => $u->spd,
                 'atb_gauge' => $u->atb_gauge,
                 'attack_motion' => $u->attack_motion,
-                'weapon_effect_name' => $u->weapon_effect_name,
+                'weapon_animation_id' => $u->weapon_animation_id,
                 'dragonbones_skeleton' => $u->dragonbones_skeleton,
                 'dragonbones_atlas' => $u->dragonbones_atlas,
                 'dragonbones_motions' => $u->dragonbones_motions,

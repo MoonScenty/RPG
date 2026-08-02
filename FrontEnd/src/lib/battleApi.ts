@@ -17,8 +17,8 @@ export interface BattleUnit {
   /** 진짜 ATB 게이지(0~100+, 100 도달 시 행동) - BattleEngine::pickReadyActor()가 매 advanceTurn()마다 갱신. TurnOrderStrip이 다음 턴 순서를 예측할 때 이 값+spd로 틱 시뮬레이션을 이어서 돌린다. */
   atb_gauge: number
   attack_motion: AttackMotion
-  /** 일반 공격 시 재생할 Effekseer 이펙트 파일명(확장자 없음) - 없으면 이펙트 없음. */
-  weapon_effect_name: string | null
+  /** 일반 공격 시 재생할 mz_animations.id(RPG Maker MV 포맷) - 없으면 애니메이션 없음. */
+  weapon_animation_id: number | null
   /** <DragonBonesData: 이름> 노트태그 값(파일명) - 있으면 sv 시트 대신 DragonBones 스켈레톤으로 렌더링. */
   dragonbones_skeleton: string | null
   /** <DragonBonesTextureAtlasData: 이름> 노트태그 값(파일명). */
@@ -128,20 +128,31 @@ export interface MzSoundEffect {
   volume: number
 }
 
-export interface SoundTiming {
+/** RPG Maker MV 애니메이션 프레임 하나의 셀 항목 - [pattern, x, y, scale, rotation, mirror, opacity, blendType]. */
+export type MvAnimationCell = [number, number, number, number, number, number, number, number]
+
+export interface MvAnimationTiming {
   frame: number
-  se: MzSoundEffect
+  se: MzSoundEffect | null
+  flashColor: [number, number, number, number]
+  flashDuration: number
+  /** 1=대상 플래시, 2=화면 플래시, 3=대상 숨김(지속시간 flashDuration*rate). 0이면 아무 효과 없음(se만). */
+  flashScope: number
 }
 
-export interface BattleEffectInfo {
-  /** mz_animations.effect_name(확장자 없는 .efkefc 파일명) - BattleUnit.weapon_effect_name과 대응. */
-  name: string
-  /** MZ 원본 퍼센트(100=1배) - Effekseer 핸들의 setScale 인자로 그대로 나눠 쓴다. */
-  scale: number
-  sound_timings: SoundTiming[]
+export interface MvAnimation {
+  id: number
+  animation1_name: string | null
+  animation1_hue: number
+  animation2_name: string | null
+  animation2_hue: number
+  /** 0=머리, 1=중앙(기본), 2=발밑, 3=화면 고정. */
+  position: number
+  frames: MvAnimationCell[][]
+  timings: MvAnimationTiming[]
 }
 
-/** mz_animations 전체의 재생 메타데이터(크기/효과음 타이밍) - 이펙트 종류별 고정값이라 유닛 응답과 분리. */
-export function getBattleEffects(): Promise<BattleEffectInfo[]> {
-  return apiRequest('GET', '/api/battle-effects')
+/** mz_animations 전체(스프라이트시트/프레임/타이밍) - 애니메이션 종류별 고정값이라 유닛 응답과 분리. */
+export function getBattleAnimations(): Promise<MvAnimation[]> {
+  return apiRequest('GET', '/api/battle-animations')
 }

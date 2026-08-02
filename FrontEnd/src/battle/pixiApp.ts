@@ -2,7 +2,6 @@ import { Application, Container } from 'pixi.js'
 import { preloadBattleAssets } from './assets'
 import { BattleScene } from './BattleScene'
 import { preloadCharacterAnimations } from './characters'
-import { EffekseerOverlay, ensureEffekseerRuntime } from './effekseer'
 import { STAGE_HEIGHT, STAGE_WIDTH } from './layout'
 
 let assetsReady: Promise<void> | null = null
@@ -22,17 +21,7 @@ function ensureAssetsLoaded(): Promise<void> {
  * - onExit과 중복 실행되지 않도록 내부에서 한 번만 실행되게 막는다.
  */
 export async function mountBattle(container: HTMLElement, onExit: () => void): Promise<() => void> {
-  // Effekseer 런타임(WASM)은 무기 이펙트 전용 부가 기능이라, 못 불러와도(구형
-  // 브라우저, 네트워크 문제 등) 전투 자체는 진행되게 실패를 조용히 흡수한다.
-  const [, effekseerReady] = await Promise.all([
-    ensureAssetsLoaded(),
-    ensureEffekseerRuntime()
-      .then(() => true)
-      .catch((err: unknown) => {
-        console.warn('Effekseer 런타임을 불러오지 못해 무기 이펙트 없이 진행합니다.', err)
-        return false
-      }),
-  ])
+  await ensureAssetsLoaded()
 
   const app = new Application()
   await app.init({
@@ -47,15 +36,6 @@ export async function mountBattle(container: HTMLElement, onExit: () => void): P
   container.innerHTML = ''
   container.appendChild(app.canvas)
 
-  let effekseerOverlay: EffekseerOverlay | null = null
-  if (effekseerReady) {
-    try {
-      effekseerOverlay = new EffekseerOverlay(container)
-    } catch (err) {
-      console.warn('Effekseer 오버레이 생성에 실패해 무기 이펙트 없이 진행합니다.', err)
-    }
-  }
-
   const stageRoot = new Container()
   app.stage.addChild(stageRoot)
 
@@ -66,7 +46,6 @@ export async function mountBattle(container: HTMLElement, onExit: () => void): P
     app.renderer.resize(width, height)
     stageRoot.scale.set(scale)
     stageRoot.position.set((width - STAGE_WIDTH * scale) / 2, (height - STAGE_HEIGHT * scale) / 2)
-    effekseerOverlay?.resize(width, height)
   }
   window.addEventListener('resize', fitToContainer)
   fitToContainer()
@@ -78,10 +57,9 @@ export async function mountBattle(container: HTMLElement, onExit: () => void): P
     window.removeEventListener('resize', fitToContainer)
     scene.destroy() // 렌더러가 죽기 전에 턴 루프부터 멈춘다
     app.destroy(true)
-    effekseerOverlay?.dispose()
   }
 
-  const scene = new BattleScene(app, effekseerOverlay, () => {
+  const scene = new BattleScene(app, () => {
     teardown()
     onExit()
   })

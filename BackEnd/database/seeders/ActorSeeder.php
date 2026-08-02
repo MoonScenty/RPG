@@ -45,7 +45,7 @@ class ActorSeeder extends Seeder
                     'class_id' => $actor['classId'],
                     'sprite' => $this->faceSprite($actor['battlerName']),
                     'attack_motion' => 'thrust',
-                    'weapon_effect_name' => null,
+                    'weapon_animation_id' => null,
                     'equip_traits' => [],
                     ...$stats,
                 ],

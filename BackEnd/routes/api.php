@@ -47,7 +47,7 @@ Route::middleware('auth:sanctum')->group(function (): void {
     Route::put('/mercenaries/{unitId}/gambits/active', [MercenaryGambitController::class, 'setActive']);
 
     Route::get('/battle-audio', [BattleController::class, 'audio']);
-    Route::get('/battle-effects', [BattleController::class, 'effects']);
+    Route::get('/battle-animations', [BattleController::class, 'animations']);
     // /battles/active는 /battles/{id}보다 먼저 등록해야 한다 - 안 그러면 "active"가
     // {id}로 매칭돼서 이 라우트에 절대 안 걸린다.
     Route::get('/battles/active', [BattleController::class, 'active']);

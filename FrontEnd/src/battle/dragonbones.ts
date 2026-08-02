@@ -2,7 +2,7 @@ import { Assets } from 'pixi.js'
 import { PixiFactory, EventObject, type PixiArmatureDisplay } from 'pixi-dragonbones-runtime'
 
 // DragonBones 스켈레톤/텍스처 아틀라스 런타임 export 파일 위치 - mz_project/img/dragonbones/*를
-// 그대로 복사해둔 것(effekseer/effects와 동일한 public 정적 에셋 컨벤션). 노트태그 값
+// 그대로 복사해둔 것(img/animations와 동일한 public 정적 에셋 컨벤션). 노트태그 값
 // (<DragonBonesData: 이름>)은 이 폴더 안 파일명일 뿐, DB row를 가리키는 게 아니다.
 const DRAGONBONES_BASE_URL = '/assets/dragonbones/'
 

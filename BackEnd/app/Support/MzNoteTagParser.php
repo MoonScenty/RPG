@@ -40,11 +40,9 @@ class MzNoteTagParser
     }
 
     /**
-     * 적 전용 태그. AttackAnimation은 다른 노트태그처럼 상태/스킬 "이름"이 아니라
-     * mz_animations.name(에디터에 보이는 한글 이름, 예: "물리 타격")을 가리킨다 -
-     * MzImportSeeder가 mz_animations에서 그 이름의 effect_name을 찾아
-     * units.weapon_effect_name에 넣는다(이름 자체는 mz_animations에도 없어서
-     * ID 대신 이름으로 참조하는 프로젝트 관례를 그대로 따름).
+     * 적 전용 태그. AttackAnimation은 mz_animations.id(Animations_mv.json 원본 ID)를
+     * 직접 가리키는 숫자다 - MV 포맷 전환 이후 mz_animations.name이 인코딩 깨짐으로
+     * 못 쓰게 돼서(원본 파일 자체가 깨진 채로 옴) 이름 참조 대신 ID 참조로 바꿨다.
      *
      * DragonBonesData/DragonBonesTextureAtlasData는 DB 데이터가 아니라
      * mz_project/img/dragonbones/{값}.json 파일명 자체를 가리키므로 이름-참조
@@ -68,7 +66,7 @@ class MzNoteTagParser
     public static function parseEnemyTags(string $note): array
     {
         return [
-            'attack_animation_name' => self::stringValue($note, 'AttackAnimation'),
+            'attack_animation_id' => self::intValue($note, 'AttackAnimation'),
             'dragonbones_skeleton' => self::stringValue($note, 'DragonBonesData'),
             'dragonbones_atlas' => self::stringValue($note, 'DragonBonesTextureAtlasData'),
             'dragonbones_motions' => self::pairValues($note, 'DragonBonesMotion'),

@@ -293,19 +293,20 @@ return new class extends Migration
             $table->json('defeat_me');
         });
 
+        // Animations_mv.json(RPG Maker MV 원본 포맷) 그대로 임포트 - id 고정
+        // 유지(Items.json weapon.animationId, Enemies.json <AttackAnimation: id>가 참조).
+        // Effekseer(.efkefc) 대신 스프라이트시트 셀 애니메이션(animation1/2Name,
+        // frames, timings)으로 재생한다 - FrontEnd의 mvAnimation.ts 참고.
         Schema::create('mz_animations', function (Blueprint $table) {
             $table->unsignedSmallInteger('id')->primary();
-            $table->string('name', 50);
-            $table->text('note')->nullable();
-            $table->unsignedTinyInteger('display_type')->default(0);
-            $table->string('effect_name', 100)->nullable();
-            $table->integer('offset_x')->default(0);
-            $table->integer('offset_y')->default(0);
-            $table->unsignedInteger('scale')->default(100);
-            $table->unsignedInteger('speed')->default(100);
-            $table->json('rotation')->nullable();
-            $table->json('flash_timings')->nullable();
-            $table->json('sound_timings')->nullable();
+            $table->string('name', 50)->nullable();
+            $table->string('animation1_name', 100)->nullable();
+            $table->unsignedSmallInteger('animation1_hue')->default(0);
+            $table->string('animation2_name', 100)->nullable();
+            $table->unsignedSmallInteger('animation2_hue')->default(0);
+            $table->unsignedTinyInteger('position')->default(1);
+            $table->json('frames');
+            $table->json('timings');
         });
 
         // Types.json: elements/skillTypes/weaponTypes/armorTypes/equipTypes 배열 - 배열

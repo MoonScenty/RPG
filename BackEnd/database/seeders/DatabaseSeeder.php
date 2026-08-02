@@ -26,9 +26,7 @@ class DatabaseSeeder extends Seeder
             // class_id/learn_level 역산, ActorSeeder의 rawStatsAtLevel이 참조).
             // StateSeeder는 SkillSeeder/ItemSeeder보다 먼저(둘 다 상태 이름 존재 검증에
             // States 테이블 대신 직접 States.json을 다시 읽으므로 순서 자체는 무관하지만
-            // 관례상 앞에 둔다). AnimationSeeder는 EnemySeeder의 <AttackAnimation> 태그
-            // 조회(mz_animations.effect_name)가 필요해서 EnemySeeder보다 먼저 와야 한다.
-            // WeaponSeeder/ArmorSeeder는 ActorSeeder(equips 참조)보다 먼저.
+            // 관례상 앞에 둔다). WeaponSeeder/ArmorSeeder는 ActorSeeder(equips 참조)보다 먼저.
             $this->call(TypesAndSystemAudioSeeder::class);
             $this->call(ClassSeeder::class);
             $this->call(StateSeeder::class);

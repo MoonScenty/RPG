@@ -11,14 +11,12 @@ class MzAnimation extends Model
     protected $keyType = 'int';
 
     protected $fillable = [
-        'id', 'name', 'effect_name', 'display_type', 'offset_x', 'offset_y',
-        'scale', 'speed', 'rotation', 'flash_timings', 'sound_timings',
+        'id', 'name', 'animation1_name', 'animation1_hue', 'animation2_name', 'animation2_hue',
+        'position', 'frames', 'timings',
     ];
 
     protected $casts = [
-        'scale' => 'integer',
-        'rotation' => 'array',
-        'flash_timings' => 'array',
-        'sound_timings' => 'array',
+        'frames' => 'array',
+        'timings' => 'array',
     ];
 }

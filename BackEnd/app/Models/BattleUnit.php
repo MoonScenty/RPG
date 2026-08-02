@@ -10,7 +10,7 @@ class BattleUnit extends Model
 
     protected $fillable = [
         'battle_id', 'unit_id', 'side', 'slot', 'class_id',
-        'max_hp', 'max_mp', 'atk', 'def', 'mat', 'mdf', 'spd', 'luk', 'attack_motion', 'weapon_effect_name', 'equip_traits',
+        'max_hp', 'max_mp', 'atk', 'def', 'mat', 'mdf', 'spd', 'luk', 'attack_motion', 'weapon_animation_id', 'equip_traits',
         'dragonbones_skeleton', 'dragonbones_atlas', 'dragonbones_motions', 'dragonbones_scale',
         'current_hp', 'current_mp',
         'casting_skill_id', 'casting_target_battle_unit_id', 'casting_turns_remaining', 'skill_cooldowns',

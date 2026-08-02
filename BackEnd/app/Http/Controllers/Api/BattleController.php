@@ -41,21 +41,26 @@ class BattleController extends Controller
     }
 
     /**
-     * mz_animations의 effect_name별 재생 메타데이터(scale/sound_timings) - units.
-     * weapon_effect_name은 파일명만 가리키므로, 실제 재생 크기·효과음 타이밍은
-     * 여기서 이름으로 조회한다. 유닛마다 달라지는 값이 아니라 이펙트 종류에
-     * 고정된 값이라 별도 카탈로그 엔드포인트로 뺐다(battle-audio와 동일 패턴).
+     * mz_animations 전체(RPG Maker MV 포맷: animation1/2Name, frames, timings,
+     * position) - units.weapon_animation_id는 숫자 id만 가리키므로, 실제 재생에
+     * 필요한 스프라이트시트/프레임/타이밍 데이터는 여기서 id로 조회한다. 유닛마다
+     * 달라지는 값이 아니라 애니메이션 종류에 고정된 값이라 별도 카탈로그
+     * 엔드포인트로 뺐다(battle-audio와 동일 패턴).
      */
-    public function effects()
+    public function animations()
     {
-        $animations = MzAnimation::whereNotNull('effect_name')->get(['effect_name', 'scale', 'sound_timings']);
-
         return response()->json(
-            $animations->map(fn (MzAnimation $a) => [
-                'name' => $a->effect_name,
-                'scale' => $a->scale,
-                'sound_timings' => $a->sound_timings,
-            ])->values(),
+            MzAnimation::all(['id', 'animation1_name', 'animation1_hue', 'animation2_name', 'animation2_hue', 'position', 'frames', 'timings'])
+                ->map(fn (MzAnimation $a) => [
+                    'id' => $a->id,
+                    'animation1_name' => $a->animation1_name,
+                    'animation1_hue' => $a->animation1_hue,
+                    'animation2_name' => $a->animation2_name,
+                    'animation2_hue' => $a->animation2_hue,
+                    'position' => $a->position,
+                    'frames' => $a->frames,
+                    'timings' => $a->timings,
+                ])->values(),
         );
     }
 

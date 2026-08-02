@@ -2,24 +2,23 @@ import { Application, Assets, Container, FillGradient, Graphics, Point, Sprite, 
 import {
   advanceTurn,
   createOrResumeBattle,
+  getBattleAnimations,
   getBattleAudio,
-  getBattleEffects,
   isUnitAlive,
   type BattleAudio,
-  type BattleEffectInfo,
   type BattleLogEntry,
   type BattleLogTarget,
   type BattleState,
   type BattleUnit,
 } from '@/lib/battleApi'
 import { battleback1Url, battleback2Url, SHADOW_URL } from './assets'
-import { playBattleBgm, playResultMe, playSe, stopBattleBgm } from './audio'
+import { playBattleBgm, playResultMe, stopBattleBgm } from './audio'
 import { BattlerSprite, LOW_HP_RATIO, type Animator } from './BattlerSprite'
 import { characterKeyForSprite, getCharacterFrames } from './characters'
 import { loadCircleImage } from './circleImages'
 import { buildArmature } from './dragonbones'
 import { DragonBonesAnimator } from './DragonBonesAnimator'
-import type { EffekseerOverlay } from './effekseer'
+import { MvAnimationPlayer } from './mvAnimation'
 import { slotPosition, STAGE_HEIGHT, STAGE_WIDTH } from './layout'
 import { FONT_FAMILY } from './theme'
 import { easeOutQuad, tween } from './tween'
@@ -78,7 +77,7 @@ export class BattleScene {
   readonly root = new Container()
 
   private readonly app: Application
-  private readonly effekseer: EffekseerOverlay | null
+  private readonly mvAnimations: MvAnimationPlayer
   private readonly onExit: () => void
 
   // 기본값(Grassland)으로 우선 그려두고, start()가 상태를 받으면 실제 트룹의
@@ -96,7 +95,6 @@ export class BattleScene {
   private enemyLabels = new Map<number, EnemyLabel>()
   private partyHud: PartyHud | null = null
   private audio: BattleAudio | null = null
-  private effectsCatalog = new Map<string, BattleEffectInfo>()
   private battleId = 0
   private stopped = false
   // loop()가 다음 advanceTurn() 호출 전에 "게이지가 실제로 차오르는" 대기 연출을
@@ -106,9 +104,9 @@ export class BattleScene {
   // 대기 중이던 타이머가 뒤늦게 끼어들어 화면을 지우지 않게 막는다.
   private logToken = 0
 
-  constructor(app: Application, effekseer: EffekseerOverlay | null, onExit: () => void) {
+  constructor(app: Application, onExit: () => void) {
     this.app = app
-    this.effekseer = effekseer
+    this.mvAnimations = new MvAnimationPlayer(app)
     this.onExit = onExit
     this.turnOrderStrip = new TurnOrderStrip(app)
 
@@ -127,6 +125,7 @@ export class BattleScene {
     this.root.addChild(this.bg2)
 
     this.root.addChild(this.unitLayer)
+    this.root.addChild(this.mvAnimations.container)
 
     this.statusText = new Text({
       text: '전투 준비 중...',
@@ -205,14 +204,14 @@ export class BattleScene {
 
   async start(): Promise<void> {
     try {
-      const [state, audio, effects] = await Promise.all([
+      const [state, audio, animations] = await Promise.all([
         createOrResumeBattle(),
         getBattleAudio(),
-        getBattleEffects(),
+        getBattleAnimations(),
       ])
       this.battleId = state.id
       this.audio = audio
-      this.effectsCatalog = new Map(effects.map((e) => [e.name, e]))
+      this.mvAnimations.setCatalog(animations)
       this.latestState = state
 
       await Promise.all([
@@ -633,11 +632,11 @@ export class BattleScene {
     const attackAnim = actor.animator.playAttack(motion)
 
     // 타격 모션이 다 끝난 뒤가 아니라 "취하는 바로 그 순간" 이펙트가 같이 나가야
-    // 자연스럽다 - playAttack을 기다리기 전에 바로 쏜다(일반 공격 + weapon_effect_name이
-    // 연결돼 있을 때만 - 스킬 전용 이펙트는 범위 밖). side 구분 없음: 아군은 장착
-    // 무기(ActorSeeder), 적은 <AttackAnimation> 노트태그(MzImportSeeder)로 채워진다.
-    if (turn.action_type === 'attack' && actor.unit.weapon_effect_name && target) {
-      void this.playWeaponEffect(actor.unit.weapon_effect_name, target)
+    // 자연스럽다 - playAttack을 기다리기 전에 바로 쏜다(일반 공격 + weapon_animation_id가
+    // 연결돼 있을 때만 - 스킬 전용 애니메이션은 범위 밖). side 구분 없음: 아군은 장착
+    // 무기(ActorSeeder), 적은 <AttackAnimation> 노트태그(EnemySeeder)로 채워진다.
+    if (turn.action_type === 'attack' && actor.unit.weapon_animation_id !== null && target) {
+      void this.playWeaponEffect(actor.unit.weapon_animation_id, target)
     }
 
     await attackAnim
@@ -721,27 +720,35 @@ export class BattleScene {
   }
 
   /**
-   * 대상의 화면상 위치(체력 절반 높이)에 Effekseer 파티클 이펙트 + 효과음을
-   * 재생한다. scale/sound_timings는 mz_animations 원본 값(effectsCatalog, start()에서
-   * 한 번만 받아둠) - 크기를 안 맞추면 원본(scale=100)보다 과도하게 크게 보인다.
-   * 로드/재생 실패(네트워크, WASM 미지원 브라우저 등)는 전투 진행에 영향 없이
-   * 조용히 무시 - 이펙트는 부가 연출이지 전투 로직의 일부가 아니다.
+   * 대상의 화면상 위치에 MV 스프라이트시트 애니메이션(mz_animations)을 재생한다.
+   * target.container의 원점이 이미 발밑(bottom-anchor)이라 그대로 기준점으로
+   * 쓰면 되고, 머리/중앙/발밑 오프셋은 MvAnimationPlayer가 position 값으로
+   * 알아서 계산한다. 로드/재생 실패는 전투 진행에 영향 없이 조용히 무시
+   * - 애니메이션은 부가 연출이지 전투 로직의 일부가 아니다.
    */
-  private async playWeaponEffect(effectName: string, target: UnitView): Promise<void> {
-    if (!this.effekseer) return
+  private async playWeaponEffect(animationId: number, target: UnitView): Promise<void> {
     try {
-      const effect = await this.effekseer.loadEffect(effectName)
-      const point = target.container.toGlobal(new Point(0, -target.displayHeight / 2))
-      const info = this.effectsCatalog.get(effectName)
-      this.effekseer.playAt(effect, point.x, point.y, (info?.scale ?? 100) / 100)
-
-      for (const timing of info?.sound_timings ?? []) {
-        // MZ 기준 1프레임 = 1/60초(rmmz_managers.js SceneManager.updateEffekseer가
-        // 매 프레임 한 번씩 부르는 것과 동일한 가정).
-        setTimeout(() => playSe(timing.se), (timing.frame / 60) * 1000)
-      }
+      const point = target.container.toGlobal(new Point(0, 0))
+      await this.mvAnimations.playAt(animationId, {
+        x: point.x,
+        y: point.y,
+        height: target.displayHeight,
+        applyFlash: (color) => {
+          target.hitOverlay.tint = (color[0] << 16) | (color[1] << 8) | color[2]
+          target.hitOverlay.alpha = color[3] / 255
+        },
+        clearFlash: () => {
+          target.hitOverlay.alpha = 0
+        },
+        hide: () => {
+          target.container.visible = false
+        },
+        show: () => {
+          target.container.visible = true
+        },
+      })
     } catch (err) {
-      console.warn(`무기 이펙트 재생 실패: ${effectName}`, err)
+      console.warn(`무기 애니메이션 재생 실패: ${animationId}`, err)
     }
   }
 

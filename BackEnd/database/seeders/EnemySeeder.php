@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\MzAnimation;
 use App\Models\Unit;
 use App\Support\MzNoteTagParser;
 use App\Support\StatFormula;
@@ -89,22 +88,13 @@ class EnemySeeder extends Seeder
     /** MzImportSeeder::syncEnemyUnits()와 동일한 upsert 패턴(과거 전투 기록의 unit_id RESTRICT 때문에 이름으로 찾음). */
     private function syncEnemyUnits(array $enemies): void
     {
-        $effectNameByAnimationName = MzAnimation::pluck('effect_name', 'name')->all();
-        $missingAnimationNames = [];
-
         foreach ($enemies as $enemy) {
             if ($enemy['name'] === '') {
                 continue;
             }
 
             $tags = MzNoteTagParser::parseEnemyTags($enemy['note'] ?? '');
-            $weaponEffectName = null;
-            if ($tags['attack_animation_name'] !== null) {
-                $weaponEffectName = $effectNameByAnimationName[$tags['attack_animation_name']] ?? null;
-                if ($weaponEffectName === null) {
-                    $missingAnimationNames[] = $tags['attack_animation_name'];
-                }
-            }
+            $weaponAnimationId = $tags['attack_animation_id'];
 
             $motionMap = [];
             foreach ($tags['dragonbones_motions'] as [$motionName, $clipName]) {
@@ -131,7 +121,7 @@ class EnemySeeder extends Seeder
                     'mz_enemy_id' => $enemy['id'],
                     'sprite' => 'Enemy:' . $enemy['image'],
                     'attack_motion' => 'thrust',
-                    'weapon_effect_name' => $weaponEffectName,
+                    'weapon_animation_id' => $weaponAnimationId,
                     // FrontEnd/public/assets/dragonbones/*의 실제 파일명은 "{image}_ske.json"
                     // /"{image}_tex.json"(+"_tex.png") 컨벤션이라(effekseer 등과 달리 스켈레톤/
                     // 아틀라스가 별 파일), image 필드만으로 폴백할 땐 이 접미사를 직접 붙여야
@@ -146,12 +136,6 @@ class EnemySeeder extends Seeder
                     'atk' => $stats['atk'], 'def' => $stats['def'], 'mat' => $stats['mat'], 'mdf' => $stats['mdf'],
                     'spd' => $stats['spd'], 'luk' => $stats['luk'],
                 ],
-            );
-        }
-
-        if ($missingAnimationNames !== []) {
-            throw new \RuntimeException(
-                '적 노트태그가 존재하지 않는 애니메이션을 참조합니다: ' . implode(', ', array_unique($missingAnimationNames)),
             );
         }
     }
