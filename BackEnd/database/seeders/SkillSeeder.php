@@ -106,6 +106,18 @@ class SkillSeeder extends Seeder
                 ? ['name' => $magicCircleImage, 'scale' => $skill['magicCircleScale'] ?? 1]
                 : null;
 
+            // 캐스팅/쿨다운/MP 추가 회복/흡혈/게이지 증가량/전MP 소모/자리 변경도
+            // 전부 RPGEditor 스킬 편집 화면에 구조화 필드(TextBox/CheckBox)가 새로
+            // 생겨서, 이제 그 필드가 유일한 소스다(Casting/Cooldown/MpRecover/
+            // Lifesteal/GaugeBoost/ConsumeAllMp/SwapPosition 노트태그는 파서에서 제거).
+            $tags['casting_turns'] = $skill['castingTurns'] ?? null;
+            $tags['cooldown_turns'] = $skill['cooldownTurns'] ?? null;
+            $tags['mp_recover'] = $skill['mpRecoverOnUse'] ?? null;
+            $tags['lifesteal_pct'] = $skill['lifestealPercent'] ?? null;
+            $tags['gauge_boost'] = $skill['gaugeBoostAmount'] ?? null;
+            $tags['consume_all_mp'] = $skill['consumeAllMp'] ?? false;
+            $tags['swap_position'] = $skill['swapPosition'] ?? false;
+
             foreach (['require_target_state', 'require_self_state', 'apply_self_state'] as $key) {
                 if ($tags[$key] !== null) {
                     $referencedStates[] = $tags[$key];
@@ -119,7 +131,7 @@ class SkillSeeder extends Seeder
 
             $rawScope = $skill['scope'];
             $scope = self::SCOPE_MAP[$rawScope] ?? 1;
-            if (str_contains($note, '<TargetDead>')) {
+            if ($skill['targetDeadAllies'] ?? false) {
                 $scope = $scope === 8 ? 10 : 9; // allAllies+TargetDead=10, oneAlly+TargetDead=9
             }
             if (isset(self::ROW_TAG_MAP[$rawScope]) && ! str_contains($note, '<' . self::ROW_TAG_MAP[$rawScope] . '>')) {

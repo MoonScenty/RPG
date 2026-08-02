@@ -53,4 +53,36 @@ public partial class Skill : DatabaseEntry
     /// <summary>마법진 이미지 표시 배율 - 1이 원본 크기(퍼센트 아님, Pixi scale.set()에 그대로 씀).</summary>
     [ObservableProperty]
     private double magicCircleScale = 1;
+
+    /// <summary>캐스팅(시전 대기) 턴 수. null이면 즉시 발동(캐스팅 없음).</summary>
+    [ObservableProperty]
+    private int? castingTurns;
+
+    /// <summary>재사용 대기시간(턴). null이면 쿨다운 없음.</summary>
+    [ObservableProperty]
+    private int? cooldownTurns;
+
+    /// <summary>MP 소모 후 시전자에게 추가로 회복시킬 MP 고정치. null이면 회복 없음.</summary>
+    [ObservableProperty]
+    private int? mpRecoverOnUse;
+
+    /// <summary>가한 피해의 몇 %를 시전자 HP로 흡수할지. null이면 흡혈 없음.</summary>
+    [ObservableProperty]
+    private int? lifestealPercent;
+
+    /// <summary>시전자 자신의 ATB 게이지를 즉시 올리는 양. null이면 없음.</summary>
+    [ObservableProperty]
+    private int? gaugeBoostAmount;
+
+    /// <summary>사용 시 MP를 전부 소모(잔여 MP 그대로 소진)하는지.</summary>
+    [ObservableProperty]
+    private bool consumeAllMp;
+
+    /// <summary>사용 시 시전자를 전열/후열 반대 줄로 옮기는지("자리 변경" 계열 스킬 전용).</summary>
+    [ObservableProperty]
+    private bool swapPosition;
+
+    /// <summary>전투불능 상태인 아군도 대상으로 고를 수 있는지(부활 스킬 등, 아군 대상 스킬 전용).</summary>
+    [ObservableProperty]
+    private bool targetDeadAllies;
 }

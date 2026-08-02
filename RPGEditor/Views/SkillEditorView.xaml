@@ -119,6 +119,53 @@
                             </StackPanel>
                         </Border>
 
+                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="특수 효과 (비우면 없음)" FontWeight="Bold" Margin="0,0,0,6" />
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="캐스팅(턴)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.CastingTurns, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="쿨다운(턴)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.CooldownTurns, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="4">
+                                        <TextBlock Text="MP 추가 회복" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.MpRecoverOnUse, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="흡혈(%)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.LifestealPercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="게이지 즉시 증가량" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.GaugeBoostAmount, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                </Grid>
+                                <WrapPanel>
+                                    <CheckBox Content="사용 시 MP 전부 소모" IsChecked="{Binding Selected.ConsumeAllMp}" Margin="0,0,16,0" />
+                                    <CheckBox Content="사용 시 자리 변경(전열↔후열)" IsChecked="{Binding Selected.SwapPosition}" Margin="0,0,16,0" />
+                                    <CheckBox Content="전투불능 아군도 대상 가능" IsChecked="{Binding Selected.TargetDeadAllies}" />
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+
                         <TextBlock Text="메시지 (%1=자신, %2=스킬명, %3=대상)" Margin="0,0,0,4" />
                         <TextBox Text="{Binding Selected.Message, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>

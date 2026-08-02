@@ -10,22 +10,19 @@ namespace App\Support;
 class MzNoteTagParser
 {
     /**
-     * require_self_state/circle_image는 RPGEditor 스킬 편집 화면의 구조화 필드
-     * (RequiredStateId/MagicCircleImage+MagicCircleScale)로 대체되어 더 이상
-     * 노트태그로 안 쓴다 - SkillSeeder가 그 필드를 직접 읽어 tags를 덮어쓴다.
+     * require_self_state/circle_image/casting_turns/cooldown_turns/mp_recover/
+     * lifesteal_pct/gauge_boost/consume_all_mp/swap_position/target_dead_allies는
+     * RPGEditor 스킬 편집 화면의 구조화 필드(RequiredStateId, MagicCircleImage+
+     * MagicCircleScale, CastingTurns, CooldownTurns, MpRecoverOnUse,
+     * LifestealPercent, GaugeBoostAmount, ConsumeAllMp, SwapPosition,
+     * TargetDeadAllies)로 대체되어 더 이상 노트태그로 안 쓴다 - SkillSeeder가 그
+     * 필드를 직접 읽어 tags를 덮어쓴다.
      *
      * @return array<string, mixed>
      */
     public static function parseSkillTags(string $note): array
     {
         return [
-            'casting_turns' => self::intValue($note, 'Casting'),
-            'cooldown_turns' => self::intValue($note, 'Cooldown'),
-            'mp_recover' => self::intValue($note, 'MpRecover'),
-            'lifesteal_pct' => self::intValue($note, 'Lifesteal'),
-            'gauge_boost' => self::intValue($note, 'GaugeBoost'),
-            'consume_all_mp' => self::hasFlag($note, 'ConsumeAllMp'),
-            'swap_position' => self::hasFlag($note, 'SwapPosition'),
             'target_front_row' => self::hasFlag($note, 'TargetFrontRow'),
             'target_back_row' => self::hasFlag($note, 'TargetBackRow'),
             'remove_self_states' => self::stringValues($note, 'RemoveState'),
