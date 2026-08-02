@@ -61,8 +61,9 @@ const FACE_MASK_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
 // 얼굴 원본(144x144/96x96)이 정사각형이라 가로:세로를 억지로 안 늘리고 1:1
 // 유지(사용자 지시) - 육각형이 세로보다 가로가 넓어서 세로 길이(FACE_MASK_HEIGHT)
 // 기준으로 정사각형을 만들고 안쪽 자리에서 가로 중앙 정렬한다.
-// 사용자 지시로 2px 확대 + 아래로 1px 이동(마스크도 FACE_SIZE를 그대로 쓰므로 같이 커짐).
-const FACE_SIZE = FACE_MASK_HEIGHT + 2
+// 사용자 지시로 2px 확대 + 아래로 1px 이동, 이어서 크기만 2px 추가 확대(마스크도
+// FACE_SIZE를 그대로 쓰므로 같이 커짐).
+const FACE_SIZE = FACE_MASK_HEIGHT + 4
 const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
 const FACE_Y_OFFSET = FACE_INSET + 1
 
