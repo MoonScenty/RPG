@@ -34,9 +34,14 @@ import { tween } from './tween'
 // (실서버에서 확인 - 적 육각형이 아예 안 보이고 아군 육각형도 자리가 밀림).
 // 배열에 나온 순서대로 "이 id의 n번째 등장"까지 합쳐 키로 써서 각 등장을
 // 독립된 칸으로 추적한다.
-const HEX_WIDTH = 32
-const HEX_HEIGHT = 25
-const HEX_PITCH = 34
+// ReferenceResource/turn_hud의 육각형 이미지를 48x38(기존 32x25의 1.5배)로 다시
+// 그려받았다(사용자 지시) - 이제 원본 자체가 최종 화면 크기라 UI_SCALE을 1로
+// 낮췄고, 이 파일의 모든 픽셀 상수(폭/높이/간격/여백/폰트 크기 등)를 전부 1.5배로
+// 같이 올렸다(예전엔 이 값들을 정하고 컨테이너 전체를 1.5배로 키웠지만, 이제
+// 원본 이미지가 이미 1.5배라 상수 자체가 곧 최종 화면 픽셀 값이어야 함).
+const HEX_WIDTH = 48
+const HEX_HEIGHT = 38
+const HEX_PITCH = 51
 const HEX_COUNT = 7
 
 // 육각형 줄 오른쪽 끝 ~ 화면 우측 끝 여백, 줄 아래쪽 ~ 화면 하단 여백 -
@@ -55,32 +60,29 @@ function slotX(queueIndex: number): number {
 
 // 얼굴을 육각형보다 이만큼씩 안쪽으로 들여서, 육각형 원본 테두리가 진영색 테두리로
 // 남게 한다(사용자 지시 - 별도 링 에셋 없이 기존 육각형 그림만으로 프레임 효과).
-const FACE_INSET = 3
+const FACE_INSET = 5
 const FACE_MASK_WIDTH = HEX_WIDTH - FACE_INSET * 2
 const FACE_MASK_HEIGHT = HEX_HEIGHT - FACE_INSET * 2
 // 얼굴 원본(144x144/96x96)이 정사각형이라 가로:세로를 억지로 안 늘리고 1:1
 // 유지(사용자 지시) - 육각형이 세로보다 가로가 넓어서 세로 길이(FACE_MASK_HEIGHT)
 // 기준으로 정사각형을 만들고 안쪽 자리에서 가로 중앙 정렬한다.
-// 사용자 지시로 2px 확대 + 아래로 1px 이동, 이어서 크기만 2px 추가 확대(마스크도
-// FACE_SIZE를 그대로 쓰므로 같이 커짐).
-const FACE_SIZE = FACE_MASK_HEIGHT + 4
+const FACE_SIZE = FACE_MASK_HEIGHT + 6
 const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
-// +1(아래) -> +0(사용자 지시로 위로 1px).
 const FACE_Y_OFFSET = FACE_INSET
 
-// turn-hex-actor.png(32x25) 알파 채널을 픽셀 단위로 실측해서 뽑은 육각형 윤곽선
+// turn-hex-actor.png(48x38) 알파 채널을 픽셀 단위로 실측해서 뽑은 육각형 윤곽선
 // 좌표(플랫탑 육각형).
-const HEX_POLYGON_POINTS = [6, 0, 25, 0, 31, 12, 25, 24, 6, 24, 0, 12]
+const HEX_POLYGON_POINTS = [9, 0, 38, 0, 47, 19, 38, 37, 9, 37, 0, 19]
 
 // 현재 턴 칸 밑에 붙는 라벨(사용자 지시).
-// 10 -> 11(사용자 지시로 1px 확대).
-const CURRENT_LABEL_FONT_SIZE = 11
-// 4 -> 5(사용자 지시로 1px 아래로).
-const CURRENT_LABEL_GAP = 5 // 육각형 바닥 ~ 라벨 상단 간격
+const CURRENT_LABEL_FONT_SIZE = 17
+const CURRENT_LABEL_GAP = 8 // 육각형 바닥 ~ 라벨 상단 간격
 
-// 턴 순서 UI 전체 확대 배율(사용자 지시) - 우하단(현재 턴 칸 바닥 오른쪽) 기준으로
-// 확대해서 화면 밖으로 안 밀려나게 그 점을 고정축(pivot)으로 잡는다.
-const UI_SCALE = 1.5
+// 육각형 이미지 자체가 최종 화면 크기라 더 이상 컨테이너를 확대할 필요가 없다
+// (사용자 지시 - 이전엔 1.5배로 키웠지만 이제 원본이 그만큼 큼). 그래도 pivot=
+// position 트릭은 그대로 둔다 - UI_SCALE이 나중에 다시 바뀌어도 우하단 기준으로만
+// 커지게.
+const UI_SCALE = 1
 const SCALE_ANCHOR_X = ROW_RIGHT
 const SCALE_ANCHOR_Y = ROW_TOP + HEX_HEIGHT
 
@@ -125,7 +127,7 @@ export class TurnOrderStrip {
     this.container.position.set(SCALE_ANCHOR_X, SCALE_ANCHOR_Y)
     this.container.scale.set(UI_SCALE)
 
-    // 현재 턴 칸(맨 오른쪽, slotX(0)) 중심에 원본 비율(116x31) 그대로 겹친다 -
+    // 현재 턴 칸(맨 오른쪽, slotX(0)) 중심에 원본 비율(174x47) 그대로 겹친다 -
     // 가운데가 비어있고 양쪽 끝에만 흐려지는 셰브런 무늬가 있는 모양이라 육각형
     // 자체를 안 가린다. 육각형보다 먼저 addChild해서 셰브런이 뒤로 가게 한다(사용자 지시).
     this.currentGlow = Sprite.from(TURN_HEX_CURRENT_GLOW_URL)
