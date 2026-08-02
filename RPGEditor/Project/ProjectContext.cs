@@ -134,11 +134,11 @@ public class ProjectContext
     }
 
     /// <summary>
-    /// Animations_mv.json은 RPG Maker MV 관례상 배열 index 0이 항상 null이고(id는
-    /// index와 같음), 실제 항목은 index 1부터 시작한다 - LoadEntries/SaveEntries의
-    /// 범용 로직(null 비허용, DatabaseEntry 제약)을 그대로 못 쓰는 이유. 로드 시
-    /// 선행 null만 건너뛰고, 저장 시 다시 선행 null을 붙여 원본 배열 구조(RPG
-    /// Maker에서 다시 열어도 안전하게)를 그대로 유지한다.
+    /// Animations_mv.json은 RPG Maker MV 원본은 배열 index 0이 항상 null(id가 1부터
+    /// 시작)이지만, 이 프로젝트의 다른 데이터(Skills/Items 등)는 전부 id가 0부터
+    /// 시작하는 관례라 그것과 맞춘다 - 임포트 시 이미 0-indexed로 재정렬해서 저장했으므로
+    /// (RPGProject/data/Animations_mv.json 참고) 여기서는 null을 만나면 방어적으로
+    /// 건너뛸 뿐, 저장할 때 다시 끼워 넣지 않는다.
     /// </summary>
     private static void LoadAnimations(string root, string relativePath, ObservableCollection<MvAnimationData> target)
     {
@@ -162,7 +162,6 @@ public class ProjectContext
     {
         var path = Path.Combine(ProjectRootPath, relativePath);
         Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-        List<MvAnimationData?> withLeadingNull = [null, .. source];
-        File.WriteAllText(path, JsonSerializer.Serialize(withLeadingNull, JsonOptions));
+        File.WriteAllText(path, JsonSerializer.Serialize(source, JsonOptions));
     }
 }
