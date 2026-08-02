@@ -588,6 +588,12 @@ export class BattleScene {
     // 위치/HUD/사망 연출(아래)은 애니메이션 순서에 맞물려 있어 그대로 두고,
     // TurnOrderStrip만 먼저 갱신한다.
     this.turnOrderStrip.update(state)
+    // PartyHud 카드 배경도 같은 이유로 애니메이션 시작 전에 미리 활성 유닛을
+    // 넘긴다 - "지금 행동 중인 그 카드만 base.png, 나머지는 base2.png"가 실제
+    // 타격 애니메이션 재생 내내 보여야 한다(사용자 지시). animateAction()이 끝난
+    // 뒤 아래에서 다시 update()를 부르는데, 그땐 activeUnitId를 안 넘겨서 전부
+    // base2.png로 돌아간다.
+    this.partyHud?.update(state.units, turn?.actor_battle_unit_id)
 
     if (turn) {
       // 연출이 끝난 뒤가 아니라 시작할 때 로그 문구를 보여준다.

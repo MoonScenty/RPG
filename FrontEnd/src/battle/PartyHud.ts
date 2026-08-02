@@ -1,6 +1,6 @@
-import { Container, FillGradient, Graphics, Sprite, Text } from 'pixi.js'
+import { Container, FillGradient, Graphics, Sprite, Text, Texture } from 'pixi.js'
 import { isUnitAlive, type BattleUnit } from '@/lib/battleApi'
-import { PARTY_HUD_BACK_URL, PARTY_HUD_HP_URL, PARTY_HUD_MP_URL } from './assets'
+import { PARTY_HUD_BACK2_URL, PARTY_HUD_BACK_URL, PARTY_HUD_HP_URL, PARTY_HUD_MP_URL } from './assets'
 import { hudFaceTexture } from './faces'
 import { STAGE_HEIGHT } from './layout'
 import { FONT_FAMILY } from './theme'
@@ -12,6 +12,9 @@ import { FONT_FAMILY } from './theme'
 // 그린다 - 위치/색상은 PIL로 예전 base.png의 글자 픽셀을 실측해서 맞춘 값.
 // hp/mp 오버레이는 같은 캔버스 크기에 그 트랙 자리와 정확히 겹치는 색칠된
 // 게이지만 그려져 있다. 이름/TBP 점/직업 아이콘은 이번 재디자인에서 뺐다(사용자 지시).
+// base2.png(같은 360x120 캔버스, 사용자가 추가 제작)는 "자기 턴이 아닐 때"용 배경 -
+// 그 유닛이 지금 행동을 재생 중일 때만 base.png, 그 외엔 항상 base2.png를 쓴다
+// (사용자 지시, BattleScene.ts가 activeUnitId를 넘겨준다).
 
 // 좌하단 2x2 그리드 배치 - ReferenceResource/party_hud/ref1.png 목업 배치를
 // 픽셀로 실측해서 맞춘 값(카드 캔버스 자체는 위쪽에 내용이 몰려있고 아래쪽은
@@ -95,6 +98,7 @@ const STATUS_LABEL_COLOR = 0xb8b0a0
 
 interface Slot {
   card: Container
+  back: Sprite
   hpMask: Graphics
   hpValue: Text
   mpMask: Graphics
@@ -125,7 +129,8 @@ export class PartyHud {
     this.update(allies)
   }
 
-  update(units: BattleUnit[]): void {
+  /** activeUnitId - 지금 행동 중인 유닛(있으면 그 카드만 base.png, 나머지는 base2.png, 사용자 지시). */
+  update(units: BattleUnit[], activeUnitId?: number): void {
     for (const unit of units) {
       const slot = this.slots.get(unit.id)
       if (!slot) continue
@@ -137,6 +142,7 @@ export class PartyHud {
       slot.hpValue.text = `${unit.current_hp}`
       slot.mpValue.text = `${unit.current_mp}`
       slot.atbValue.text = `${Math.round(Math.min(100, Math.max(0, unit.atb_gauge)))}`
+      slot.back.texture = Texture.from(unit.id === activeUnitId ? PARTY_HUD_BACK_URL : PARTY_HUD_BACK2_URL)
 
       slot.card.alpha = isUnitAlive(unit) ? 1 : 0.35
     }
@@ -147,7 +153,8 @@ export class PartyHud {
     card.position.set(left, top)
     this.container.addChild(card)
 
-    card.addChild(Sprite.from(PARTY_HUD_BACK_URL))
+    const back = Sprite.from(PARTY_HUD_BACK2_URL)
+    card.addChild(back)
     this.buildFace(card, unit)
 
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
@@ -189,6 +196,7 @@ export class PartyHud {
 
     return {
       card,
+      back,
       hpMask: hp.mask,
       hpValue: hp.valueText,
       mpMask: mp.mask,

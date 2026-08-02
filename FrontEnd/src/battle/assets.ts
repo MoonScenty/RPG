@@ -1,6 +1,7 @@
 import { Assets } from 'pixi.js'
 import borderNew from '@/assets/battle/border-new.png'
 import partyHudBack from '@/assets/battle/party-hud-back.png'
+import partyHudBack2 from '@/assets/battle/party-hud-back2.png'
 import partyHudHp from '@/assets/battle/party-hud-hp.png'
 import partyHudMp from '@/assets/battle/party-hud-mp.png'
 import turnHexActor from '@/assets/battle/turn-hex-actor.png'
@@ -32,6 +33,9 @@ export const BORDER_URL = borderNew
 // 위에 hp/mp를 그대로 얹고, 채워진 비율만큼만 보이게 게이지가 그려진 실제 영역(픽셀로
 // 실측한 사각형)만 마스킹해서 가로 폭을 줄인다 - PartyHud.ts 참고.
 export const PARTY_HUD_BACK_URL = partyHudBack
+// back2는 back과 같은 캔버스(360x120)의 "자기 턴이 아닐 때" 배경 - 그 카드
+// 유닛이 지금 행동 중이면 back, 아니면 back2를 쓴다(사용자 지시). PartyHud.ts 참고.
+export const PARTY_HUD_BACK2_URL = partyHudBack2
 export const PARTY_HUD_HP_URL = partyHudHp
 export const PARTY_HUD_MP_URL = partyHudMp
 
@@ -83,6 +87,7 @@ export async function preloadBattleAssets(): Promise<void> {
   await Assets.load([
     BORDER_URL,
     PARTY_HUD_BACK_URL,
+    PARTY_HUD_BACK2_URL,
     PARTY_HUD_HP_URL,
     PARTY_HUD_MP_URL,
     TURN_HEX_ACTOR_URL,
