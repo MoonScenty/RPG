@@ -77,8 +77,8 @@ const TG_PERCENT_LABEL_Y = 67
 const PINK_LABEL_COLOR = 0xed74b0
 
 // TG 라벨 왼쪽에 캐릭터 이름 표시(사용자 지시) - TG 실측 좌측 끝(178)에서
-// 3px(다른 라벨들과 동일한 LABEL_GAP_X) 띄워서 우측 정렬로 붙인다.
-const NAME_LABEL_X = 178 - LABEL_GAP_X
+// 3px(다른 라벨들과 동일한 LABEL_GAP_X) 띄운 뒤, 추가로 10px 더 왼쪽으로(사용자 지시).
+const NAME_LABEL_X = 178 - LABEL_GAP_X - 10
 const NAME_LABEL_Y = TG_PERCENT_LABEL_Y
 const NAME_LABEL_FONT_SIZE = LABEL_FONT_SIZE
 const NAME_LABEL_COLOR = 0xffffff
