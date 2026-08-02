@@ -579,6 +579,16 @@ export class BattleScene {
   private async playTurn(state: BattleState): Promise<void> {
     const turn = state.logs[state.logs.length - 1]
 
+    // TURN ORDER(NEXT ACTION)는 이 턴의 타격/피격 연출과 무관하게, 서버가 이미
+    // 이 행동을 확정한 시점(advanceTurn 응답)에 곧바로 다음 대기열로 넘어가야
+    // 한다 - 아래 animateAction() 뒤로 이 update()가 밀려 있으면, 지금 막 공격을
+    // "시작"한 유닛이 자기 공격 애니메이션(전진~타격~후진, 수백ms)을 재생하는
+    // 내내 NEXT ACTION 칸에 자기 자신이 계속 떠 있는 것처럼 보인다(사용자 보고:
+    // NEXT ACTION이 다음 차례가 아니라 지금 행동 "중"인 캐릭터를 보여줌). 유닛
+    // 위치/HUD/사망 연출(아래)은 애니메이션 순서에 맞물려 있어 그대로 두고,
+    // TurnOrderStrip만 먼저 갱신한다.
+    this.turnOrderStrip.update(state)
+
     if (turn) {
       // 연출이 끝난 뒤가 아니라 시작할 때 로그 문구를 보여준다.
       this.showLog(this.describeTurn(turn))
@@ -615,7 +625,6 @@ export class BattleScene {
 
     this.partyHud?.update(state.units)
     this.updateEnemyLabels(state.units)
-    this.turnOrderStrip.update(state)
   }
 
   private async animateAction(
