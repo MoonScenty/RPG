@@ -3,9 +3,9 @@ import borderNew from '@/assets/battle/border-new.png'
 import partyHudBack from '@/assets/battle/party-hud-back.png'
 import partyHudHp from '@/assets/battle/party-hud-hp.png'
 import partyHudMp from '@/assets/battle/party-hud-mp.png'
-import turnHexBase from '@/assets/battle/turn-hex-base.png'
 import turnHexActor from '@/assets/battle/turn-hex-actor.png'
 import turnHexEnemy from '@/assets/battle/turn-hex-enemy.png'
+import turnHexCurrentGlow from '@/assets/battle/turn-hex-current-glow.png'
 import shadow2 from '@/assets/battle/shadow2.png'
 
 // 전투 배경은 트룹별(Troops.json의 battleback1/battleback2, BattleEngine::getState()가
@@ -36,14 +36,16 @@ export const PARTY_HUD_HP_URL = partyHudHp
 export const PARTY_HUD_MP_URL = partyHudMp
 
 // 우하단 턴 순서 큐(ReferenceResource/turn_hud 기반 - 2026-08 재디자인, 캐릭터
-// 초상화 없이 육각형 7개로만 단순 표시) - base(280x37)를 바닥에 한 번 깔고, 그
-// 위에 각 칸마다 그 차례가 아군/적 중 누구 턴인지에 따라 actor/enemy 육각형
-// (32x25)을 겹쳐 그린다. 데이터가 없는 칸(생존 유닛이 7명 미만)은 오버레이를
-// 안 그려서 base의 기본 색이 그대로 비어있는 상태로 보이게 한다 - PartyHud의
-// back+hp/mp 오버레이와 같은 패턴. TurnOrderStrip.ts 참고.
-export const TURN_HEX_BASE_URL = turnHexBase
+// 초상화 없이 육각형 7개로만 단순 표시) - 칸마다 그 차례가 아군/적 중 누구
+// 턴인지에 따라 이 두 육각형(32x25, 배경 없이 완성된 그림) 중 하나를 그대로
+// 쓴다. TurnOrderStrip.ts 참고.
 export const TURN_HEX_ACTOR_URL = turnHexActor
 export const TURN_HEX_ENEMY_URL = turnHexEnemy
+
+// 현재 턴 칸(맨 앞) 강조 장식(116x31) - 가운데는 완전히 비어있고 양쪽 끝에만
+// 흐려지는 셰브런 무늬가 있는 모양이라 줄 전체 바닥으로는 안 맞고, 현재 턴
+// 육각형 하나 위에 원본 비율 그대로 겹쳐서 은은한 강조 효과만 낸다(사용자 지시).
+export const TURN_HEX_CURRENT_GLOW_URL = turnHexCurrentGlow
 
 // mz_project/img/system/Shadow2.png - 아군 배틀러 발밑 그림자(MZ 사이드뷰 배틀에서
 // 쓰는 표준 타원 그림자). BattleScene.ts 참고.
@@ -62,9 +64,9 @@ export async function preloadBattleAssets(): Promise<void> {
     PARTY_HUD_BACK_URL,
     PARTY_HUD_HP_URL,
     PARTY_HUD_MP_URL,
-    TURN_HEX_BASE_URL,
     TURN_HEX_ACTOR_URL,
     TURN_HEX_ENEMY_URL,
+    TURN_HEX_CURRENT_GLOW_URL,
     SHADOW_URL,
     ...Object.values(FACE_SHEET_URLS),
   ])
