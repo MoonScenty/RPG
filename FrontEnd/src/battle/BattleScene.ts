@@ -108,7 +108,7 @@ export class BattleScene {
     this.app = app
     this.mvAnimations = new MvAnimationPlayer(app)
     this.onExit = onExit
-    this.turnOrderStrip = new TurnOrderStrip()
+    this.turnOrderStrip = new TurnOrderStrip(app)
 
     // back1(근경 - 들판, 완전 불투명)을 화면 전체에 먼저 깔고, back2(원경 - 위쪽엔
     // 하늘/산, 아래쪽은 투명)를 그 위에 풀스크린으로 덮는다. back2의 투명한

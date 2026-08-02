@@ -1,3 +1,4 @@
+import type { Application } from 'pixi.js'
 import { Container, Graphics, Sprite, Text, Texture } from 'pixi.js'
 import { isUnitAlive, type BattleState, type BattleUnit } from '@/lib/battleApi'
 import { enemyFaceUrl, TURN_HEX_ACTOR_URL, TURN_HEX_CURRENT_GLOW_URL, TURN_HEX_ENEMY_URL } from './assets'
@@ -5,6 +6,7 @@ import { predictNextActors } from './atbPrediction'
 import { faceTexture } from './faces'
 import { STAGE_HEIGHT, STAGE_WIDTH } from './layout'
 import { FONT_FAMILY } from './theme'
+import { tween } from './tween'
 
 // ReferenceResource/turn_hud(2026-08 재디자인) 기반 - 캐릭터 초상화가 있던 옥토패스
 // 스타일 다이아몬드 스트립을 걷어내고, 우하단에 육각형 7개(현재 턴 포함, 백엔드
@@ -14,12 +16,17 @@ import { FONT_FAMILY } from './theme'
 // 그냥 숨긴다. 맨 오른쪽(현재 턴) 칸에만 은은한 강조 장식(turn.png)을 육각형보다
 // 뒤에 원본 비율 그대로 겹쳐서 다른 칸과 구분되게 한다(사용자 지시).
 //
-// 이후 얼굴 그래픽 파이프라인(party hud/hud_faces, 적 얼굴 img/faces)이 갖춰져서
+// 얼굴 그래픽 파이프라인(party hud/hud_faces, 적 얼굴 img/faces)이 갖춰져서
 // 육각형 안에도 얼굴을 보여주도록 재추가했다(사용자 지시) - 육각형 자체는 그대로
 // 두고, 살짝 안쪽으로 들여보낸(FACE_INSET) 자리에 얼굴을 육각형 모양 그대로
-// 마스킹해서 얹는다. 그러면 원래 육각형의 테두리 부분이 자연스럽게 진영색 테두리로
-// 남는다 - 별도 링 에셋을 새로 안 만들어도 됨. 얼굴이 없는 유닛(아직 얼굴을
-// 안 채운 적 등)은 마스킹 없이 그냥 진영색 육각형만 보인다.
+// Graphics 마스크(PartyHud.ts 게이지 마스킹과 동일한 패턴)로 얹는다. 그러면
+// 원래 육각형의 테두리 부분이 자연스럽게 진영색 테두리로 남는다.
+//
+// 큐 각 칸은 고정 슬롯 인덱스가 아니라 유닛 id로 추적한다(사용자 지시 - 턴이
+// 바뀔 때 페이드+이동 애니메이션) - update()마다 새 예측 큐와 이전에 그려둔
+// 유닛 집합을 diff해서: 계속 큐에 남아있지만 자리가 바뀐 유닛은 새 위치로
+// 이동(move), 큐에서 빠진 유닛(방금 행동했거나 순위 밖으로 밀림)은 페이드아웃 후
+// 제거, 새로 큐에 들어온 유닛은 페이드인으로 등장시킨다.
 const HEX_WIDTH = 32
 const HEX_HEIGHT = 25
 const HEX_PITCH = 34
@@ -51,31 +58,48 @@ const FACE_SIZE = FACE_MASK_HEIGHT
 const FACE_X_OFFSET = FACE_INSET + (FACE_MASK_WIDTH - FACE_SIZE) / 2
 
 // turn-hex-actor.png(32x25) 알파 채널을 픽셀 단위로 실측해서 뽑은 육각형 윤곽선
-// 좌표(플랫탑 육각형) - Sprite를 마스크로 쓰니(renderable=false로 숨겨도) 얼굴
-// 위에 육각형이 덧그려져 얼굴을 가리는 문제가 있어서, PartyHud.ts의 게이지
-// 마스킹과 동일하게 검증된 Graphics 마스크로 교체(사용자 지시 - 얼굴이 프레임
-// 보다 뒤에 나오던 문제의 진짜 원인).
+// 좌표(플랫탑 육각형).
 const HEX_POLYGON_POINTS = [6, 0, 25, 0, 31, 12, 25, 24, 6, 24, 0, 12]
 
 // 현재 턴 칸 밑에 붙는 라벨(사용자 지시).
-const CURRENT_LABEL_FONT_SIZE = 10
+// 10 -> 11(사용자 지시로 1px 확대).
+const CURRENT_LABEL_FONT_SIZE = 11
 const CURRENT_LABEL_GAP = 4 // 육각형 바닥 ~ 라벨 상단 간격
 
-interface HexSlot {
+// 턴 순서 UI 전체 확대 배율(사용자 지시) - 우하단(현재 턴 칸 바닥 오른쪽) 기준으로
+// 확대해서 화면 밖으로 안 밀려나게 그 점을 고정축(pivot)으로 잡는다.
+const UI_SCALE = 1.2
+const SCALE_ANCHOR_X = ROW_RIGHT
+const SCALE_ANCHOR_Y = ROW_TOP + HEX_HEIGHT
+
+const MOVE_DURATION_MS = 250
+const FADE_DURATION_MS = 200
+
+interface SlotVisual {
   hex: Sprite
   face: Sprite
   faceMask: Graphics
+  x: number
 }
 
-/** 우하단 턴 순서 큐: 육각형 7개(현재 턴 + 다음 6턴), 진영색 육각형 안에 얼굴을 마스킹해서 얹는다. */
+/** 우하단 턴 순서 큐: 육각형 7개(현재 턴 + 다음 6턴), 진영색 육각형 안에 얼굴을 마스킹해서 얹고, 순서가 바뀌면 페이드+이동으로 전환한다. */
 export class TurnOrderStrip {
   readonly container = new Container()
 
-  private readonly slots: HexSlot[]
+  private readonly app: Application
+  private readonly visuals = new Map<number, SlotVisual>()
   private readonly currentGlow: Sprite
   private readonly currentLabel: Text
 
-  constructor() {
+  constructor(app: Application) {
+    this.app = app
+
+    // 우하단 기준 확대(사용자 지시) - pivot과 position을 같은 점으로 맞춰서
+    // scale=1일 때는 원래 위치 그대로, scale이 커지면 이 점을 축으로 자라난다.
+    this.container.pivot.set(SCALE_ANCHOR_X, SCALE_ANCHOR_Y)
+    this.container.position.set(SCALE_ANCHOR_X, SCALE_ANCHOR_Y)
+    this.container.scale.set(UI_SCALE)
+
     // 현재 턴 칸(맨 오른쪽, slotX(0)) 중심에 원본 비율(116x31) 그대로 겹친다 -
     // 가운데가 비어있고 양쪽 끝에만 흐려지는 셰브런 무늬가 있는 모양이라 육각형
     // 자체를 안 가린다. 육각형보다 먼저 addChild해서 셰브런이 뒤로 가게 한다(사용자 지시).
@@ -85,34 +109,8 @@ export class TurnOrderStrip {
     this.currentGlow.visible = false
     this.container.addChild(this.currentGlow)
 
-    this.slots = Array.from({ length: HEX_COUNT }, (_, i) => {
-      const x = slotX(i)
-
-      const hex = Sprite.from(TURN_HEX_ACTOR_URL)
-      hex.position.set(x, ROW_TOP)
-      hex.visible = false
-      this.container.addChild(hex)
-
-      // 육각형 윤곽선 Graphics 마스크(PartyHud.ts 게이지 마스킹과 동일한 패턴) -
-      // 네이티브 32x25 좌표로 그린 뒤 얼굴 크기(FACE_SIZE 정사각형)에 맞게
-      // scale로 축소한다.
-      const faceMask = new Graphics().poly(HEX_POLYGON_POINTS).fill(0xffffff)
-      faceMask.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
-      faceMask.scale.set(FACE_SIZE / HEX_WIDTH, FACE_SIZE / HEX_HEIGHT)
-      this.container.addChild(faceMask)
-
-      const face = new Sprite()
-      face.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
-      face.width = FACE_SIZE
-      face.height = FACE_SIZE
-      face.mask = faceMask
-      face.visible = false
-      this.container.addChild(face)
-
-      return { hex, face, faceMask }
-    })
-
-    // 현재 턴 칸 바로 밑에 뜨는 라벨(사용자 지시).
+    // 현재 턴 칸 바로 밑에 뜨는 라벨(사용자 지시). slotX(0)은 큐 순서와 무관하게
+    // 항상 고정된 자리라 라벨 위치는 이동 애니메이션이 필요 없다.
     this.currentLabel = new Text({
       text: 'CURRENT TURN',
       style: {
@@ -131,10 +129,9 @@ export class TurnOrderStrip {
   update(state: BattleState): void {
     const living = state.units.filter(isUnitAlive)
     if (living.length === 0) {
-      this.slots.forEach(({ hex, face }) => {
-        hex.visible = false
-        face.visible = false
-      })
+      for (const id of [...this.visuals.keys()]) {
+        this.removeVisual(id)
+      }
       this.currentGlow.visible = false
       this.currentLabel.visible = false
       return
@@ -142,28 +139,104 @@ export class TurnOrderStrip {
 
     const totalCount = Math.min(HEX_COUNT, living.length)
     const queue = predictNextActors(living, totalCount)
+    const newIndexById = new Map(queue.map((u, i) => [u.id, i]))
 
-    this.slots.forEach(({ hex, face }, i) => {
-      const unit = queue[i]
-      if (!unit) {
-        hex.visible = false
-        face.visible = false
+    // 큐에서 빠진 유닛(방금 행동했거나 순위 밖으로 밀림) - 페이드아웃 후 제거.
+    for (const id of [...this.visuals.keys()]) {
+      if (!newIndexById.has(id)) {
+        this.removeVisual(id)
+      }
+    }
+
+    queue.forEach((unit, index) => {
+      const targetX = slotX(index)
+      const existing = this.visuals.get(unit.id)
+
+      if (!existing) {
+        this.addVisual(unit, targetX)
         return
       }
-      hex.visible = true
-      hex.texture = Texture.from(unit.side === 'ally' ? TURN_HEX_ACTOR_URL : TURN_HEX_ENEMY_URL)
 
+      existing.hex.texture = Texture.from(unit.side === 'ally' ? TURN_HEX_ACTOR_URL : TURN_HEX_ENEMY_URL)
       const texture = this.resolveFaceTexture(unit)
-      if (texture) {
-        face.texture = texture
-        face.visible = true
-      } else {
-        face.visible = false
+      existing.face.texture = texture ?? existing.face.texture
+      existing.face.visible = texture !== undefined
+
+      if (Math.abs(existing.x - targetX) > 0.5) {
+        this.moveVisual(existing, targetX)
       }
     })
 
     this.currentGlow.visible = queue.length > 0
     this.currentLabel.visible = queue.length > 0
+  }
+
+  /** 새로 큐에 들어온 유닛 - 제자리에서 페이드인으로 등장(사용자 지시 - 자연스러운 애니메이션). */
+  private addVisual(unit: BattleUnit, x: number): void {
+    const hex = Sprite.from(unit.side === 'ally' ? TURN_HEX_ACTOR_URL : TURN_HEX_ENEMY_URL)
+    hex.position.set(x, ROW_TOP)
+    this.container.addChild(hex)
+
+    const faceMask = new Graphics().poly(HEX_POLYGON_POINTS).fill(0xffffff)
+    faceMask.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
+    faceMask.scale.set(FACE_SIZE / HEX_WIDTH, FACE_SIZE / HEX_HEIGHT)
+    this.container.addChild(faceMask)
+
+    const face = new Sprite()
+    face.position.set(x + FACE_X_OFFSET, ROW_TOP + FACE_INSET)
+    face.width = FACE_SIZE
+    face.height = FACE_SIZE
+    face.mask = faceMask
+    const texture = this.resolveFaceTexture(unit)
+    if (texture) face.texture = texture
+    face.visible = texture !== undefined
+    this.container.addChild(face)
+
+    const visual: SlotVisual = { hex, face, faceMask, x }
+    this.visuals.set(unit.id, visual)
+
+    hex.alpha = 0
+    face.alpha = face.visible ? 0 : 1
+    void tween(this.app, FADE_DURATION_MS, (progress) => {
+      hex.alpha = progress
+      if (face.visible) face.alpha = progress
+    })
+  }
+
+  /** 계속 큐에 남아있지만 자리가 바뀐 유닛 - 이전 자리에서 새 자리로 이동(사용자 지시). */
+  private moveVisual(visual: SlotVisual, targetX: number): void {
+    // 직전 이동 애니메이션이 아직 끝나기 전에 또 자리가 바뀌면(gauge-fill-delay
+    // 프레임마다 update()가 다시 도니 흔함) 저장된 목표값이 아니라 실제 렌더링
+    // 중인 현재 위치에서 이어서 시작해야 순간이동처럼 튀지 않는다.
+    const startX = visual.hex.position.x
+    const deltaX = targetX - startX
+    visual.x = targetX
+    void tween(this.app, MOVE_DURATION_MS, (progress) => {
+      const x = startX + deltaX * progress
+      visual.hex.position.x = x
+      visual.faceMask.position.x = x + FACE_X_OFFSET
+      visual.face.position.x = x + FACE_X_OFFSET
+    })
+  }
+
+  /** 큐에서 빠진 유닛 - 페이드아웃 후 파괴(사용자 지시). */
+  private removeVisual(unitId: number): void {
+    const visual = this.visuals.get(unitId)
+    if (!visual) return
+    this.visuals.delete(unitId)
+
+    // 페이드인이 채 안 끝난 상태에서 바로 빠질 수도 있으니(위 moveVisual과 같은
+    // 이유) 지금 실제 알파에서 이어서 줄인다.
+    const startAlpha = visual.hex.alpha
+    void tween(this.app, FADE_DURATION_MS, (progress) => {
+      const alpha = startAlpha * (1 - progress)
+      visual.hex.alpha = alpha
+      visual.face.alpha = alpha
+    }).then(() => {
+      visual.hex.destroy()
+      visual.face.destroy()
+      visual.faceMask.destroy()
+    })
   }
 
   /** 아군은 기존 얼굴시트(sprite, "Actor1:0"), 적은 독립 이미지 파일(enemy_face) - 둘 다 없으면 undefined(진영색 육각형만 표시). */
