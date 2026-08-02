@@ -82,6 +82,12 @@ const SCALE_ANCHOR_Y = ROW_TOP + HEX_HEIGHT
 const MOVE_DURATION_MS = 250
 const FADE_DURATION_MS = 200
 
+// 현재 턴 강조 장식(turn.png)이 깜빡거리게(사용자 지시) - 사인파로 알파를
+// MIN~MAX 사이에서 부드럽게 반복시킨다(BLINK_PERIOD_MS가 한 번 깜빡이는 주기).
+const BLINK_PERIOD_MS = 900
+const BLINK_MIN_ALPHA = 0.35
+const BLINK_MAX_ALPHA = 1
+
 interface SlotVisual {
   hex: Sprite
   face: Sprite
@@ -115,6 +121,16 @@ export class TurnOrderStrip {
     this.currentGlow.position.set(slotX(0) + HEX_WIDTH / 2, ROW_TOP + HEX_HEIGHT / 2)
     this.currentGlow.visible = false
     this.container.addChild(this.currentGlow)
+
+    // 사용자 지시로 깜빡이는 연출 추가 - 배틀 내내 도는 상시 애니메이션이라
+    // tween()(1회성) 대신 ticker에 직접 건다.
+    let blinkElapsedMs = 0
+    this.app.ticker.add(() => {
+      blinkElapsedMs += this.app.ticker.deltaMS
+      const phase = (blinkElapsedMs % BLINK_PERIOD_MS) / BLINK_PERIOD_MS
+      const wave = 0.5 - 0.5 * Math.cos(phase * Math.PI * 2)
+      this.currentGlow.alpha = BLINK_MIN_ALPHA + (BLINK_MAX_ALPHA - BLINK_MIN_ALPHA) * wave
+    })
 
     // 현재 턴 칸 바로 밑에 뜨는 라벨(사용자 지시). slotX(0)은 큐 순서와 무관하게
     // 항상 고정된 자리라 라벨 위치는 이동 애니메이션이 필요 없다.
