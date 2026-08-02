@@ -27,13 +27,16 @@ import { PartyHud } from './PartyHud'
 import { TurnOrderStrip } from './TurnOrderStrip'
 
 // 모든 유닛(아군+적)이 동일한 sv 배틀러 스타일 애니메이션 시트를 쓰므로 단일 스케일.
-const BATTLER_SCALE = 1.3
+// 사용자 지시로 전체 80% 축소(1.3 -> 1.04) - layout.ts의 LAYOUT_SCALE(배치 간격도
+// 같은 0.8배로 화면 중앙 기준 재배치)과 세트로 적용한 값이라 반드시 같이 맞춰야 한다.
+const BATTLER_SCALE = 1.3 * 0.8
 
 // DragonBones 스켈레톤은 sv 시트와 전혀 다른 내부 좌표 단위로 작업되어(고블린
 // HeadlessHW 리그는 aabb 높이가 1000px대) 고정 배율을 쓸 수 없다 - getLocalBounds()로
 // 실측한 높이를 이 값에 맞춰 매 유닛마다 동적으로 정규화한다. sv 배틀러의 대략적인
 // 화면상 높이(cellHeight*BATTLER_SCALE)에 맞춘 추정값이라, 실제로 보면서 조정이 필요할 수 있다.
-const DRAGONBONES_TARGET_HEIGHT = 150
+// 사용자 지시로 전체 80% 축소(150 -> 120) - 위 BATTLER_SCALE과 같은 이유.
+const DRAGONBONES_TARGET_HEIGHT = 150 * 0.8
 
 // MZ 사이드뷰 배틀처럼 대상 앞까지 걸어가지 않고, 제자리에서 이 거리만큼만
 // 살짝 앞으로 내딛고 공격 모션을 취한다(frontstep/backstep은 원래 이런 짧은

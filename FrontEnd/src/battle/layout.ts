@@ -21,11 +21,22 @@ const ENEMY_SIDE_OFFSET_X = 40
 const ENEMY_COLUMN_X = { front: 430 + GROUP_OFFSET_X + ENEMY_SIDE_OFFSET_X, back: 220 + GROUP_OFFSET_X + ENEMY_SIDE_OFFSET_X }
 const ALLY_COLUMN_X = { front: 850 + GROUP_OFFSET_X + ALLY_SIDE_OFFSET_X, back: 1060 + GROUP_OFFSET_X + ALLY_SIDE_OFFSET_X }
 
+// 배틀러 스프라이트를 80%로 줄이면서(BattleScene.ts BATTLER_SCALE/
+// DRAGONBONES_TARGET_HEIGHT 참고) 배치 간격도 화면 중앙을 기준으로 같은 비율로
+// 좁혀달라는 지시(사용자) - 위 상수들은 그대로 두고 최종 좌표에만 화면 중앙
+// 기준 스케일을 적용해서, 그동안 누적된 개별 보정값(GROUP_OFFSET 등)의 의미를
+// 안 흐트러뜨린다.
+const LAYOUT_SCALE = 0.8
+
 export function slotPosition(side: Side, slot: number): { x: number; y: number } {
   const isFront = slot <= 3
   const row = isFront ? slot - 1 : slot - 4
   const columns = side === 'enemy' ? ENEMY_COLUMN_X : ALLY_COLUMN_X
   const x = isFront ? columns.front : columns.back
+  const y = ROW_Y[row] ?? ROW_Y[0]
 
-  return { x, y: ROW_Y[row] ?? ROW_Y[0] }
+  return {
+    x: STAGE_WIDTH / 2 + (x - STAGE_WIDTH / 2) * LAYOUT_SCALE,
+    y: STAGE_HEIGHT / 2 + (y - STAGE_HEIGHT / 2) * LAYOUT_SCALE,
+  }
 }
