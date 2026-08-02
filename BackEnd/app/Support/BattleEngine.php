@@ -109,6 +109,19 @@ class BattleEngine
 
         $this->spawnEnemyTroop($battle);
 
+        // spawnEnemyTroop()은 트룹/유닛 매칭이 하나라도 어긋나면(mz_troops가 비었거나,
+        // Troops.json이 가리키는 mz_enemy_id로 units 조회가 실패하는 등) 조용히 아무도
+        // 안 스폰하고 넘어간다 - 그러면 적 없이 시작한 전투가 첫 턴에 즉시 "승리"로
+        // 끝나버려서, 실제로는 시딩이 덜 된 문제인데 마치 게임이 멈추거나 이상하게
+        // 동작하는 것처럼 보인다(사용자 보고). 여기서 확실하게 걸러서 원인을 바로
+        // 알 수 있는 에러로 표시한다.
+        if (! $battle->units()->where('side', 'enemy')->exists()) {
+            throw new \RuntimeException(
+                '전투에 적이 하나도 생성되지 않았습니다 - mz_troops/mz_enemies 시딩 상태를 확인하세요'
+                . '(php artisan db:seed).',
+            );
+        }
+
         return $battle;
     }
 
