@@ -28,10 +28,10 @@ const ENEMY_SIDE_OFFSET_X = 40
 const ENEMY_X_SCREEN_ADJUST = -60
 const ALLY_X_SCREEN_ADJUST = 60
 
-// 2번째 줄, 3번째 줄을 진영 바깥쪽으로 추가(사용자 지시, 20/40px씩 두 차례
+// 2번째 줄, 3번째 줄을 진영 바깥쪽으로 추가(사용자 지시, 20/40px씩 세 차례
 // 누적) - 적은 왼쪽으로, 아군은 오른쪽으로 더 이동. ROW_Y_SCREEN_ADJUST와
 // 같은 이유로 크기만 여기 두고, 방향은 slotPosition에서 side로 부호를 정한다.
-const ROW_X_SCREEN_ADJUST_MAGNITUDE = [0, 40, 80] as const
+const ROW_X_SCREEN_ADJUST_MAGNITUDE = [0, 60, 120] as const
 
 // slot 1-3 = 전열(상대 진영과 가까움), slot 4-6 = 후열. 좌우로 화면 전체를 밀던
 // GROUP_OFFSET_X(예전엔 -80)를 여기서 뺐다 - 그 값이 있으면 화면 중앙(640) 기준
