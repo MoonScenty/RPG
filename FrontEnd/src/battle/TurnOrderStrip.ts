@@ -1,9 +1,9 @@
 import type { Application } from 'pixi.js'
 import { Container, Graphics, Sprite, Text, Texture } from 'pixi.js'
 import { isUnitAlive, type BattleState, type BattleUnit } from '@/lib/battleApi'
-import { enemyFaceUrl, TURN_HEX_ACTOR_URL, TURN_HEX_CURRENT_GLOW_URL, TURN_HEX_ENEMY_URL } from './assets'
+import { TURN_HEX_ACTOR_URL, TURN_HEX_CURRENT_GLOW_URL, TURN_HEX_ENEMY_URL } from './assets'
 import { predictNextActors } from './atbPrediction'
-import { faceTexture } from './faces'
+import { enemyFaceTexture, faceTexture } from './faces'
 import { STAGE_HEIGHT, STAGE_WIDTH } from './layout'
 import { FONT_FAMILY } from './theme'
 import { tween } from './tween'
@@ -296,6 +296,6 @@ export class TurnOrderStrip {
     if (unit.side === 'ally') {
       return faceTexture(unit.sprite)
     }
-    return unit.enemy_face ? Texture.from(enemyFaceUrl(unit.enemy_face)) : undefined
+    return unit.enemy_face ? enemyFaceTexture(unit.enemy_face) : undefined
   }
 }
