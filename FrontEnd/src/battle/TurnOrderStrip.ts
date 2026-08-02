@@ -98,6 +98,13 @@ interface SlotVisual {
   face: Sprite
   faceMask: Graphics
   x: number
+  // 페이드/이동 tween들이 서로 겹칠 수 있어(예: 이동 애니메이션이 아직 도는 중인데
+  // 다음 update()에서 큐를 벗어나 removeVisual()이 페이드아웃을 또 시작) - 먼저
+  // 끝난 쪽이 destroy()해버리면, 아직 안 끝난 다른 tween의 다음 프레임 콜백이
+  // 이미 파괴된 스프라이트에 접근해 "Cannot set properties of null" 크래시가
+  // 나던 실제 버그(사용자 보고). removeVisual()이 이 플래그를 먼저 세워서 다른
+  // tween들이 자기 차례에 스스로 멈추게 한다.
+  destroyed: boolean
 }
 
 /** 우하단 턴 순서 큐: 육각형 7개(현재 턴 + 다음 6턴), 진영색 육각형 안에 얼굴을 마스킹해서 얹고, 순서가 바뀌면 페이드+이동으로 전환한다. */
@@ -229,12 +236,13 @@ export class TurnOrderStrip {
     face.visible = texture !== undefined
     this.container.addChild(face)
 
-    const visual: SlotVisual = { hex, face, faceMask, x }
+    const visual: SlotVisual = { hex, face, faceMask, x, destroyed: false }
     this.visuals.set(key, visual)
 
     hex.alpha = 0
     face.alpha = face.visible ? 0 : 1
     void tween(this.app, FADE_DURATION_MS, (progress) => {
+      if (visual.destroyed) return
       hex.alpha = progress
       if (face.visible) face.alpha = progress
     })
@@ -249,6 +257,10 @@ export class TurnOrderStrip {
     const deltaX = targetX - startX
     visual.x = targetX
     void tween(this.app, MOVE_DURATION_MS, (progress) => {
+      // 이동 도중에 큐를 벗어나 removeVisual()이 먼저 파괴해버릴 수 있다 - 파괴된
+      // 스프라이트에 접근하면 "Cannot set properties of null" 크래시가 난다(사용자
+      // 실제 보고 에러). destroyed면 이 tween은 아무것도 안 하고 조용히 끝난다.
+      if (visual.destroyed) return
       const x = startX + deltaX * progress
       visual.hex.position.x = x
       visual.faceMask.position.x = x + FACE_X_OFFSET
@@ -261,6 +273,9 @@ export class TurnOrderStrip {
     const visual = this.visuals.get(key)
     if (!visual) return
     this.visuals.delete(key)
+    // 다른 곳에서 아직 도는 중일 수 있는 이동/등장 tween들에게 "이제 손 떼라"고
+    // 알린다 - 실제 파괴는 아래 페이드아웃이 끝난 뒤에만 한다.
+    visual.destroyed = true
 
     // 페이드인이 채 안 끝난 상태에서 바로 빠질 수도 있으니(위 moveVisual과 같은
     // 이유) 지금 실제 알파에서 이어서 줄인다.
