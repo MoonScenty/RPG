@@ -14,6 +14,9 @@ const ROW_Y = [300 + GROUP_OFFSET_Y, 470 + GROUP_OFFSET_Y, 640 + GROUP_OFFSET_Y]
 // 0.8배로 줄어서 각각 16px/32px밖에 안 올라감).
 const ROW_Y_SCREEN_ADJUST = [0, -20, -40] as const
 
+// 전체(모든 줄) 20px 위로(사용자 지시) - 위 줄별 보정과 같은 이유로 스케일 후 적용.
+const GROUP_Y_SCREEN_ADJUST = -20
+
 // 아군(화면 오른쪽)은 왼쪽으로, 적군(화면 왼쪽)은 오른쪽으로(사용자 실측 지시,
 // 누적 20+20px) - 서로를 향해 다가가는 방향이라 두 진영 사이 간격이 그만큼 좁혀진다.
 const ALLY_SIDE_OFFSET_X = -40
@@ -42,6 +45,10 @@ export function slotPosition(side: Side, slot: number): { x: number; y: number }
 
   return {
     x: STAGE_WIDTH / 2 + (x - STAGE_WIDTH / 2) * LAYOUT_SCALE,
-    y: STAGE_HEIGHT / 2 + (y - STAGE_HEIGHT / 2) * LAYOUT_SCALE + (ROW_Y_SCREEN_ADJUST[row] ?? 0),
+    y:
+      STAGE_HEIGHT / 2 +
+      (y - STAGE_HEIGHT / 2) * LAYOUT_SCALE +
+      (ROW_Y_SCREEN_ADJUST[row] ?? 0) +
+      GROUP_Y_SCREEN_ADJUST,
   }
 }
