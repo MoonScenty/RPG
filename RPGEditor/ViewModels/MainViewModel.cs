@@ -222,6 +222,7 @@ public partial class MainViewModel : ObservableObject
                 ProjectRootPath = context.ProjectRootPath,
                 Types = context.Types,
                 Animations = context.Animations,
+                States = context.States,
             },
         });
         Tabs.Add(new EditorTab

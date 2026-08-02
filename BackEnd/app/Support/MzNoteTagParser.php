@@ -69,33 +69,6 @@ class MzNoteTagParser
     }
 
     /**
-     * 소모 아이템 전용. HP/MP 회복·상태 부여/해제는 MZ 네이티브 effects[](code
-     * 11/12/21/22)로 표현되므로(ItemSeeder가 직접 파싱) 여기선 그걸로 표현 못 하는
-     * 두 가지만 다룬다: ApplySelfState는 부여할 상태에 지속 턴수를 직접 지정할 수
-     * 있게(상태 자신의 기본 지속시간과 다르게 쓰고 싶을 때, 예: "저항의 물약"이
-     * "상태 이상 차단"을 원래 정의(5턴)와 다르게 2턴만 걸고 싶은 경우) "<ApplySelfState:
-     * 상태명, 턴수>" 2인자 형태를 쓴다(턴수 생략 시 상태 자신의 기본 지속시간).
-     * ExcludeSelf는 scope 7(1 아군) 아이템에서 시전자 자신을 대상 후보에서 빼서
-     * "다른 아군에게만 사용 가능"을 표현한다.
-     *
-     * @return array<string, mixed>
-     */
-    public static function parseItemTags(string $note): array
-    {
-        $raw = self::rawValue($note, 'ApplySelfState');
-        $applySelfState = null;
-        if ($raw !== null) {
-            $parts = array_map('trim', explode(',', $raw));
-            $applySelfState = [$parts[0], isset($parts[1]) ? (int) $parts[1] : null];
-        }
-
-        return [
-            'apply_self_state' => $applySelfState,
-            'exclude_self' => self::hasFlag($note, 'ExcludeSelf'),
-        ];
-    }
-
-    /**
      * 조합식 태그 - 완성품(소모 아이템/무기/방어구)의 note에 붙는다. 연구소(포션류)/
      * 대장간(무기/방어구)에서 이 값으로 제작 가능 여부를 판정한다("<Crafting: 시간(초),
      * [(종류, 재료이름), (종류, 재료이름), ...], 소모 골드>" - 종류는 아이템/무기/방어구

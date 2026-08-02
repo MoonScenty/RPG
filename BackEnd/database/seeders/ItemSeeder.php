@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Support\MzNoteTagParser;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -44,16 +43,27 @@ class ItemSeeder extends Seeder
             $isConsumable = $item['kind'] === 'consumable';
             $note = $item['note'] ?? '';
 
-            $tags = MzNoteTagParser::parseItemTags($note);
             [$recoverHp, $recoverMp, $addStates, $removeStates, $referenced] = $isConsumable
                 ? $this->resolveEffects($c['effects'] ?? [], $stateNames)
                 : [['rate' => 0.0, 'flat' => 0], ['rate' => 0.0, 'flat' => 0], [], [], []];
             array_push($referencedStates, ...$referenced);
 
+            $tags = [];
             $tags['recover_hp'] = $recoverHp;
             $tags['recover_mp'] = $recoverMp;
             $tags['add_states'] = $addStates;
             $tags['remove_states'] = $removeStates;
+            // ApplySelfState(지속 턴 커스텀 오버라이드 가능)/ExcludeSelf는 RPGEditor
+            // 아이템 편집 화면의 구조화 필드(ApplyStateId+ApplyStateTurns, ExcludeSelf
+            // 체크박스)로 대체됐다.
+            $applyStateId = $c['applyStateId'] ?? null;
+            $tags['apply_self_state'] = $applyStateId !== null
+                ? [$stateNames[$applyStateId] ?? null, $c['applyStateTurns'] ?? null]
+                : null;
+            if (($tags['apply_self_state'][0] ?? null) !== null) {
+                $referencedStates[] = $tags['apply_self_state'][0];
+            }
+            $tags['exclude_self'] = $c['excludeSelf'] ?? false;
             $tags['crafting'] = $isConsumable && ($c['craftingMaterials'] ?? []) !== []
                 ? $this->craftingTag($c, $items)
                 : null;

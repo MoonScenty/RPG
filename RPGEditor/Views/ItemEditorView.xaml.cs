@@ -26,6 +26,13 @@ public partial class ItemEditorView : UserControl
         set => WeaponAnimationField.Animations = value;
     }
 
+    /// <summary>"사용 즉시 부여할 상태" 선택 다이얼로그에 사용되는 States.json 데이터.</summary>
+    public IEnumerable<GameState>? States
+    {
+        get => ApplyStateField.States;
+        set => ApplyStateField.States = value;
+    }
+
     public ItemEditorView()
     {
         InitializeComponent();

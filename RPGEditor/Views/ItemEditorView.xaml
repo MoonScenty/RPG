@@ -191,6 +191,30 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
+                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="특수 효과 (비우면 없음)" FontWeight="Bold" Margin="0,0,0,6" />
+                                <CheckBox Content="사용자 자신은 대상에서 제외(다른 아군에게만 사용 가능)"
+                                          IsChecked="{Binding Selected.Consumable.ExcludeSelf}" Margin="0,0,0,6" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="80" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="사용 즉시 부여할 상태" Margin="0,0,0,4" />
+                                        <views:StateField x:Name="ApplyStateField"
+                                                           StateId="{Binding Selected.Consumable.ApplyStateId, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="지속 턴(비우면 기본값)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.Consumable.ApplyStateTurns, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
                         <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Padding="0,10,0,0">
                             <views:CraftingEditor DataContext="{Binding Selected.Consumable}" />
                         </Border>
