@@ -49,4 +49,8 @@ public partial class Skill : DatabaseEntry
     /// <summary>img/magic_circles 참조. 빈 문자열이면 마법진 없음.</summary>
     [ObservableProperty]
     private string magicCircleImage = string.Empty;
+
+    /// <summary>마법진 이미지 표시 배율 - 1이 원본 크기(퍼센트 아님, Pixi scale.set()에 그대로 씀).</summary>
+    [ObservableProperty]
+    private double magicCircleScale = 1;
 }

@@ -10,9 +10,9 @@ namespace App\Support;
 class MzNoteTagParser
 {
     /**
-     * CircleImage는 <Casting: n>이 있는 스킬 전용 - 캐스팅 중 화면에 뭘 보여줄지
-     * 코드가 아니라 이 데이터로 결정한다. "<CircleImage: 배율, 이름>" 형태(배율은
-     * 1이 원본 크기, 이름은 FrontEnd/public/assets/circle/{이름}.png 파일명).
+     * require_self_state/circle_image는 RPGEditor 스킬 편집 화면의 구조화 필드
+     * (RequiredStateId/MagicCircleImage+MagicCircleScale)로 대체되어 더 이상
+     * 노트태그로 안 쓴다 - SkillSeeder가 그 필드를 직접 읽어 tags를 덮어쓴다.
      *
      * @return array<string, mixed>
      */
@@ -31,11 +31,9 @@ class MzNoteTagParser
             'remove_self_states' => self::stringValues($note, 'RemoveState'),
             'remove_target_states' => self::stringValues($note, 'RemoveTargetState'),
             'require_target_state' => self::stringValue($note, 'RequireTargetState'),
-            'require_self_state' => self::stringValue($note, 'RequireSelfState'),
             'apply_self_state' => self::stringValue($note, 'ApplySelfState'),
             'apply_target_if_has' => self::pairValue($note, 'ApplyStateIfTargetHas'),
             'apply_self_if_has' => self::pairValue($note, 'ApplySelfStateIfSelfHas'),
-            'circle_image' => self::pairValue($note, 'CircleImage'),
         ];
     }
 

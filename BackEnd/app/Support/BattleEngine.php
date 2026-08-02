@@ -1193,19 +1193,44 @@ class BattleEngine
             $cooldowns[$skill->id] = $battle->turn_number + $cooldown;
             $actor->skill_cooldowns = $cooldowns;
         }
-        if (($gaugeBoost = $tags['gauge_boost'] ?? null) !== null) {
-            $actor->atb_gauge += $gaugeBoost;
+        // GaugeBoost(노트태그)와 AtbBoost(사용효과 표, atbBoost kind)는 둘 다 "시전자
+        // 자신의 게이지를 즉시 올린다"는 같은 개념이라 합산해서 한 번에 적용한다.
+        $gaugeBoostTotal = ($tags['gauge_boost'] ?? 0) + ($tags['atb_boost_effect'] ?? 0);
+        if ($gaugeBoostTotal !== 0) {
+            $actor->atb_gauge += $gaugeBoostTotal;
+        }
+        if (($amount = $this->recoverAmount($tags['user_recover_hp'] ?? [], $actor->max_hp)) > 0) {
+            $actor->current_hp = min($actor->max_hp, $actor->current_hp + $amount);
+        }
+        if (($amount = $this->recoverAmount($tags['user_recover_mp'] ?? [], $actor->max_mp)) > 0) {
+            $actor->current_mp = min($actor->max_mp, $actor->current_mp + $amount);
         }
         $actor->save();
 
         foreach ($tags['remove_self_states'] ?? [] as $name) {
             $this->removeState($actor, $name);
         }
+        foreach ($tags['user_remove_states'] ?? [] as $entry) {
+            if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
+                $this->removeState($actor, $entry['state']);
+            }
+        }
         if (($applySelf = $tags['apply_self_state'] ?? null) !== null) {
             $this->applyState($actor, $applySelf, $battle->turn_number);
         }
         if (($pair = $tags['apply_self_if_has'] ?? null) !== null && in_array($pair[0], $actorHadStates, true)) {
             $this->applyState($actor, $pair[1], $battle->turn_number);
+        }
+        foreach ($tags['user_add_states'] ?? [] as $entry) {
+            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($actor, $entry['state']);
+            if (mt_rand() / mt_getrandmax() <= $chance) {
+                $this->applyState($actor, $entry['state'], $battle->turn_number);
+            }
+        }
+        // "사용 시 요구 상태 해제" - 요구 상태 자체는 usable 판정 시점에 이미 확인됐다
+        // (isSkillUsable() 참고), 여기선 실제로 다 쓴 뒤 그 상태를 소모(제거)만 한다.
+        if (($tags['remove_required_state_on_use'] ?? false) && ($tags['require_self_state'] ?? null) !== null) {
+            $this->removeState($actor, $tags['require_self_state']);
         }
 
         // 대상 쪽 효과는 명중했을 때만(다단히트는 하나라도 맞았으면 적용) - MZ도
@@ -1287,18 +1312,38 @@ class BattleEngine
             $cooldowns[$skill->id] = $battle->turn_number + $cooldown;
             $actor->skill_cooldowns = $cooldowns;
         }
-        if (($gaugeBoost = $tags['gauge_boost'] ?? null) !== null) {
-            $actor->atb_gauge += $gaugeBoost;
+        // GaugeBoost(노트태그)와 AtbBoost(사용효과 표, atbBoost kind)는 둘 다 "시전자
+        // 자신의 게이지를 즉시 올린다"는 같은 개념이라 합산해서 한 번에 적용한다.
+        $gaugeBoostTotal = ($tags['gauge_boost'] ?? 0) + ($tags['atb_boost_effect'] ?? 0);
+        if ($gaugeBoostTotal !== 0) {
+            $actor->atb_gauge += $gaugeBoostTotal;
+        }
+        if (($amount = $this->recoverAmount($tags['user_recover_mp'] ?? [], $actor->max_mp)) > 0) {
+            $actor->current_mp = min($actor->max_mp, $actor->current_mp + $amount);
         }
 
         foreach ($tags['remove_self_states'] ?? [] as $name) {
             $this->removeState($actor, $name);
+        }
+        foreach ($tags['user_remove_states'] ?? [] as $entry) {
+            if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
+                $this->removeState($actor, $entry['state']);
+            }
         }
         if (($applySelf = $tags['apply_self_state'] ?? null) !== null) {
             $this->applyState($actor, $applySelf, $battle->turn_number);
         }
         if (($pair = $tags['apply_self_if_has'] ?? null) !== null && in_array($pair[0], $actorHadStates, true)) {
             $this->applyState($actor, $pair[1], $battle->turn_number);
+        }
+        foreach ($tags['user_add_states'] ?? [] as $entry) {
+            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($actor, $entry['state']);
+            if (mt_rand() / mt_getrandmax() <= $chance) {
+                $this->applyState($actor, $entry['state'], $battle->turn_number);
+            }
+        }
+        if (($tags['remove_required_state_on_use'] ?? false) && ($tags['require_self_state'] ?? null) !== null) {
+            $this->removeState($actor, $tags['require_self_state']);
         }
 
         $lifestealPct = $tags['lifesteal_pct'] ?? null;
@@ -1378,6 +1423,9 @@ class BattleEngine
         if ($totalLifesteal > 0) {
             $actor->current_hp = min($actor->max_hp, $actor->current_hp + $totalLifesteal);
         }
+        if (($amount = $this->recoverAmount($tags['user_recover_hp'] ?? [], $actor->max_hp)) > 0) {
+            $actor->current_hp = min($actor->max_hp, $actor->current_hp + $amount);
+        }
         $actor->save();
 
         $this->log($battle, $actor, null, 'skill', null, null, $skill, $results);
@@ -1442,8 +1490,48 @@ class BattleEngine
                 $this->applyState($target, $entry['state'], $battle->turn_number);
             }
         }
+        // 대상 회복 사용효과(targetRecoverHp/Mp) - 대상 최대치 대비 퍼센트 + 고정치.
+        // chance는 위 두 루프와 달리 100분율로 나눠서 비교한다(위 두 루프는 예전부터
+        // /100이 빠져있어 chance가 사실상 항상 100%로 동작하는 별개의 버그로 보임 -
+        // 이번 작업 범위 밖이라 건드리지 않고 사용자에게 별도 보고).
+        foreach ($tags['target_recover_hp'] ?? [] as $entry) {
+            if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
+                $amount = (int) round($target->max_hp * $entry['percent'] / 100) + $entry['flat'];
+                $target->current_hp = min($target->max_hp, $target->current_hp + $amount);
+                $target->save();
+            }
+        }
+        foreach ($tags['target_recover_mp'] ?? [] as $entry) {
+            if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
+                $amount = (int) round($target->max_mp * $entry['percent'] / 100) + $entry['flat'];
+                $target->current_mp = min($target->max_mp, $target->current_mp + $amount);
+                $target->save();
+            }
+        }
 
         return ['outcome' => 'hit', 'damage' => $damage, 'critical' => $isCritical, 'target' => $target];
+    }
+
+    /**
+     * userRecoverHp/userRecoverMp(자기 회복 사용효과) 여러 줄을 합산 - 각 줄은
+     * chance(100분율)를 독립적으로 굴려서, 뽑힌 줄들의 (퍼센트×최대치+고정치)를
+     * 전부 더한다. 대상 쪽(targetRecoverHp/Mp)은 resolveOneHit()에서 대상 1인당
+     * 개별 적용하지만, 자기 자신 효과는 다단히트/광역기 대상 수와 무관하게 스킬
+     * 사용 1회당 딱 한 번만 적용해야 해서(라이프스틸/MpRecover 태그와 동일한 설계)
+     * 이렇게 별도로 합산한다.
+     *
+     * @param  array<int, array{percent: int, flat: int, chance: int}>  $entries
+     */
+    private function recoverAmount(array $entries, int $maxValue): int
+    {
+        $total = 0;
+        foreach ($entries as $entry) {
+            if ((mt_rand() / mt_getrandmax()) <= $entry['chance'] / 100) {
+                $total += (int) round($maxValue * $entry['percent'] / 100) + $entry['flat'];
+            }
+        }
+
+        return $total;
     }
 
     /**

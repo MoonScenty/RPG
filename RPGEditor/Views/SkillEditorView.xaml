@@ -261,8 +261,21 @@
                             </StackPanel>
                         </Grid>
 
-                        <TextBlock Text="마법진 이미지 (img/magic_circles, 비우면 없음)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.MagicCircleImage, UpdateSourceTrigger=PropertyChanged}" />
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="마법진 이미지 (img/magic_circles, 비우면 없음)" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MagicCircleImage, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="배율" Margin="0,0,0,4" />
+                                <TextBox Text="{Binding Selected.MagicCircleScale, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Grid>
 

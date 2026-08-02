@@ -76,10 +76,35 @@ class SkillSeeder extends Seeder
             // 없다(무기의 animation_id > 0 체크와 착각해서 여기도 0을 걸러냈다가
             // 사용자가 실제로 골라둔 0을 지워버린 사고가 있었음 - 그대로 저장한다).
             $tags['skill_animation_id'] = $skill['invocation']['animationId'] ?? null;
-            [$targetAdd, $targetRemove, $referenced] = $this->resolveEffects($skill['effects'] ?? [], $stateNames);
-            $tags['target_add_states'] = $targetAdd;
-            $tags['target_remove_states'] = $targetRemove;
-            array_push($referencedStates, ...$referenced);
+
+            $resolved = $this->resolveEffects($skill['effects'] ?? [], $stateNames);
+            $tags['target_add_states'] = $resolved['target_add_states'];
+            $tags['target_remove_states'] = $resolved['target_remove_states'];
+            $tags['user_add_states'] = $resolved['user_add_states'];
+            $tags['user_remove_states'] = $resolved['user_remove_states'];
+            $tags['target_recover_hp'] = $resolved['target_recover_hp'];
+            $tags['target_recover_mp'] = $resolved['target_recover_mp'];
+            $tags['user_recover_hp'] = $resolved['user_recover_hp'];
+            $tags['user_recover_mp'] = $resolved['user_recover_mp'];
+            $tags['atb_boost_effect'] = $resolved['atb_boost'];
+            array_push($referencedStates, ...$resolved['referenced']);
+
+            // "요구 상태"/"사용 시 요구 상태 해제"/"마법진 이미지"는 RPGEditor 스킬
+            // 편집 화면에 이미 구조화 UI(StateField 피커/체크박스/텍스트박스)가
+            // 있었는데 여기서 안 읽어서 완전히 죽어있던 필드였다(실제로는 노트태그
+            // RequireSelfState/CircleImage가 대신 쓰이고 있었음, CircleImage는
+            // pairValue()가 0-인덱스 배열을 주는데 BattleEngine::log()는 ['name']/
+            // ['scale'] 키로 읽어서 그마저도 항상 null이었던 별개의 버그까지 있었다).
+            // 이제 구조화 필드가 유일한 소스 - require_self_state/circle_image는
+            // 아래에서 note 파싱 결과를 덮어쓴다.
+            $tags['require_self_state'] = $skill['requiredStateId'] !== null
+                ? ($stateNames[$skill['requiredStateId']] ?? null)
+                : null;
+            $tags['remove_required_state_on_use'] = $skill['removeRequiredStateOnUse'] ?? false;
+            $magicCircleImage = $skill['magicCircleImage'] ?? '';
+            $tags['circle_image'] = $magicCircleImage !== ''
+                ? ['name' => $magicCircleImage, 'scale' => $skill['magicCircleScale'] ?? 1]
+                : null;
 
             foreach (['require_target_state', 'require_self_state', 'apply_self_state'] as $key) {
                 if ($tags[$key] !== null) {
@@ -137,32 +162,90 @@ class SkillSeeder extends Seeder
     }
 
     /**
-     * 우리 SkillEffect[]({kind,percentValue,flatValue,stateId,chance})에서 target
-     * Add/RemoveState만 뽑아 tags 형태({state,chance})로 변환한다(BattleEngine이
-     * 읽는 형태). User* / *RecoverHp / *RecoverMp / AtbBoost 종류는 아직
-     * BattleEngine에 처리 로직이 없어(예전부터 구현 안 됨) 지금은 무시 - 별도
-     * 후속 작업으로 BattleEngine에 처리를 추가해야 한다.
+     * 우리 SkillEffect[]({kind,percentValue,flatValue,stateId,chance})를 종류별로
+     * 분류해 tags 형태로 변환한다(BattleEngine이 읽는 형태) - Add/RemoveState는
+     * {state,chance}, RecoverHp/RecoverMp는 {percent,flat,chance}(대상 최대치 대비
+     * 퍼센트 + 고정치, SkillEffect 모델 주석과 동일한 규칙), AtbBoost는 flatValue를
+     * 그대로 게이지 증가량으로 쓴다(여러 줄이면 합산).
      *
-     * @return array{0: array, 1: array, 2: array<int,string>}
+     * 9개 kind 중 TargetAddState/TargetRemoveState 2개만 처리되고 나머지 7개
+     * (User*, *RecoverHp, *RecoverMp, AtbBoost)는 무시되던 게 예전 상태였다 - 이미
+     * Skills.json에 이 종류로 저장된 스킬(예: 8/13/23 "userAddState", 29 "atbBoost")
+     * 이 실제로 존재해서, 그 스킬들은 지금까지 게임에서 조용히 아무 효과도 없었다.
+     *
+     * @return array{
+     *     target_add_states: array<int, array{state: string, chance: int}>,
+     *     target_remove_states: array<int, array{state: string, chance: int}>,
+     *     user_add_states: array<int, array{state: string, chance: int}>,
+     *     user_remove_states: array<int, array{state: string, chance: int}>,
+     *     target_recover_hp: array<int, array{percent: int, flat: int, chance: int}>,
+     *     target_recover_mp: array<int, array{percent: int, flat: int, chance: int}>,
+     *     user_recover_hp: array<int, array{percent: int, flat: int, chance: int}>,
+     *     user_recover_mp: array<int, array{percent: int, flat: int, chance: int}>,
+     *     atb_boost: int|null,
+     *     referenced: array<int, string>,
+     * }
      */
     private function resolveEffects(array $effects, array $stateNames): array
     {
-        $add = [];
-        $remove = [];
-        $referenced = [];
+        $result = [
+            'target_add_states' => [], 'target_remove_states' => [],
+            'user_add_states' => [], 'user_remove_states' => [],
+            'target_recover_hp' => [], 'target_recover_mp' => [],
+            'user_recover_hp' => [], 'user_recover_mp' => [],
+            'atb_boost' => null,
+            'referenced' => [],
+        ];
 
         foreach ($effects as $effect) {
             $stateName = $stateNames[$effect['stateId']] ?? null;
-            if ($effect['kind'] === 'targetAddState' && $stateName !== null) {
-                $add[] = ['state' => $stateName, 'chance' => $effect['chance']];
-                $referenced[] = $stateName;
-            } elseif ($effect['kind'] === 'targetRemoveState' && $stateName !== null) {
-                $remove[] = ['state' => $stateName, 'chance' => $effect['chance']];
-                $referenced[] = $stateName;
+            $chance = $effect['chance'];
+            $recover = ['percent' => $effect['percentValue'], 'flat' => $effect['flatValue'], 'chance' => $chance];
+
+            switch ($effect['kind']) {
+                case 'targetAddState':
+                    if ($stateName !== null) {
+                        $result['target_add_states'][] = ['state' => $stateName, 'chance' => $chance];
+                        $result['referenced'][] = $stateName;
+                    }
+                    break;
+                case 'targetRemoveState':
+                    if ($stateName !== null) {
+                        $result['target_remove_states'][] = ['state' => $stateName, 'chance' => $chance];
+                        $result['referenced'][] = $stateName;
+                    }
+                    break;
+                case 'userAddState':
+                    if ($stateName !== null) {
+                        $result['user_add_states'][] = ['state' => $stateName, 'chance' => $chance];
+                        $result['referenced'][] = $stateName;
+                    }
+                    break;
+                case 'userRemoveState':
+                    if ($stateName !== null) {
+                        $result['user_remove_states'][] = ['state' => $stateName, 'chance' => $chance];
+                        $result['referenced'][] = $stateName;
+                    }
+                    break;
+                case 'targetRecoverHp':
+                    $result['target_recover_hp'][] = $recover;
+                    break;
+                case 'targetRecoverMp':
+                    $result['target_recover_mp'][] = $recover;
+                    break;
+                case 'userRecoverHp':
+                    $result['user_recover_hp'][] = $recover;
+                    break;
+                case 'userRecoverMp':
+                    $result['user_recover_mp'][] = $recover;
+                    break;
+                case 'atbBoost':
+                    $result['atb_boost'] = ($result['atb_boost'] ?? 0) + $effect['flatValue'];
+                    break;
             }
         }
 
-        return [$add, $remove, $referenced];
+        return $result;
     }
 
     private function readJson(string $file): array
