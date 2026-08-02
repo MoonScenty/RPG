@@ -1,8 +1,9 @@
-import { Container, Sprite, Texture } from 'pixi.js'
+import { Container, Sprite, Text, Texture } from 'pixi.js'
 import { isUnitAlive, type BattleState } from '@/lib/battleApi'
 import { TURN_HEX_ACTOR_URL, TURN_HEX_CURRENT_GLOW_URL, TURN_HEX_ENEMY_URL } from './assets'
 import { predictNextActors } from './atbPrediction'
 import { STAGE_HEIGHT, STAGE_WIDTH } from './layout'
+import { FONT_FAMILY } from './theme'
 
 // ReferenceResource/turn_hud(2026-08 재디자인) 기반 - 캐릭터 초상화가 있던 옥토패스
 // 스타일 다이아몬드 스트립을 걷어내고, 우하단에 육각형 7개(현재 턴 포함, 백엔드
@@ -30,12 +31,17 @@ function slotX(queueIndex: number): number {
   return ROW_LEFT + (HEX_COUNT - 1 - queueIndex) * HEX_PITCH
 }
 
+// 현재 턴 칸 밑에 붙는 라벨(사용자 지시).
+const CURRENT_LABEL_FONT_SIZE = 10
+const CURRENT_LABEL_GAP = 4 // 육각형 바닥 ~ 라벨 상단 간격
+
 /** 우하단 턴 순서 큐: 육각형 7개(현재 턴 + 다음 6턴), 캐릭터 표시 없이 진영색만. */
 export class TurnOrderStrip {
   readonly container = new Container()
 
   private readonly slots: Sprite[]
   private readonly currentGlow: Sprite
+  private readonly currentLabel: Text
 
   constructor() {
     // 현재 턴 칸(맨 오른쪽, slotX(0)) 중심에 원본 비율(116x31) 그대로 겹친다 -
@@ -54,6 +60,21 @@ export class TurnOrderStrip {
       this.container.addChild(sprite)
       return sprite
     })
+
+    // 현재 턴 칸 바로 밑에 뜨는 라벨(사용자 지시).
+    this.currentLabel = new Text({
+      text: 'CURRENT TURN',
+      style: {
+        fill: 0xffffff,
+        fontSize: CURRENT_LABEL_FONT_SIZE,
+        fontFamily: FONT_FAMILY,
+        stroke: { color: 0x000000, width: 2, alpha: 0.6 },
+      },
+    })
+    this.currentLabel.anchor.set(0.5, 0)
+    this.currentLabel.position.set(slotX(0) + HEX_WIDTH / 2, ROW_TOP + HEX_HEIGHT + CURRENT_LABEL_GAP)
+    this.currentLabel.visible = false
+    this.container.addChild(this.currentLabel)
   }
 
   update(state: BattleState): void {
@@ -61,6 +82,7 @@ export class TurnOrderStrip {
     if (living.length === 0) {
       this.slots.forEach((s) => (s.visible = false))
       this.currentGlow.visible = false
+      this.currentLabel.visible = false
       return
     }
 
@@ -78,5 +100,6 @@ export class TurnOrderStrip {
     })
 
     this.currentGlow.visible = queue.length > 0
+    this.currentLabel.visible = queue.length > 0
   }
 }
