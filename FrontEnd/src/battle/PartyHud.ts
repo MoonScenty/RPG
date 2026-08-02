@@ -34,10 +34,10 @@ const VALUE_GAP_X = 6
 // 핑크색 텍스트 픽셀만 골라 실측) 정중앙에 진짜 ATB 게이지(0~100+, atb_gauge)를
 // 퍼센트로 표기한다 - TG("턴 게이지") 라벨의 실제 값 자리.
 const ATB_PERCENT_CENTER_X = (189 + 235) / 2
-const ATB_PERCENT_CENTER_Y = 67
-// 중앙(anchor 0.5,0.5) 고정한 채로 키워서 위로 자라게 해 MP 바 밑단(y=59)에
-// 살짝 걸치게 한다(사용자 요청) - 13 -> 16 -> 19 -> 22 -> 24(사용자 확인 후 추가 확대).
-const ATB_PERCENT_FONT_SIZE = 24
+// 기준 67에서 사용자 지시로 2px 위로.
+const ATB_PERCENT_CENTER_Y = 65
+// 13 -> 16 -> 19 -> 22 -> 24 -> 22(사용자 지시로 최종 축소).
+const ATB_PERCENT_FONT_SIZE = 22
 // 사용자 지시: 폰트 내부 그라데이션(위쪽 흰색 -> 아래쪽 핑크), 테두리는 검정 50% 불투명.
 const ATB_PERCENT_GRADIENT_TOP = '#ffffff'
 const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
