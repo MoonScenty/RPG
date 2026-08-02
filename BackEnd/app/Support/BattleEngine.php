@@ -1893,7 +1893,13 @@ class BattleEngine
                 'enemy_face' => $u->unit->enemy_face,
                 'side' => $u->side,
                 'slot' => $u->slot,
-                'spd' => $u->spd,
+                // pickReadyActor()가 실제로 쓰는 값은 effectiveSpd(spd*paramRate) - 버프/디버프로
+                // 속도가 오르내린 상태인데 원본 spd를 그대로 내려주면 프론트 예측
+                // (atbPrediction.ts predictNextActors, 원본 spd만으로 재시뮬레이션)이 실제
+                // 서버 판정과 어긋난다. 턴 순서 큐에도 안 나온 유닛이 갑자기 행동하거나,
+                // 큐가 꽉 차 있다가 뜬금없이 다른 진영이 끼어드는 것처럼 보이던 원인
+                // (사용자 보고) - 서버가 실제로 쓰는 실효 속도를 그대로 내려서 일치시킨다.
+                'spd' => $this->effectiveSpd($u),
                 'atb_gauge' => $u->atb_gauge,
                 'attack_motion' => $u->attack_motion,
                 'weapon_animation_id' => $u->weapon_animation_id,
