@@ -142,6 +142,9 @@ export class PartyHud {
     // 위치는 그대로 두고 스타일(크기/그라디언트/테두리)과 정렬만 덮어씀(사용자 지시).
     this.applyBigValueStyle(hp.valueText, HP_VALUE_GRADIENT_BOTTOM, 0)
     this.applyBigValueStyle(mp.valueText, MP_VALUE_GRADIENT_BOTTOM, 1)
+    // 사용자 지시로 왼쪽 50px, 위로 5px 이동.
+    hp.valueText.position.x -= 50
+    hp.valueText.position.y -= 5
     // 사용자 지시로 왼쪽 10px, 위로 5px 이동.
     mp.valueText.position.x -= 10
     mp.valueText.position.y -= 5
