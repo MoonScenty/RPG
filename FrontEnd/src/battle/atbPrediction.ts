@@ -56,8 +56,13 @@ export function predictNextActors(living: BattleUnit[], count: number): BattleUn
     const outcome = simulateUntilReady(living, gauges)
     if (!outcome) break
 
+    // 백엔드 pickReadyActor()가 행동한 유닛의 게이지를 (오버플로우 이월 없이) 0으로
+    // 딱 리셋한다(대기 중이던 남의 게이지만 이월 - 사용자 지시로 변경됨) - 여기서
+    // 100을 빼기만 하면(예전 방식) 오버플로우가 남아서, 몇 턴만 지나도 이 예측이
+    // 실제 서버 결과와 어긋나기 시작한다(다음 턴 아군 차례로 보이는데 적이 먼저
+    // 행동하는 등). 반드시 백엔드와 동일하게 유지해야 한다.
     gauges = outcome.gauges
-    gauges.set(outcome.ready.id, (gauges.get(outcome.ready.id) ?? 0) - ATB_READY_THRESHOLD)
+    gauges.set(outcome.ready.id, 0)
     result.push(outcome.ready)
   }
 
