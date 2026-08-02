@@ -7,9 +7,10 @@ import { FONT_FAMILY } from './theme'
 // ReferenceResource/party_hud(2026-08 재디자인) 기반 - back(360x120)에 HP/MP
 // 라벨+게이지 트랙과 장식 텍스트(TG/%PERCENT, 기능 없음 - 사용자 확인)가 이미
 // 그려져 있고, hp/mp는 같은 캔버스 크기에 그 트랙 자리와 정확히 겹치는 색칠된
-// 게이지만 그려진 오버레이다. TBP 점/직업 아이콘은 이번 재디자인에서 뺐다(사용자
-// 지시). 우하단 뱃지의 장식용 "STATUS" 글자는 base.png에서 지워지고(사용자가
-// 직접 에셋 수정) 그 자리에 유닛 이름 라벨로 교체했다(사용자 지시).
+// 게이지만 그려진 오버레이다. 이름/TBP 점/직업 아이콘은 이번 재디자인에서 뺐다
+// (사용자 지시) - HP/MP 바 + 현재 수치만 표시. 우하단 뱃지의 "STATUS" 글자는
+// base.png에서 지워졌지만(사용자가 직접 에셋 수정) 문구 자체는 그대로 유지하고
+// 싶다고 해서 같은 위치에 코드에서 Text로 다시 그린다(사용자 지시).
 
 // 좌하단 2x2 그리드 배치 - ReferenceResource/party_hud/ref1.png 목업 배치를
 // 픽셀로 실측해서 맞춘 값(카드 캔버스 자체는 위쪽에 내용이 몰려있고 아래쪽은
@@ -44,12 +45,13 @@ const ATB_PERCENT_FONT_SIZE = 22
 const ATB_PERCENT_GRADIENT_TOP = '#ffffff'
 const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
 
-// base.png 우하단 각진 뱃지에 있던 장식용 "STATUS" 글자를 지우고 그 자리에 유닛 이름을
-// 표시하도록 교체(사용자 지시) - PIL로 원래 STATUS 텍스트 위치를 실측해 중심을 잡음.
-const NAME_LABEL_CENTER_X = 313
-const NAME_LABEL_CENTER_Y = 83
-const NAME_LABEL_FONT_SIZE = 10
-const NAME_LABEL_COLOR = 0xb8b0a0
+// base.png 우하단 각진 뱃지에 있던 장식용 "STATUS" 글자가 지워져서(사용자가 직접
+// 에셋 수정) 같은 문구를 코드에서 Text로 다시 그린다(사용자 지시, 이름 아님 - 그냥
+// "STATUS" 고정 텍스트) - PIL로 원래 STATUS 텍스트 위치를 실측해 중심을 잡음.
+const STATUS_LABEL_CENTER_X = 313
+const STATUS_LABEL_CENTER_Y = 83
+const STATUS_LABEL_FONT_SIZE = 10
+const STATUS_LABEL_COLOR = 0xb8b0a0
 
 interface Slot {
   card: Container
@@ -58,7 +60,6 @@ interface Slot {
   mpMask: Graphics
   mpValue: Text
   atbValue: Text
-  nameLabel: Text
 }
 
 interface BarResult {
@@ -96,7 +97,6 @@ export class PartyHud {
       slot.hpValue.text = `${unit.current_hp}`
       slot.mpValue.text = `${unit.current_mp}`
       slot.atbValue.text = `${Math.round(Math.min(100, Math.max(0, unit.atb_gauge)))}`
-      slot.nameLabel.text = unit.name
 
       slot.card.alpha = isUnitAlive(unit) ? 1 : 0.35
     }
@@ -129,18 +129,18 @@ export class PartyHud {
     atbValue.position.set(ATB_PERCENT_CENTER_X, ATB_PERCENT_CENTER_Y)
     card.addChild(atbValue)
 
-    const nameLabel = new Text({
-      text: '',
+    const statusLabel = new Text({
+      text: 'STATUS',
       style: {
-        fill: NAME_LABEL_COLOR,
-        fontSize: NAME_LABEL_FONT_SIZE,
+        fill: STATUS_LABEL_COLOR,
+        fontSize: STATUS_LABEL_FONT_SIZE,
         fontFamily: FONT_FAMILY,
         stroke: { color: 0x000000, width: 2, alpha: 0.6 },
       },
     })
-    nameLabel.anchor.set(0.5, 0.5)
-    nameLabel.position.set(NAME_LABEL_CENTER_X, NAME_LABEL_CENTER_Y)
-    card.addChild(nameLabel)
+    statusLabel.anchor.set(0.5, 0.5)
+    statusLabel.position.set(STATUS_LABEL_CENTER_X, STATUS_LABEL_CENTER_Y)
+    card.addChild(statusLabel)
 
     return {
       card,
@@ -149,7 +149,6 @@ export class PartyHud {
       mpMask: mp.mask,
       mpValue: mp.valueText,
       atbValue,
-      nameLabel,
     }
   }
 
