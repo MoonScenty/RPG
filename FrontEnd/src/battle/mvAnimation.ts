@@ -171,6 +171,8 @@ export class MvAnimationPlayer {
   private applyFrame(cellSprites: Sprite[], frame: MvAnimationCell[], sheet1: Texture | null, sheet2: Texture | null): void {
     for (let i = 0; i < cellSprites.length; i++) {
       const sprite = cellSprites[i]
+      if (!sprite) continue
+
       const cell = frame[i]
       if (!cell || cell[0] < 0) {
         sprite.visible = false
