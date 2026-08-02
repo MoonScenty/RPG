@@ -22,6 +22,12 @@ const GROUP_Y_SCREEN_ADJUST = -20
 const ALLY_SIDE_OFFSET_X = -40
 const ENEMY_SIDE_OFFSET_X = 40
 
+// 적은 왼쪽으로 30px, 아군은 오른쪽으로 30px 추가(사용자 지시 - 위 SIDE_OFFSET과
+// 반대 방향, 두 진영 사이 간격을 다시 벌림) - 화면에 실제 보이는 픽셀 기준이라
+// LAYOUT_SCALE 적용 후 최종 좌표에 그대로 더한다.
+const ENEMY_X_SCREEN_ADJUST = -30
+const ALLY_X_SCREEN_ADJUST = 30
+
 // slot 1-3 = 전열(상대 진영과 가까움), slot 4-6 = 후열. 좌우로 화면 전체를 밀던
 // GROUP_OFFSET_X(예전엔 -80)를 여기서 뺐다 - 그 값이 있으면 화면 중앙(640) 기준
 // 좌우 대칭이 깨져서(사용자 지시로 확인) 아래 LAYOUT_SCALE 적용 후에도 적/아군이
@@ -44,7 +50,10 @@ export function slotPosition(side: Side, slot: number): { x: number; y: number }
   const y = ROW_Y[row] ?? ROW_Y[0]
 
   return {
-    x: STAGE_WIDTH / 2 + (x - STAGE_WIDTH / 2) * LAYOUT_SCALE,
+    x:
+      STAGE_WIDTH / 2 +
+      (x - STAGE_WIDTH / 2) * LAYOUT_SCALE +
+      (side === 'enemy' ? ENEMY_X_SCREEN_ADJUST : ALLY_X_SCREEN_ADJUST),
     y:
       STAGE_HEIGHT / 2 +
       (y - STAGE_HEIGHT / 2) * LAYOUT_SCALE +
