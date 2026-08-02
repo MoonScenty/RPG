@@ -729,17 +729,26 @@ export class BattleScene {
   private async playWeaponEffect(animationId: number, target: UnitView): Promise<void> {
     try {
       const point = target.container.toGlobal(new Point(0, 0))
+      // DragonBones 유닛은 슬롯이 여러 장의 텍스처로 나뉘어 있어 실루엣 모양
+      // 플래시를 못 만들고, hitOverlay가 바운딩박스 사각형이라(buildDragonBonesDisplay
+      // 참고) 대상 플래시(flashScope===1)를 그대로 적용하면 캐릭터 모양이 아니라
+      // 네모 박스가 번쩍이는 것으로 보인다 - sv 배틀러(실루엣 플래시 가능)만 적용.
+      const isDragonBones = target.unit.dragonbones_skeleton !== null
       await this.mvAnimations.playAt(animationId, {
         x: point.x,
         y: point.y,
         height: target.displayHeight,
-        applyFlash: (color) => {
-          target.hitOverlay.tint = (color[0] << 16) | (color[1] << 8) | color[2]
-          target.hitOverlay.alpha = color[3] / 255
-        },
-        clearFlash: () => {
-          target.hitOverlay.alpha = 0
-        },
+        applyFlash: isDragonBones
+          ? undefined
+          : (color) => {
+              target.hitOverlay.tint = (color[0] << 16) | (color[1] << 8) | color[2]
+              target.hitOverlay.alpha = color[3] / 255
+            },
+        clearFlash: isDragonBones
+          ? undefined
+          : () => {
+              target.hitOverlay.alpha = 0
+            },
         hide: () => {
           target.container.visible = false
         },
