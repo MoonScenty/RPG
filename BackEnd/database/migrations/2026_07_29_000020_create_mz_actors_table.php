@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('battler_name', 50)->nullable();
             $table->unsignedTinyInteger('initial_level')->default(1);
             $table->unsignedTinyInteger('max_level')->default(99);
-            $table->string('nickname', 50)->nullable();
             $table->text('note')->nullable();
             $table->text('profile')->nullable();
             // equips: [무기, 방패, 머리, 몸, 장신구] mz_weapons/mz_armors id 배열(MZ 표준 순서).
