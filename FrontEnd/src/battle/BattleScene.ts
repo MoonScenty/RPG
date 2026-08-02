@@ -439,6 +439,9 @@ export class BattleScene {
    * 단, 이 캐릭터에 dying/dead 포즈가 아예 없으면(주로 <DragonBonesMotion>에
    * dying/dead를 안 걸어준 DragonBones 유닛) 죽은 채로 idle 포즈가 얼어붙어
    * "살아있는 것처럼" 보이는 게 더 어색하므로, 예전처럼 페이드아웃 후 숨긴다.
+   *
+   * 적은 부활 스킬의 대상이 될 일이 없어서(사용자 확인) 사망 포즈로 남겨둘
+   * 이유가 없다 - dead/dying 포즈가 있어도 무시하고 항상 페이드아웃 후 숨긴다.
    */
   private setAliveState(view: UnitView, animate: boolean): void {
     const aliveNow = isUnitAlive(view.unit)
@@ -457,7 +460,8 @@ export class BattleScene {
       return
     }
 
-    const hasDeathPose = view.animator.hasAnimation('dying') || view.animator.hasAnimation('dead')
+    const hasDeathPose =
+      view.unit.side !== 'enemy' && (view.animator.hasAnimation('dying') || view.animator.hasAnimation('dead'))
 
     if (!hasDeathPose) {
       if (animate && view.wasAlive) {
