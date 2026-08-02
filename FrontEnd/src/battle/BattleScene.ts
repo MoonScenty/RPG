@@ -226,7 +226,7 @@ export class BattleScene {
       this.turnOrderStrip.update(state)
 
       const allies = state.units.filter((u) => u.side === 'ally')
-      this.partyHud = new PartyHud(allies)
+      this.partyHud = new PartyHud(this.app, allies)
       this.root.addChild(this.partyHud.container)
       this.root.addChild(this.resultLayer) // 승패 오버레이를 맨 위로
 

@@ -1,9 +1,11 @@
-import { Container, FillGradient, Graphics, Sprite, Text, Texture } from 'pixi.js'
+import type { Application } from 'pixi.js'
+import { Container, FillGradient, Graphics, Sprite, Text } from 'pixi.js'
 import { isUnitAlive, type BattleUnit } from '@/lib/battleApi'
 import { PARTY_HUD_BACK2_URL, PARTY_HUD_BACK_URL, PARTY_HUD_HP_URL, PARTY_HUD_MP_URL } from './assets'
 import { hudFaceTexture } from './faces'
 import { STAGE_HEIGHT } from './layout'
 import { FONT_FAMILY } from './theme'
+import { tween } from './tween'
 
 // ReferenceResource/party_hud(2026-08 재디자인) 기반 - back(360x120)에는 원래
 // HP/MP/TG/%PERCENT/STATUS 글자가 전부 박혀 있었지만, 사용자가 base.png를 두
@@ -99,6 +101,10 @@ const STATUS_LABEL_COLOR = 0xb8b0a0
 interface Slot {
   card: Container
   back: Sprite
+  back2: Sprite
+  // back/back2 알파를 크로스페이드하는 중 fadeBackground()가 매 update() 호출마다
+  // 새 tween을 또 시작하지 않게, 마지막으로 반영한 active 상태를 기억해둔다.
+  isActive: boolean
   hpMask: Graphics
   hpValue: Text
   mpMask: Graphics
@@ -111,13 +117,20 @@ interface BarResult {
   valueText: Text
 }
 
+// base<->base2 전환 시 순간적으로 툭 바뀌지 않고 짧게 크로스페이드(사용자 지시 -
+// "프레임이 짧아도 괜찮다"고 해서 확 눈에 띄지 않을 정도로만 짧게).
+const BACKGROUND_FADE_DURATION_MS = 150
+
 /** 좌하단 아군 정보 패널(2x2): ReferenceResource/party_hud 카드 3장 기반. */
 export class PartyHud {
   readonly container = new Container()
 
+  private readonly app: Application
   private slots = new Map<number, Slot>()
 
-  constructor(allies: BattleUnit[]) {
+  constructor(app: Application, allies: BattleUnit[]) {
+    this.app = app
+
     allies.forEach((unit, i) => {
       const col = i % COLUMNS
       const row = Math.floor(i / COLUMNS)
@@ -129,7 +142,7 @@ export class PartyHud {
     this.update(allies)
   }
 
-  /** activeUnitId - 지금 행동 중인 유닛(있으면 그 카드만 base.png, 나머지는 base2.png, 사용자 지시). */
+  /** activeUnitId - 지금 행동 중인 유닛(있으면 그 카드만 base.png로 크로스페이드, 나머지는 base2.png, 사용자 지시). */
   update(units: BattleUnit[], activeUnitId?: number): void {
     for (const unit of units) {
       const slot = this.slots.get(unit.id)
@@ -142,7 +155,12 @@ export class PartyHud {
       slot.hpValue.text = `${unit.current_hp}`
       slot.mpValue.text = `${unit.current_mp}`
       slot.atbValue.text = `${Math.round(Math.min(100, Math.max(0, unit.atb_gauge)))}`
-      slot.back.texture = Texture.from(unit.id === activeUnitId ? PARTY_HUD_BACK_URL : PARTY_HUD_BACK2_URL)
+
+      const isActive = unit.id === activeUnitId
+      if (slot.isActive !== isActive) {
+        slot.isActive = isActive
+        this.fadeBackground(slot, isActive)
+      }
 
       slot.card.alpha = isUnitAlive(unit) ? 1 : 0.35
     }
@@ -153,8 +171,14 @@ export class PartyHud {
     card.position.set(left, top)
     this.container.addChild(card)
 
-    const back = Sprite.from(PARTY_HUD_BACK2_URL)
+    // 크로스페이드용으로 둘 다 같은 자리에 겹쳐 얹고, 기본(자기 턴 아님) 상태인
+    // back2만 불투명하게 시작한다. fadeBackground()가 알파만 서로 반대로 움직여서
+    // 텍스처를 툭 바꾸는 대신 부드럽게 넘어가게 한다(사용자 지시).
+    const back = Sprite.from(PARTY_HUD_BACK_URL)
+    back.alpha = 0
     card.addChild(back)
+    const back2 = Sprite.from(PARTY_HUD_BACK2_URL)
+    card.addChild(back2)
     this.buildFace(card, unit)
 
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
@@ -197,12 +221,24 @@ export class PartyHud {
     return {
       card,
       back,
+      back2,
+      isActive: false,
       hpMask: hp.mask,
       hpValue: hp.valueText,
       mpMask: mp.mask,
       mpValue: mp.valueText,
       atbValue,
     }
+  }
+
+  /** base<->base2를 짧게 크로스페이드(사용자 지시) - 매 update() 호출마다 새로 시작하지 않게, 상태가 실제로 바뀔 때만 update()가 호출한다. */
+  private fadeBackground(slot: Slot, active: boolean): void {
+    const backStart = slot.back.alpha
+    const back2Start = slot.back2.alpha
+    void tween(this.app, BACKGROUND_FADE_DURATION_MS, (progress) => {
+      slot.back.alpha = backStart + (Number(active) - backStart) * progress
+      slot.back2.alpha = back2Start + (Number(!active) - back2Start) * progress
+    })
   }
 
   /** HP/MP 수치를 TG 수치(atbValue)와 같은 큰 그라디언트 스타일로 바꾼다(사용자 지시). 위치는 그대로 두고 스타일+정렬만 덮어씀. */
