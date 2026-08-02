@@ -10,7 +10,7 @@ class Unit extends Model
 
     protected $fillable = [
         'name', 'type', 'class_id', 'mz_enemy_id', 'mz_actor_id', 'max_hp', 'max_mp', 'atk', 'def', 'mat', 'mdf', 'spd', 'luk',
-        'sprite', 'attack_motion', 'weapon_animation_id', 'equip_traits',
+        'sprite', 'hud_sprite', 'attack_motion', 'weapon_animation_id', 'equip_traits',
         'dragonbones_skeleton', 'dragonbones_atlas', 'dragonbones_motions', 'dragonbones_scale',
     ];
 

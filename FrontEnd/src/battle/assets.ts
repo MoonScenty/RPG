@@ -58,6 +58,15 @@ export const FACE_SHEET_URLS: Record<string, string> = {
   Actor2: '/assets/portraits/Actor2.png',
 }
 
+// RPGProject/img/hud_faces 기반 - 파티 HUD 좌측 얼굴 전용 시트(FACE_SHEET_URLS와
+// 별개 에셋, 지금은 img/faces와 같은 그림이지만 나중에 다른 그림으로 바뀔 수 있음).
+// FrontEnd/public/assets/portraits와 동일한 방식(4x2, 144x144 셀)으로
+// FrontEnd/public/assets/hud_faces/{Actor1,Actor2}.png를 미리 합쳐뒀다.
+export const HUD_FACE_SHEET_URLS: Record<string, string> = {
+  Actor1: '/assets/hud_faces/Actor1.png',
+  Actor2: '/assets/hud_faces/Actor2.png',
+}
+
 export async function preloadBattleAssets(): Promise<void> {
   await Assets.load([
     BORDER_URL,
@@ -69,5 +78,6 @@ export async function preloadBattleAssets(): Promise<void> {
     TURN_HEX_CURRENT_GLOW_URL,
     SHADOW_URL,
     ...Object.values(FACE_SHEET_URLS),
+    ...Object.values(HUD_FACE_SHEET_URLS),
   ])
 }

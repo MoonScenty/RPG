@@ -1,6 +1,7 @@
 import { Container, FillGradient, Graphics, Sprite, Text } from 'pixi.js'
 import { isUnitAlive, type BattleUnit } from '@/lib/battleApi'
 import { PARTY_HUD_BACK_URL, PARTY_HUD_HP_URL, PARTY_HUD_MP_URL } from './assets'
+import { hudFaceTexture } from './faces'
 import { STAGE_HEIGHT } from './layout'
 import { FONT_FAMILY } from './theme'
 
@@ -26,6 +27,16 @@ const GRID_TOP = STAGE_HEIGHT - ROW_PITCH * 2 - 18 - 10
 // 360x120 기준 픽셀 좌표) - PIL로 non-transparent 영역을 실측한 값.
 const HP_BAR_RECT = { x: 177, y: 38, width: 116, height: 8 }
 const MP_BAR_RECT = { x: 184, y: 51, width: 116, height: 8 }
+
+// 카드 좌측 여백(x0~177, HP_BAR_RECT.x 시작 전 빈 공간)에 HUD 얼굴 그래픽 출력
+// (사용자 지시) - hud_faces 원본이 288x96(가로로 긴 상반부 크롭)이라 정사각형이
+// 아니다. 카드 내용물 세로 범위(y30~89, PIL로 실측, 높이 59)에 정확히 맞춰(딱
+// 맞게) 세로를 채우고, 원본 비율(288:96=3:1) 그대로 가로를 늘리면 폭이 딱
+// HP_BAR_RECT.x(177)까지 차서 좌측 여백을 정확히 채운다.
+const FACE_X = 0
+const FACE_Y = 30
+const FACE_HEIGHT = 59
+const FACE_WIDTH = FACE_HEIGHT * 3
 
 const VALUE_FONT_SIZE = 12
 const VALUE_COLOR = 0xffffff
@@ -135,6 +146,7 @@ export class PartyHud {
     this.container.addChild(card)
 
     card.addChild(Sprite.from(PARTY_HUD_BACK_URL))
+    this.buildFace(card, unit)
 
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
     const mp = this.buildBar(card, PARTY_HUD_MP_URL, MP_BAR_RECT)
@@ -221,6 +233,20 @@ export class PartyHud {
     label.position.set(x, y)
     card.addChild(label)
     return label
+  }
+
+  /** 카드 좌측 여백에 HUD 얼굴 그래픽을 딱 맞춰 그린다(사용자 지시). hud_sprite가 없으면(적 등) 아무것도 그리지 않는다. */
+  private buildFace(card: Container, unit: BattleUnit): void {
+    if (!unit.hud_sprite) return
+
+    const texture = hudFaceTexture(unit.hud_sprite)
+    if (!texture) return
+
+    const face = new Sprite(texture)
+    face.width = FACE_WIDTH
+    face.height = FACE_HEIGHT
+    face.position.set(FACE_X, FACE_Y)
+    card.addChild(face)
   }
 
   private buildBar(

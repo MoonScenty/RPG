@@ -43,7 +43,8 @@ class ActorSeeder extends Seeder
                 [
                     'name' => $actor['name'],
                     'class_id' => $actor['classId'],
-                    'sprite' => $this->faceSprite($actor['battlerName']),
+                    'sprite' => $this->toSheetSprite($actor['battlerName']),
+                    'hud_sprite' => $actor['hudFaceName'] !== '' ? $this->toSheetSprite($actor['hudFaceName']) : null,
                     'attack_motion' => 'thrust',
                     'weapon_animation_id' => null,
                     'equip_traits' => [],
@@ -57,17 +58,17 @@ class ActorSeeder extends Seeder
     }
 
     /**
-     * battlerName("Actor1_1"~"Actor2_8")을 FrontEnd/src/lib/portrait.ts와
-     * battle/characters.ts가 기대하는 "얼굴시트:index" 형식("Actor1:0")으로 변환한다.
-     * RPGProject/data에는 별도 faceIndex가 없고 battlerName=faceName이 8명씩
-     * 묶인 시트 파일명+슬롯 번호를 그대로 인코딩하고 있다(예: Actor1_1 -> Actor1.png의
-     * 1번째 얼굴). 'Enemy:{image}'(EnemySeeder)처럼 이름을 그대로 이어붙이면 안 되고
-     * 반드시 시트/인덱스로 분해해야 한다.
+     * "Actor1_1"~"Actor2_8" 형식(battlerName/faceName/hudFaceName 공용)을
+     * FrontEnd/src/lib/portrait.ts와 battle/faces.ts가 기대하는 "얼굴시트:index"
+     * 형식("Actor1:0")으로 변환한다. RPGProject/data에는 별도 faceIndex가 없고
+     * 8명씩 묶인 시트 파일명+슬롯 번호를 그대로 인코딩하고 있다(예: Actor1_1 ->
+     * Actor1.png의 1번째 얼굴). 'Enemy:{image}'(EnemySeeder)처럼 이름을 그대로
+     * 이어붙이면 안 되고 반드시 시트/인덱스로 분해해야 한다.
      */
-    private function faceSprite(string $battlerName): string
+    private function toSheetSprite(string $name): string
     {
-        if (! preg_match('/^([A-Za-z]+\d+)_(\d+)$/', $battlerName, $m)) {
-            throw new \RuntimeException("battlerName '{$battlerName}'이 'Actor1_1' 형식이 아닙니다.");
+        if (! preg_match('/^([A-Za-z]+\d+)_(\d+)$/', $name, $m)) {
+            throw new \RuntimeException("'{$name}'이 'Actor1_1' 형식이 아닙니다.");
         }
 
         return "{$m[1]}:" . ((int) $m[2] - 1);

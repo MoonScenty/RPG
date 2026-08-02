@@ -11,6 +11,8 @@ export interface BattleUnit {
   unit_id: number
   name: string
   sprite: string
+  /** units.hud_sprite("Actor1:0" 형식) - 파티 HUD 좌측 얼굴 그래픽 전용(sprite와 다른 에셋일 수 있음), 없으면 null(적 등). */
+  hud_sprite: string | null
   side: Side
   slot: number
   spd: number
