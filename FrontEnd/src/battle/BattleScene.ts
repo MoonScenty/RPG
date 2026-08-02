@@ -397,8 +397,18 @@ export class BattleScene {
     return { animator, display: sprite, hitOverlay, displayHeight }
   }
 
+  /** 이전 전투(재도전 등)의 잔여 라벨을 지운다 - buildEnemyLabels()가 호출부의 사전 정리에
+   * 의존하지 않고 스스로 방어하도록, retry()의 정리 로직과 이 메서드로 통일했다. */
+  private clearEnemyLabels(): void {
+    for (const label of this.enemyLabels.values()) {
+      label.group.destroy({ children: true })
+    }
+    this.enemyLabels.clear()
+  }
+
   /** 적 스프라이트 발밑에 이름+HP 바 라벨을 붙인다(reference_resource/design/ref5.png 참고). */
   private buildEnemyLabels(units: BattleUnit[]): void {
+    this.clearEnemyLabels()
     for (const unit of units) {
       if (unit.side !== 'enemy') continue
       const view = this.unitViews.get(unit.id)
@@ -993,10 +1003,7 @@ export class BattleScene {
     }
     this.unitViews.clear()
 
-    for (const label of this.enemyLabels.values()) {
-      label.group.destroy({ children: true })
-    }
-    this.enemyLabels.clear()
+    this.clearEnemyLabels()
 
     this.partyHud?.container.destroy({ children: true })
     this.partyHud = null
