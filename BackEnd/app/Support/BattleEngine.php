@@ -1207,16 +1207,10 @@ class BattleEngine
         }
         $actor->save();
 
-        foreach ($tags['remove_self_states'] ?? [] as $name) {
-            $this->removeState($actor, $name);
-        }
         foreach ($tags['user_remove_states'] ?? [] as $entry) {
             if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
                 $this->removeState($actor, $entry['state']);
             }
-        }
-        if (($applySelf = $tags['apply_self_state'] ?? null) !== null) {
-            $this->applyState($actor, $applySelf, $battle->turn_number);
         }
         if (($pair = $tags['apply_self_if_has'] ?? null) !== null && in_array($pair[0], $actorHadStates, true)) {
             $this->applyState($actor, $pair[1], $battle->turn_number);
@@ -1237,12 +1231,8 @@ class BattleEngine
         // 빗나가거나 회피당하면 상태 부여/제거 포함 그 행동의 대상측 효과 전체가
         // 무산된다(result.isHit() 게이트와 동일한 취급). 확률 기반(target_remove_states/
         // target_add_states, effects[] 유래)은 히트마다 독립적으로 굴려야 해서
-        // resolveOneHit() 안으로 옮겼고, 여기 남은 건 항상 100% 확정인 note 태그
-        // 효과(스킬 사용 1회당 한 번만 적용되면 되는 것들)뿐이다.
+        // resolveOneHit() 안으로 옮겼고, 여기 남은 건 조건부(ApplyStateIfTargetHas)뿐이다.
         if ($hitOutcome === 'hit') {
-            foreach ($tags['remove_target_states'] ?? [] as $name) {
-                $this->removeState($target, $name);
-            }
             if (($pair = $tags['apply_target_if_has'] ?? null) !== null && in_array($pair[0], $targetHadStates, true)) {
                 $this->applyState($target, $pair[1], $battle->turn_number);
             }
@@ -1322,16 +1312,10 @@ class BattleEngine
             $actor->current_mp = min($actor->max_mp, $actor->current_mp + $amount);
         }
 
-        foreach ($tags['remove_self_states'] ?? [] as $name) {
-            $this->removeState($actor, $name);
-        }
         foreach ($tags['user_remove_states'] ?? [] as $entry) {
             if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
                 $this->removeState($actor, $entry['state']);
             }
-        }
-        if (($applySelf = $tags['apply_self_state'] ?? null) !== null) {
-            $this->applyState($actor, $applySelf, $battle->turn_number);
         }
         if (($pair = $tags['apply_self_if_has'] ?? null) !== null && in_array($pair[0], $actorHadStates, true)) {
             $this->applyState($actor, $pair[1], $battle->turn_number);
@@ -1402,9 +1386,6 @@ class BattleEngine
             $damage = $anyHit ? $totalDamage : null;
 
             if ($hitOutcome === 'hit') {
-                foreach ($tags['remove_target_states'] ?? [] as $name) {
-                    $this->removeState($target, $name);
-                }
                 if (($pair = $tags['apply_target_if_has'] ?? null) !== null && in_array($pair[0], $targetHadStates, true)) {
                     $this->applyState($target, $pair[1], $battle->turn_number);
                 }

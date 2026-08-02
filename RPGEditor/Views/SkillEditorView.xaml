@@ -166,6 +166,40 @@
                             </StackPanel>
                         </Border>
 
+                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0" Margin="0,0,0,10" Padding="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="조건부 상태 (비우면 없음)" FontWeight="Bold" Margin="0,0,0,6" />
+                                <TextBlock Text="대상 요구 상태 (대상이 이 상태여야만 대상으로 고를 수 있음)" Margin="0,0,0,4" />
+                                <views:StateField x:Name="RequireTargetStateField"
+                                                   StateId="{Binding Selected.RequireTargetStateId, UpdateSourceTrigger=PropertyChanged}"
+                                                   Margin="0,0,0,10" />
+                                <TextBlock Text="시전자가 왼쪽 상태를 갖고 있으면 → 오른쪽 상태 부여(자신)" Margin="0,0,0,4" />
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <views:StateField x:Name="SelfHasStateField" Grid.Column="0"
+                                                       StateId="{Binding Selected.SelfHasStateId, UpdateSourceTrigger=PropertyChanged}" />
+                                    <views:StateField x:Name="SelfHasAppliesStateField" Grid.Column="2"
+                                                       StateId="{Binding Selected.SelfHasAppliesStateId, UpdateSourceTrigger=PropertyChanged}" />
+                                </Grid>
+                                <TextBlock Text="대상이 왼쪽 상태를 갖고 있으면(명중 시) → 오른쪽 상태 부여(대상)" Margin="0,0,0,4" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="8" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <views:StateField x:Name="TargetHasStateField" Grid.Column="0"
+                                                       StateId="{Binding Selected.TargetHasStateId, UpdateSourceTrigger=PropertyChanged}" />
+                                    <views:StateField x:Name="TargetHasAppliesStateField" Grid.Column="2"
+                                                       StateId="{Binding Selected.TargetHasAppliesStateId, UpdateSourceTrigger=PropertyChanged}" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
                         <TextBlock Text="메시지 (%1=자신, %2=스킬명, %3=대상)" Margin="0,0,0,4" />
                         <TextBox Text="{Binding Selected.Message, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>

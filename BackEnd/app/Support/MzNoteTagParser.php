@@ -10,13 +10,19 @@ namespace App\Support;
 class MzNoteTagParser
 {
     /**
-     * require_self_state/circle_image/casting_turns/cooldown_turns/mp_recover/
-     * lifesteal_pct/gauge_boost/consume_all_mp/swap_position/target_dead_allies는
-     * RPGEditor 스킬 편집 화면의 구조화 필드(RequiredStateId, MagicCircleImage+
-     * MagicCircleScale, CastingTurns, CooldownTurns, MpRecoverOnUse,
-     * LifestealPercent, GaugeBoostAmount, ConsumeAllMp, SwapPosition,
-     * TargetDeadAllies)로 대체되어 더 이상 노트태그로 안 쓴다 - SkillSeeder가 그
-     * 필드를 직접 읽어 tags를 덮어쓴다.
+     * 스킬 노트태그는 이제 전부 RPGEditor 스킬 편집 화면의 구조화 필드로 대체되어
+     * 이 함수가 반환하는 항목이 없다 - SkillSeeder가 각 필드를 직접 읽는다:
+     * RequiredStateId/MagicCircleImage+MagicCircleScale/CastingTurns/CooldownTurns/
+     * MpRecoverOnUse/LifestealPercent/GaugeBoostAmount/ConsumeAllMp/SwapPosition/
+     * TargetDeadAllies/RequireTargetStateId/SelfHasStateId+SelfHasAppliesStateId/
+     * TargetHasStateId+TargetHasAppliesStateId, "사용 효과" 표의 UserAddState/
+     * UserRemoveState/TargetAddState/TargetRemoveState 행(RemoveState/
+     * RemoveTargetState/ApplySelfState 노트태그를 대체).
+     *
+     * target_front_row/target_back_row(<TargetFrontRow>/<TargetBackRow>)만 여전히
+     * 노트태그다 - 사용자가 직접 타이핑하는 게 아니라 scope가 enemyFrontRow 등일 때
+     * SkillSeeder가 자동으로 세팅하는 내부 계산용 플래그라 구조화 필드로 옮길 대상이
+     * 아니다(README 문서화 태그 표에서도 "자동 계산" 항목).
      *
      * @return array<string, mixed>
      */
@@ -25,12 +31,6 @@ class MzNoteTagParser
         return [
             'target_front_row' => self::hasFlag($note, 'TargetFrontRow'),
             'target_back_row' => self::hasFlag($note, 'TargetBackRow'),
-            'remove_self_states' => self::stringValues($note, 'RemoveState'),
-            'remove_target_states' => self::stringValues($note, 'RemoveTargetState'),
-            'require_target_state' => self::stringValue($note, 'RequireTargetState'),
-            'apply_self_state' => self::stringValue($note, 'ApplySelfState'),
-            'apply_target_if_has' => self::pairValue($note, 'ApplyStateIfTargetHas'),
-            'apply_self_if_has' => self::pairValue($note, 'ApplySelfStateIfSelfHas'),
         ];
     }
 

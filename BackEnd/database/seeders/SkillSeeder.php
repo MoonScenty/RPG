@@ -118,7 +118,19 @@ class SkillSeeder extends Seeder
             $tags['consume_all_mp'] = $skill['consumeAllMp'] ?? false;
             $tags['swap_position'] = $skill['swapPosition'] ?? false;
 
-            foreach (['require_target_state', 'require_self_state', 'apply_self_state'] as $key) {
+            // RequireTargetState/ApplySelfStateIfSelfHas/ApplyStateIfTargetHas도 이제
+            // StateField 피커(RequireTargetStateId, SelfHasStateId+SelfHasAppliesStateId,
+            // TargetHasStateId+TargetHasAppliesStateId)로 대체됐다.
+            $stateName = fn (?int $id) => $id !== null ? ($stateNames[$id] ?? null) : null;
+            $tags['require_target_state'] = $stateName($skill['requireTargetStateId'] ?? null);
+            $tags['apply_self_if_has'] = ($skill['selfHasStateId'] ?? null) !== null && ($skill['selfHasAppliesStateId'] ?? null) !== null
+                ? [$stateName($skill['selfHasStateId']), $stateName($skill['selfHasAppliesStateId'])]
+                : null;
+            $tags['apply_target_if_has'] = ($skill['targetHasStateId'] ?? null) !== null && ($skill['targetHasAppliesStateId'] ?? null) !== null
+                ? [$stateName($skill['targetHasStateId']), $stateName($skill['targetHasAppliesStateId'])]
+                : null;
+
+            foreach (['require_target_state', 'require_self_state'] as $key) {
                 if ($tags[$key] !== null) {
                     $referencedStates[] = $tags[$key];
                 }

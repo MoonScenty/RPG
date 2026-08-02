@@ -24,6 +24,11 @@ public partial class SkillEditorView : UserControl
         {
             EffectsDataGrid.Tag = value;
             RequiredStateField.States = value;
+            RequireTargetStateField.States = value;
+            SelfHasStateField.States = value;
+            SelfHasAppliesStateField.States = value;
+            TargetHasStateField.States = value;
+            TargetHasAppliesStateField.States = value;
         }
     }
 

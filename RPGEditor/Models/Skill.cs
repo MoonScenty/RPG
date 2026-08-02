@@ -85,4 +85,25 @@ public partial class Skill : DatabaseEntry
     /// <summary>전투불능 상태인 아군도 대상으로 고를 수 있는지(부활 스킬 등, 아군 대상 스킬 전용).</summary>
     [ObservableProperty]
     private bool targetDeadAllies;
+
+    /// <summary>대상이 이 상태를 갖고 있어야만 대상으로 고를 수 있음(예: "확인사살"류 - 대상이
+    /// 특정 상태일 때만 사용 가능). null이면 제약 없음.</summary>
+    [ObservableProperty]
+    private int? requireTargetStateId;
+
+    /// <summary>"만약 시전자가 이 상태를 갖고 있다면" 조건 - 시전 시점 상태를 기준으로 판정.</summary>
+    [ObservableProperty]
+    private int? selfHasStateId;
+
+    /// <summary>SelfHasStateId 조건이 참일 때 시전자에게 부여할 상태.</summary>
+    [ObservableProperty]
+    private int? selfHasAppliesStateId;
+
+    /// <summary>"만약 대상이 이 상태를 갖고 있다면" 조건(명중했을 때만) - 시전 시점 상태를 기준으로 판정.</summary>
+    [ObservableProperty]
+    private int? targetHasStateId;
+
+    /// <summary>TargetHasStateId 조건이 참일 때 대상에게 부여할 상태.</summary>
+    [ObservableProperty]
+    private int? targetHasAppliesStateId;
 }
