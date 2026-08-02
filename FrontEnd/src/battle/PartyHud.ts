@@ -44,6 +44,11 @@ const HP_LABEL_Y = HP_BAR_RECT.y + HP_BAR_RECT.height / 2
 const MP_LABEL_X = MP_BAR_RECT.x - LABEL_GAP_X
 const MP_LABEL_Y = MP_BAR_RECT.y + MP_BAR_RECT.height / 2
 
+// MP 수치 텍스트를 TG 수치(atbValue)와 동일한 그라디언트로(사용자 지시, 크기/테두리도
+// atbValue와 동일하게 맞춤 - ATB_PERCENT_FONT_SIZE 재사용).
+const MP_VALUE_GRADIENT_TOP = '#ffffff'
+const MP_VALUE_GRADIENT_BOTTOM = '#053f7c'
+
 // 예전 base.png에 박혀 있던 "TG"(x178~189)와 "%PERCENT"(x235~291) 라벨 위치를
 // PIL로 실측한 값 - 지금은 base.png에서 지워져서 코드에서 Text로 다시 그린다.
 const TG_LABEL_CENTER_X = (177 + 189) / 2
@@ -130,6 +135,18 @@ export class PartyHud {
 
     const hp = this.buildBar(card, PARTY_HUD_HP_URL, HP_BAR_RECT)
     const mp = this.buildBar(card, PARTY_HUD_MP_URL, MP_BAR_RECT)
+
+    // MP 수치를 TG 수치(atbValue)와 같은 크기/그라디언트/테두리로 맞춘다(사용자 지시) -
+    // 위치·정렬(좌측 정렬, 바 오른쪽)은 그대로 두고 스타일만 덮어씀.
+    const mpValueGradient = new FillGradient(0, 0, 0, 1)
+    mpValueGradient.addColorStop(0, MP_VALUE_GRADIENT_TOP)
+    mpValueGradient.addColorStop(1, MP_VALUE_GRADIENT_BOTTOM)
+    mp.valueText.style = {
+      fill: mpValueGradient,
+      fontSize: ATB_PERCENT_FONT_SIZE,
+      fontFamily: FONT_FAMILY,
+      stroke: { color: 0x000000, width: 2, alpha: 0.5 },
+    }
 
     const atbGradient = new FillGradient(0, 0, 0, 1)
     atbGradient.addColorStop(0, ATB_PERCENT_GRADIENT_TOP)
