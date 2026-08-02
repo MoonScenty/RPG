@@ -48,7 +48,8 @@ const ATB_PERCENT_GRADIENT_BOTTOM = '#ed74b0'
 // base.png 우하단 각진 뱃지에 있던 장식용 "STATUS" 글자가 지워져서(사용자가 직접
 // 에셋 수정) 같은 문구를 코드에서 Text로 다시 그린다(사용자 지시, 이름 아님 - 그냥
 // "STATUS" 고정 텍스트) - PIL로 원래 STATUS 텍스트 위치를 실측해 중심을 잡음.
-const STATUS_LABEL_CENTER_X = 313
+// 313 -> 318(사용자 지시로 오른쪽 5px 이동).
+const STATUS_LABEL_CENTER_X = 318
 const STATUS_LABEL_CENTER_Y = 83
 // 10 -> 11(사용자 지시로 1px 확대).
 const STATUS_LABEL_FONT_SIZE = 11
