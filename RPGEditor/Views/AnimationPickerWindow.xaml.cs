@@ -7,13 +7,13 @@ namespace RPGEditor.Views;
 
 public partial class AnimationPickerWindow : Window
 {
-    private sealed record AnimationOption(int Id, string Display, AnimationData Animation);
+    private sealed record AnimationOption(int Id, string Display, MvAnimationData Animation);
 
     private readonly List<AnimationOption> _options;
 
     public int SelectedAnimationId { get; private set; }
 
-    public AnimationPickerWindow(IEnumerable<AnimationData> animations, int currentId, string? projectRootPath)
+    public AnimationPickerWindow(IEnumerable<MvAnimationData> animations, int currentId, string? projectRootPath)
     {
         InitializeComponent();
 

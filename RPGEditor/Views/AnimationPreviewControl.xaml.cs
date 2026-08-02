@@ -13,7 +13,7 @@ public partial class AnimationPreviewControl : UserControl
     private bool _initialized;
     private readonly TaskCompletionSource<bool> _pageReady = new();
 
-    /// <summary>이펙트(effects)/오디오(audio) 폴더를 찾기 위한 프로젝트 루트 경로.</summary>
+    /// <summary>스프라이트시트(img/animations)/오디오(audio) 폴더를 찾기 위한 프로젝트 루트 경로.</summary>
     public string? ProjectRootPath { get; set; }
 
     public AnimationPreviewControl()
@@ -38,8 +38,8 @@ public partial class AnimationPreviewControl : UserControl
         // WebResourceRequested가 effects/audio/img 경로에 대해 전혀 호출되지
         // 않았다(전부 ERR_FILE_NOT_FOUND로 실패 - 사용자 콘솔에서 확인). 그래서
         // 폴더 매핑은 아예 안 쓰고 이 핸들러 하나가 preview.local의 모든 요청을
-        // 처리한다: /effects, /audio, /img는 프로젝트 폴더에서, 나머지(/,
-        // preview.html, effekseer.min.js/wasm, preview.js)는 앱 번들 폴더에서.
+        // 처리한다: /audio, /img는 프로젝트 폴더에서, 나머지(/, preview.html,
+        // preview.js)는 앱 번들 폴더에서.
         WebView.CoreWebView2.AddWebResourceRequestedFilter(
             "https://preview.local/*", CoreWebView2WebResourceContext.All);
         WebView.CoreWebView2.WebResourceRequested += OnWebResourceRequested;
@@ -48,7 +48,7 @@ public partial class AnimationPreviewControl : UserControl
         WebView.Source = new Uri("https://preview.local/preview.html");
     }
 
-    public async Task PlayAsync(AnimationData? animation)
+    public async Task PlayAsync(MvAnimationData? animation)
     {
         if (animation is null)
             return;
@@ -60,17 +60,23 @@ public partial class AnimationPreviewControl : UserControl
         {
             type = "play",
             name = animation.Name,
-            effectUrl = $"/effects/{Uri.EscapeDataString(animation.EffectName)}.efkefc",
-            offsetX = animation.OffsetX,
-            offsetY = animation.OffsetY,
-            scale = animation.Scale,
-            speed = animation.Speed,
-            rotation = new { x = animation.Rotation.X, y = animation.Rotation.Y, z = animation.Rotation.Z },
-            flashTimings = animation.FlashTimings.Select(f => new { frame = f.Frame, duration = f.Duration, color = f.Color }),
-            soundTimings = animation.SoundTimings.Select(s => new
+            animation1Url = animation.Animation1Name is { Length: > 0 } a1
+                ? $"/img/animations/{Uri.EscapeDataString(a1)}.png"
+                : null,
+            animation1Hue = animation.Animation1Hue,
+            animation2Url = animation.Animation2Name is { Length: > 0 } a2
+                ? $"/img/animations/{Uri.EscapeDataString(a2)}.png"
+                : null,
+            animation2Hue = animation.Animation2Hue,
+            position = animation.Position,
+            frames = animation.Frames,
+            timings = animation.Timings.Select(t => new
             {
-                frame = s.Frame,
-                se = new { name = s.Se.Name, pan = s.Se.Pan, pitch = s.Se.Pitch, volume = s.Se.Volume },
+                frame = t.Frame,
+                se = t.Se is null ? null : new { name = t.Se.Name, pan = t.Se.Pan, pitch = t.Se.Pitch, volume = t.Se.Volume },
+                flashColor = t.FlashColor,
+                flashDuration = t.FlashDuration,
+                flashScope = t.FlashScope,
             }),
         };
 
@@ -85,10 +91,10 @@ public partial class AnimationPreviewControl : UserControl
     }
 
     /// <summary>
-    /// preview.local의 모든 요청을 이 핸들러 하나가 처리한다: /effects, /audio, /img
-    /// 하위 경로는 프로젝트 폴더(ProjectRootPath)에서, 나머지(빈 경로 포함 -
-    /// preview.html/effekseer.min.js/effekseer.wasm/preview.js)는 앱 번들의
-    /// Assets/AnimationPreview 폴더에서 읽어 응답한다.
+    /// preview.local의 모든 요청을 이 핸들러 하나가 처리한다: /audio, /img(img/animations
+    /// 스프라이트시트 포함) 하위 경로는 프로젝트 폴더(ProjectRootPath)에서, 나머지(빈
+    /// 경로 포함 - preview.html/preview.js)는 앱 번들의 Assets/AnimationPreview
+    /// 폴더에서 읽어 응답한다.
     /// </summary>
     private void OnWebResourceRequested(object? sender, CoreWebView2WebResourceRequestedEventArgs e)
     {
@@ -128,9 +134,7 @@ public partial class AnimationPreviewControl : UserControl
         ".png" => "image/png",
         ".json" => "application/json",
         ".js" => "text/javascript",
-        ".wasm" => "application/wasm",
         ".ogg" => "audio/ogg",
-        ".efkefc" or ".efk" => "application/octet-stream",
         _ => "application/octet-stream",
     };
 }

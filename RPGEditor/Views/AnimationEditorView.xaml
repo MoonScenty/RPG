@@ -19,48 +19,14 @@
 
         <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Stretch" Background="Transparent" />
 
+        <!-- 이 데이터는 RPG Maker MV 에디터에서만 편집되고 여기선 참고/미리보기+선택
+             용도로만 읽으므로(원본 프레임/타이밍 데이터를 그대로 보존해야 함), 아래는
+             전부 읽기 전용 표시다 - 편집 가능한 TextBox/DataGrid를 두지 않는다. -->
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"
                       IsEnabled="{Binding Selected, Converter={StaticResource NullToBooleanConverter}}">
             <StackPanel Margin="0,0,10,0">
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="이름" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Name, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="이펙트 이름 (effects 폴더)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.EffectName, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </Grid>
-
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="표시 위치" Margin="0,0,0,4" />
-                        <ComboBox ItemsSource="{Binding Source={StaticResource AnimationDisplayTypeValues}}"
-                                  SelectedItem="{Binding Selected.DisplayType}"
-                                  ItemTemplate="{StaticResource EnumDisplayItemTemplate}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="배율(%)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Scale, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <TextBlock Text="속도(%)" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.Speed, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </Grid>
+                <TextBlock Text="이름" Margin="0,0,0,4" />
+                <TextBlock Text="{Binding Selected.Name}" FontWeight="Bold" Margin="0,0,0,10" />
 
                 <Grid Margin="0,0,0,10">
                     <Grid.ColumnDefinitions>
@@ -69,68 +35,42 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="오프셋 X" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.OffsetX, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="이미지 1 (색조)" Margin="0,0,0,4" />
+                        <TextBlock>
+                            <Run Text="{Binding Selected.Animation1Name, Mode=OneWay}" />
+                            <Run Text=" (" /><Run Text="{Binding Selected.Animation1Hue, Mode=OneWay}" /><Run Text=")" />
+                        </TextBlock>
                     </StackPanel>
                     <StackPanel Grid.Column="2">
-                        <TextBlock Text="오프셋 Y" Margin="0,0,0,4" />
-                        <TextBox Text="{Binding Selected.OffsetY, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="이미지 2 (색조)" Margin="0,0,0,4" />
+                        <TextBlock>
+                            <Run Text="{Binding Selected.Animation2Name, Mode=OneWay}" />
+                            <Run Text=" (" /><Run Text="{Binding Selected.Animation2Hue, Mode=OneWay}" /><Run Text=")" />
+                        </TextBlock>
                     </StackPanel>
                 </Grid>
 
-                <TextBlock Text="회전 (X / Y / Z)" Margin="0,0,0,4" />
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="8" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="{Binding Selected.Rotation.X, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBox Grid.Column="2" Text="{Binding Selected.Rotation.Y, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBox Grid.Column="4" Text="{Binding Selected.Rotation.Z, UpdateSourceTrigger=PropertyChanged}" />
-                </Grid>
+                <TextBlock Text="표시 위치 (0=머리 1=중앙 2=발밑 3=화면 고정)" Margin="0,0,0,4" />
+                <TextBlock Text="{Binding Selected.Position}" Margin="0,0,0,10" />
 
-                <TextBlock Text="플래시 타이밍" FontWeight="Bold" Margin="0,0,0,6" />
-                <DataGrid ItemsSource="{Binding Selected.FlashTimings}"
-                          AutoGenerateColumns="False"
-                          CanUserAddRows="True"
-                          CanUserDeleteRows="True"
-                          CanUserSortColumns="False"
-                          Height="160"
-                          Margin="0,0,0,10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="프레임" Binding="{Binding Frame}" Width="60" />
-                        <DataGridTextColumn Header="지속시간" Binding="{Binding Duration}" Width="70" />
-                        <DataGridTextColumn Header="R" Binding="{Binding Color[0]}" Width="50" />
-                        <DataGridTextColumn Header="G" Binding="{Binding Color[1]}" Width="50" />
-                        <DataGridTextColumn Header="B" Binding="{Binding Color[2]}" Width="50" />
-                        <DataGridTextColumn Header="A" Binding="{Binding Color[3]}" Width="50" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                <TextBlock Text="프레임 수" Margin="0,0,0,4" />
+                <TextBlock Text="{Binding Selected.Frames.Count}" Margin="0,0,0,10" />
 
-                <TextBlock Text="사운드 타이밍" FontWeight="Bold" Margin="0,0,0,6" />
-                <DataGrid ItemsSource="{Binding Selected.SoundTimings}"
-                          AutoGenerateColumns="False"
-                          CanUserAddRows="True"
-                          CanUserDeleteRows="True"
-                          CanUserSortColumns="False"
-                          Height="160"
-                          Margin="0,0,0,10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="프레임" Binding="{Binding Frame}" Width="60" />
-                        <DataGridTextColumn Header="SE 이름" Binding="{Binding Se.Name}" Width="140" />
-                        <DataGridTextColumn Header="Pan" Binding="{Binding Se.Pan}" Width="60" />
-                        <DataGridTextColumn Header="Pitch" Binding="{Binding Se.Pitch}" Width="60" />
-                        <DataGridTextColumn Header="Volume" Binding="{Binding Se.Volume}" Width="60" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                <TextBlock Text="SE/플래시 타이밍" FontWeight="Bold" Margin="0,0,0,6" />
+                <ItemsControl ItemsSource="{Binding Selected.Timings}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="0,0,0,2">
+                                <Run Text="프레임 " /><Run Text="{Binding Frame, Mode=OneWay}" />
+                                <Run Text=" - SE: " /><Run Text="{Binding Se.Name, Mode=OneWay}" />
+                                <Run Text=" / 플래시scope: " /><Run Text="{Binding FlashScope, Mode=OneWay}" />
+                            </TextBlock>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
-                <TextBlock Text="메모" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.Note, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True" TextWrapping="Wrap" Height="60"
-                         VerticalScrollBarVisibility="Auto" />
+                <TextBlock Text="(프레임 셀 배치/타이밍 편집은 RPG Maker MV 에디터에서 - 여기서는 참고 및 재생만)"
+                           Foreground="Gray" TextWrapping="Wrap" Margin="0,14,0,0" />
             </StackPanel>
         </ScrollViewer>
 

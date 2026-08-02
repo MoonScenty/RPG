@@ -27,8 +27,8 @@ public partial class SkillEditorView : UserControl
         }
     }
 
-    /// <summary>스킬 애니메이션 선택 다이얼로그에 사용되는 Animations.json 데이터.</summary>
-    public IEnumerable<AnimationData>? Animations
+    /// <summary>스킬 애니메이션 선택 다이얼로그에 사용되는 Animations_mv.json 데이터.</summary>
+    public IEnumerable<MvAnimationData>? Animations
     {
         get => SkillAnimationField.Animations;
         set => SkillAnimationField.Animations = value;

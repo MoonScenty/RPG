@@ -1,6 +1,5 @@
 using System.Windows;
 using System.Windows.Controls;
-using RPGEditor.Models;
 using RPGEditor.ViewModels;
 
 namespace RPGEditor.Views;
@@ -12,7 +11,7 @@ public partial class AnimationEditorView : UserControl
         InitializeComponent();
     }
 
-    /// <summary>이펙트/오디오 미리보기를 위한 프로젝트 루트 경로.</summary>
+    /// <summary>스프라이트시트/오디오 미리보기를 위한 프로젝트 루트 경로.</summary>
     public string? ProjectRootPath
     {
         get => Preview.ProjectRootPath;
@@ -21,7 +20,7 @@ public partial class AnimationEditorView : UserControl
 
     private async void PlayButton_Click(object sender, RoutedEventArgs e)
     {
-        if (DataContext is DatabaseListViewModel<AnimationData> vm)
+        if (DataContext is AnimationListViewModel vm)
             await Preview.PlayAsync(vm.Selected);
     }
 

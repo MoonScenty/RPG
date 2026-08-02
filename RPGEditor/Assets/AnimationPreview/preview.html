@@ -11,16 +11,15 @@
 </style>
 </head>
 <body>
-<!-- 검정 배경에서는 이펙트가 잘 안 보여서, 실제 전투 배경(battlebacks1+2의
+<!-- 검정 배경에서는 애니메이션이 잘 안 보여서, 실제 전투 배경(battlebacks1+2의
      Grassland)을 캔버스 뒤에 깔아둔다 - /img/*는 AnimationPreviewControl.xaml.cs의
-     WebResourceRequested 핸들러가 프로젝트 루트 img 폴더에서 서빙한다(preview.local과
-     같은 오리진이라 WebGL 텍스처가 오염되지 않음). 매핑 안 되면 조용히 안 뜨고 넘어감. -->
+     WebResourceRequested 핸들러가 프로젝트 루트 img 폴더에서 서빙한다(img/animations의
+     스프라이트시트도 이 핸들러로 서빙됨). 매핑 안 되면 조용히 안 뜨고 넘어감. -->
 <img id="bg1" src="/img/battlebacks1/Grassland.png" onerror="this.style.display='none'" />
 <img id="bg2" src="/img/battlebacks2/Grassland.png" onerror="this.style.display='none'" />
 <canvas id="canvas"></canvas>
 <div id="flash"></div>
-<div id="status">런타임 로딩 중...</div>
-<script src="effekseer.min.js"></script>
+<div id="status">준비 중...</div>
 <script src="preview.js"></script>
 </body>
 </html>

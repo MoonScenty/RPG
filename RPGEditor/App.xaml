@@ -94,12 +94,6 @@
                 <x:Type TypeName="models:StateAutoRemovalTiming" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        <ObjectDataProvider x:Key="AnimationDisplayTypeValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="models:AnimationDisplayType" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-
         <!-- SV 배틀러 모션 이름 (RPG Maker MZ 기준) -->
         <x:Array x:Key="SvMotionValues" Type="sys:String">
             <sys:String>walk</sys:String>

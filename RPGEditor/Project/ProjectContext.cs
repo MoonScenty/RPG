@@ -34,7 +34,7 @@ public class ProjectContext
     public ObservableCollection<Enemy> Enemies { get; } = [];
     public ObservableCollection<Troop> Troops { get; } = [];
     public ObservableCollection<GameState> States { get; } = [];
-    public ObservableCollection<AnimationData> Animations { get; } = [];
+    public ObservableCollection<MvAnimationData> Animations { get; } = [];
     public TypesData Types { get; set; } = new();
 
     private ProjectContext(string projectFilePath, ProjectFile projectFile)
@@ -80,7 +80,7 @@ public class ProjectContext
         LoadEntries(context.ProjectRootPath, projectFile.Enemies, context.Enemies);
         LoadEntries(context.ProjectRootPath, projectFile.Troops, context.Troops);
         LoadEntries(context.ProjectRootPath, projectFile.States, context.States);
-        LoadEntries(context.ProjectRootPath, projectFile.Animations, context.Animations);
+        LoadAnimations(context.ProjectRootPath, projectFile.Animations, context.Animations);
 
         var typesPath = Path.Combine(context.ProjectRootPath, projectFile.Types);
         context.Types = File.Exists(typesPath)
@@ -103,7 +103,7 @@ public class ProjectContext
         SaveEntries(ProjectFile.Enemies, Enemies);
         SaveEntries(ProjectFile.Troops, Troops);
         SaveEntries(ProjectFile.States, States);
-        SaveEntries(ProjectFile.Animations, Animations);
+        SaveAnimations(ProjectFile.Animations, Animations);
 
         var typesPath = Path.Combine(ProjectRootPath, ProjectFile.Types);
         File.WriteAllText(typesPath, JsonSerializer.Serialize(Types, JsonOptions));
@@ -131,5 +131,38 @@ public class ProjectContext
         var path = Path.Combine(ProjectRootPath, relativePath);
         Directory.CreateDirectory(Path.GetDirectoryName(path)!);
         File.WriteAllText(path, JsonSerializer.Serialize(source, JsonOptions));
+    }
+
+    /// <summary>
+    /// Animations_mv.json은 RPG Maker MV 관례상 배열 index 0이 항상 null이고(id는
+    /// index와 같음), 실제 항목은 index 1부터 시작한다 - LoadEntries/SaveEntries의
+    /// 범용 로직(null 비허용, DatabaseEntry 제약)을 그대로 못 쓰는 이유. 로드 시
+    /// 선행 null만 건너뛰고, 저장 시 다시 선행 null을 붙여 원본 배열 구조(RPG
+    /// Maker에서 다시 열어도 안전하게)를 그대로 유지한다.
+    /// </summary>
+    private static void LoadAnimations(string root, string relativePath, ObservableCollection<MvAnimationData> target)
+    {
+        var path = Path.Combine(root, relativePath);
+        if (!File.Exists(path))
+            return;
+
+        var entries = JsonSerializer.Deserialize<List<MvAnimationData?>>(File.ReadAllText(path), JsonOptions);
+        if (entries is null)
+            return;
+
+        target.Clear();
+        foreach (var entry in entries)
+        {
+            if (entry is not null)
+                target.Add(entry);
+        }
+    }
+
+    private void SaveAnimations(string relativePath, ObservableCollection<MvAnimationData> source)
+    {
+        var path = Path.Combine(ProjectRootPath, relativePath);
+        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        List<MvAnimationData?> withLeadingNull = [null, .. source];
+        File.WriteAllText(path, JsonSerializer.Serialize(withLeadingNull, JsonOptions));
     }
 }

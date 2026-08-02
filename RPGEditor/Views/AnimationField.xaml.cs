@@ -13,7 +13,7 @@ public partial class AnimationField : UserControl
             new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnChanged));
 
     public static readonly DependencyProperty AnimationsProperty =
-        DependencyProperty.Register(nameof(Animations), typeof(IEnumerable<AnimationData>), typeof(AnimationField),
+        DependencyProperty.Register(nameof(Animations), typeof(IEnumerable<MvAnimationData>), typeof(AnimationField),
             new PropertyMetadata(null, OnChanged));
 
     public static readonly DependencyProperty ProjectRootPathProperty =
@@ -25,9 +25,9 @@ public partial class AnimationField : UserControl
         set => SetValue(AnimationIdProperty, value);
     }
 
-    public IEnumerable<AnimationData>? Animations
+    public IEnumerable<MvAnimationData>? Animations
     {
-        get => (IEnumerable<AnimationData>?)GetValue(AnimationsProperty);
+        get => (IEnumerable<MvAnimationData>?)GetValue(AnimationsProperty);
         set => SetValue(AnimationsProperty, value);
     }
 

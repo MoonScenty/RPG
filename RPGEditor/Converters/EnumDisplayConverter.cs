@@ -84,13 +84,6 @@ public class EnumDisplayConverter : IValueConverter
                 StateAutoRemovalTiming.ActionEnd => "행동 종료 시",
                 _ => v.ToString(),
             },
-            AnimationDisplayType v => v switch
-            {
-                AnimationDisplayType.OnEachTarget => "대상별",
-                AnimationDisplayType.CenterOfTargets => "대상 중심",
-                AnimationDisplayType.CenterOfScreen => "화면 중심",
-                _ => v.ToString(),
-            },
             SkillScope v => v switch
             {
                 SkillScope.OneEnemy => "적 하나",

@@ -257,7 +257,7 @@ public partial class MainViewModel : ObservableObject
             Header = "애니메이션",
             Content = new AnimationEditorView
             {
-                DataContext = new DatabaseListViewModel<AnimationData>("애니메이션", context.Animations),
+                DataContext = new AnimationListViewModel(context.Animations),
                 ProjectRootPath = context.ProjectRootPath,
             },
         });
