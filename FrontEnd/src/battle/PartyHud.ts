@@ -35,8 +35,9 @@ const MP_BAR_RECT = { x: 184, y: 51, width: 116, height: 8 }
 // 꽉 찼었는데, 사용자 지시로 높이 15px 축소.
 const FACE_X = 0
 const FACE_Y = 30
-// 사용자 지시로 높이 15px 축소(59 -> 44), 폭은 원본 비율(3:1) 유지하며 비례 축소.
-const FACE_HEIGHT = 44
+// 사용자 지시로 높이 15px 축소(59 -> 44) 후 다시 3px 확대(44 -> 47), 폭은 원본
+// 비율(3:1) 유지하며 비례 조정.
+const FACE_HEIGHT = 47
 const FACE_WIDTH = FACE_HEIGHT * 3
 
 const VALUE_FONT_SIZE = 12
