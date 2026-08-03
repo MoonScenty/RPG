@@ -96,7 +96,1607 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 0,
-    "name": "\uB3C4\uB07C \uACE0\uBE14\uB9B0",
+    "name": "도끼 고블린",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "DaggerGoblin",
+    "faceName": "Forest Goblin Dagger",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 1,
+    "name": "단검 고블린",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "ForestBee",
+    "faceName": "Forest Bee",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 2,
+    "name": "숲 벌",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "ForestFox",
+    "faceName": "Forest Fox",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 3,
+    "name": "숲 여우",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "ForestScorpion",
+    "faceName": "Forest Scorpion",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 4,
+    "name": "숲 전갈",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "ForestTurtle",
+    "faceName": "Forest Turtle",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 5,
+    "name": "숲 거북이",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "ForestWolf",
+    "faceName": "Forest Wolf",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 6,
+    "name": "숲 늑대",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "Ghost",
+    "faceName": "Forest Ghost",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 7,
+    "name": "유령",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "GoblinMgun",
+    "faceName": "Forest Goblin Machine Gun",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 8,
+    "name": "기관총 고블린",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "GunMimic",
+    "faceName": "Mimic Gun",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 9,
+    "name": "총잡이 미믹",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "HeadlessHW",
+    "faceName": "",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 10,
+    "name": "머리 없는 전사",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "HedgehogGunner",
+    "faceName": "Forest Hedgehog Gunner",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 11,
+    "name": "고슴도치 저격수",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "LivingArmor",
+    "faceName": "Ghost Living Armor",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 12,
+    "name": "살아있는 갑옷",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "Mageshroom",
+    "faceName": "Forest MAgeshroom",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 13,
+    "name": "마법 버섯",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "MagicalGoblin",
+    "faceName": "Forest Magical Girl Goblin",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 14,
+    "name": "마법소녀 고블린",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "Mimic",
+    "faceName": "Mimic Chest",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 15,
+    "name": "미믹",
+    "note": ""
+  },
+  {
+    "stats": {
+      "int": 10,
+      "hp": 200,
+      "mp": 0,
+      "str": 10,
+      "vit": 10,
+      "mnd": 10,
+      "dex": 10,
+      "agi": 10,
+      "luk": 10
+    },
+    "drops": [],
+    "actions": [],
+    "traits": [],
+    "motionMap": [
+      {
+        "motion": "walk",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "wait",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "chant",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "guard",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "damage",
+        "animationName": "Damage"
+      },
+      {
+        "motion": "evade",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "thrust",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "swing",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "missile",
+        "animationName": "Attack A"
+      },
+      {
+        "motion": "skill",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "spell",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "item",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "escape",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "victory",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dying",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "abnormal",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "sleep",
+        "animationName": "Idle"
+      },
+      {
+        "motion": "dead",
+        "animationName": "Idle"
+      }
+    ],
+    "rewardExp": 0,
+    "rewardGold": 0,
+    "imageType": "dragonBones",
+    "image": "SwordGoblin",
+    "faceName": "Forest Goblin Sword",
+    "attackAnimationId": 5,
+    "scale": 100,
+    "id": 16,
+    "name": "검 고블린",
     "note": ""
   }
 ]
