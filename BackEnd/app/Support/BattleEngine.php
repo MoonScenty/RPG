@@ -1979,7 +1979,7 @@ class BattleEngine
             'turn_number' => $battle->turn_number,
             'battleback1' => $troop?->battleback1,
             'battleback2' => $troop?->battleback2,
-            'units' => $battle->units()->with(['unit.mzActor', 'mzClass'])->get()->map(fn (BattleUnit $u) => [
+            'units' => $battle->units()->with('unit.mzActor')->get()->map(fn (BattleUnit $u) => [
                 'id' => $u->id,
                 'unit_id' => $u->unit_id,
                 'name' => $u->unit->name,
@@ -2011,7 +2011,6 @@ class BattleEngine
                 'max_mp' => $u->max_mp,
                 'current_hp' => $u->current_hp,
                 'current_mp' => $u->current_mp,
-                'party_hud_icon' => $u->mzClass?->party_hud_icon,
                 'state_motion' => $this->stateMotionFor($u),
             ])->all(),
             'logs' => $battle->logs()->get()->map(fn (BattleLog $l) => [

@@ -10,7 +10,7 @@ class MzClass extends Model
     public $timestamps = false;
     protected $keyType = 'int';
 
-    protected $fillable = ['id', 'name', 'note', 'icon_index', 'exp_curve', 'param_curve', 'traits', 'party_hud_icon'];
+    protected $fillable = ['id', 'name', 'note', 'icon_index', 'exp_curve', 'param_curve', 'traits'];
     protected $casts = ['exp_curve' => 'array', 'param_curve' => 'array', 'traits' => 'array'];
 
     public function skills()

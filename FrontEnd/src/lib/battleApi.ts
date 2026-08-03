@@ -39,8 +39,6 @@ export interface BattleUnit {
   current_mp: number
   /** BattleEngine::stateMotionFor() - 걸린 상태 중 States.json priority가 가장 높은 것의 motion(1='abnormal'/2='sleep')만 반영, 없으면 null. */
   state_motion: 'abnormal' | 'sleep' | null
-  /** 소속 직업(mz_classes)의 <PartyHudIcon: n> 노트태그 값(IconSet.png 아이콘 인덱스) - 적이거나 태그가 없으면 null. */
-  party_hud_icon: number | null
 }
 
 /** BattleEngine::rollHit()의 3가지 결과 - 물리는 명중률+회피율, 마법은 명중률+마법회피율, 필중(hitType=0)은 항상 'hit'. */

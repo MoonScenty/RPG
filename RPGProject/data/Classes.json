@@ -1262,8 +1262,7 @@
     "iconIndex": 76,
     "id": 0,
     "name": "검사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -2528,8 +2527,7 @@
     "iconIndex": 94,
     "id": 1,
     "name": "궁술사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -3794,8 +3792,7 @@
     "iconIndex": 79,
     "id": 2,
     "name": "흑마술사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -5060,8 +5057,7 @@
     "iconIndex": 70,
     "id": 3,
     "name": "백마도사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -6326,8 +6322,7 @@
     "iconIndex": 81,
     "id": 4,
     "name": "기사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -7592,8 +7587,7 @@
     "iconIndex": 92,
     "id": 5,
     "name": "창술사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -8858,8 +8852,7 @@
     "iconIndex": 18,
     "id": 6,
     "name": "비술사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   },
   {
     "expCurve": {
@@ -10124,7 +10117,6 @@
     "iconIndex": 71,
     "id": 7,
     "name": "악마술사",
-    "note": "",
-    "partyHudIcon": null
+    "note": ""
   }
 ]

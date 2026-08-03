@@ -42,7 +42,6 @@ class ClassSeeder extends Seeder
                 'icon_index' => $class['iconIndex'],
                 'exp_curve' => json_encode($class['expCurve']),
                 'param_curve' => json_encode($class['paramCurve']),
-                'party_hud_icon' => $class['partyHudIcon'] ?? null,
                 'traits' => json_encode($traits),
             ];
         }

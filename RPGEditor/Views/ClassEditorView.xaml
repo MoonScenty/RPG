@@ -40,10 +40,6 @@
                     </StackPanel>
                 </Grid>
 
-                <TextBlock Text="파티 HUD 아이콘 (IconSet.png 인덱스, 비우면 표시 안 함)" Margin="0,0,0,4" />
-                <TextBox Text="{Binding Selected.PartyHudIcon, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"
-                         Width="140" HorizontalAlignment="Left" Margin="0,0,0,10" />
-
                 <TextBlock Text="EXP 곡선 (기본값 / 보정값 / 증가도A / 증가도B)" Margin="0,0,0,4" />
                 <Grid Margin="0,0,0,10">
                     <Grid.ColumnDefinitions>
