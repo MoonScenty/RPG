@@ -35,7 +35,7 @@ class EnemySeeder extends Seeder
         foreach ($enemies as $enemy) {
             $traits = array_merge(
                 $enemy['traits'] ?? [],
-                StatFormula::xparamTraits((int) $enemy['stats']['dex'], (int) $enemy['stats']['agi'], (int) $enemy['stats']['luk']),
+                StatFormula::xparamTraits((int) $enemy['stats']['dex'], (int) $enemy['stats']['agi'], (int) $enemy['stats']['luk'], (int) $enemy['stats']['mnd']),
             );
 
             $rows[] = [

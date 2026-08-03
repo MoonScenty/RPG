@@ -34,7 +34,11 @@ use Illuminate\Validation\ValidationException;
  */
 class BattleEngine
 {
-    /** 치명타 피해 배율 - MZ 기본값(3배)은 이 프로젝트 스탯 스케일엔 너무 크게 튀어서 완화. */
+    /**
+     * 치명타 피해 기본 배율 - MZ 기본값(3배)은 이 프로젝트 스탯 스케일엔 너무 크게
+     * 튀어서 완화. 실제 적용 배율은 criticalMultiplierFor()가 여기에 CRIT DMG(장비·
+     * 패시브 xparam) 보너스를 더해서 계산한다.
+     */
     private const CRITICAL_MULTIPLIER = 1.5;
 
     /** MZ 표준 "위독" 기준(Game_BattlerBase.isDying, HP 25% 이하) - GuardAlly(대신 맞기) 판정에 씀. */
@@ -62,6 +66,14 @@ class BattleEngine
     private const XPARAM_HRG = 7; // HP 재생률(매 턴, 최대HP 대비 비율 - 음수면 독처럼 피해)
 
     private const XPARAM_MRG = 8; // MP 재생률(매 턴, 최대MP 대비 비율)
+
+    // 아래 3개(9~11)는 MZ 표준 슬롯이 아닌 이 프로젝트 전용 커스텀 xparam이다
+    // (StatFormula::xparamTraits/equipXparamTraits 참고).
+    private const XPARAM_STATUS_HIT = 9; // 상태이상 적중률(시전자 DEX+LUK 기반 + 장비 보너스)
+
+    private const XPARAM_STATUS_RES = 10; // 상태이상 저항률(대상 MND+LUK 기반 + 장비 보너스)
+
+    private const XPARAM_CRIT_DAMAGE = 11; // 치명타 추가 피해율(장비·패시브 전용, 기본 0)
 
     /**
      * MZ 표준 sparam(특수 특성치) id - code=23(SPARAM). xparam과 달리 곱연산이라
@@ -430,7 +442,7 @@ class BattleEngine
         $isCritical = $this->rollCritical($actor, $target->fresh(), true);
         $rawDamage = max(1, (int) round($this->effectiveAtk($actor) - $this->effectiveDef($target->fresh())));
         if ($isCritical) {
-            $rawDamage = (int) round($rawDamage * self::CRITICAL_MULTIPLIER);
+            $rawDamage = (int) round($rawDamage * ($this->criticalMultiplierFor($actor)));
         }
         $damage = $this->applyIncomingDamageModifiers($actor, $target, $rawDamage, 1, -1);
         $freshTarget = $target->fresh();
@@ -1019,8 +1031,10 @@ class BattleEngine
                 $this->removeState($target, $entry['state']);
             }
         }
+        // 상태이상 적중(사용자)/저항(대상) - 스킬의 target_add_states와 동일한 판정.
+        $statusHitVsRes = $this->xparam($actor, self::XPARAM_STATUS_HIT) * (1 - $this->xparam($target, self::XPARAM_STATUS_RES));
         foreach ($tags['add_states'] ?? [] as $entry) {
-            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($target, $entry['state']);
+            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($target, $entry['state']) * $statusHitVsRes;
             if (mt_rand() / mt_getrandmax() <= $chance) {
                 $this->applyState($target, $entry['state'], $battle->turn_number);
             }
@@ -1486,7 +1500,7 @@ class BattleEngine
         if ($skill->damage_type === 1) { // HP damage
             $isCritical = $this->rollCritical($actor, $target, $skill->critical);
             if ($isCritical) {
-                $amount = (int) round($amount * self::CRITICAL_MULTIPLIER);
+                $amount = (int) round($amount * $this->criticalMultiplierFor($actor));
             }
             // DamageBonusIfSelfState(콤보 강화류) - 시전 시점(다른 효과 적용 전) 시전자
             // 상태를 기준으로 판정(README 명시 규칙과 동일). 치명타 배율 뒤에 곱해서
@@ -1510,8 +1524,11 @@ class BattleEngine
                 $this->removeState($target, $entry['state']);
             }
         }
+        // 상태이상 적중(시전자)/저항(대상) - HIT/EVA와 같은 결의 "실제로 걸리는" 판정.
+        // 트레잇 기반 완전면역/저항(stateRateMultiplier)과는 별개로 곱해진다.
+        $statusHitVsRes = $this->xparam($actor, self::XPARAM_STATUS_HIT) * (1 - $this->xparam($target, self::XPARAM_STATUS_RES));
         foreach ($tags['target_add_states'] ?? [] as $entry) {
-            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($target, $entry['state']);
+            $chance = $entry['chance'] / 100 * $this->stateRateMultiplier($target, $entry['state']) * $statusHitVsRes;
             if (mt_rand() / mt_getrandmax() <= $chance) {
                 $this->applyState($target, $entry['state'], $battle->turn_number);
             }
@@ -1933,6 +1950,12 @@ class BattleEngine
     private function lifestealBonusFor(BattleUnit $unit): int
     {
         return (int) $this->statesFor($unit)->sum(fn (BattleUnitState $bus) => $bus->state->tags['lifesteal_bonus_percent'] ?? 0);
+    }
+
+    /** 기본 치명타 배율(CRITICAL_MULTIPLIER)에 CRIT DMG(장비·패시브 전용 xparam) 보너스를 더한다. */
+    private function criticalMultiplierFor(BattleUnit $unit): float
+    {
+        return self::CRITICAL_MULTIPLIER + $this->xparam($unit, self::XPARAM_CRIT_DAMAGE);
     }
 
     private function hasTaunt(BattleUnit $unit): bool

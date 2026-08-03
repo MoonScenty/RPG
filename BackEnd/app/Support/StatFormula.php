@@ -30,6 +30,14 @@ class StatFormula
     /** CEV = LUK/(LUK+K). */
     private const CEV_K = 500;
 
+    /** STATUS HIT = base + (1-base) * (DEX+LUK)/((DEX+LUK)+K) - HIT과 동일한 형태. */
+    private const STATUS_HIT_BASE = 0.85;
+
+    private const STATUS_HIT_K = 80;
+
+    /** STATUS RES = (MND+LUK)/((MND+LUK)+K) - EVA/CEV처럼 0에서 시작해 완만히 증가. */
+    private const STATUS_RES_K = 400;
+
     /**
      * @param  array{hp:int,mp:int,str:int,vit:int,mnd:int,dex:int,agi:int,luk:int,int:int}  $raw
      * @return array{max_hp:int,max_mp:int,atk:int,def:int,mat:int,mdf:int,spd:int,luk:int}
@@ -49,18 +57,22 @@ class StatFormula
     }
 
     /**
-     * DEX/AGI/LUK로부터 xparam(code=22) 트레잇을 합성한다 - dataId는
-     * BattleEngine::XPARAM_* 상수와 동일(0=HIT/1=EVA/2=CRI/3=CEV/4=MEV).
+     * DEX/AGI/LUK/MND로부터 xparam(code=22) 트레잇을 합성한다 - dataId는
+     * BattleEngine::XPARAM_* 상수와 동일(0=HIT/1=EVA/2=CRI/3=CEV/4=MEV/9=상태이상
+     * 적중/10=상태이상 저항). CRIT DMG(11)는 README상 "무기·패시브 전용"이라 스탯
+     * 기반 기본값이 없다 - equipXparamTraits()에서 장비 보너스로만 더해진다.
      *
      * @return array<int, array{code:int,dataId:int,value:float}>
      */
-    public static function xparamTraits(int $dex, int $agi, int $luk): array
+    public static function xparamTraits(int $dex, int $agi, int $luk, int $mnd): array
     {
         $hit = self::HIT_BASE + (1 - self::HIT_BASE) * $dex / ($dex + self::HIT_K);
         $eva = $agi / ($agi + self::EVA_K);
         $cri = ($dex + $luk) / ($dex + $luk + self::CRI_K);
         $cev = $luk / ($luk + self::CEV_K);
         $mev = $agi / ($agi + self::MEV_K);
+        $statusHit = self::STATUS_HIT_BASE + (1 - self::STATUS_HIT_BASE) * ($dex + $luk) / ($dex + $luk + self::STATUS_HIT_K);
+        $statusRes = ($mnd + $luk) / ($mnd + $luk + self::STATUS_RES_K);
 
         return [
             ['code' => 22, 'dataId' => 0, 'value' => round($hit, 4)],
@@ -68,6 +80,8 @@ class StatFormula
             ['code' => 22, 'dataId' => 2, 'value' => round($cri, 4)],
             ['code' => 22, 'dataId' => 3, 'value' => round($cev, 4)],
             ['code' => 22, 'dataId' => 4, 'value' => round($mev, 4)],
+            ['code' => 22, 'dataId' => 9, 'value' => round($statusHit, 4)],
+            ['code' => 22, 'dataId' => 10, 'value' => round($statusRes, 4)],
         ];
     }
 
@@ -97,10 +111,10 @@ class StatFormula
     }
 
     /**
-     * 장비 EquipParams의 hit/eva/crit 직접 보너스를 xparam 트레잇으로 변환 -
-     * WeaponSeeder/ArmorSeeder가 mz_weapons/mz_armors.traits에 합쳐 넣는다.
-     * critDamage/statusHit/statusRes는 BattleEngine에 대응하는 xparam 슬롯이 아직
-     * 없어(코드 미구현) 지금은 반영하지 않는다 - 후속 작업 필요.
+     * 장비 EquipParams의 hit/eva/crit/critDamage/statusHit/statusRes 직접 보너스를
+     * xparam 트레잇으로 변환 - WeaponSeeder/ArmorSeeder가 mz_weapons/mz_armors.traits에
+     * 합쳐 넣는다. critDamage(11)는 스탯 기반 기본값이 없어 장비 보너스가 곧 전체 값이고,
+     * statusHit(9)/statusRes(10)는 xparamTraits()가 만든 스탯 기반 기본값 위에 가산된다.
      *
      * @param  array<string, int>  $p
      * @return array<int, array{code:int,dataId:int,value:float}>
@@ -116,6 +130,15 @@ class StatFormula
         }
         if (($crit = (int) ($p['crit'] ?? 0)) !== 0) {
             $traits[] = ['code' => 22, 'dataId' => 2, 'value' => $crit / 100];
+        }
+        if (($statusHit = (int) ($p['statusHit'] ?? 0)) !== 0) {
+            $traits[] = ['code' => 22, 'dataId' => 9, 'value' => $statusHit / 100];
+        }
+        if (($statusRes = (int) ($p['statusRes'] ?? 0)) !== 0) {
+            $traits[] = ['code' => 22, 'dataId' => 10, 'value' => $statusRes / 100];
+        }
+        if (($critDamage = (int) ($p['critDamage'] ?? 0)) !== 0) {
+            $traits[] = ['code' => 22, 'dataId' => 11, 'value' => $critDamage / 100];
         }
 
         return $traits;

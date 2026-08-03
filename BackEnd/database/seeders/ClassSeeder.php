@@ -32,7 +32,7 @@ class ClassSeeder extends Seeder
 
             $traits = array_merge(
                 $class['traits'] ?? [],
-                StatFormula::xparamTraits((int) $lv1['dex'], (int) $lv1['agi'], (int) $lv1['luk']),
+                StatFormula::xparamTraits((int) $lv1['dex'], (int) $lv1['agi'], (int) $lv1['luk'], (int) $lv1['mnd']),
             );
 
             $rows[] = [
