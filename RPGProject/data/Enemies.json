@@ -96,7 +96,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 0,
-    "name": "도끼 고블린",
+    "name": "\uB3C4\uB07C \uACE0\uBE14\uB9B0",
     "note": ""
   },
   {
@@ -196,7 +196,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 1,
-    "name": "단검 고블린",
+    "name": "\uB2E8\uAC80 \uACE0\uBE14\uB9B0",
     "note": ""
   },
   {
@@ -296,7 +296,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 2,
-    "name": "숲 벌",
+    "name": "\uC232 \uBC8C",
     "note": ""
   },
   {
@@ -396,7 +396,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 3,
-    "name": "숲 여우",
+    "name": "\uC232 \uC5EC\uC6B0",
     "note": ""
   },
   {
@@ -496,7 +496,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 4,
-    "name": "숲 전갈",
+    "name": "\uC232 \uC804\uAC08",
     "note": ""
   },
   {
@@ -596,7 +596,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 5,
-    "name": "숲 거북이",
+    "name": "\uC232 \uAC70\uBD81\uC774",
     "note": ""
   },
   {
@@ -696,7 +696,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 6,
-    "name": "숲 늑대",
+    "name": "\uC232 \uB291\uB300",
     "note": ""
   },
   {
@@ -796,7 +796,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 7,
-    "name": "유령",
+    "name": "\uC720\uB839",
     "note": ""
   },
   {
@@ -896,7 +896,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 8,
-    "name": "기관총 고블린",
+    "name": "\uAE30\uAD00\uCD1D \uACE0\uBE14\uB9B0",
     "note": ""
   },
   {
@@ -996,7 +996,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 9,
-    "name": "총잡이 미믹",
+    "name": "\uCD1D\uC7A1\uC774 \uBBF8\uBBF9",
     "note": ""
   },
   {
@@ -1092,11 +1092,11 @@
     "rewardGold": 0,
     "imageType": "dragonBones",
     "image": "HeadlessHW",
-    "faceName": "",
+    "faceName": "HeadlessHW",
     "attackAnimationId": 5,
     "scale": 100,
     "id": 10,
-    "name": "머리 없는 전사",
+    "name": "\uBA38\uB9AC \uC5C6\uB294 \uAE30\uB9C8\uB140",
     "note": ""
   },
   {
@@ -1196,7 +1196,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 11,
-    "name": "고슴도치 저격수",
+    "name": "\uACE0\uC2B4\uB3C4\uCE58 \uC800\uACA9\uC218",
     "note": ""
   },
   {
@@ -1296,7 +1296,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 12,
-    "name": "살아있는 갑옷",
+    "name": "\uC0B4\uC544\uC788\uB294 \uAC11\uC637",
     "note": ""
   },
   {
@@ -1396,7 +1396,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 13,
-    "name": "마법 버섯",
+    "name": "\uB9C8\uBC95 \uBC84\uC12F",
     "note": ""
   },
   {
@@ -1496,7 +1496,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 14,
-    "name": "마법소녀 고블린",
+    "name": "\uB9C8\uBC95\uC18C\uB140 \uACE0\uBE14\uB9B0",
     "note": ""
   },
   {
@@ -1596,7 +1596,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 15,
-    "name": "미믹",
+    "name": "\uBBF8\uBBF9",
     "note": ""
   },
   {
@@ -1696,7 +1696,7 @@
     "attackAnimationId": 5,
     "scale": 100,
     "id": 16,
-    "name": "검 고블린",
+    "name": "\uAC80 \uACE0\uBE14\uB9B0",
     "note": ""
   }
 ]

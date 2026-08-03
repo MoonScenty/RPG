@@ -1261,7 +1261,7 @@
     "traits": [],
     "iconIndex": 76,
     "id": 0,
-    "name": "검사",
+    "name": "\uAC80\uC0AC",
     "note": ""
   },
   {
@@ -2526,7 +2526,7 @@
     "traits": [],
     "iconIndex": 94,
     "id": 1,
-    "name": "궁술사",
+    "name": "\uAD81\uC220\uC0AC",
     "note": ""
   },
   {
@@ -3791,7 +3791,7 @@
     "traits": [],
     "iconIndex": 79,
     "id": 2,
-    "name": "흑마술사",
+    "name": "\uD751\uB9C8\uC220\uC0AC",
     "note": ""
   },
   {
@@ -5056,7 +5056,7 @@
     "traits": [],
     "iconIndex": 70,
     "id": 3,
-    "name": "백마도사",
+    "name": "\uBC31\uB9C8\uB3C4\uC0AC",
     "note": ""
   },
   {
@@ -6321,7 +6321,7 @@
     "traits": [],
     "iconIndex": 81,
     "id": 4,
-    "name": "기사",
+    "name": "\uAE30\uC0AC",
     "note": ""
   },
   {
@@ -7586,7 +7586,7 @@
     "traits": [],
     "iconIndex": 92,
     "id": 5,
-    "name": "창술사",
+    "name": "\uCC3D\uC220\uC0AC",
     "note": ""
   },
   {
@@ -8851,7 +8851,7 @@
     "traits": [],
     "iconIndex": 18,
     "id": 6,
-    "name": "비술사",
+    "name": "\uBE44\uC220\uC0AC",
     "note": ""
   },
   {
@@ -10116,7 +10116,7 @@
     "traits": [],
     "iconIndex": 71,
     "id": 7,
-    "name": "악마술사",
+    "name": "\uC545\uB9C8\uC220\uC0AC",
     "note": ""
   }
 ]
