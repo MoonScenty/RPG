@@ -130,7 +130,17 @@ class SkillSeeder extends Seeder
                 ? [$stateName($skill['targetHasStateId']), $stateName($skill['targetHasAppliesStateId'])]
                 : null;
 
-            foreach (['require_target_state', 'require_self_state'] as $key) {
+            // 콤보 대미지 보너스/마나 번/아군 디버프 해제(정화의 심판류) - 전부
+            // "이번 범위 제외"로 미뤄뒀던 신규 메커니즘인데, 이제 구조화 필드로
+            // 구현한다(README 노트태그 표의 DamageBonusIfSelfState/ScaleWithTargetMp/
+            // CleanseAllyDebuffs/ScaleWithRemovedDebuffCount에 대응).
+            $tags['damage_bonus_state'] = $stateName($skill['damageBonusStateId'] ?? null);
+            $tags['damage_bonus_percent'] = $skill['damageBonusPercent'] ?? null;
+            $tags['scale_with_target_mp'] = $skill['scaleWithTargetMpAmount'] ?? null;
+            $tags['cleanse_ally_debuffs'] = $skill['cleanseAllyDebuffs'] ?? false;
+            $tags['scale_with_removed_debuff_count'] = $skill['scaleWithRemovedDebuffCountAmount'] ?? null;
+
+            foreach (['require_target_state', 'require_self_state', 'damage_bonus_state'] as $key) {
                 if ($tags[$key] !== null) {
                     $referencedStates[] = $tags[$key];
                 }

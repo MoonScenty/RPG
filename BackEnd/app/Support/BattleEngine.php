@@ -1135,6 +1135,14 @@ class BattleEngine
         $actorHadStates = $this->stateNames($actor);
         $targetHadStates = $this->stateNames($target);
 
+        // CleanseAllyDebuffs(정화의 심판류) - 피해 판정 전에 먼저 아군 디버프를
+        // 걷어내고, 걷어낸 개수만큼 이 스킬의 히트마다 추가 피해로 얹는다.
+        $extraDamage = 0;
+        if ($tags['cleanse_ally_debuffs'] ?? false) {
+            $removedCount = $this->cleanseAllyDebuffs($actor, $allUnits);
+            $extraDamage += $removedCount * ($tags['scale_with_removed_debuff_count'] ?? 0);
+        }
+
         // 다단히트(mz_skills.repeats > 1) - 히트마다 명중/회피/치명타/피해/effects[]
         // 확률 상태부여를 독립적으로 굴린다(MZ Game_Action.repeatTargets와 동일하게
         // "같은 대상을 repeats번 반복"). 반격/마법반사(위)는 스킬 사용 1회당 한 번만
@@ -1148,7 +1156,7 @@ class BattleEngine
 
         if (! $countered) {
             for ($i = 0; $i < $repeats; $i++) {
-                $result = $this->resolveOneHit($battle, $actor, $freshTarget, $skill);
+                $result = $this->resolveOneHit($battle, $actor, $freshTarget, $skill, $extraDamage);
                 $freshTarget = $result['target'];
                 $lastOutcome = $result['outcome'];
 
@@ -1289,6 +1297,14 @@ class BattleEngine
         $actorHadStates = $this->stateNames($actor);
         $pool = $this->pickTargets($skill, $actor, $allUnits);
 
+        // CleanseAllyDebuffs(정화의 심판류) - 피해 판정 전에 먼저 아군 디버프를
+        // 걷어내고, 걷어낸 개수만큼 이 스킬의 히트마다 추가 피해로 얹는다.
+        $extraDamage = 0;
+        if ($tags['cleanse_ally_debuffs'] ?? false) {
+            $removedCount = $this->cleanseAllyDebuffs($actor, $allUnits);
+            $extraDamage += $removedCount * ($tags['scale_with_removed_debuff_count'] ?? 0);
+        }
+
         $mpCost = (int) round($skill->mp_cost * $this->sparam($actor, self::SPARAM_MCR));
         $actor->current_mp = max(0, $actor->current_mp - $mpCost);
         if (($mpRecover = $tags['mp_recover'] ?? null) !== null) {
@@ -1360,7 +1376,7 @@ class BattleEngine
             $isCritical = null;
 
             for ($i = 0; $i < $repeats; $i++) {
-                $result = $this->resolveOneHit($battle, $actor, $target, $skill);
+                $result = $this->resolveOneHit($battle, $actor, $target, $skill, $extraDamage);
                 $target = $result['target'];
                 $hitOutcome = $result['outcome'];
 
@@ -1421,12 +1437,18 @@ class BattleEngine
      * 같은 대상을 repeats번 늘어놓고 각각 독립적으로 apply()하는 방식 그대로다.
      * 반격/마법 반사 판정은 스킬 사용 1회당 한 번만 굴리도록 호출부가 이 메서드 밖에서
      * 먼저 처리한다(다단히트라고 매 히트 따로 반격당하지는 않음 - 의도적 단순화).
+     * $extraDamage - 히트마다 다시 계산할 필요 없는 "스킬 사용 1회당 고정" 추가
+     * 피해(정화의 심판류 ScaleWithRemovedDebuffCount - 아군 디버프 해제는 히트 판정
+     * 전에 이미 끝나 있어야 해서 호출부가 미리 계산해 넘긴다). 다단히트면 매 히트
+     * 마다 그대로 더해진다(의도적 - 여러 대상/히트에 흩어지지 않고 한 번의
+     * "정화" 효과가 그 스킬의 모든 히트에 동일하게 실린다).
      *
      * @return array{outcome: string, damage: ?int, critical: ?bool, target: BattleUnit}
      */
-    private function resolveOneHit(Battle $battle, BattleUnit $actor, BattleUnit $target, MzSkill $skill): array
+    private function resolveOneHit(Battle $battle, BattleUnit $actor, BattleUnit $target, MzSkill $skill, int $extraDamage = 0): array
     {
         $target = $target->fresh();
+        $tags = $skill->tags;
         $hitOutcome = $this->rollHit($actor, $target, $skill->hit_type, $skill->success_rate);
 
         if ($hitOutcome !== 'hit') {
@@ -1437,6 +1459,12 @@ class BattleEngine
         $bVars = ['atk' => $this->effectiveAtk($target), 'def' => $this->effectiveDef($target), 'mat' => $this->effectiveMat($target), 'mdf' => $this->effectiveMdf($target), 'mhp' => $target->max_hp, 'mp' => $target->current_mp];
 
         $raw = max(0, MzFormulaEvaluator::evaluate($skill->damage_formula, $aVars, $bVars));
+        // ScaleWithTargetMp(마나 번류) - 대상 현재 MP 1당 고정 피해를 계산식 결과에
+        // 얹어서 분산도(variance)도 똑같이 적용받게 한다(공식의 일부처럼 취급).
+        if (($mpScale = $tags['scale_with_target_mp'] ?? null) !== null) {
+            $raw += $target->current_mp * $mpScale;
+        }
+        $raw += $extraDamage;
         $variance = $skill->variance;
         $factor = 1 + (random_int(-$variance, $variance) / 100);
         $amount = (int) round($raw * $factor);
@@ -1449,6 +1477,13 @@ class BattleEngine
             if ($isCritical) {
                 $amount = (int) round($amount * self::CRITICAL_MULTIPLIER);
             }
+            // DamageBonusIfSelfState(콤보 강화류) - 시전 시점(다른 효과 적용 전) 시전자
+            // 상태를 기준으로 판정(README 명시 규칙과 동일). 치명타 배율 뒤에 곱해서
+            // "이 스킬 자체가 강화된" 느낌으로 크리티컬과 중첩되게 한다.
+            $bonusState = $tags['damage_bonus_state'] ?? null;
+            if ($bonusState !== null && $this->hasState($actor, $bonusState)) {
+                $amount = (int) round($amount * (100 + ($tags['damage_bonus_percent'] ?? 0)) / 100);
+            }
             $amount = $this->applyIncomingDamageModifiers($actor, $target, max(1, $amount), $skill->hit_type, $skill->element_id);
             $target->current_hp = max(0, $target->current_hp - $amount);
             $target->save();
@@ -1459,7 +1494,6 @@ class BattleEngine
             $damage = -$amount;
         }
 
-        $tags = $skill->tags;
         foreach ($tags['target_remove_states'] ?? [] as $entry) {
             if (mt_rand() / mt_getrandmax() <= $entry['chance'] / 100) {
                 $this->removeState($target, $entry['state']);
@@ -1959,6 +1993,27 @@ class BattleEngine
         }
 
         BattleUnitState::where('battle_unit_id', $unit->id)->where('state_id', $state->id)->delete();
+    }
+
+    /**
+     * CleanseAllyDebuffs(정화의 심판류) - 시전자 진영의 살아있는 아군 전원(시전자
+     * 본인 포함)에게서 States.IsDebuff=true인 상태를 전부 제거하고, 제거한 총
+     * 개수를 반환한다. 호출부가 이 개수 × ScaleWithRemovedDebuffCount로 추가
+     * 피해량을 계산해 resolveOneHit()에 넘긴다.
+     */
+    private function cleanseAllyDebuffs(BattleUnit $actor, Collection $allUnits): int
+    {
+        $allies = $allUnits->where('side', $actor->side)->filter(fn (BattleUnit $u) => $u->fresh()->isAlive());
+        $removed = 0;
+        foreach ($allies as $ally) {
+            $debuffs = $this->statesFor($ally)->filter(fn (BattleUnitState $bus) => $bus->state->is_debuff);
+            foreach ($debuffs as $bus) {
+                $this->removeState($ally, $bus->state->name);
+                $removed++;
+            }
+        }
+
+        return $removed;
     }
 
     /** @return array{id:int,status:string,winner_side:?string,turn_number:int,units:array,logs:array} */

@@ -106,4 +106,25 @@ public partial class Skill : DatabaseEntry
     /// <summary>TargetHasStateId 조건이 참일 때 대상에게 부여할 상태.</summary>
     [ObservableProperty]
     private int? targetHasAppliesStateId;
+
+    /// <summary>시전자가 이 상태를 갖고 있으면(시전 시점 기준) 피해량에 DamageBonusPercent%를
+    /// 추가한다(콤보 강화 스킬 전용). null이면 조건 없음.</summary>
+    [ObservableProperty]
+    private int? damageBonusStateId;
+
+    /// <summary>DamageBonusStateId 조건이 참일 때 추가할 피해 비율(%).</summary>
+    [ObservableProperty]
+    private int? damageBonusPercent;
+
+    /// <summary>대상 현재 MP 1당 추가 피해량(마나 번류 스킬 전용, 계산식 결과에 가산). null이면 없음.</summary>
+    [ObservableProperty]
+    private int? scaleWithTargetMpAmount;
+
+    /// <summary>사용 시 시전자 진영 아군 전원의 디버프(States.IsDebuff)를 전부 해제하는지.</summary>
+    [ObservableProperty]
+    private bool cleanseAllyDebuffs;
+
+    /// <summary>CleanseAllyDebuffs로 해제한 디버프 1개당 대상에게 추가할 피해량. null이면 없음.</summary>
+    [ObservableProperty]
+    private int? scaleWithRemovedDebuffCountAmount;
 }

@@ -29,6 +29,7 @@ public partial class SkillEditorView : UserControl
             SelfHasAppliesStateField.States = value;
             TargetHasStateField.States = value;
             TargetHasAppliesStateField.States = value;
+            DamageBonusStateField.States = value;
         }
     }
 

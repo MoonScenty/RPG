@@ -42,7 +42,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -87,7 +92,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -132,7 +142,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -185,7 +200,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -231,7 +251,7 @@
     "magicCircleImage": "",
     "id": 4,
     "name": "베기Ⅱ",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -245,7 +265,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -284,7 +309,7 @@
     "magicCircleImage": "",
     "id": 5,
     "name": "베기Ⅲ",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -298,7 +323,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -351,7 +381,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -396,7 +431,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -449,7 +489,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -502,7 +547,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -555,7 +605,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -600,7 +655,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -645,7 +705,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -698,7 +763,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -743,7 +813,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -788,7 +863,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -841,7 +921,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -886,7 +971,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -931,7 +1021,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -984,7 +1079,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1030,7 +1130,7 @@
     "magicCircleImage": "",
     "id": 20,
     "name": "사격Ⅱ",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -1044,7 +1144,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1083,7 +1188,7 @@
     "magicCircleImage": "",
     "id": 21,
     "name": "사격Ⅲ",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -1097,7 +1202,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1142,7 +1252,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1195,7 +1310,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1240,7 +1360,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1293,7 +1418,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1338,7 +1468,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1383,7 +1518,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1428,7 +1568,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1481,7 +1626,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1526,7 +1676,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1579,7 +1734,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1632,7 +1792,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1677,7 +1842,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1722,7 +1892,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1789,7 +1964,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1849,7 +2029,12 @@
     "selfHasStateId": 31,
     "selfHasAppliesStateId": 33,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1909,7 +2094,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -1969,7 +2159,7 @@
     "magicCircleImage": "circle1",
     "id": 38,
     "name": "파이라",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": 2,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -1983,7 +2173,12 @@
     "selfHasStateId": 32,
     "selfHasAppliesStateId": 33,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2043,7 +2238,12 @@
     "selfHasStateId": 31,
     "selfHasAppliesStateId": 33,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2103,7 +2303,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2156,7 +2361,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2209,7 +2419,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2240,7 +2455,7 @@
     "magicCircleImage": "",
     "id": 43,
     "name": "마나 번",
-    "note": "<ScaleWithTargetMp: 1>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -2254,7 +2469,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": 1,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2299,7 +2519,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2352,7 +2577,7 @@
     "magicCircleImage": "circle1",
     "id": 45,
     "name": "익스플로전",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": 2,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -2366,7 +2591,12 @@
     "selfHasStateId": 32,
     "selfHasAppliesStateId": 33,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2411,7 +2641,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2456,7 +2691,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2501,7 +2741,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2546,7 +2791,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2591,7 +2841,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2644,7 +2899,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2690,7 +2950,7 @@
     "magicCircleImage": "",
     "id": 52,
     "name": "대지 가시",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -2704,7 +2964,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2743,7 +3008,7 @@
     "magicCircleImage": "",
     "id": 53,
     "name": "지각 붕괴",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -2757,7 +3022,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2810,7 +3080,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2855,7 +3130,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2900,7 +3180,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2945,7 +3230,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -2998,7 +3288,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3051,7 +3346,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3104,7 +3404,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3149,7 +3454,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3180,7 +3490,7 @@
     "magicCircleImage": "",
     "id": 62,
     "name": "정화의 심판",
-    "note": "<CleanseAllyDebuffs>\n<ScaleWithRemovedDebuffCount: 15>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -3194,7 +3504,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": true,
+    "scaleWithRemovedDebuffCountAmount": 15
   },
   {
     "invocation": {
@@ -3247,7 +3562,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3292,7 +3612,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3337,7 +3662,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3382,7 +3712,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3435,7 +3770,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3481,7 +3821,7 @@
     "magicCircleImage": "",
     "id": 68,
     "name": "방패 타격Ⅱ",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -3495,7 +3835,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3534,7 +3879,7 @@
     "magicCircleImage": "",
     "id": 69,
     "name": "방패 타격Ⅲ",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -3548,7 +3893,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3593,7 +3943,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3646,7 +4001,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3699,7 +4059,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3752,7 +4117,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3805,7 +4175,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3858,7 +4233,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3911,7 +4291,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -3956,7 +4341,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4009,7 +4399,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4054,7 +4449,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4107,7 +4507,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4152,7 +4557,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4197,7 +4607,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4250,7 +4665,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4296,7 +4716,7 @@
     "magicCircleImage": "",
     "id": 84,
     "name": "찌르기Ⅱ",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -4310,7 +4730,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4349,7 +4774,7 @@
     "magicCircleImage": "",
     "id": 85,
     "name": "찌르기Ⅲ",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -4363,7 +4788,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4408,7 +4838,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4453,7 +4888,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4498,7 +4938,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4543,7 +4988,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4588,7 +5038,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4633,7 +5088,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4678,7 +5138,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4723,7 +5188,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4768,7 +5238,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4813,7 +5288,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4858,7 +5338,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4903,7 +5388,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -4948,7 +5438,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5001,7 +5496,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5047,7 +5547,7 @@
     "magicCircleImage": "",
     "id": 100,
     "name": "저주의 일격Ⅱ",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -5061,7 +5561,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5100,7 +5605,7 @@
     "magicCircleImage": "",
     "id": 101,
     "name": "저주의 일격Ⅲ",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -5114,7 +5619,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5167,7 +5677,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5220,7 +5735,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5273,7 +5793,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5326,7 +5851,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5379,7 +5909,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5432,7 +5967,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5485,7 +6025,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5538,7 +6083,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5598,7 +6148,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5643,7 +6198,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5696,7 +6256,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5741,7 +6306,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5786,7 +6356,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5839,7 +6414,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5885,7 +6465,7 @@
     "magicCircleImage": "",
     "id": 116,
     "name": "흡혈 강타Ⅱ",
-    "note": "<DamageBonusIfSelfState: 콤보 준비, 10>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -5899,7 +6479,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 29,
+    "damageBonusPercent": 10,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5938,7 +6523,7 @@
     "magicCircleImage": "",
     "id": 117,
     "name": "흡혈 강타Ⅲ",
-    "note": "<DamageBonusIfSelfState: 콤보 완료, 20>",
+    "note": "",
     "castingTurns": null,
     "cooldownTurns": null,
     "mpRecoverOnUse": null,
@@ -5952,7 +6537,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": 30,
+    "damageBonusPercent": 20,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -5997,7 +6587,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6042,7 +6637,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6095,7 +6695,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6148,7 +6753,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6201,7 +6811,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6254,7 +6869,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6307,7 +6927,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6360,7 +6985,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6413,7 +7043,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6466,7 +7101,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6519,7 +7159,12 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   },
   {
     "invocation": {
@@ -6564,6 +7209,11 @@
     "selfHasStateId": null,
     "selfHasAppliesStateId": null,
     "targetHasStateId": null,
-    "targetHasAppliesStateId": null
+    "targetHasAppliesStateId": null,
+    "damageBonusStateId": null,
+    "damageBonusPercent": null,
+    "scaleWithTargetMpAmount": null,
+    "cleanseAllyDebuffs": false,
+    "scaleWithRemovedDebuffCountAmount": null
   }
 ]
