@@ -30,7 +30,7 @@ class MercenaryGambitController extends Controller
         return response()->json([
             'skills' => GambitCatalog::skillsForUnit($userMercenary->unit),
             'items' => GambitCatalog::allItems(),
-            'debuffs' => GambitCatalog::allDebuffs(),
+            'states' => GambitCatalog::allStates(),
         ]);
     }
 
@@ -157,8 +157,13 @@ class MercenaryGambitController extends Controller
             if (! in_array($rule['condition_scope'] ?? null, ['self', 'ally', 'enemy'], true)) {
                 return '올바르지 않은 대상입니다.';
             }
-            if (! GambitCatalog::debuffExists((string) ($rule['condition_debuff_key'] ?? ''))) {
-                return '올바르지 않은 디버프입니다.';
+            if (! GambitCatalog::stateExists((string) ($rule['condition_debuff_key'] ?? ''))) {
+                return '올바르지 않은 상태입니다.';
+            }
+            // null(과거 저장분)은 "있음"과 동일 취급 - "없음"을 원하면 명시적으로 missing.
+            $operator = $rule['condition_operator'] ?? null;
+            if ($operator !== null && ! in_array($operator, ['has', 'missing'], true)) {
+                return '올바르지 않은 연산자입니다.';
             }
         } elseif ($conditionKind === 'position') {
             if (! in_array($rule['condition_position'] ?? null, ['front', 'back'], true)) {
@@ -216,6 +221,7 @@ class MercenaryGambitController extends Controller
         } elseif ($conditionKind === 'debuff') {
             $row['condition_scope'] = $rule['condition_scope'];
             $row['condition_debuff_key'] = $rule['condition_debuff_key'];
+            $row['condition_operator'] = $rule['condition_operator'] ?? null;
         } elseif ($conditionKind === 'position') {
             $row['condition_position'] = $rule['condition_position'];
         }

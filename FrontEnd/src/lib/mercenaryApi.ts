@@ -60,7 +60,7 @@ export type ConditionKind = 'always' | 'first_action' | 'stat' | 'debuff' | 'pos
 export type ConditionScope = 'self' | 'ally' | 'enemy'
 export type StatKind = 'hp' | 'mp'
 export type ValueType = 'percent' | 'flat'
-export type Operator = 'gte' | 'lte'
+export type Operator = 'gte' | 'lte' | 'has' | 'missing'
 export type PositionKind = 'front' | 'back'
 export type GambitActionType = 'attack' | 'skill' | 'item' | 'cancel'
 
@@ -102,7 +102,8 @@ export interface ItemInfo {
   description: string | null
 }
 
-export interface DebuffInfo {
+/** 버프/디버프 구분 없는 상태 하나(States.json 전체) - "자신에게 이 상태가 있다/없다" 조건용. */
+export interface StateInfo {
   key: string
   label: string
 }
@@ -110,7 +111,7 @@ export interface DebuffInfo {
 export interface GambitCatalogData {
   skills: SkillInfo[]
   items: ItemInfo[]
-  debuffs: DebuffInfo[]
+  states: StateInfo[]
 }
 
 export interface ConditionOption {
@@ -123,44 +124,45 @@ export interface ConditionOption {
   condition_operator: Operator | null
   condition_position: PositionKind | null
   needsValue: boolean
-  needsDebuff: boolean
+  needsState: boolean
 }
 
 const t = strings.mercenary.gambit.conditions
 
 /** 고정 조건 템플릿. 백엔드 MercenaryGambitController::validateRule()과 1:1 대응. */
 export const CONDITION_OPTIONS: ConditionOption[] = [
-  { id: 'always', label: t.always, condition_kind: 'always', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsDebuff: false },
-  { id: 'first_action', label: t.firstAction, condition_kind: 'first_action', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsDebuff: false },
+  { id: 'always', label: t.always, condition_kind: 'always', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsState: false },
+  { id: 'first_action', label: t.firstAction, condition_kind: 'first_action', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsState: false },
 
-  { id: 'self_position_front', label: t.selfPositionFront, condition_kind: 'position', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: 'front', needsValue: false, needsDebuff: false },
-  { id: 'self_position_back', label: t.selfPositionBack, condition_kind: 'position', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: 'back', needsValue: false, needsDebuff: false },
+  { id: 'self_position_front', label: t.selfPositionFront, condition_kind: 'position', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: 'front', needsValue: false, needsState: false },
+  { id: 'self_position_back', label: t.selfPositionBack, condition_kind: 'position', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: 'back', needsValue: false, needsState: false },
 
-  { id: 'self_mp_pct_gte', label: t.selfMpPctGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'self_mp_pct_lte', label: t.selfMpPctLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'self_mp_flat_gte', label: t.selfMpFlatGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'self_mp_flat_lte', label: t.selfMpFlatLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
+  { id: 'self_mp_pct_gte', label: t.selfMpPctGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'self_mp_pct_lte', label: t.selfMpPctLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'self_mp_flat_gte', label: t.selfMpFlatGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'self_mp_flat_lte', label: t.selfMpFlatLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
 
-  { id: 'self_hp_pct_gte', label: t.selfHpPctGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'self_hp_pct_lte', label: t.selfHpPctLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'self_hp_flat_gte', label: t.selfHpFlatGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'self_hp_flat_lte', label: t.selfHpFlatLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
+  { id: 'self_hp_pct_gte', label: t.selfHpPctGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'self_hp_pct_lte', label: t.selfHpPctLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'self_hp_flat_gte', label: t.selfHpFlatGte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'self_hp_flat_lte', label: t.selfHpFlatLte, condition_kind: 'stat', condition_scope: 'self', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
 
-  { id: 'ally_mp_pct_gte', label: t.allyMpPctGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'ally_mp_pct_lte', label: t.allyMpPctLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'ally_mp_flat_gte', label: t.allyMpFlatGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'ally_mp_flat_lte', label: t.allyMpFlatLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
+  { id: 'ally_mp_pct_gte', label: t.allyMpPctGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'ally_mp_pct_lte', label: t.allyMpPctLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'ally_mp_flat_gte', label: t.allyMpFlatGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'ally_mp_flat_lte', label: t.allyMpFlatLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'mp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
 
-  { id: 'ally_hp_pct_gte', label: t.allyHpPctGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'ally_hp_pct_lte', label: t.allyHpPctLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'ally_hp_flat_gte', label: t.allyHpFlatGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsDebuff: false },
-  { id: 'ally_hp_flat_lte', label: t.allyHpFlatLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsDebuff: false },
+  { id: 'ally_hp_pct_gte', label: t.allyHpPctGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'ally_hp_pct_lte', label: t.allyHpPctLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'percent', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'ally_hp_flat_gte', label: t.allyHpFlatGte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'gte', condition_position: null, needsValue: true, needsState: false },
+  { id: 'ally_hp_flat_lte', label: t.allyHpFlatLte, condition_kind: 'stat', condition_scope: 'ally', condition_stat: 'hp', condition_value_type: 'flat', condition_operator: 'lte', condition_position: null, needsValue: true, needsState: false },
 
-  { id: 'self_debuff', label: t.selfDebuff, condition_kind: 'debuff', condition_scope: 'self', condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsDebuff: true },
-  { id: 'ally_debuff', label: t.allyDebuff, condition_kind: 'debuff', condition_scope: 'ally', condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsDebuff: true },
-  { id: 'enemy_debuff', label: t.enemyDebuff, condition_kind: 'debuff', condition_scope: 'enemy', condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsDebuff: true },
+  { id: 'self_debuff', label: t.selfDebuff, condition_kind: 'debuff', condition_scope: 'self', condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsState: true },
+  { id: 'ally_debuff', label: t.allyDebuff, condition_kind: 'debuff', condition_scope: 'ally', condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsState: true },
+  { id: 'enemy_debuff', label: t.enemyDebuff, condition_kind: 'debuff', condition_scope: 'enemy', condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsState: true },
+  { id: 'self_missing_state', label: t.selfMissingState, condition_kind: 'debuff', condition_scope: 'self', condition_stat: null, condition_value_type: null, condition_operator: 'missing', condition_position: null, needsValue: false, needsState: true },
 
-  { id: 'ally_dead', label: t.allyDead, condition_kind: 'dead_ally', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsDebuff: false },
+  { id: 'ally_dead', label: t.allyDead, condition_kind: 'dead_ally', condition_scope: null, condition_stat: null, condition_value_type: null, condition_operator: null, condition_position: null, needsValue: false, needsState: false },
 ]
 
 export const ACTION_OPTIONS: Array<{ type: GambitActionType; label: string }> = [

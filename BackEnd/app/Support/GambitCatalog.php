@@ -8,7 +8,7 @@ use App\Models\MzState;
 use App\Models\Unit;
 
 /**
- * gambit 편집기(용병 행동 규칙)와 BattleEngine이 함께 읽는 스킬/아이템/디버프 카탈로그.
+ * gambit 편집기(용병 행동 규칙)와 BattleEngine이 함께 읽는 스킬/아이템/상태 카탈로그.
  * mz_project에서 임포트한 mz_skills/mz_items/mz_states 기반 - 스킬은 용병마다 자기
  * 직업 스킬(+공용 스킬)만 쓸 수 있지만, 소모 아이템은 직업 구분 없이 전원이 같은
  * 목록을 쓴다(인벤토리/소지 개수 개념은 아직 없음 - 스킬처럼 "쓸 수 있다"만 있음).
@@ -101,18 +101,22 @@ class GambitCatalog
         return is_numeric($id) ? MzItem::find((int) $id) : null;
     }
 
-    /** 조건 드롭다운용 - 진짜 디버프 상태 목록(States.json IsDebuff=true). */
-    public static function allDebuffs(): array
+    /**
+     * 조건 드롭다운용 - 전체 상태 목록(버프/디버프 구분 없음). BattleEngine::
+     * stateConditionMet()이 hasState()로 이름만 보고 판정하므로("자신에게 이 상태가
+     * 있다/없다"), 버프 상태(예: 흡혈률 상승)도 조건으로 걸 수 있어야 한다 - 예전엔
+     * IsDebuff=true인 것만 노출해서 자기 버프 여부를 조건으로 쓸 방법이 없었다.
+     */
+    public static function allStates(): array
     {
-        return MzState::where('is_debuff', true)
-            ->orderBy('id')
+        return MzState::orderBy('id')
             ->get()
             ->map(fn (MzState $state) => ['key' => $state->name, 'label' => $state->name])
             ->all();
     }
 
-    public static function debuffExists(string $name): bool
+    public static function stateExists(string $name): bool
     {
-        return MzState::where('name', $name)->where('is_debuff', true)->exists();
+        return MzState::where('name', $name)->exists();
     }
 }

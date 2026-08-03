@@ -156,9 +156,10 @@ const ko = {
         allyHpPctLte: '아군의 HP가 n% 이하일때',
         allyHpFlatGte: '아군의 HP가 n 이상일때',
         allyHpFlatLte: '아군의 HP가 n 이하일때',
-        selfDebuff: '자신에게 <디버프>가 걸렸을때',
-        allyDebuff: '아군에게 <디버프>가 걸렸을때',
-        enemyDebuff: '적에게 <디버프>가 걸렸을때',
+        selfDebuff: '자신에게 <상태>가 있을때',
+        allyDebuff: '아군에게 <상태>가 있을때',
+        enemyDebuff: '적에게 <상태>가 있을때',
+        selfMissingState: '자신에게 <상태>가 없을때',
         allyDead: '아군이 죽어 있을때',
       },
 

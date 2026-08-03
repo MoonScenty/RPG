@@ -736,7 +736,7 @@ class BattleEngine
             'first_action' => $isFirstAction,
             'position' => $rule->condition_position === ($actor->slot <= 3 ? 'front' : 'back'),
             'stat' => $this->statConditionMet($rule, $actor, $allUnits),
-            'debuff' => $this->debuffConditionMet($rule, $actor, $allUnits),
+            'debuff' => $this->stateConditionMet($rule, $actor, $allUnits),
             'dead_ally' => $this->deadAllyConditionMet($actor, $allUnits),
             default => false,
         };
@@ -777,7 +777,13 @@ class BattleEngine
         return false;
     }
 
-    private function debuffConditionMet(MercenaryGambit $rule, BattleUnit $actor, Collection $allUnits): bool
+    /**
+     * condition_kind='debuff' - 이름과 달리 버프/디버프 구분 없이 상태 이름으로만
+     * 판정한다(GambitCatalog::allStates() 참고). condition_operator='missing'이면
+     * 반대로 "범위 내 아무도 그 상태를 갖고 있지 않을 때"로 뒤집는다 - null(과거
+     * 저장분)은 기존과 동일하게 "있음"으로 취급한다.
+     */
+    private function stateConditionMet(MercenaryGambit $rule, BattleUnit $actor, Collection $allUnits): bool
     {
         $candidates = match ($rule->condition_scope) {
             'self' => collect([$actor]),
@@ -786,13 +792,15 @@ class BattleEngine
             default => collect(),
         };
 
+        $anyHasState = false;
         foreach ($candidates as $candidate) {
             if ($candidate->fresh()->isAlive() && $this->hasState($candidate, (string) $rule->condition_debuff_key)) {
-                return true;
+                $anyHasState = true;
+                break;
             }
         }
 
-        return false;
+        return $rule->condition_operator === 'missing' ? ! $anyHasState : $anyHasState;
     }
 
     /**

@@ -33,7 +33,7 @@ const presetNumbers = Array.from({ length: GAMBIT_PRESET_COUNT }, (_, i) => i + 
 
 const roster = ref<Mercenary[]>([])
 const selectedUnit = ref<Mercenary | null>(null)
-const catalog = ref<GambitCatalogData>({ skills: [], items: [], debuffs: [] })
+const catalog = ref<GambitCatalogData>({ skills: [], items: [], states: [] })
 const gambitData = ref<GambitPresetsData | null>(null)
 const viewingPreset = ref(1)
 const rules = ref<EditableRule[]>([])
@@ -51,7 +51,7 @@ function ruleToEditable(rule: GambitRule): EditableRule {
   return {
     conditionOptionId: option.id,
     value: rule.condition_value ?? 1,
-    debuffKey: rule.condition_debuff_key ?? catalog.value.debuffs[0]?.key ?? '',
+    debuffKey: rule.condition_debuff_key ?? catalog.value.states[0]?.key ?? '',
     actionType: rule.action_type,
     skillKey: rule.action_type === 'skill' ? (rule.action_skill_key ?? catalog.value.skills[0]?.key ?? '') : (catalog.value.skills[0]?.key ?? ''),
     itemKey: rule.action_type === 'item' ? (rule.action_skill_key ?? catalog.value.items[0]?.key ?? '') : (catalog.value.items[0]?.key ?? ''),
@@ -62,7 +62,7 @@ function defaultEditableRule(): EditableRule {
   return {
     conditionOptionId: 'always',
     value: 50,
-    debuffKey: catalog.value.debuffs[0]?.key ?? '',
+    debuffKey: catalog.value.states[0]?.key ?? '',
     actionType: 'attack',
     skillKey: catalog.value.skills[0]?.key ?? '',
     itemKey: catalog.value.items[0]?.key ?? '',
@@ -78,7 +78,7 @@ function editableToRule(e: EditableRule): GambitRule {
     condition_value_type: option.condition_value_type,
     condition_operator: option.condition_operator,
     condition_value: option.needsValue ? e.value : null,
-    condition_debuff_key: option.needsDebuff ? e.debuffKey : null,
+    condition_debuff_key: option.needsState ? e.debuffKey : null,
     condition_position: option.condition_position,
     action_type: e.actionType,
     action_skill_key: e.actionType === 'skill' ? e.skillKey : e.actionType === 'item' ? e.itemKey : null,
@@ -265,12 +265,12 @@ onMounted(async () => {
           />
 
           <select
-            v-if="conditionOptionFor(rule.conditionOptionId).needsDebuff"
+            v-if="conditionOptionFor(rule.conditionOptionId).needsState"
             v-model="rule.debuffKey"
             class="select"
             @change="dirty = true"
           >
-            <option v-for="d in catalog.debuffs" :key="d.key" :value="d.key">{{ d.label }}</option>
+            <option v-for="d in catalog.states" :key="d.key" :value="d.key">{{ d.label }}</option>
           </select>
 
           <select v-model="rule.actionType" class="select" @change="dirty = true">
