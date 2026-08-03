@@ -33,7 +33,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -69,7 +71,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -99,7 +103,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -135,7 +141,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -171,7 +179,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -212,7 +222,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -242,7 +254,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -272,7 +286,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -302,7 +318,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -338,7 +356,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -374,7 +394,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -410,7 +432,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -446,7 +470,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -482,7 +508,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -512,7 +540,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -548,7 +578,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -584,7 +616,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -620,7 +654,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -650,7 +686,9 @@
     "damageTakenRate": 115,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": true
+    "isDebuff": true,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -686,7 +724,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -722,7 +762,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -758,7 +800,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -799,7 +843,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -835,7 +881,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": true,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -871,7 +919,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -907,7 +957,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -943,7 +995,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -979,7 +1033,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1055,7 +1111,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1085,7 +1143,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1115,7 +1175,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1161,7 +1223,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1207,7 +1271,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1237,7 +1303,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1259,7 +1327,7 @@
     "messageWhenRemoved": "",
     "id": 34,
     "name": "영창 가속",
-    "note": "<Note><CastSpeedRate: 30> 시전 속도(캐스팅 대기시간) 30% 감소. \"삼중 영창\" 사용 시 자신에게 부여되며, 일반 버프처럼 지속시간이 끝나면 자동 해제(소모형 아님) - 전투엔진 구현 필요",
+    "note": "영창 가속 상태 - 소모형이 아닌 지속 버프. 캐스팅(영창) 있는 스킬 사용 시 소요 턴을 줄여준다.",
     "dotPercent": null,
     "hotPercent": null,
     "taunt": false,
@@ -1267,7 +1335,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": 30,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1303,7 +1373,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1339,7 +1411,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1375,7 +1449,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1411,7 +1487,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1447,7 +1525,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1483,7 +1563,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [
@@ -1519,7 +1601,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1549,7 +1633,9 @@
     "damageTakenRate": 90,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1579,7 +1665,9 @@
     "damageTakenRate": 0,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1609,7 +1697,9 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": 30,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "castSpeedRatePercent": null,
+    "lifestealBonusPercent": null
   },
   {
     "traits": [],
@@ -1631,7 +1721,7 @@
     "messageWhenRemoved": "",
     "id": 45,
     "name": "흡혈률 상승",
-    "note": "<Note>흡혈(Lifesteal) 스킬 흡혈량 +50% - 전투엔진 구현 필요",
+    "note": "흡혈 스킬 사용 시 흡혈률에 %p를 그대로 가산하는 지속 버프.",
     "dotPercent": null,
     "hotPercent": null,
     "taunt": false,
@@ -1639,6 +1729,8 @@
     "damageTakenRate": null,
     "shieldAbsorbPercent": null,
     "undying": false,
-    "isDebuff": false
+    "isDebuff": false,
+    "lifestealBonusPercent": 50,
+    "castSpeedRatePercent": null
   }
 ]

@@ -147,6 +147,21 @@
                                         <TextBox Text="{Binding Selected.ShieldAbsorbPercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
                                     </StackPanel>
                                 </Grid>
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="캐스팅 소요 턴 단축(%, 영창 가속)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.CastSpeedRatePercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="흡혈률 가산(%p, 스킬 자체 흡혈률에 더함)" Margin="0,0,0,4" />
+                                        <TextBox Text="{Binding Selected.LifestealBonusPercent, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" />
+                                    </StackPanel>
+                                </Grid>
                                 <WrapPanel>
                                     <CheckBox Content="도발(적 AI가 우선 타겟팅)" IsChecked="{Binding Selected.Taunt}" Margin="0,0,16,0" />
                                     <CheckBox Content="감싸기(아군 대신 피해를 받음)" IsChecked="{Binding Selected.GuardAlly}" Margin="0,0,16,0" />

@@ -1045,7 +1045,14 @@ class BattleEngine
         // MP는 캐스팅이 끝나 실제로 발동될 때 차감한다(resolveSkillUse) - 대기 중엔 아직 안 씀.
         $actor->casting_skill_id = $skill->id;
         $actor->casting_target_battle_unit_id = $skill->isAoe() ? null : $target->id;
-        $actor->casting_turns_remaining = $skill->tags['casting_turns'];
+        // 영창 가속(CastSpeedRate) - 시전자가 가진 모든 해당 상태의 %를 합산해
+        // 소요 턴을 줄인다(캐스팅 시작 시점 상태 기준 - 도중에 상태가 사라져도
+        // 이미 정해진 소요 턴은 그대로 유지). 최소 1턴은 보장.
+        $castSpeedRate = $this->statesFor($actor)->sum(fn (BattleUnitState $bus) => $bus->state->tags['cast_speed_rate'] ?? 0);
+        $baseTurns = $skill->tags['casting_turns'];
+        $actor->casting_turns_remaining = $castSpeedRate > 0
+            ? max(1, (int) round($baseTurns * (100 - $castSpeedRate) / 100))
+            : $baseTurns;
         $actor->save();
     }
 
@@ -1194,6 +1201,7 @@ class BattleEngine
         // 깎인 HP를 이 메서드 시작 시점의 오래된 값으로 덮어써버린다.
         $actor->current_hp = $actor->fresh()->current_hp;
         if (($lifestealPct = $tags['lifesteal_pct'] ?? null) !== null && $damage !== null && $damage > 0) {
+            $lifestealPct += $this->lifestealBonusFor($actor);
             $actor->current_hp = min($actor->max_hp, $actor->current_hp + (int) round($damage * $lifestealPct / 100));
         }
         if (($cooldown = $tags['cooldown_turns'] ?? null) !== null) {
@@ -1347,6 +1355,9 @@ class BattleEngine
         }
 
         $lifestealPct = $tags['lifesteal_pct'] ?? null;
+        if ($lifestealPct !== null) {
+            $lifestealPct += $this->lifestealBonusFor($actor);
+        }
         $totalLifesteal = 0;
         $results = [];
 
@@ -1912,6 +1923,16 @@ class BattleEngine
     private function hasState(BattleUnit $unit, string $name): bool
     {
         return $this->statesFor($unit)->contains(fn (BattleUnitState $bus) => $bus->state->name === $name);
+    }
+
+    /**
+     * 흡혈률 상승(LifestealBonusPercent) - 시전자가 가진 모든 해당 상태의 %p를
+     * 합산해 반환한다. 스킬 자체에 Lifesteal이 없으면(호출부에서 lifesteal_pct
+     * null 체크로 걸러짐) 이 보너스만으로 새로 흡혈이 생기지 않는다.
+     */
+    private function lifestealBonusFor(BattleUnit $unit): int
+    {
+        return (int) $this->statesFor($unit)->sum(fn (BattleUnitState $bus) => $bus->state->tags['lifesteal_bonus_percent'] ?? 0);
     }
 
     private function hasTaunt(BattleUnit $unit): bool

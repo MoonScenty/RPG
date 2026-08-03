@@ -92,4 +92,14 @@ public partial class GameState : DatabaseEntry
     /// 상태나 버프는 false.</summary>
     [ObservableProperty]
     private bool isDebuff;
+
+    /// <summary>이 상태를 가진 동안 시전 중인 스킬의 캐스팅(영창) 소요 턴 수를 이 %만큼
+    /// 줄인다(영창 가속). null이면 없음.</summary>
+    [ObservableProperty]
+    private int? castSpeedRatePercent;
+
+    /// <summary>이 상태를 가진 동안 사용하는 스킬의 흡혈률(Lifesteal)에 이 %를 그대로
+    /// 더한다(예: 스킬 자체 흡혈 30% + 이 상태 20% = 50%). null이면 없음.</summary>
+    [ObservableProperty]
+    private int? lifestealBonusPercent;
 }

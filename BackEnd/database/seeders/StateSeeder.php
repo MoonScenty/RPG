@@ -54,6 +54,8 @@ class StateSeeder extends Seeder
                     'damage_taken_rate' => $state['damageTakenRate'] ?? null,
                     'shield_pct' => $state['shieldAbsorbPercent'] ?? null,
                     'undying' => $state['undying'] ?? false,
+                    'cast_speed_rate' => $state['castSpeedRatePercent'] ?? null,
+                    'lifesteal_bonus_percent' => $state['lifestealBonusPercent'] ?? null,
                 ]),
             ];
         }
