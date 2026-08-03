@@ -86,4 +86,10 @@ public partial class GameState : DatabaseEntry
     /// <summary>이 상태를 가진 동안 HP가 1 밑으로 떨어지지 않는다(빈사 방지).</summary>
     [ObservableProperty]
     private bool undying;
+
+    /// <summary>부정적 효과(디버프)인지 - "아군 디버프 전부 해제" 계열 스킬(CleanseAllyDebuffs)이
+    /// 어떤 상태를 지울지 판정하는 데 쓰인다. 콤보/원소 태세처럼 중립적인 자기 관리용
+    /// 상태나 버프는 false.</summary>
+    [ObservableProperty]
+    private bool isDebuff;
 }

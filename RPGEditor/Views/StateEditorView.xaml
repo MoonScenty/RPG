@@ -150,7 +150,8 @@
                                 <WrapPanel>
                                     <CheckBox Content="도발(적 AI가 우선 타겟팅)" IsChecked="{Binding Selected.Taunt}" Margin="0,0,16,0" />
                                     <CheckBox Content="감싸기(아군 대신 피해를 받음)" IsChecked="{Binding Selected.GuardAlly}" Margin="0,0,16,0" />
-                                    <CheckBox Content="빈사 방지(HP 1 밑으로 안 떨어짐)" IsChecked="{Binding Selected.Undying}" />
+                                    <CheckBox Content="빈사 방지(HP 1 밑으로 안 떨어짐)" IsChecked="{Binding Selected.Undying}" Margin="0,0,16,0" />
+                                    <CheckBox Content="디버프(부정적 효과 - 디버프 해제 스킬의 대상)" IsChecked="{Binding Selected.IsDebuff}" />
                                 </WrapPanel>
                             </StackPanel>
                         </Border>

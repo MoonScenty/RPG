@@ -45,6 +45,7 @@ class StateSeeder extends Seeder
                 'message_while_active' => $state['messageWhileActive'] ?: null,
                 'message_when_removed' => $state['messageWhenRemoved'] ?: null,
                 'traits' => json_encode($state['traits'] ?? []),
+                'is_debuff' => $state['isDebuff'] ?? false,
                 'tags' => json_encode([
                     'dot_percent' => $state['dotPercent'] ?? null,
                     'hot_percent' => $state['hotPercent'] ?? null,

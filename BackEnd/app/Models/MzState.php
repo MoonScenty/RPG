@@ -15,7 +15,7 @@ class MzState extends Model
         'remove_at_battle_end', 'remove_by_restriction', 'auto_removal_timing', 'min_turns', 'max_turns',
         'remove_by_damage', 'remove_by_damage_chance',
         'message_when_added', 'message_when_added_enemy', 'message_while_active', 'message_when_removed',
-        'traits', 'tags',
+        'traits', 'tags', 'is_debuff',
     ];
 
     protected $casts = [
@@ -24,5 +24,6 @@ class MzState extends Model
         'motion' => 'integer', 'priority' => 'integer', 'icon_index' => 'integer',
         'remove_at_battle_end' => 'boolean', 'remove_by_restriction' => 'boolean',
         'remove_by_damage' => 'boolean', 'remove_by_damage_chance' => 'integer',
+        'is_debuff' => 'boolean',
     ];
 }
