@@ -101,10 +101,10 @@ class GambitCatalog
         return is_numeric($id) ? MzItem::find((int) $id) : null;
     }
 
-    /** 조건 드롭다운용 - 진짜 디버프 상태 목록(id 1-100). */
+    /** 조건 드롭다운용 - 진짜 디버프 상태 목록(States.json IsDebuff=true). */
     public static function allDebuffs(): array
     {
-        return MzState::where('is_buff', false)
+        return MzState::where('is_debuff', true)
             ->orderBy('id')
             ->get()
             ->map(fn (MzState $state) => ['key' => $state->name, 'label' => $state->name])
@@ -113,6 +113,6 @@ class GambitCatalog
 
     public static function debuffExists(string $name): bool
     {
-        return MzState::where('name', $name)->where('is_buff', false)->exists();
+        return MzState::where('name', $name)->where('is_debuff', true)->exists();
     }
 }
